@@ -159,7 +159,7 @@ Route::group(['middleware' => 'userlogin'], function () {
 
         Route::get('/admin/spk/show/', [SpkController::class, 'show'])->name('spk.getspk');
         Route::post('/admin/spk/proses_tambah/', [SpkController::class, 'proses_tambah'])->name('spk.store');
-
+        Route::post('/admin/spk/proses_hapus/{barangmasuk}', [SpkController::class, 'proses_hapus']);
         Route::get('/admin/barang/getbarang/{id}', [BarangController::class, 'getbarang']);
         Route::get('/admin/barang/listbarang/{param}', [BarangController::class, 'listbarang']);
 
