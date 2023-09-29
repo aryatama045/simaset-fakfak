@@ -176,7 +176,7 @@ Route::group(['middleware' => 'userlogin'], function () {
         Route::post('/admin/berita/proses_hapus/{barangmasuk}', [BeritaController::class, 'proses_hapus']);
 
         Route::get('/admin/barang/getbarang/{id}', [BarangController::class, 'getbarang']);
-        Route::get('/admin/barang/listbarang/{param}', [BarangController::class, 'listbarang']);
+        Route::get('/admin/berita/listbarang/{param}', [BeritaController::class, 'listbarang']);
 
         Route::get('/admin/berita/genInvoice/{id}', [BeritaController::class, 'genInvoice'])->name('sale.invoice');
     });
