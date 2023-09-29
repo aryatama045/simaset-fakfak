@@ -282,7 +282,7 @@ class BeritaController extends Controller
 
             // if($data_header) {
 
-                $data_detail = DB::table('tbl_beritadetail as brg')
+                $data_detail = DB::table('tbl_beritadetail as bd')
                 ->leftjoin('tbl_barang as brg', 'bd.barang_id', '=', 'brg.barang_id')
                 ->where('bd.berita_id', $id)
                 ->select('bd.*h','brg.barang_nama as nama_barang')
