@@ -68,7 +68,6 @@
     @include('Admin.Spk.tambah')
     @include('Admin.Spk.edit')
     @include('Admin.Spk.hapus')
-    <!-- @include('Admin.PengadaanBarang.barang') -->
 
     <script>
 
