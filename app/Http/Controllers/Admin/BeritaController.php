@@ -87,7 +87,7 @@ class BeritaController extends Controller
                     }
                     return $button;
                 })
-                ->rawColumns(['action', 'ket'])->make(true);
+                ->rawColumns(['action', 'pihak_1'])->make(true);
         }
     }
 
