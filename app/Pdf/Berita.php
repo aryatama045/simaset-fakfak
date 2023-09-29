@@ -243,7 +243,7 @@ class Berita extends Fpdf
         $this->Ln(2);
         $this->cell(10,1,'NO',0,0,'L');
         $this->cell(45,1,'URAIAN',0,0,'L');
-        $this->cell(30,1,'SISA STOK',0,0,'L');
+        $this->cell(25,1,'SISA STOK',0,0,'C');
         $this->cell(40,1,'HARGA SATUAN',0,0,'L');
         $this->cell(40,1,'JUMLAH HARGA',0,0,'L');
         $this->Ln(2);
@@ -275,7 +275,7 @@ class Berita extends Fpdf
             $this->setFont('Times','',10);
             $this->cell(10,1,$no++,0,0,'L');
             $this->cell(45,1,$value->barang_nama,0,0,'L');
-            $this->cell(30,1,$value->stok,0,0,'L');
+            $this->cell(25,1,$value->stok,0,0,'C');
             $this->cell(40,1,$value->barang_harga,0,0,'L');
             $this->cell(40,1,$jumlah_harga,0,0,'L');
             $this->Ln(4);
