@@ -87,7 +87,9 @@ class PegawaiController extends Controller
             'keterangan'   => $request->ket,
         ]);
 
-        return response()->json(['success' => 'Berhasil']);
+        return redirect('admin/spk')->with('create_message', 'Data berhasil disimpan Nama : '. $request->nama_lengkap);
+
+
     }
 
     public function proses_ubah(Request $request, PegawaiModel $pegawai)
