@@ -185,7 +185,7 @@
 
             html += '<td><textarea type="text" name="detail_pekerjaan[]" id="detail_pekerjaan" class="form-control" required></textarea></td>';
 
-            html += '<td><button type="button" name="remove" class="btn btn-danger btn-sm remove"><i class="fa fa-trash"></i> Batal</button></td>';
+            html += '<td><button type="button" name="remove" class="btn btn-danger remove"><i class="fa fa-trash"></i></button></td>';
 
             html += '</tr>';
         }
