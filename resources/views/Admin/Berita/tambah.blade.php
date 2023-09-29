@@ -51,18 +51,18 @@
                     <h6> <b>Detail Barang</b></h6>
 
                     <table class="table table-bordered responsive" id="user_table" width="100%" >
-                        <thead>
-                            <tr>
-                                <th>Kode Barang</th>
-                                <th width="20%">Nama Barang</th>
-                                <th>Satuan</th>
-                                <th>Spek</th>
-                                <th>Jumlah</th>
-                                <th width="20%">Harga</th>
-                                <th><button type="button" class="btn btn-default" onclick="modalBarang()"><i class="fa fa-plus"></i></button></th>
-                            </tr>
-                        </thead>
-                    </table>
+                    <thead>
+                    <tr>
+                        <th>Kode Barang</th>
+                        <th width="20%">Nama Barang</th>
+                        <th>Satuan</th>
+                        <th>Spek</th>
+                        <th>Jumlah</th>
+                        <th width="20%">Harga</th>
+                        <th><button type="button" class="btn btn-default" onclick="modalBarang()"><i class="fa fa-plus"></i></button></th>
+                    </tr>
+                    </thead>
+                </table>
 
                     <button type="button" name="add" class="btn btn-success btn-sm add"><i class="fa fa-plus"></i> Tambah Manual</button>
                 </div>
@@ -182,7 +182,6 @@
             html += '<tr>';
 
             html += '<td> <input type="text" name="barang_kode[]" id="barang_kode" class="form-control" required/></td>';
-            html += '<td> <input type="text" name="jenis_pekerjaan[]" id="jenis_pekerjaan" class="form-control" required/></td>';
             html += '<td> <input type="text" name="jenis_pekerjaan[]" id="jenis_pekerjaan" class="form-control" required/></td>';
             html += '<td> <input type="text" name="jenis_pekerjaan[]" id="jenis_pekerjaan" class="form-control" required/></td>';
             html += '<td> <input type="text" name="jenis_pekerjaan[]" id="jenis_pekerjaan" class="form-control" required/></td>';
