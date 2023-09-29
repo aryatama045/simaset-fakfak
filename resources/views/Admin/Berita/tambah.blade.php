@@ -53,9 +53,9 @@
                     <tr>
                         <th>Kode Barang</th>
                         <th width="20%">Nama Barang</th>
-                        <th>Satuan</th>
-                        <th>Spek</th>
-                        <th>Jumlah</th>
+                        <th>Sisa Stok</th>
+                        <th>Harga Satuan</th>
+                        <th>Jumlah Harga</th>
                         <th width="20%">Harga</th>
                         <th><button type="button" class="btn btn-default" onclick="modalBarang()"><i class="fa fa-plus"></i></button></th>
                     </tr>
