@@ -223,7 +223,7 @@ class BeritaController extends Controller
         //insert data
         BeritaModel::create($header);
 
-        $berita_data = BeritaModel::latest()->first();
+        $berita_data = BeritaModel::orderBy('berita_id', 'DESC')->get();
 
 
         $count_d = count($request->harga_satuan);
