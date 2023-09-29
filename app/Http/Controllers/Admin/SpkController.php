@@ -129,10 +129,6 @@ class SpkController extends Controller
             SpkdetailModel::create($detail_jenis);
         }
 
-        // dd($header, $log_detail);
-
-
-
         return redirect('admin/spk')->with('create_message', 'Pengajuan SPK Nomor : '. $request->spk_kode);
     }
 
@@ -150,9 +146,8 @@ class SpkController extends Controller
         return response()->json(['success' => 'Berhasil']);
     }
 
-    public function proses_hapus(Request $request, SpkModel $pb, $id)
+    public function proses_hapus(Request $request, SpkModel $spk, $id)
     {
-
 
         SpkModel::where('spk_id',$id)->delete();
         SpkdetailModel::where('spk_id',$id)->delete();

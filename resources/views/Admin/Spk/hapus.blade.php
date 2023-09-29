@@ -6,7 +6,7 @@
                 <button type="reset" aria-label="Close" class="btn-close position-absolute" data-bs-dismiss="modal"><span aria-hidden="true">×</span></button>
                 <br>
                 <i class="icon icon-exclamation fs-70 text-warning lh-1 my-5 d-inline-block"></i>
-                <h3 class="mb-5">Yakin hapus <span id="vsatuan"></span> ?</h3>
+                <h3 class="mb-5">Yakin hapus <span id="vspk"></span> ?</h3>
                 <input type="hidden" name="idspk" id="idspk">
                 <button class="btn btn-danger-light pd-x-25 d-none" id="btnLoaderH" type="button" disabled="">
                     <span class="spinner-border spinner-border-sm me-1" role="status" aria-hidden="true"></span>

@@ -73,13 +73,13 @@
     <script>
         function update(data) {
             $("input[name='idspkU']").val(data.spk_id);
-            $("input[name='pbU']").val(data.spk_kode.replace(/_/g, ' '));
+            $("input[name='spkU']").val(data.spk_kode.replace(/_/g, ' '));
             $("textarea[name='ketU']").val(data.spk_keterangan.replace(/_/g, ' '));
         }
 
         function hapus(data) {
             $("input[name='idspk']").val(data.spk_id);
-            $("#vpb").html("pb " + "<b>" + data.spk_kode.replace(/_/g, ' ') + "</b>");
+            $("#vspk").html("spk " + "<b>" + data.spk_kode.replace(/_/g, ' ') + "</b>");
         }
 
         function validasi(judul, status) {
