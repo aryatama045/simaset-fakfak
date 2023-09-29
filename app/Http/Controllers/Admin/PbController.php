@@ -21,7 +21,7 @@ class PbController extends Controller
 {
     public function index()
     {
-        $data["title"] = "Tambah";
+        $data["title"] = "Pengadaan Barang";
         $data["hakTambah"] = AksesModel::leftJoin('tbl_submenu', 'tbl_submenu.submenu_id', '=', 'tbl_akses.submenu_id')->where(array('tbl_akses.role_id' => Session::get('user')->role_id, 'tbl_submenu.submenu_judul' => 'Pengadaan Barang', 'tbl_akses.akses_type' => 'create'))->count();
         $data["supplier"] = SupplierModel::orderBy('supplier_id', 'DESC')->get();
         $data["pegawai"] = PegawaiModel::orderBy('pegawai_id', 'DESC')->get();
