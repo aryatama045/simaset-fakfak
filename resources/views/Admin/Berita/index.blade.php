@@ -37,9 +37,6 @@
                             <a class="modal-effect btn btn-primary-light" data-bs-effect="effect-super-scaled"
                                 data-bs-toggle="modal" href="#modaldemo8">Tambah Data
                                 <i class="fe fe-plus"></i></a>
-
-                            <!-- <a class="btn btn-primary-light" href="{{route('pb.add')}}">Tambah Data
-                                <i class="fe fe-plus"></i></a> -->
                         </div>
                     @endif
                 </div>
@@ -49,10 +46,9 @@
                             class="table table-bordered text-nowrap border-bottom dataTable no-footer dtr-inline collapsed">
                             <thead>
                                 <th class="border-bottom-0" width="1%">No</th>
-                                <th class="border-bottom-0">No. SPK</th>
+                                <th class="border-bottom-0">No. Berita</th>
                                 <th class="border-bottom-0">Pihak 1</th>
                                 <th class="border-bottom-0">Pihak 2</th>
-                                <th class="border-bottom-0">Jenis</th>
                                 <th class="border-bottom-0">Tgl. Pengajuan</th>
                                 <th class="border-bottom-0" width="1%">Action</th>
                             </thead>
@@ -68,18 +64,17 @@
     @include('Admin.Berita.tambah')
     @include('Admin.Berita.edit')
     @include('Admin.Berita.hapus')
-    @include('Admin.PengadaanBarang.barang')
+    @include('Admin.Berita.barang')
 
     <script>
         function update(data) {
-            $("input[name='idspkU']").val(data.spk_id);
-            $("input[name='pbU']").val(data.spk_kode.replace(/_/g, ' '));
-            $("textarea[name='ketU']").val(data.spk_keterangan.replace(/_/g, ' '));
+            $("input[name='idberitaU']").val(data.berita_id);
+            $("input[name='beritaU']").val(data.berita_kode.replace(/_/g, ' '));
         }
 
         function hapus(data) {
-            $("input[name='idspk']").val(data.spk_id);
-            $("#vpb").html("pb " + "<b>" + data.spk_kode.replace(/_/g, ' ') + "</b>");
+            $("input[name='idberita']").val(data.berita_id);
+            $("#vberita").html("berita " + "<b>" + data.berita_kode.replace(/_/g, ' ') + "</b>");
         }
 
         function validasi(judul, status) {
@@ -119,7 +114,7 @@
                 lengthChange: true,
 
                 "ajax": {
-                    "url": "{{ route('spk.getspk') }}",
+                    "url": "{{ route('berita.getberita') }}",
                 },
 
                 "columns": [{
@@ -128,24 +123,20 @@
                         searchable: false
                     },
                     {
-                        data: 'spk_kode',
-                        name: 'spk_kode',
+                        data: 'berita_kode',
+                        name: 'berita_kode',
                     },
                     {
                         data: 'pihak_1',
-                        name: 'spk_pihak_1',
+                        name: 'pihak_1',
                     },
                     {
                         data: 'pihak_2',
-                        name: 'spk_pihak_2',
+                        name: 'pihak_2',
                     },
                     {
-                        data: 'jenis',
-                        name: 'spk_jenis',
-                    },
-                    {
-                        data: 'spk_tanggal',
-                        name: 'spk_tanggal',
+                        data: 'berita_tanggal',
+                        name: 'berita_tanggal',
                     },
                     {
                         data: 'action',

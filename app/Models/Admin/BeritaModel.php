@@ -12,7 +12,8 @@ class BeritaModel extends Model
     protected $primaryKey = 'berita_id';
     protected $fillable = [
         'berita_kode',
-        'supplier_id',
+        'berita_pihak_1',
+        'berita_pihak_2',
         'berita_pic',
         'berita_tanggal',
     ];
