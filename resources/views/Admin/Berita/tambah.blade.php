@@ -85,7 +85,7 @@
 
 @section('formTambahJS')
 <script>
-
+    var tableListPO;
     $(document).ready(function() {
         tableListPO = $('#user_table').DataTable({
             'ordering'    : false,
