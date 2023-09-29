@@ -9,7 +9,7 @@
         <div class="modal-content ">
 
             <div class="modal-header">
-                <h5 class="modal-title">Tambah Pengadaan Barang</h5>
+                <h5 class="modal-title">Tambah Berita Acara</h5>
             </div>
             <div class="modal-body" style="overflow: auto;">
 
