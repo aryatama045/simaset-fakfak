@@ -148,7 +148,7 @@ class Berita extends Fpdf
             $this->setFont('Times','b',12);
             $this->cell(0,10,'NOMOR : '.$this->header[0]->berita_kode,0,0,'C');
             $this->Line(11,$this->GetY(),195,$this->GetY());
-            $this->Ln(4);
+            $this->Ln(8);
 
 
         }else{
@@ -163,6 +163,8 @@ class Berita extends Fpdf
 
     function HeaderList(){
         if($this->halaman == 1){
+            $this->Ln(4);
+
             $this->setFont('Times','',11);
             $this->MultiCell(175,6,$this->header[0]->berita_header, 0);
 
@@ -192,7 +194,6 @@ class Berita extends Fpdf
             $this->cell(31,1,'Selanjutnya sebagai ',0,0,'L');
             $this->setFont('Times','B',11);
             $this->cell(25,1,' PIHAK  PERTAMA ',0,0,'L');
-            $this->Ln(14);
 
 
             $this->Ln(6);
@@ -225,7 +226,7 @@ class Berita extends Fpdf
             $this->Ln(14);
 
 
-            $this->setFont('Times','B',11);
+            $this->setFont('Times','',11);
             $this->MultiCell(175,6,$this->header[0]->berita_body, 0);
             $this->Ln(8);
         }
