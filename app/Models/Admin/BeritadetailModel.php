@@ -14,7 +14,7 @@ class BeritadetailModel extends Model
         'berita_id',
         'barang_id',
         'stok',
-        'harga_satuan',
+        'harga_satuan'
     ];
 
 }

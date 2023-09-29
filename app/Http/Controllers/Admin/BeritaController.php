@@ -205,7 +205,7 @@ class BeritaController extends Controller
 
     public function proses_tambah(Request $request)
     {
-        dd($request);
+        // dd($request);
         
         $header = array(
             'berita_kode'   => $request->berita_kode,
