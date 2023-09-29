@@ -275,7 +275,7 @@ class Berita extends Fpdf
         $this->Ln(8);
         $this->tandaTangan();
         $this->Ln(8);
-        $this->mengetahui();
+        // $this->mengetahui();
 
 
 
@@ -286,16 +286,16 @@ class Berita extends Fpdf
         $this->Ln(6);
         $this->setFont('Times','B',11);
         $this->cell(20,1,'',0,0,'L');
-        $this->cell(45,1,'PIHAK KEDUA (II)',0,0,'C');
+        $this->cell(45,1,'PIHAK KEDUA (I)',0,0,'C');
         $this->cell(50,1,'',0,0,'L');
-        $this->cell(45,1,'PIHAK PERTAMA (I)',0,0,'C');
+        $this->cell(45,1,'PIHAK PERTAMA (II)',0,0,'C');
 
         $this->Ln(4);
         $this->cell(20,1,'',0,0,'L');
         $this->setFont('Times','B',11);
-        $this->cell(45,1,$this->header[0]->sp_perusahaan,0,0,'C');
+        $this->Multicell(45,1,'MENGETAHUI SEKRETARIS DPRD KABUPATEN FAKFAK',0,0,'C');
         $this->cell(50,1,'',0,0,'L');
-        $this->cell(45,1,'PEJABAT PEMBUAT KOMITMEN',0,0,'C');
+        $this->cell(45,1,'PENGURUS BARANG',0,0,'C');
 
         $this->Ln(4);
         $this->cell(20,1,'',0,0,'L');
@@ -304,16 +304,16 @@ class Berita extends Fpdf
         $this->Ln(25);
         $this->setFont('Times','BU',11);
         $this->cell(20,1,'',0,0,'L');
-        $this->cell(45,1,$this->header[0]->sp_nama,0,0,'C');
-        $this->cell(50,1,'',0,0,'L');
         $this->cell(45,1,$this->header[0]->p1_nama,0,0,'C');
+        $this->cell(50,1,'',0,0,'L');
+        $this->cell(45,1,$this->header[0]->p2_nama,0,0,'C');
 
         $this->Ln(4);
         $this->setFont('Times','B',11);
         $this->cell(20,1,'',0,0,'L');
-        $this->cell(45,1,$this->header[0]->sp_jabatan,0,0,'C');
-        $this->cell(50,1,'',0,0,'L');
         $this->cell(45,1,'NIP '.$this->header[0]->p1_nip,0,0,'C');
+        $this->cell(50,1,'',0,0,'L');
+        $this->cell(45,1,'NIP '.$this->header[0]->p2_nip,0,0,'C');
         $this->Ln(4);
     }
 
