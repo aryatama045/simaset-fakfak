@@ -143,49 +143,16 @@ class Berita extends Fpdf
             $this->Line(11,$this->GetY(),195,$this->GetY());
 
 
-            $this->Ln(8);
-            $this->Line(11,$this->GetY(),195,$this->GetY());
-            $this->Ln(5);
-            $this->setFont('Times','B',12);
-            $this->cell(95,1,'JENIS PEKERJAAN',0,0,'C');
-            $this->cell(70,1,'SURAT PERINTAH KERJA',0,0,'C');
-            $this->Ln(5);
-            $this->Line(11,$this->GetY(),195,$this->GetY());
             $this->Ln(6);
-
-
-
-            $this->setFont('Times','B',9);
-            // $j1 = substr(strip_tags($this->header[0]->spk_jenis), 0, 30);
-            $this->cell(95,1, $this->limit_words($this->header[0]->spk_jenis,5),0,0,'C');
+            $this->Line(11,$this->GetY(),195,$this->GetY());
+            $this->Ln(0.1);
+            $this->Line(11,$this->GetY(),195,$this->GetY());
+            $this->Ln(1);
+            $this->setFont('Times','BU',14);
+            $this->cell(0,10,'BERITA ACARA PEMERIKSAAN BARANG PERSEDIAAN / STOCK OPNAME',0,0,'C');
+            $this->Ln(6);
             $this->setFont('Times','',10);
-            $this->cell(25,1,'SPK NOMOR  ',0,0,'L');
-            $this->cell(35,1,': '. $this->header[0]->spk_kode,0,0,'L');
-            $this->Ln(4);
-
-            $this->setFont('Times','B',9);
-            // $j2 = substr(strip_tags($this->header[0]->spk_jenis), 30, 30);
-            $this->cell(95,1,$this->limit_words2($this->header[0]->spk_jenis,5),0,0,'C');
-            $this->setFont('Times','',10);
-            $this->cell(25,1,'Tanggal  ',0,0,'L');
-            $this->cell(35,1,': '.$this->header[0]->spk_tanggal ,0,0,'L');
-            $this->Ln(4);
-
-            $this->setFont('Times','B',9);
-            // $j3 = substr(strip_tags($this->header[0]->spk_jenis), 60, 30);
-            $this->cell(95,1,$this->limit_words3($this->header[0]->spk_jenis,5),0,0,'C');
-            $this->setFont('Times','',10);
-            $this->cell(25,1,'No. Rekening  ',0,0,'L');
-            $this->cell(35,1,': '. $this->header[0]->spk_rekening,0,0,'L');
-            $this->Ln(4);
-
-            $this->setFont('Times','B',9);
-            // $j3 = substr(strip_tags($this->header[0]->spk_jenis), 60, 30);
-            $this->cell(95,1,$this->limit_words4($this->header[0]->spk_jenis,5),0,0,'C');
-            $this->setFont('Times','',10);
-            $this->cell(25,1,'',0,0,'L');
-            $this->cell(35,1,'',0,0,'L');
-            $this->Ln(4);
+            $this->cell(0,10,'NOMOR : '.$this->header[0]->berita_kode,0,0,'C');
 
 
             $this->Line(11,$this->GetY(),195,$this->GetY());
