@@ -165,53 +165,53 @@
     }
 
 
-    var count = 1;
+    // var count = 1;
 
-    function add_input_field(count) {
+    // function add_input_field(count) {
 
-        var html = '';
+    //     var html = '';
 
-        if (count > 1) {
-            html += '<tr>';
+    //     if (count > 1) {
+    //         html += '<tr>';
 
-            html += '<td><input type="text" name="jenis_pekerjaan[]" id="jenis_pekerjaan" class="form-control" required/></td>';
+    //         html += '<td><input type="text" name="jenis_pekerjaan[]" id="jenis_pekerjaan" class="form-control" required/></td>';
 
-            html += '<td><input type="text" name="jenis_pekerjaan[]" id="jenis_pekerjaan" class="form-control" required/></td>';
+    //         html += '<td><input type="text" name="jenis_pekerjaan[]" id="jenis_pekerjaan" class="form-control" required/></td>';
 
-            html += '<td><input type="text" name="jenis_pekerjaan[]" id="jenis_pekerjaan" class="form-control" required/></td>';
+    //         html += '<td><input type="text" name="jenis_pekerjaan[]" id="jenis_pekerjaan" class="form-control" required/></td>';
 
-            html += '<td><input type="text" name="jenis_pekerjaan[]" id="jenis_pekerjaan" class="form-control" required/></td>';
+    //         html += '<td><input type="text" name="jenis_pekerjaan[]" id="jenis_pekerjaan" class="form-control" required/></td>';
 
-            html += '<td><input type="text" name="jenis_pekerjaan[]" id="jenis_pekerjaan" class="form-control" required/></td>';
+    //         html += '<td><input type="text" name="jenis_pekerjaan[]" id="jenis_pekerjaan" class="form-control" required/></td>';
 
-            html += '<td><textarea type="text" name="detail_pekerjaan[]" id="detail_pekerjaan" class="form-control" required></textarea></td>';
+    //         html += '<td><textarea type="text" name="detail_pekerjaan[]" id="detail_pekerjaan" class="form-control" required></textarea></td>';
 
-            html += '<td><button type="button" name="remove" class="btn btn-danger remove"><i class="fa fa-trash"></i></button></td>';
+    //         html += '<td><button type="button" name="remove" class="btn btn-danger remove"><i class="fa fa-trash"></i></button></td>';
 
-            html += '</tr>';
-        }
-
-
-        return html;
-
-    }
-
-    $('#user_table').append(add_input_field(1));
+    //         html += '</tr>';
+    //     }
 
 
-    $(document).on('click', '.add', function() {
+    //     return html;
 
-        count++;
-        $('#user_table').append(add_input_field(count));
+    // }
+
+    // $('#user_table').append(add_input_field(1));
 
 
-    });
+    // $(document).on('click', '.add', function() {
 
-    $(document).on('click', '.remove', function() {
+    //     count++;
+    //     $('#user_table').append(add_input_field(count));
 
-        $(this).closest('tr').remove();
 
-    });
+    // });
+
+    // $(document).on('click', '.remove', function() {
+
+    //     $(this).closest('tr').remove();
+
+    // });
 
 
 </script>
