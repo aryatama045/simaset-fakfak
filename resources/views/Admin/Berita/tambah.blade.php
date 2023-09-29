@@ -51,6 +51,7 @@
                 <table class="table table-bordered responsive" id="user_table" width="100%" >
                     <thead>
                     <tr>
+                        <th>No.</th>
                         <th>Kode Barang</th>
                         <th width="20%">Nama Barang</th>
                         <th>Sisa Stok</th>
