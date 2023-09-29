@@ -71,6 +71,13 @@
     @include('Admin.PengadaanBarang.barang')
 
     <script>
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+
         function update(data) {
             $("input[name='idspkU']").val(data.spk_id);
             $("input[name='spkU']").val(data.spk_kode.replace(/_/g, ' '));
@@ -89,16 +96,7 @@
                 confirmButtonText: "Iya."
             });
         }
-    </script>
-@endsection
 
-@section('scripts')
-    <script>
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
 
         var table;
         $(document).ready(function() {
