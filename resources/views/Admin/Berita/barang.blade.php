@@ -67,6 +67,7 @@
         var timer;
 
         var check_id = document.getElementById(barang_kode);
+        var tableListPO;
         if(check_id === null){
             var data = tableListPO.rows().data();
             row_s =  data.length+1;
