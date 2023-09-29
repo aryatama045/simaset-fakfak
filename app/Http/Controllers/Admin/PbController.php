@@ -180,20 +180,22 @@ class PbController extends Controller
     public function genInvoice($id)
     {
 
-        // if (!empty($id)){
+        if (!empty($id)){
 
 
             $data_header = DB::table('tbl_pb as h')
             ->leftjoin('tbl_supplier as s', 'h.supplier_id', '=', 's.supplier_id')
+            ->leftjoin('tbl_pegawai as p', 'h.pb_pejabat', '=', 'p.pegawai_id')
             ->leftjoin('tbl_user as u', 'h.pb_pic', '=', 'u.user_id')
             ->where('h.pb_id', $id)
-            ->select('h.pb_kode as no_dok','h.pb_keterangan','h.pb_footer','h.created_at',
+            ->select('h.pb_kode as no_dok','h.pb_keterangan','h.pb_footer','h.created_at','h.pb_tanggal',
                     's.supplier_nama as supplier','s.supplier_keterangan',
+                    'p.nip', 'p.nama_lengkap','p.jabatan',
                     'u.user_nmlengkap as nama_user' )
             ->get();
 
 
-            // if($data_header) {
+            if($data_header) {
 
                 $data_detail = DB::table('tbl_pbdetail as pbd')
                 ->leftjoin('tbl_barang as brg', 'pbd.barang_id', '=', 'brg.barang_id')
@@ -204,9 +206,6 @@ class PbController extends Controller
                 's.satuan_nama')
                 ->get();
 
-                // $data_detail = '';
-                // $data_header= '';
-
                 $general_setting = DB::table('tbl_web')->latest()->first();
 
                 // if($data_detail){
@@ -214,16 +213,15 @@ class PbController extends Controller
                     $output['header']		= $data_header;
                     $output['detail']		= $data_detail;
                 // }
-            // }
+            }
 
-            // dd($data_header, $data_detail);
 
             $myPdf = new Nota($output);
 
             $myPdf->Output('I', "Notapesan.pdf", true);
 
             exit;
-        // }
+        }
 
     }
 }

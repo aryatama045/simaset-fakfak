@@ -34,7 +34,7 @@ class Nota extends Fpdf
 
     function Header()
     {
-        
+
         //Lebar A4 = 190 + margin 10
         $this->total_halaman =  ceil(count($this->detail)/48); //ceil(count($this->detail)
         $this->halaman++;
@@ -45,7 +45,7 @@ class Nota extends Fpdf
         $this->Image($parth_image .$this->general_setting->web_logo, 24, 5, 20, 25);
         $this->setFont('Times','B',12);
         $this->cell(195,1,$this->general_setting->header_1,0,0, 'C');
-        
+
         $this->Ln(5);
         $this->setFont('Times','B',12);
         $this->cell(195,1,$this->general_setting->header_2,0,0, 'C');
@@ -74,7 +74,7 @@ class Nota extends Fpdf
         // $this->cell(100,1,' : ',0,0,'L');
         // $this->cell(25,1,'No. Po',0,0,'L');
         // $this->cell(0,1,': ',0,0,'L');
-        
+
         $this->Ln(5);
         $this->cell(25,2,'Pimpinan ' .$this->header[0]->supplier,0,0,'L');
         // $this->cell(100,1,': ',0,0,'L');
@@ -99,7 +99,7 @@ class Nota extends Fpdf
         // $this->cell(25,1,'Doc Date',0,0,'L');
         // $this->cell(15,1,': '.date('d-m-Y'),0,0,'L');
         // $this->Ln(4);
-        
+
     }
 
 
@@ -196,7 +196,7 @@ class Nota extends Fpdf
         $this->Ln(6);
         $this->cell(115,1,'',0,0,'L');
         $this->cell(25,1,'Pada Tanggal ',0,0,'L');
-        $this->cell(18,1,' : 18 April 2023',0,0,'L');
+        $this->cell(18,1,' : '.$this->header[0]->pb_tanggal,0,0,'L');
         $this->Ln(6);
         $this->setFont('Times','B',11);
         $this->cell(115,1,'',0,0,'L');
@@ -212,15 +212,15 @@ class Nota extends Fpdf
         $this->Ln(25);
         $this->setFont('Times','BU',11);
         $this->cell(115,1,'',0,0,'L');
-        $this->cell(45,1,'TAJUDIN LA JAHALIA, S.IP, M.Si.',0,0,'C');
+        $this->cell(45,1,$this->header[0]->nama_lengkap,0,0,'C');
         $this->Ln(4);
         $this->setFont('Times','B',11);
         $this->cell(115,1,'',0,0,'L');
-        $this->cell(45,1,'Pembina Utama Muda (IV/c)',0,0,'C');
+        $this->cell(45,1,$this->header[0]->jabatan,0,0,'C');
         $this->Ln(4);
         $this->setFont('Times','B',11);
         $this->cell(115,1,'',0,0,'L');
-        $this->cell(45,1,'NIP 19680418 199203 1 008',0,0,'C');
+        $this->cell(45,1,'NIP '.$this->header[0]->nip,0,0,'C');
 
 
 
