@@ -9,6 +9,8 @@ use App\Models\Admin\AksesModel;
 use App\Models\Admin\BeritaModel;
 use App\Models\Admin\BeritadetailModel;
 use App\Models\Admin\BarangModel;
+use App\Models\Admin\BarangmasukModel;
+use App\Models\Admin\BarangkeluarModel;
 use App\Models\Admin\PegawaiModel;
 use App\Models\Admin\SupplierModel;
 use Illuminate\Http\Request;
