@@ -147,7 +147,7 @@ class Berita extends Fpdf
             $this->Ln(6);
             $this->setFont('Times','b',12);
             $this->cell(0,10,'NOMOR : '.$this->header[0]->berita_kode,0,0,'C');
-            $this->Line(11,$this->GetY(),195,$this->GetY());
+            // $this->Line(11,$this->GetY(),195,$this->GetY());
             $this->Ln(8);
 
 
