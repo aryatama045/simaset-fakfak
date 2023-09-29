@@ -34,7 +34,7 @@ class Berita extends Fpdf
         $this->halaman=0;
         parent::__construct('P', 'mm', 'A4');
         $this->SetA4();
-        $this->SetTitle('Surat Perintah Kerja - '.$this->header[0]->spk_kode, true); //.$this->header[0]->no_po
+        $this->SetTitle('Surat Perintah Kerja - '.$this->header[0]->berita_kode, true); //.$this->header[0]->no_po
         $this->SetAuthor('None', true);
         $this->SetMargins(15, 7, 15, 12);
         $this->AddPage('P');
@@ -172,7 +172,7 @@ class Berita extends Fpdf
     function HeaderList(){
         if($this->halaman == 1){
             $this->setFont('Times','',11);
-            $this->MultiCell(175,6,$this->header[0]->spk_header, 0);
+            $this->MultiCell(175,6,$this->header[0]->berita_header, 0);
 
             $this->Ln(4);
             $this->setFont('Times','',11);
@@ -294,7 +294,7 @@ class Berita extends Fpdf
 
 
         $this->Ln(4);
-        $this->Multicell(175,5,$this->header[0]->spk_footer,0);
+        $this->Multicell(175,5,$this->header[0]->berita_footer,0);
         $this->Ln(8);
         $this->tandaTangan();
         $this->Ln(8);
