@@ -16,6 +16,9 @@ class BeritaModel extends Model
         'berita_pihak_2',
         'berita_pic',
         'berita_tanggal',
+        'berita_header',
+        'berita_body',
+        'berita_footer'
     ];
 
 

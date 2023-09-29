@@ -213,6 +213,10 @@ class BeritaController extends Controller
             'berita_pic'       => '1',
             'berita_tanggal'    => $request->berita_tanggal,
 
+            'berita_header'    => $request->berita_header,
+            'berita_body'    => $request->berita_body,
+            'berita_footer'    => $request->berita_footer,
+
         );
 
         //insert data
