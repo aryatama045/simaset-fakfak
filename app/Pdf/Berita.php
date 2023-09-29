@@ -197,43 +197,34 @@ class Berita extends Fpdf
             $this->Ln(6);
 
             $this->setFont('Times','',11);
-            $this->cell(15,2,'',0,0,'L');
-            $this->cell(45,2,'Alamat ',0,0,'L');
-            $this->cell(5,1,' : ',0,0,'L');
-            $this->cell(45,1,$this->header[0]->p1_alamat,0,0,'L');
-            $this->Ln(8);
-
-            $this->setFont('Times','',11);
             $this->cell(31,1,'Selanjutnya sebagai ',0,0,'L');
             $this->setFont('Times','B',11);
             $this->cell(25,1,' PIHAK  PERTAMA ',0,0,'L');
             $this->Ln(14);
 
 
-            $this->setFont('Times','',11);
-            $this->cell(150,1,'Memberi Perintah untuk melaksanakan Pekerjaan Kepada  :',0,0,'L');
-
             $this->Ln(6);
             $this->setFont('Times','',11);
             $this->cell(15,2,'',0,0,'L');
             $this->cell(45,2,'Nama ',0,0,'L');
             $this->cell(5,1,' : ',0,0,'L');
-            $this->cell(45,1,$this->header[0]->sp_nama,0,0,'L');
+            $this->cell(45,1,$this->header[0]->p2_nama,0,0,'L');
             $this->Ln(6);
 
             $this->setFont('Times','',11);
             $this->cell(15,2,'',0,0,'L');
-            $this->cell(45,2,'Pekerjaan ',0,0,'L');
+            $this->cell(45,2,'NIP ',0,0,'L');
             $this->cell(5,1,' : ',0,0,'L');
-            $this->cell(45,1,$this->header[0]->sp_jabatan.' '. $this->header[0]->sp_perusahaan,0,0,'L');
+            $this->cell(45,1,$this->header[0]->p2_nip,0,0,'L');
             $this->Ln(6);
 
             $this->setFont('Times','',11);
             $this->cell(15,2,'',0,0,'L');
-            $this->cell(45,2,'Alamat',0,0,'L');
+            $this->cell(45,2,'Jabatan ',0,0,'L');
             $this->cell(5,2,' : ',0,0,'L');
-            $this->Multicell(85,4,$this->header[0]->sp_alamat,0);
-            $this->Ln(4);
+            $this->Multicell(70,4,$this->header[0]->p2_jabatan,0);
+            $this->Ln(6);
+
 
             $this->setFont('Times','',11);
             $this->cell(43,1,'Selanjutnya disebut sebagai ',0,0,'L');
@@ -243,21 +234,7 @@ class Berita extends Fpdf
 
 
             $this->setFont('Times','B',11);
-            $this->cell(37,1,' PIHAK  PERTAMA',0,0,'L');
-            $this->setFont('Times','',11);
-            $this->cell(48,1,'memberikan pekerjaan kepada ',0,0,'L');
-            $this->setFont('Times','B',11);
-            $this->cell(30,1,' PIHAK  KEDUA',0,0,'L');
-            $this->setFont('Times','',11);
-            $this->cell(7,1,' dan ',0,0,'L');
-            $this->setFont('Times','B',11);
-            $this->cell(30,1,' PIHAK  KEDUA',0,0,'L');
-            $this->setFont('Times','',11);
-            $this->cell(10,1,' menyatakan ',0,0,'L');
-            $this->Ln(6);
-
-            $this->setFont('Times','',11);
-            $this->cell(175,1,' telah menerima pekerjaan tersebut, dengan ketentuan sebagai berikut : ',0,0,'L');
+            $this->MultiCell(175,6,$this->header[0]->berita_body, 0);
             $this->Ln(8);
         }
 
@@ -277,9 +254,9 @@ class Berita extends Fpdf
 
                 $this->setFont('Times','',11);
                 $this->cell(15,2,'',0,0,'L');
-                $this->cell(45,2,$value->jenis_pekerjaan,0,0,'L');
+                $this->cell(45,2,$value->barang_nama,0,0,'L');
                 $this->cell(5,2,' : ',0,0,'L');
-                $this->Multicell(110,4,$value->detail_pekerjaan,0);
+                $this->Multicell(110,4,$value->stok,0);
                 $this->Ln(4);
                 if($this->halaman==1){
                     if($baris==4){
