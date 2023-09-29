@@ -3,11 +3,11 @@
 @section('content')
     <!-- PAGE-HEADER -->
     <div class="page-header">
-        <h1 class="page-title">{{ $title }}</h1>
+        <h1 class="page-title">Berita Acara</h1>
         <div>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item text-gray">Pengajuan</li>
-                <li class="breadcrumb-item active" aria-current="page">{{ $title }}</li>
+                <li class="breadcrumb-item active" aria-current="page">Berita Acara</li>
             </ol>
         </div>
     </div>
