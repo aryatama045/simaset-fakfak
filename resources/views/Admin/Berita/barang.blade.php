@@ -73,7 +73,7 @@
             row_s =  data.length+1;
             tableListPO.row.add([
                 row_s,
-            '<input type="hidden" name="barang_id[]" id="barang_id" class="form-control" value="'+barang_id+'" required>'+barang_kode,
+            '<input type="hidden" name="barangid[]"  class="form-control" value="'+barang_id+'" required>'+barang_kode,
             '<input type="hidden" name="barang_nama[]" class="form-control" value="'+barang_nama+'">'+barang_nama,
             '<input type="text" name="stok[]" class="form-control" value="'+stok+'" readonly>',
             '<input type="text" name="harga_satuan[]" class="form-control" value="'+harga_satuan+'" readonly>',

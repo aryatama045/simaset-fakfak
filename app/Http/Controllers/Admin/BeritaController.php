@@ -225,14 +225,13 @@ class BeritaController extends Controller
         $berita_data = BeritaModel::latest()->first();
 
 
-        $count_d = count($request->barang_id);
+        $count_d = count($request->harga_satuan);
 
-        
         $log_detail = array();
         for($x=0; $x < $count_d; $x++) {
             $detail_barang = array(
                 'berita_id'     => $berita_data->berita_id,
-                'barang_id'     => $request->barang_id[$x],
+                'barang_id'     => $request->barangid[$x],
                 'stok'          => $request->stok[$x],
                 'harga_satuan'  => $request->harga_satuan[$x],
             );
