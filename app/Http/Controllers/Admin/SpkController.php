@@ -42,7 +42,6 @@ class SpkController extends Controller
                     'p2.supplier_nama as sp_nama', 'p2.nama_lengkap as sp_nama','p2.jabatan as sp_jabatan', 'p2.alamat as sp_alamat')
             ->orderBy('spk_id', 'DESC')->get();
 
-            dd($data);
 
             return Datatables::of($data)
                 ->addIndexColumn()

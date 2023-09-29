@@ -134,11 +134,11 @@
                     },
                     {
                         data: 'pihak_1',
-                        name: 'spk_pihak_1',
+                        name: 'p1_nama',
                     },
                     {
                         data: 'pihak_2',
-                        name: 'spk_pihak_2',
+                        name: 'sp_nama',
                     },
                     {
                         data: 'jenis',
