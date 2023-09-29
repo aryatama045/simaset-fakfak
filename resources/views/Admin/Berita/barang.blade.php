@@ -63,7 +63,7 @@
         var barang_id = data.barang_id;
         var barang_kode = data.barang_kode;
         var barang_nama = data.barang_nama;
-        var satuan = data.satuan_nama;
+        var stok = data.stok;
         var timer;
 
         var check_id = document.getElementById(barang_kode);
@@ -74,7 +74,7 @@
             row_s,
             '<input type="hidden" name="barang_kode[]" id="barang_kode" class="form-control" value="'+barang_kode+'" required>'+barang_kode,
             '<input type="hidden" name="barang_nama[]" class="form-control" value="'+barang_nama+'">'+barang_nama,
-            '<input type="hidden" name="satuan[]" class="form-control" value="'+satuan+'">'+satuan,
+            '<input type="hidden" name="stok[]" class="form-control" value="'+stok+'">'+stok,
             '<input type="text" name="spek[]" class="form-control" value="" required >',
             '<input type="number" name="jml[]" id="jml" class="form-control input-number jml" value="0" required step="1">',
             '<input type="hidden" name="barang_id[]" id="barang_id" class="form-control" value="'+barang_id+'" required><input type="text" name="harga[]" class="form-control input-number" value="0" >',
