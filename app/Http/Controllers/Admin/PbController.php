@@ -51,13 +51,13 @@ class PbController extends Controller
                 ->addColumn('ket', function ($row) {
                     $ket = $row->pb_keterangan == '' ? '-' : $row->pb_keterangan;
 
-                    $ket = substr(strip_tags($ket), 0, 20);
+                    $ket = substr(strip_tags($ket), 0, 10);
 
                     return $ket;
                 })
                 ->addColumn('footer', function ($row) {
                     $footer = $row->pb_footer == '' ? '-' : $row->pb_footer;
-                    $footer = substr(strip_tags($footer), 0, 20);
+                    $footer = substr(strip_tags($footer), 0, 10);
 
                     return $footer;
                 })
@@ -128,7 +128,7 @@ class PbController extends Controller
         PbModel::create($header);
 
         $pb_data = PbModel::latest()->first();
-        
+
 
         $c_barang = count($request->barang_kode);
         $log_detail = array();
@@ -191,7 +191,7 @@ class PbController extends Controller
                     'u.user_nmlengkap as nama_user' )
             ->get();
 
-            
+
 
 
 
@@ -208,7 +208,7 @@ class PbController extends Controller
 
                 // $data_detail = '';
                 // $data_header= '';
-                
+
                 $general_setting = DB::table('tbl_web')->latest()->first();
 
                 // if($data_detail){
