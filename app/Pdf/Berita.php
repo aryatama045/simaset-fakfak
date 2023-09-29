@@ -273,7 +273,7 @@ class Berita extends Fpdf
 
             $jumlah_harga = $value->stok * $value->barang_harga;
             $this->setFont('Times','',10);
-            $this->cell(20,1,$no,0,0,'L');
+            $this->cell(20,1,$no++,0,0,'L');
             $this->cell(60,1,$value->barang_nama,0,0,'L');
             $this->cell(25,1,$value->stok,0,0,'L');
             $this->cell(30,1,$value->barang_harga,0,0,'L');
