@@ -37,9 +37,6 @@
                             <a class="modal-effect btn btn-primary-light" data-bs-effect="effect-super-scaled"
                                 data-bs-toggle="modal" href="#modaldemo8">Tambah Data
                                 <i class="fe fe-plus"></i></a>
-
-                            <!-- <a class="btn btn-primary-light" href="{{route('pb.add')}}">Tambah Data
-                                <i class="fe fe-plus"></i></a> -->
                         </div>
                     @endif
                 </div>
@@ -68,17 +65,17 @@
     @include('Admin.Spk.tambah')
     @include('Admin.Spk.edit')
     @include('Admin.Spk.hapus')
+    @include('Admin.PengadaanBarang.barang')
 
     <script>
-
         function update(data) {
             $("input[name='idspkU']").val(data.spk_id);
-            $("input[name='spkU']").val(data.spk_kode.replace(/_/g, ' '));
+            $("input[name='pbU']").val(data.spk_kode.replace(/_/g, ' '));
         }
 
         function hapus(data) {
             $("input[name='idspk']").val(data.spk_id);
-            $("#vspk").html("spk " + "<b>" + data.spk_kode.replace(/_/g, ' ') + "</b>");
+            $("#vpb").html("pb " + "<b>" + data.spk_kode.replace(/_/g, ' ') + "</b>");
         }
 
         function validasi(judul, status) {
@@ -88,9 +85,7 @@
                 confirmButtonText: "Iya."
             });
         }
-
     </script>
-
 @endsection
 
 @section('scripts')
@@ -134,11 +129,11 @@
                     },
                     {
                         data: 'pihak_1',
-                        name: 'p1_nama',
+                        name: 'spk_pihak_1',
                     },
                     {
                         data: 'pihak_2',
-                        name: 'sp_nama',
+                        name: 'spk_pihak_2',
                     },
                     {
                         data: 'jenis',
