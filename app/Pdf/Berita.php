@@ -309,6 +309,7 @@ class Berita extends Fpdf
 
 
         $this->Ln(4);
+        $this->setFont('Times','',11);
         $this->Multicell(175,5,$this->header[0]->berita_footer,0);
         $this->Ln(8);
         $this->tandaTangan();
