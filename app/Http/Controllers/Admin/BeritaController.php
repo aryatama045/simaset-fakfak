@@ -23,7 +23,7 @@ class BeritaController extends Controller
 {
     public function index()
     {
-        $data["title"] = "Tambah";
+        $data["title"] = "Berita Acara";
         $data["hakTambah"] = AksesModel::leftJoin('tbl_submenu', 'tbl_submenu.submenu_id', '=', 'tbl_akses.submenu_id')->where(array('tbl_akses.role_id' => Session::get('user')->role_id, 'tbl_submenu.submenu_judul' => 'Berita Acara', 'tbl_akses.akses_type' => 'create'))->count();
         $data["pegawai"] = PegawaiModel::orderBy('pegawai_id', 'DESC')->get();
         return view('Admin.Berita.index', $data);
