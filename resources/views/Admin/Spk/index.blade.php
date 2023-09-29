@@ -68,7 +68,7 @@
     @include('Admin.Spk.tambah')
     @include('Admin.Spk.edit')
     @include('Admin.Spk.hapus')
-    @include('Admin.PengadaanBarang.barang')
+    <!-- @include('Admin.PengadaanBarang.barang') -->
 
     <script>
         $.ajaxSetup({
