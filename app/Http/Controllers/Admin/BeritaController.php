@@ -213,17 +213,13 @@ class BeritaController extends Controller
             'berita_pihak_2'   => $request->berita_pihak_2,
             'berita_pic'       => '1',
             'berita_tanggal'    => $request->berita_tanggal,
-
             'berita_header'    => $request->berita_header,
             'berita_body'    => $request->berita_body,
             'berita_footer'    => $request->berita_footer,
-
         );
-
-        //insert data
         BeritaModel::create($header);
 
-        $berita_data = BeritaModel::orderBy('berita_id', 'DESC')->get();
+        $berita_data = BeritaModel::latest()->first();
 
 
         $count_d = count($request->harga_satuan);
