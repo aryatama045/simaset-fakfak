@@ -115,12 +115,12 @@ class PbController extends Controller
     public function proses_tambah(Request $request)
     {
         $header = array(
-            'pb_kode'   => $request->pb_kode,
-            'supplier_id' => $request->pb_supplier,
-            'pb_pejabat' => $request->pb_pejabat,
+            'pb_kode'       => $request->pb_kode,
+            'supplier_id'   => $request->pb_supplier,
+            'pb_pejabat'    => $request->pb_pejabat,
             'pb_tanggal'    => $request->pb_tanggal,
             'pb_keterangan' => $request->pb_keterangan,
-            'pb_footer' => $request->pb_footer,
+            'pb_footer'     => $request->pb_footer,
         );
 
 
@@ -129,23 +129,21 @@ class PbController extends Controller
 
         $pb_data = PbModel::latest()->first();
 
-
         $c_barang = count($request->barang_kode);
         $log_detail = array();
         for($x=0; $x < $c_barang; $x++) {
             $detail_barang = array(
-                'pb_id'     => $pb_data->pb_id,
-                'barang_id' => $request->barang_id[$x],
-                'barang_kode' => $request->barang_kode[$x],
-                'satuan'       => $request->satuan[$x],
-                'spek'       => $request->spek[$x],
-                'pb_jumlah'       => $request->jml[$x],
-                'pb_harga'       => $request->harga[$x],
+                'pb_id'         => $pb_data->pb_id,
+                'barang_id'     => $request->barang_id[$x],
+                'barang_kode'   => $request->barang_kode[$x],
+                'satuan'        => $request->satuan[$x],
+                'spek'          => $request->spek[$x],
+                'pb_jumlah'     => $request->jml[$x],
+                'pb_harga'      => $request->harga[$x],
             );
             array_push($log_detail, $detail_barang);
             PbdetailModel::create( $detail_barang);
         }
-
 
         return redirect('admin/pb')->with('create_message', 'Pengajuan Nomor : '. $request->pb_kode);
     }
@@ -192,9 +190,6 @@ class PbController extends Controller
             ->get();
 
 
-
-
-
             // if($data_header) {
 
                 $data_detail = DB::table('tbl_pbdetail as pbd')
@@ -219,8 +214,6 @@ class PbController extends Controller
             // }
 
             // dd($data_header, $data_detail);
-
-
 
             $myPdf = new Nota($output);
 

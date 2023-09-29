@@ -13,6 +13,7 @@ class PbModel extends Model
     protected $fillable = [
         'pb_kode',
         'supplier_id',
+        'pb_pejabat',
         'pb_pic',
         'pb_keterangan',
         'pb_footer',

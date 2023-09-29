@@ -8,13 +8,11 @@
     <div class="modal-dialog modal-dialog-centered modal-xl modal-dialog-scrollable" role="document">
         <div class="modal-content ">
 
-            
             <div class="modal-header">
                 <h5 class="modal-title">Tambah Pengadaan Barang</h5>
             </div>
             <div class="modal-body" style="overflow: auto;">
 
-                
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
@@ -48,7 +46,7 @@
                         <div class="form-group">
                             <label for="pb_pejabat" class="form-label">Pilih Pejabat Pembuat Komitmen <span class="text-danger">*</span></label>
                             <select name="pb_pejabat" class="select select-2 form-control">
-                                <option value="">-- Pilih Pejabat --</option>
+                                <option value="">-- Pilih Pejabat Mengetahui--</option>
                                 @foreach ($pegawai as $s)
                                 <option value="{{ $s->pegawai_id }}">{{ $s->nip }} - {{ $s->nama_lengkap }}</option>
                                 @endforeach
@@ -80,7 +78,7 @@
                 <button type="submit" class="btn btn-primary">Simpan <i class="fe fe-check"></i></button>
                 <a href="{{url('admin/pb')}}" class="btn btn-light" >Batal <i class="fe fe-x"></i></a>
             </div>
-        
+
 
 
         </div>
