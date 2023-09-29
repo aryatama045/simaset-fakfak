@@ -9,7 +9,7 @@
             <div class="modal-content ">
 
                 <div class="modal-header">
-                    <h5 class="modal-title">Tambah SPK</h5><button aria-label="Close" onclick="reset()" class="btn-close" data-bs-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                    <h5 class="modal-title">Tambah Berita Acara</h5><button aria-label="Close" onclick="reset()" class="btn-close" data-bs-dismiss="modal"><span aria-hidden="true">&times;</span></button>
                 </div>
                 <div class="modal-body" style="overflow: auto;">
 
@@ -17,11 +17,11 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="spk_kode" class="form-label">No. SPK<span class="text-danger">*</span></label>
+                                <label for="spk_kode" class="form-label">No. Berita Acara<span class="text-danger">*</span></label>
                                 <input type="text" name="spk_kode" class="form-control" placeholder="" required>
                             </div>
                             <div class="form-group">
-                                <label for="spk_jenis" class="form-label">Jenis SPK<span class="text-danger">*</span></label>
+                                <label for="spk_jenis" class="form-label">Jenis Berita Acara<span class="text-danger">*</span></label>
                                 <input type="text" name="spk_jenis" class="form-control" placeholder="" required>
                             </div>
                             <div class="form-group">
