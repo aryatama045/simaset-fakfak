@@ -285,7 +285,7 @@ class BeritaController extends Controller
                 $data_detail = DB::table('tbl_beritadetail as bd')
                 ->leftjoin('tbl_barang as brg', 'bd.barang_id', '=', 'brg.barang_id')
                 ->where('bd.berita_id', $id)
-                ->select('bd.stok','brg.barang_nama')
+                ->select('bd.stok','brg.barang_nama','brg.barang_harga')
                 ->get();
 
                 // $data_detail = '';
