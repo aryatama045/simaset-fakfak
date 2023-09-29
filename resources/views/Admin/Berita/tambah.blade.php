@@ -3,54 +3,52 @@
 
 <!-- MODAL TAMBAH -->
 <div class="modal fade" data-bs-backdrop="static" id="modaldemo8">
-    <form class="modal-dialog-scrollable" action="{{url('admin/spk/proses_tambah')}}" method="POST">
-        @csrf
-        <div class="modal-dialog modal-dialog-centered modal-xl modal-dialog-scrollable" role="document">
-            <div class="modal-content ">
+    <form class="modal-dialog-scrollable" action="{{url('admin/pb/proses_tambah')}}" method="POST">
+    @csrf
+    <div class="modal-dialog modal-dialog-centered modal-xl modal-dialog-scrollable" role="document">
+        <div class="modal-content ">
 
-                <div class="modal-header">
-                    <h5 class="modal-title">Tambah Berita Acara</h5><button aria-label="Close" onclick="reset()" class="btn-close" data-bs-dismiss="modal"><span aria-hidden="true">&times;</span></button>
-                </div>
-                <div class="modal-body" style="overflow: auto;">
+            <div class="modal-header">
+                <h5 class="modal-title">Tambah Pengadaan Barang</h5>
+            </div>
+            <div class="modal-body" style="overflow: auto;">
 
-
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="berita_kode" class="form-label">No. Berita Acara<span class="text-danger">*</span></label>
-                                <input type="text" name="berita_kode" class="form-control" placeholder="" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="berita_pihak_1" class="form-label">Pihak <b>PERTAMA</b> <span class="text-danger">*</span></label>
-                                <select name="berita_pihak_1" class="select select-2 form-control">
-                                    <option value="">-- Pihak <b>PERTAMA</b> --</option>
-                                    @foreach ($pegawai as $s)
-                                    <option value="{{ $s->pegawai_id }}">{{ $s->nip }} - {{ $s->nama_lengkap }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="berita_kode" class="form-label">No. Berita Acara<span class="text-danger">*</span></label>
+                            <input type="text" name="berita_kode" class="form-control" placeholder="" required>
                         </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="berita_tanggal" class="form-label">Tanggal Pengajuan<span class="text-danger">*</span></label>
-                                <input type="text" name="berita_tanggal" class="form-control" value="{{ date('d-m-Y') }}" readonly>
-                            </div>
-                            <div class="form-group">
-                                <label for="berita_pihak_2" class="form-label">Pihak <b>KEDUA</b><span class="text-danger">*</span></label>
-                                <select name="berita_pihak_2" class="select select-2 form-control">
-                                    <option value="">-- Pihak <b>KEDUA</b>--</option>
-                                    @foreach ($pegawai as $s)
-                                    <option value="{{ $s->pegawai_id }}">{{ $s->nip }} - {{ $s->nama_lengkap }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
+                        <div class="form-group">
+                            <label for="berita_pihak_1" class="form-label">Pihak <b>PERTAMA</b> <span class="text-danger">*</span></label>
+                            <select name="berita_pihak_1" class="select select-2 form-control">
+                                <option value="">-- Pihak <b>PERTAMA</b> --</option>
+                                @foreach ($pegawai as $s)
+                                <option value="{{ $s->pegawai_id }}">{{ $s->nip }} - {{ $s->nama_lengkap }}</option>
+                                @endforeach
+                            </select>
                         </div>
                     </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="berita_tanggal" class="form-label">Tanggal Pengajuan<span class="text-danger">*</span></label>
+                            <input type="text" name="berita_tanggal" class="form-control" value="{{ date('d-m-Y') }}" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="berita_pihak_2" class="form-label">Pihak <b>KEDUA</b><span class="text-danger">*</span></label>
+                            <select name="berita_pihak_2" class="select select-2 form-control">
+                                <option value="">-- Pihak <b>KEDUA</b>--</option>
+                                @foreach ($pegawai as $s)
+                                <option value="{{ $s->pegawai_id }}">{{ $s->nip }} - {{ $s->nama_lengkap }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                </div>
 
-                    <hr>
-                    <h6> <b>Detail Barang</b></h6>
+                <br><br>
 
-                    <table class="table table-bordered responsive" id="user_table" width="100%" >
+                <table class="table table-bordered responsive" id="user_table" width="100%" >
                     <thead>
                     <tr>
                         <th>Kode Barang</th>
@@ -62,27 +60,27 @@
                         <th><button type="button" class="btn btn-default" onclick="modalBarang()"><i class="fa fa-plus"></i></button></th>
                     </tr>
                     </thead>
+
+
                 </table>
-
-                    <button type="button" name="add" class="btn btn-success btn-sm add"><i class="fa fa-plus"></i> Tambah Manual</button>
-                </div>
-
-
-                <div class="modal-footer pull-right">
-                    <button type="submit" class="btn btn-primary">Simpan <i class="fe fe-check"></i></button>
-                    <a href="javascript:void(0)" class="btn btn-light" onclick="reset()" data-bs-dismiss="modal">Batal <i class="fe fe-x"></i></a>
-                </div>
-
-
             </div>
+
+
+            <div class="modal-footer pull-right">
+                <button type="submit" class="btn btn-primary">Simpan <i class="fe fe-check"></i></button>
+                <a href="{{url('admin/pb')}}" class="btn btn-light" >Batal <i class="fe fe-x"></i></a>
+            </div>
+
+
+
         </div>
+    </div>
     </form>
 </div>
 
 
 @section('formTambahJS')
 <script>
-    var tableListPO;
     $(document).ready(function() {
         tableListPO = $('#user_table').DataTable({
             'ordering'    : false,
@@ -98,7 +96,7 @@
                 { 'width': 150, 'targets': 3 },
                 { 'width': 150, 'targets': 4 },
                 { 'width': 150, 'targets': 5 },
-                { 'width': 50, 'targets': 6 },
+                { 'width': 350, 'targets': 6 },
                 ],
         });
     });
@@ -135,14 +133,6 @@
         resetValid();
     }
 
-    function resetValid() {
-        $("input[name='tglkeluar']").removeClass('is-invalid');
-        $("input[name='kdbarang']").removeClass('is-invalid');
-        $("input[name='tujuan']").removeClass('is-invalid');
-        $("input[name='jml']").removeClass('is-invalid');
-        $("input[name='harga']").removeClass('is-invalid');
-    };
-
     function getbarangbyid(id) {
         $("#loaderkd").removeClass('d-none');
         $.ajax({
@@ -170,60 +160,6 @@
             }
         });
     }
-
-
-    var count = 1;
-
-    function add_input_field(count) {
-
-        var html = '';
-
-        if (count > 1) {
-            html += '<tr>';
-
-            html += '<td> <input type="text" name="barang_kode[]" id="barang_kode" class="form-control" required/></td>';
-            html += '<td> <input type="text" name="jenis_pekerjaan[]" id="jenis_pekerjaan" class="form-control" required/></td>';
-            html += '<td> <input type="text" name="jenis_pekerjaan[]" id="jenis_pekerjaan" class="form-control" required/></td>';
-            html += '<td> <input type="text" name="jenis_pekerjaan[]" id="jenis_pekerjaan" class="form-control" required/></td>';
-            html += '<td> <input type="text" name="jenis_pekerjaan[]" id="jenis_pekerjaan" class="form-control" required/></td>';
-
-            html += '<td><textarea type="text" name="detail_pekerjaan[]" id="detail_pekerjaan" class="form-control" required></textarea></td>';
-
-        }
-
-        var remove_button = '';
-
-        if (count > 1) {
-
-            remove_button = '<button type="button" name="remove" class="btn btn-danger btn-sm remove"><i class="fa fa-trash"></i> Batal</button>';
-
-        } else {
-
-            remove_button = '';
-        }
-
-        html += '<td>' + remove_button + '</td></tr>';
-
-        return html;
-
-    }
-
-    $('#user_table').append(add_input_field(1));
-
-
-    $(document).on('click', '.add', function() {
-
-        count++;
-        $('#user_table').append(add_input_field(count));
-
-
-    });
-
-    $(document).on('click', '.remove', function() {
-
-        $(this).closest('tr').remove();
-
-    });
 
 
 </script>

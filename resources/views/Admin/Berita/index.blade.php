@@ -3,11 +3,11 @@
 @section('content')
     <!-- PAGE-HEADER -->
     <div class="page-header">
-        <h1 class="page-title">Berita Acara</h1>
+        <h1 class="page-title">Pengadaan Barang</h1>
         <div>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item text-gray">Pengajuan</li>
-                <li class="breadcrumb-item active" aria-current="page">Berita Acara</li>
+                <li class="breadcrumb-item active" aria-current="page">Pengadaan Barang</li>
             </ol>
         </div>
     </div>
@@ -37,6 +37,9 @@
                             <a class="modal-effect btn btn-primary-light" data-bs-effect="effect-super-scaled"
                                 data-bs-toggle="modal" href="#modaldemo8">Tambah Data
                                 <i class="fe fe-plus"></i></a>
+
+                            <!-- <a class="btn btn-primary-light" href="{{route('pb.add')}}">Tambah Data
+                                <i class="fe fe-plus"></i></a> -->
                         </div>
                     @endif
                 </div>
@@ -46,9 +49,9 @@
                             class="table table-bordered text-nowrap border-bottom dataTable no-footer dtr-inline collapsed">
                             <thead>
                                 <th class="border-bottom-0" width="1%">No</th>
-                                <th class="border-bottom-0">No. Berita</th>
-                                <th class="border-bottom-0">Pihak 1</th>
-                                <th class="border-bottom-0">Pihak 2</th>
+                                <th class="border-bottom-0">No. Pesanan</th>
+                                <th class="border-bottom-0">Supplier</th>
+                                <th class="border-bottom-0">Mengetahui</th>
                                 <th class="border-bottom-0">Tgl. Pengajuan</th>
                                 <th class="border-bottom-0" width="1%">Action</th>
                             </thead>
