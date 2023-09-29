@@ -62,12 +62,9 @@
                                 <th><button type="button" class="btn btn-default" onclick="modalBarang()"><i class="fa fa-plus"></i></button></th>
                             </tr>
                         </thead>
-                        <tfoot>
-                            <tr>
-                                <th><button type="button" name="add" class="btn btn-success btn-sm add"><i class="fa fa-plus"></i> Tambah Manuak</button> </th>
-                            </tr>
-                        </tfoot>
                     </table>
+
+                    <button type="button" name="add" class="btn btn-success btn-sm add"><i class="fa fa-plus"></i> Tambah Manual</button>
                 </div>
 
 
