@@ -225,7 +225,7 @@ class BeritaController extends Controller
         $log_detail = array();
         for($x=0; $x < $count_d; $x++) {
             $detail_barang = array(
-                'berita_id'     => $berita_data->berita_id,
+                'berita_id'     => '1',
                 'barang_id'     => $request->barang_id[$x],
                 'stok'          => $request->stok[$x],
                 'harga_satuan'  => $request->harga_satuan[$x],
