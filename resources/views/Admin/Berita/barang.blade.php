@@ -78,7 +78,7 @@
             '<input type="text" name="stok[]" class="form-control" value="'+stok+'" readonly>',
             '<input type="text" name="harga_satuan[]" class="form-control" value="'+harga_satuan+'" readonly>',
             '<input type="text" name="jumlah_harga[]" class="form-control" value="'+jumlah_harga+'" readonly>',
-            '<input type="hidden" name="barang_id[]" id="barang_id" class="form-control" value="'+barang_id+'" required><button type="button" name="remove" class="btn btn-danger remove"><i class="fa fa-minus"></i></button> <button type="button" class="btn btn-danger" onclick="deleteRow(\''+barang_kode+'\')"><i class="fa fa-trash"></i></button>'
+            '<input type="hidden" name="barang_id[]" id="barang_id" class="form-control" value="'+barang_id+'" required><button type="button" class="btn btn-danger" onclick="deleteRow(\''+barang_kode+'\')"><i class="fa fa-trash"></i></button>'
             ]).node().id = barang_kode;
             tableListPO.draw( false );
             clearTimeout(timer);
