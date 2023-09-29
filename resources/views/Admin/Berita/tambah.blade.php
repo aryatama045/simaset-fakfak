@@ -20,12 +20,6 @@
                                 <label for="berita_kode" class="form-label">No. Berita Acara<span class="text-danger">*</span></label>
                                 <input type="text" name="berita_kode" class="form-control" placeholder="" required>
                             </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="berita_tanggal" class="form-label">Tanggal Pengajuan<span class="text-danger">*</span></label>
-                                <input type="text" name="berita_tanggal" class="form-control" value="{{ date('d-m-Y') }}" readonly>
-                            </div>
                             <div class="form-group">
                                 <label for="berita_pihak_1" class="form-label">Pihak <b>PERTAMA</b> <span class="text-danger">*</span></label>
                                 <select name="berita_pihak_1" class="select select-2 form-control">
@@ -34,6 +28,12 @@
                                     <option value="{{ $s->pegawai_id }}">{{ $s->nip }} - {{ $s->nama_lengkap }}</option>
                                     @endforeach
                                 </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="berita_tanggal" class="form-label">Tanggal Pengajuan<span class="text-danger">*</span></label>
+                                <input type="text" name="berita_tanggal" class="form-control" value="{{ date('d-m-Y') }}" readonly>
                             </div>
                             <div class="form-group">
                                 <label for="berita_pihak_2" class="form-label">Pihak <b>KEDUA</b><span class="text-danger">*</span></label>
@@ -138,6 +138,14 @@
         resetValid();
     }
 
+    function resetValid() {
+        $("input[name='tglkeluar']").removeClass('is-invalid');
+        $("input[name='kdbarang']").removeClass('is-invalid');
+        $("input[name='tujuan']").removeClass('is-invalid');
+        $("input[name='jml']").removeClass('is-invalid');
+        $("input[name='harga']").removeClass('is-invalid');
+    };
+
     function getbarangbyid(id) {
         $("#loaderkd").removeClass('d-none');
         $.ajax({
@@ -176,7 +184,7 @@
         if (count > 1) {
             html += '<tr>';
 
-            html += '<td> <input type="text" name="jenis_pekerjaan[]" id="jenis_pekerjaan" class="form-control" required/></td>';
+            html += '<td> <input type="text" name="barang_kode[]" id="barang_kode" class="form-control" required/></td>';
             html += '<td> <input type="text" name="jenis_pekerjaan[]" id="jenis_pekerjaan" class="form-control" required/></td>';
             html += '<td> <input type="text" name="jenis_pekerjaan[]" id="jenis_pekerjaan" class="form-control" required/></td>';
             html += '<td> <input type="text" name="jenis_pekerjaan[]" id="jenis_pekerjaan" class="form-control" required/></td>';
