@@ -222,6 +222,8 @@ class BeritaController extends Controller
 
 
         $count_d = count($request->barang_id);
+
+        
         $log_detail = array();
         for($x=0; $x < $count_d; $x++) {
             $detail_barang = array(
