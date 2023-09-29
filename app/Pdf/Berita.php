@@ -266,7 +266,7 @@ class Berita extends Fpdf
 
         $no=1;
         foreach ($this->detail as $key => $value) {
-            if($this->GetY() > 204.80125){
+            if($this->GetY() > 220.80125){
                 $this->AddPage();
             }
 
