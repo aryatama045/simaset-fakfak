@@ -40,12 +40,10 @@ class PbController extends Controller
     {
         if ($request->ajax()) {
             $data = PbModel::leftJoin('tbl_supplier', 'tbl_pb.supplier_id', '=', 'tbl_supplier.supplier_id')
+            ->leftJoin('tbl_pegawai', 'tbl_pb.pb_pejabat', '=', 'tbl_pegawai.pegawai_id')
             ->leftJoin('tbl_user', 'tbl_pb.pb_pic', '=', 'tbl_user.user_id')
             ->orderBy('pb_id', 'DESC')->get();
 
-            // $data = PbModel::with('supplier')->orderBy('pb_id', 'DESC')->get();
-
-            // dd($data);
             return Datatables::of($data)
                 ->addIndexColumn()
                 ->addColumn('ket', function ($row) {
@@ -65,6 +63,11 @@ class PbController extends Controller
                     $supplier = $row->supplier_nama == '' ? '-' : $row->supplier_nama;
 
                     return $supplier;
+                })
+                ->addColumn('pegawai', function ($row) {
+                    $pegawai = $row->nama_lengkap == '' ? '-' : $row->nama_lengkap;
+
+                    return $pegawai;
                 })
                 ->addColumn('pic', function ($row) {
                     $pic = $row->user_nmlengkap == '' ? '-' : $row->user_nmlengkap;

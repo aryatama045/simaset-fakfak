@@ -51,8 +51,7 @@
                                 <th class="border-bottom-0" width="1%">No</th>
                                 <th class="border-bottom-0">No. Pesanan</th>
                                 <th class="border-bottom-0">Supplier</th>
-                                <th class="border-bottom-0">Body</th>
-                                <th class="border-bottom-0">Footer</th>
+                                <th class="border-bottom-0">Mengetahui</th>
                                 <th class="border-bottom-0">Tgl. Pengajuan</th>
                                 <th class="border-bottom-0" width="1%">Action</th>
                             </thead>
@@ -136,12 +135,8 @@
                         name: 'supplier',
                     },
                     {
-                        data: 'ket',
-                        name: 'pb_keterangan',
-                    },
-                    {
-                        data: 'footer',
-                        name: 'pb_footer',
+                        data: 'pejabat',
+                        name: 'pb_pejabat',
                     },
                     {
                         data: 'pb_tanggal',
