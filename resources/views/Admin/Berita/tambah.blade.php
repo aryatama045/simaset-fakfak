@@ -17,26 +17,18 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="spk_kode" class="form-label">No. Berita Acara<span class="text-danger">*</span></label>
-                                <input type="text" name="spk_kode" class="form-control" placeholder="" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="spk_jenis" class="form-label">Jenis Berita Acara<span class="text-danger">*</span></label>
-                                <input type="text" name="spk_jenis" class="form-control" placeholder="" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="spk_rekening" class="form-label">No. Rekening<span class="text-danger">*</span></label>
-                                <input type="text" name="spk_rekening" class="form-control" placeholder="" required>
+                                <label for="berita_kode" class="form-label">No. Berita Acara<span class="text-danger">*</span></label>
+                                <input type="text" name="berita_kode" class="form-control" placeholder="" required>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="spk_tanggal" class="form-label">Tanggal Pengajuan<span class="text-danger">*</span></label>
-                                <input type="text" name="spk_tanggal" class="form-control" value="{{ date('d-m-Y') }}" readonly>
+                                <label for="berita_tanggal" class="form-label">Tanggal Pengajuan<span class="text-danger">*</span></label>
+                                <input type="text" name="berita_tanggal" class="form-control" value="{{ date('d-m-Y') }}" readonly>
                             </div>
                             <div class="form-group">
-                                <label for="spk_pihak_1" class="form-label">Pihak <b>PERTAMA</b> <span class="text-danger">*</span></label>
-                                <select name="spk_pihak_1" class="select select-2 form-control">
+                                <label for="berita_pihak_1" class="form-label">Pihak <b>PERTAMA</b> <span class="text-danger">*</span></label>
+                                <select name="berita_pihak_1" class="select select-2 form-control">
                                     <option value="">-- Pihak <b>PERTAMA</b> --</option>
                                     @foreach ($pegawai as $s)
                                     <option value="{{ $s->pegawai_id }}">{{ $s->nip }} - {{ $s->nama_lengkap }}</option>
@@ -44,17 +36,8 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="spk_pihak_2" class="form-label">Pihak <b>KEDUA</b><span class="text-danger">*</span></label>
-                                <select name="spk_pihak_2" class="select select-2 form-control">
-                                    <option value="">-- Pihak <b>KEDUA</b>--</option>
-                                    @foreach ($supplier as $s)
-                                    <option value="{{ $s->supplier_id }}">{{ $s->supplier_nama }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="spk_mengetahui" class="form-label">Pihak <b>Mengetahui</b><span class="text-danger">*</span></label>
-                                <select name="spk_mengetahui" class="select select-2 form-control">
+                                <label for="berita_pihak_2" class="form-label">Pihak <b>KEDUA</b><span class="text-danger">*</span></label>
+                                <select name="berita_pihak_2" class="select select-2 form-control">
                                     <option value="">-- Pihak <b>KEDUA</b>--</option>
                                     @foreach ($pegawai as $s)
                                     <option value="{{ $s->pegawai_id }}">{{ $s->nip }} - {{ $s->nama_lengkap }}</option>
@@ -65,26 +48,24 @@
                     </div>
 
                     <hr>
-                    <h6> <b>Detail Pekerjaan</b></h6>
+                    <h6> <b>Detail Barang</b></h6>
 
                     <table class="table table-bordered responsive" id="user_table" width="100%" >
                         <thead>
                             <tr>
-                                <th width="35%">Jenis Pekerjaan</th>
-                                <th>Detail Pekerjaan</th>
-                                <th> </th>
+                                <th>No. </th>
+                                <th>Kode Barang</th>
+                                <th width="20%">Nama Barang</th>
+                                <th>Satuan</th>
+                                <th>Spek</th>
+                                <th>Jumlah</th>
+                                <th width="20%">Harga</th>
+                                <th><button type="button" class="btn btn-default" onclick="modalBarang()"><i class="fa fa-plus"></i></button> List Barang</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <td><input type="text" name="jenis_pekerjaan[]" placeholder="Input Jenis Pekerjaan" id="jenis_pekerjaan" class="form-control" required /></td>
-                                <td><textarea type="text" name="detail_pekerjaan[]" id="detail_pekerjaan" class="form-control" placeholder="Input Detail Pekerjaan" required></textarea></td>
-                                <td></td>
-                            </tr>
-                        </tbody>
                         <tfoot>
                             <tr>
-                                <th><button type="button" name="add" class="btn btn-success btn-sm add"><i class="fa fa-plus"></i> Tambah </button> </th>
+                                <th><button type="button" name="add" class="btn btn-success btn-sm add"><i class="fa fa-plus"></i> Tambah Manuak</button> </th>
                             </tr>
                         </tfoot>
                     </table>
@@ -106,100 +87,84 @@
 @section('formTambahJS')
 <script>
 
-    function checkForm() {
-        const status = $("#status").val();
-        const pb_kode = $("input[name='pb_kode']").val();
-        const pb_tanggal = $("input[name='pb_tanggal']").val();
-        const pb_keterangan = $("input[name='pb_keterangan']").val();
+    $(document).ready(function() {
+        tableListPO = $('#user_table').DataTable({
+            'ordering'    : false,
+            'bPaginate'   : false,
+            'bFilter'     : false,
+            'bInfo'       : false,
+            'fixedColumns': true,
+            'responsive': true,
+            'columnDefs'  : [
+                { 'width': 10, 'targets': 0 },
+                { 'width': 125, 'targets': 1 },
+                { 'width': 250, 'targets': 2 },
+                { 'width': 150, 'targets': 3 },
+                { 'width': 150, 'targets': 4 },
+                { 'width': 150, 'targets': 5 },
+                { 'width': 350, 'targets': 6 },
+                ],
+        });
+    });
 
-        setLoading(true);
-        resetValid();
 
-        if (pb_tanggal == "") {
-            validasi('Tanggal Keluar wajib di isi!', 'warning');
-            $("input[name='pb_tanggal']").addClass('is-invalid');
-            setLoading(false);
-            return false;
-        }else {
-            submitForm();
+    function deleteRow(barang_kode){
+        tableListPO.row('#'+barang_kode).remove().draw();
+        var data = tableListPO.rows().data();
+        var new_no_urut =1 ;
+        for (let index = 0; index < data.length; index++) {
+            var append_1 = new_no_urut;
+            tableListPO.cell({row:index, column:0}).data(append_1);
+            new_no_urut++;
         }
-
     }
 
-    function submitForm() {
-        var pb_kode       = $("input[name='pb_kode']").val();
-        var pb_tanggal    = $("input[name='pb_tanggal']").val();
-        var pb_keterangan    = $("input[name='pb_keterangan']").val();
-        var pb_supplier   = $("input[name='pb_supplier']").val();
+    $('input[name="kdbarang"]').keypress(function(event) {
+        var keycode = (event.keyCode ? event.keyCode : event.which);
+        if (keycode == '13') {
+            getbarangbyid($('input[name="kdbarang"]').val());
+        }
+    });
 
-        var barang_kode = $('input[name="barang_kode[]"').map(function(){
-                    return this.value;
-                }).get();
+    function modalBarang() {
+        $('#modalBarang').modal('show');
+        $('#modaldemo8').addClass('d-none');
+        $('input[name="param"]').val('tambah');
+        resetValid();
+        table2.ajax.reload();
+    }
 
-        var jml = $("input[name='jml']").val();
-        var harga = $("input[name='harga']").val();
-        var barang_id       = $("input[name='barang_id']").val();
+    function searchBarang() {
+        getbarangbyid($('input[name="kdbarang"]').val());
+        resetValid();
+    }
 
-
+    function getbarangbyid(id) {
+        $("#loaderkd").removeClass('d-none');
         $.ajax({
-            type: 'POST',
-            url: "{{ route('pb.store') }}",
-            enctype: 'multipart/form-data',
-            data: {
-                pb_kode: pb_kode,
-                pb_keterangan : pb_keterangan,
-                barang_id: barang_id,
-                pb_tanggal: pb_tanggal,
-                pb_supplier: pb_supplier,
-                barang_kode: barang_kode,
-                jml: jml,
-                harga: harga,
-            },
+            type: 'GET',
+            url: "{{ url('admin/barang/getbarang') }}/" + id,
+            processData: false,
+            contentType: false,
+            dataType: 'json',
             success: function(data) {
-                $('#modaldemo8').modal('toggle');
-                swal({
-                    title: "Berhasil ditambah!",
-                    type: "success"
-                });
-                table.ajax.reload(null, false);
-                reset();
-
+                if (data.length > 0) {
+                    $("#loaderkd").addClass('d-none');
+                    $("#status").val("true");
+                    $("#nmbarang").val(data[0].barang_nama);
+                    $("#satuan").val(data[0].satuan_nama);
+                    $("#jenis").val(data[0].jenisbarang_nama);
+                    $("#harga").val(data[0].barang_harga);
+                } else {
+                    $("#loaderkd").addClass('d-none');
+                    $("#status").val("false");
+                    $("#nmbarang").val('');
+                    $("#satuan").val('');
+                    $("#jenis").val('');
+                    $("#harga").val('');
+                }
             }
         });
-    }
-
-    function resetValid() {
-        $("input[name='tglkeluar']").removeClass('is-invalid');
-        $("input[name='kdbarang']").removeClass('is-invalid');
-        $("input[name='tujuan']").removeClass('is-invalid');
-        $("input[name='jml']").removeClass('is-invalid');
-        $("input[name='harga']").removeClass('is-invalid');
-    };
-
-    function reset() {
-        resetValid();
-        $("input[name='pb_kode']").val('');
-        $("input[name='tglkeluar']").val('');
-        $("input[name='kdbarang']").val('');
-        $("input[name='tujuan']").val('');
-        $("input[name='jml']").val('0');
-        $("input[name='harga']").val('');
-        $("#nmbarang").val('');
-        $("#satuan").val('');
-        $("#jenis").val('');
-        $("#harga").val('');
-        $("#status").val('false');
-        setLoading(false);
-    }
-
-    function setLoading(bool) {
-        if (bool == true) {
-            $('#btnLoader').removeClass('d-none');
-            $('#btnSimpan').addClass('d-none');
-        } else {
-            $('#btnSimpan').removeClass('d-none');
-            $('#btnLoader').addClass('d-none');
-        }
     }
 
 
@@ -212,6 +177,12 @@
         if (count > 1) {
             html += '<tr>';
 
+            html += '<td> <input type="text" name="jenis_pekerjaan[]" id="jenis_pekerjaan" class="form-control" required/></td>';
+            html += '<td> <input type="text" name="jenis_pekerjaan[]" id="jenis_pekerjaan" class="form-control" required/></td>';
+            html += '<td> <input type="text" name="jenis_pekerjaan[]" id="jenis_pekerjaan" class="form-control" required/></td>';
+            html += '<td> <input type="text" name="jenis_pekerjaan[]" id="jenis_pekerjaan" class="form-control" required/></td>';
+            html += '<td> <input type="text" name="jenis_pekerjaan[]" id="jenis_pekerjaan" class="form-control" required/></td>';
+            html += '<td> <input type="text" name="jenis_pekerjaan[]" id="jenis_pekerjaan" class="form-control" required/></td>';
             html += '<td> <input type="text" name="jenis_pekerjaan[]" id="jenis_pekerjaan" class="form-control" required/></td>';
 
             html += '<td><textarea type="text" name="detail_pekerjaan[]" id="detail_pekerjaan" class="form-control" required></textarea></td>';
