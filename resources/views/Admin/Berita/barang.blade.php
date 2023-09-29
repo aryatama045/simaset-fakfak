@@ -73,12 +73,12 @@
             row_s =  data.length+1;
             tableListPO.row.add([
                 row_s,
-            '<input type="hidden" name="barang_kode[]" id="barang_kode" class="form-control" value="'+barang_kode+'" required>'+barang_kode,
+            '<input type="hidden" name="barang_id[]" id="barang_id" class="form-control" value="'+barang_id+'" required>'+barang_kode,
             '<input type="hidden" name="barang_nama[]" class="form-control" value="'+barang_nama+'">'+barang_nama,
             '<input type="text" name="stok[]" class="form-control" value="'+stok+'" readonly>',
             '<input type="text" name="harga_satuan[]" class="form-control" value="'+harga_satuan+'" readonly>',
             '<input type="text" name="jumlah_harga[]" class="form-control" value="'+jumlah_harga+'" readonly>',
-            '<input type="hidden" name="barang_id[]" id="barang_id" class="form-control" value="'+barang_id+'" required><button type="button" class="btn btn-danger" onclick="deleteRow(\''+barang_kode+'\')"><i class="fa fa-trash"></i></button>'
+            '<button type="button" class="btn btn-danger" onclick="deleteRow(\''+barang_kode+'\')"><i class="fa fa-trash"></i></button>'
             ]).node().id = barang_kode;
             tableListPO.draw( false );
             clearTimeout(timer);
