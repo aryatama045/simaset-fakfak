@@ -270,25 +270,22 @@ class BeritaController extends Controller
         // if (!empty($id)){
 
 
-            $data_header = DB::table('tbl_pb as h')
-            ->leftjoin('tbl_supplier as s', 'h.supplier_id', '=', 's.supplier_id')
-            ->leftjoin('tbl_user as u', 'h.pb_pic', '=', 'u.user_id')
-            ->where('h.pb_id', $id)
-            ->select('h.pb_kode as no_dok','h.pb_keterangan','h.pb_footer','h.created_at',
-                    's.supplier_nama as supplier','s.supplier_keterangan',
-                    'u.user_nmlengkap as nama_user' )
-            ->get();
+            $data_header = DB::table('tbl_berita as h')
+                ->leftJoin('tbl_pegawai as p1', 'h.berita_pihak_1', '=', 'p1.pegawai_id')
+                ->leftJoin('tbl_pegawai as p2', 'h.berita_pihak_2', '=', 'p2.pegawai_id')
+                ->where('h.berita_id', $id)
+                ->Select('h.*',
+                    'p1.nip as p1_nip', 'p1.nama_lengkap as p1_nama', 'p1.jabatan as p1_jabatan','p1.alamat as p1_alamat',
+                    'p2.nip as p2_nip', 'p2.nama_lengkap as p2_nama', 'p2.jabatan as p2_jabatan','p2.alamat as p2_alamat')
+            ->orderBy('berita_id', 'DESC')->get();
 
 
             // if($data_header) {
 
-                $data_detail = DB::table('tbl_pbdetail as pbd')
-                ->leftjoin('tbl_barang as brg', 'pbd.barang_id', '=', 'brg.barang_id')
-                ->leftjoin('tbl_satuan as s', 'brg.satuan_id','=', 's.satuan_id')
-                ->where('pbd.pb_id', $id)
-                ->select('pbd.pb_jumlah as jumlah','pbd.pb_harga',
-                'brg.barang_kode','brg.barang_nama as barang',
-                's.satuan_nama as satuan')
+                $data_detail = DB::table('tbl_beritadetail as brg')
+                ->leftjoin('tbl_barang as brg', 'bd.barang_id', '=', 'brg.barang_id')
+                ->where('bd.berita_id', $id)
+                ->select('bd.*h','brg.barang_nama as nama_barang')
                 ->get();
 
                 // $data_detail = '';
