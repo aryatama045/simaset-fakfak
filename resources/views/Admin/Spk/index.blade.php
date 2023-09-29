@@ -49,7 +49,6 @@
                                 <th class="border-bottom-0">No. SPK</th>
                                 <th class="border-bottom-0">Pihak 1</th>
                                 <th class="border-bottom-0">Pihak 2</th>
-                                <th class="border-bottom-0">Jenis</th>
                                 <th class="border-bottom-0">Tgl. Pengajuan</th>
                                 <th class="border-bottom-0" width="1%">Action</th>
                             </thead>
@@ -129,15 +128,11 @@
                     },
                     {
                         data: 'pihak_1',
-                        name: 'spk_pihak_1',
+                        name: 'pihak_1',
                     },
                     {
                         data: 'pihak_2',
-                        name: 'spk_pihak_2',
-                    },
-                    {
-                        data: 'jenis',
-                        name: 'spk_jenis',
+                        name: 'pihak_2',
                     },
                     {
                         data: 'spk_tanggal',
