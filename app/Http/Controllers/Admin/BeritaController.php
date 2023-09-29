@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Admin\AksesModel;
 use App\Models\Admin\BeritaModel;
 use App\Models\Admin\BeritadetailModel;
+use App\Models\Admin\BarangModel;
 use App\Models\Admin\PegawaiModel;
 use App\Models\Admin\SupplierModel;
 use Illuminate\Http\Request;
