@@ -122,7 +122,7 @@
             "lengthChange": true,
 
             "ajax": {
-                "url": "{{url('admin/barang/listbarang')}}/param",
+                "url": "{{url('admin/berita/listbarang')}}/param",
                 "data": function(d) {
                     d.param = $('input[name="param"]').val();
                 }
