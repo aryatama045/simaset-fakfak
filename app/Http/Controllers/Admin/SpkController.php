@@ -68,6 +68,8 @@ class SpkController extends Controller
                 ->addColumn('action', function ($row) {
                     $array = array(
                         "spk_id" => $row->spk_id,
+                        "spk_kode" => $row->spk_kode,
+                        "spk_keterangan" => $row->spk_keterangan,
                     );
                     $button = '';
                     $hakEdit = AksesModel::leftJoin('tbl_submenu', 'tbl_submenu.submenu_id', '=', 'tbl_akses.submenu_id')->where(array('tbl_akses.role_id' => Session::get('user')->role_id, 'tbl_submenu.submenu_judul' => 'Surat Perintah Kerja', 'tbl_akses.akses_type' => 'update'))->count();
