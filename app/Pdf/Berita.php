@@ -238,7 +238,7 @@ class Berita extends Fpdf
         $this->Ln(4);
         $this->Line(11,$this->GetY(),269.4,$this->GetY());
         $this->Ln(2);
-        $this->setFont('Times','B',11);
+        $this->setFont('Times','B',10);
         $this->cell(212,1,'',0,0,'R');
         $this->Ln(2);
         $this->cell(20,1,'NO',0,0,'L');
@@ -272,7 +272,7 @@ class Berita extends Fpdf
 
 
             $jumlah_harga = $value->stok * $value->barang_harga;
-            $this->setFont('Arial','',7);
+            $this->setFont('Times','',10);
             $this->cell(20,1,$no,0,0,'L');
             $this->cell(60,1,$value->barang_nama,0,0,'L');
             $this->cell(25,1,$value->stok,0,0,'L');
@@ -331,12 +331,16 @@ class Berita extends Fpdf
         $this->Ln(4);
         $this->cell(20,1,'',0,0,'L');
         $this->setFont('Times','B',11);
-        $this->Multicell(45,1,'MENGETAHUI SEKRETARIS DPRD KABUPATEN FAKFAK',0,0,'C');
+        $this->cell(45,1,'MENGETAHUI  ',0,0,'C');
         $this->cell(50,1,'',0,0,'L');
         $this->cell(45,1,'PENGURUS BARANG',0,0,'C');
 
         $this->Ln(4);
-        $this->cell(20,1,'',0,0,'L');
+        $this->cell(20,1,'SEKRETARIS DPRD',0,0,'L');
+        $this->cell(45,1,'',0,0,'C');
+        $this->Ln(4);
+
+        $this->cell(20,1,'KABUPATEN FAKFAK',0,0,'L');
         $this->cell(45,1,'',0,0,'C');
 
         $this->Ln(25);
