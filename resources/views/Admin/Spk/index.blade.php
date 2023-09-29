@@ -74,7 +74,6 @@
         function update(data) {
             $("input[name='idspkU']").val(data.spk_id);
             $("input[name='spkU']").val(data.spk_kode.replace(/_/g, ' '));
-            $("textarea[name='ketU']").val(data.spk_keterangan.replace(/_/g, ' '));
         }
 
         function hapus(data) {
