@@ -56,6 +56,8 @@
                         <th width="20%">Nama Barang</th>
                         <th>Sisa Stok</th>
                         <th>Harga Satuan</th>
+                        <th>Jumlah Harga</th>
+                        <th width="20%">Harga</th>
                         <th><button type="button" class="btn btn-default" onclick="modalBarang()"><i class="fa fa-plus"></i></button></th>
                     </tr>
                     </thead>
@@ -95,6 +97,7 @@
                 { 'width': 125, 'targets': 1 },
                 { 'width': 125, 'targets': 1 },
                 { 'width': 250, 'targets': 2 },
+                { 'width': 150, 'targets': 3 },
                 { 'width': 150, 'targets': 4 },
                 { 'width': 50, 'targets': 6 },
                 ],
