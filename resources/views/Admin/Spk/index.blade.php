@@ -71,12 +71,6 @@
     <!-- @include('Admin.PengadaanBarang.barang') -->
 
     <script>
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-
 
         function update(data) {
             $("input[name='idspkU']").val(data.spk_id);
@@ -97,6 +91,17 @@
             });
         }
 
+    </script>
+
+@endsection
+
+@section('scripts')
+    <script>
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
 
         var table;
         $(document).ready(function() {
@@ -155,5 +160,5 @@
 
             });
         });
-    </script>
+    </>
 @endsection
