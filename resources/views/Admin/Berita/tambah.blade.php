@@ -53,7 +53,6 @@
                     <table class="table table-bordered responsive" id="user_table" width="100%" >
                         <thead>
                             <tr>
-                                <th>No. </th>
                                 <th>Kode Barang</th>
                                 <th width="20%">Nama Barang</th>
                                 <th>Satuan</th>
@@ -177,7 +176,6 @@
         if (count > 1) {
             html += '<tr>';
 
-            html += '<td> <input type="text" name="jenis_pekerjaan[]" id="jenis_pekerjaan" class="form-control" required/></td>';
             html += '<td> <input type="text" name="jenis_pekerjaan[]" id="jenis_pekerjaan" class="form-control" required/></td>';
             html += '<td> <input type="text" name="jenis_pekerjaan[]" id="jenis_pekerjaan" class="form-control" required/></td>';
             html += '<td> <input type="text" name="jenis_pekerjaan[]" id="jenis_pekerjaan" class="form-control" required/></td>';
