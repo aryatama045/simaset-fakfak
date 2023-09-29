@@ -233,33 +233,78 @@ class Berita extends Fpdf
 
     }
 
+    function HeaderTable(){
+
+        $this->Ln(4);
+        $this->Line(11,$this->GetY(),269.4,$this->GetY());
+        $this->Ln(2);
+        $this->setFont('Times','B',11);
+        $this->cell(212,1,'',0,0,'R');
+        $this->Ln(2);
+        $this->cell(20,1,'NO',0,0,'L');
+        $this->cell(55,1,'URAIAN',0,0,'L');
+        $this->cell(35,1,'SISA STOK',0,0,'L');
+        $this->cell(35,1,'HARGA SATUAN',0,0,'L');
+        $this->cell(50,1,'JUMLAH HARGA',0,0,'L');
+        $this->Ln(2);
+        $this->Ln(3);
+        $this->Line(11,$this->GetY(),269.4,$this->GetY());
+        $this->Ln(4);
+
+    }
+
     function Body(){
 
         // $this->cell(70,1,$this->terbilang('2023'),0,0,'C');
         // $this->Ln(4);
 
+
+        $this->HeaderTable();
+
         $baris  = 1;
         $row    = 1;
 
+        $no=1;
+        foreach ($this->detail as $key => $value) {
+            if($this->GetY() > 204.80125){
+                $this->AddPage();
+            }
+
+
+            $jumlah_harga = $value->stok * $value->barang_harga;
+            $this->setFont('Arial','',7);
+            $this->cell(20,1,$no,0,0,'L');
+            $this->cell(60,1,$value->barang_nama,0,0,'L');
+            $this->cell(25,1,$value->stok,0,0,'L');
+            $this->cell(30,1,$value->barang_harga,0,0,'L');
+            $this->cell(50,1,$jumlah_harga,0,0,'L');
+            $this->Ln(4);
+        }
+        $this->setFont('Arial','B',7);
+        $this->Line(11,$this->GetY(),269.4,$this->GetY());
+        $this->Ln(4);
+
         // for($x=0; $x < 2; $x++){
 
-            foreach ($this->detail as $k => $value) {
+            // foreach ($this->detail as $k => $value) {
 
-                $this->setFont('Times','',11);
-                $this->cell(15,2,'',0,0,'L');
-                $this->cell(45,2,$value->barang_nama,0,0,'L');
-                $this->cell(5,2,' : ',0,0,'L');
-                $this->Multicell(110,4,$value->stok,0);
-                $this->Ln(4);
-                if($this->halaman==1){
-                    if($baris==4){
-                        $this->AddPage();
-                        $baris = 1;
-                    }
-                }
+            //     $this->setFont('Times','',11);
+            //     $this->cell(15,2,'',0,0,'L');
+            //     $this->cell(45,2,$value->barang_nama,0,0,'L');
+            //     $this->cell(5,2,' : ',0,0,'L');
+            //     $this->Multicell(110,4,$value->stok,0);
+            //     $this->Ln(4);
+            //     if($this->halaman==1){
+            //         if($baris==4){
+            //             $this->AddPage();
+            //             $baris = 1;
+            //         }
+            //     }
 
-                $baris++;
-            }
+            //     $baris++;
+            // }
+            // $this->Ln(2);
+            // $this->Line(11,$this->GetY(),195,$this->GetY());
         // }
 
 
