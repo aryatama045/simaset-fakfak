@@ -67,12 +67,10 @@
         var timer;
 
         var check_id = document.getElementById(barang_kode);
-        var tableListPO;
         if(check_id === null){
             var data = tableListPO.rows().data();
             row_s =  data.length+1;
             tableListPO.row.add([
-            row_s,
             '<input type="hidden" name="barang_kode[]" id="barang_kode" class="form-control" value="'+barang_kode+'" required>'+barang_kode,
             '<input type="hidden" name="barang_nama[]" class="form-control" value="'+barang_nama+'">'+barang_nama,
             '<input type="hidden" name="satuan[]" class="form-control" value="'+satuan+'">'+satuan,
