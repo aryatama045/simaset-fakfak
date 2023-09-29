@@ -49,17 +49,8 @@
     function pilihBarang(data) {
         const key = $("#randkey").val();
         $("#status").val("true");
-        // $("input[name='kdbarang']").val(data.barang_kode);
-        // $("#nmbarang").val(data.barang_nama.replace(/_/g, ' '));
-        // $("#satuan").val(data.satuan_nama.replace(/_/g, ' '));
-        // $("#jenis").val(data.jenisbarang_nama.replace(/_/g, ' '));
-        // $("#harga").val(data.barang_harga);
         $('#modaldemo8').removeClass('d-none');
-        // $('#modalBarang').modal('hide');
 
-        // var rowData = table2.row(this).data();
-
-        // console.log(rowData[2]);
         var barang_id = data.barang_id;
         var barang_kode = data.barang_kode;
         var barang_nama = data.barang_nama;
