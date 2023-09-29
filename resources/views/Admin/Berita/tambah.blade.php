@@ -95,7 +95,6 @@
                 { 'width': 125, 'targets': 1 },
                 { 'width': 125, 'targets': 1 },
                 { 'width': 250, 'targets': 2 },
-                { 'width': 150, 'targets': 3 },
                 { 'width': 150, 'targets': 4 },
                 { 'width': 50, 'targets': 6 },
                 ],

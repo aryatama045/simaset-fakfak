@@ -77,8 +77,7 @@
             '<input type="hidden" name="stok[]" class="form-control" value="'+stok+'">'+stok,
             '<input type="text" name="spek[]" class="form-control" value="" required >',
             '<input type="number" name="jml[]" id="jml" class="form-control input-number jml" value="0" required step="1">',
-            '<input type="hidden" name="barang_id[]" id="barang_id" class="form-control" value="'+barang_id+'" required>'
-            '<button type="button" class="btn btn-danger" onclick="deleteRow(\''+barang_kode+'\')"><i class="fa fa-trash"></i></button>'
+            '<input type="hidden" name="barang_id[]" id="barang_id" class="form-control" value="'+barang_id+'" required><button type="button" class="btn btn-danger" onclick="deleteRow(\''+barang_kode+'\')"><i class="fa fa-trash"></i></button>'
             ]).node().id = barang_kode;
             tableListPO.draw( false );
             clearTimeout(timer);
