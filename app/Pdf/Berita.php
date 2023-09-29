@@ -337,12 +337,12 @@ class Berita extends Fpdf
         $this->cell(45,1,'PENGURUS BARANG',0,0,'C');
 
         $this->Ln(4);
-        $this->cell(20,1,'SEKRETARIS DPRD',0,0,'L');
-        $this->cell(45,1,'',0,0,'C');
+        $this->cell(20,1,'',0,0,'C');
+        $this->cell(45,1,'SEKRETARIS DPRD',0,0,'C');
         $this->Ln(4);
 
-        $this->cell(20,1,'KABUPATEN FAKFAK',0,0,'L');
-        $this->cell(45,1,'',0,0,'C');
+        $this->cell(20,1,'',0,0,'C');
+        $this->cell(45,1,'KABUPATEN FAKFAK',0,0,'C');
 
         $this->Ln(25);
         $this->setFont('Times','BU',11);
