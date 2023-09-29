@@ -64,10 +64,10 @@ class PbController extends Controller
 
                     return $supplier;
                 })
-                ->addColumn('pegawai', function ($row) {
-                    $pegawai = $row->nama_lengkap == '' ? '-' : $row->nama_lengkap;
+                ->addColumn('pejabat', function ($row) {
+                    $pejabat = $row->nama_lengkap == '' ? '-' : $row->nama_lengkap;
 
-                    return $pegawai;
+                    return $pejabat;
                 })
                 ->addColumn('pic', function ($row) {
                     $pic = $row->user_nmlengkap == '' ? '-' : $row->user_nmlengkap;
