@@ -101,7 +101,7 @@
                 { 'width': 150, 'targets': 3 },
                 { 'width': 150, 'targets': 4 },
                 { 'width': 150, 'targets': 5 },
-                { 'width': 350, 'targets': 6 },
+                { 'width': 50, 'targets': 6 },
                 ],
         });
     });
