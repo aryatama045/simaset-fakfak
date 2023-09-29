@@ -205,6 +205,7 @@ class BeritaController extends Controller
 
     public function proses_tambah(Request $request)
     {
+        dd($request);
         
         $header = array(
             'berita_kode'   => $request->berita_kode,
@@ -231,7 +232,7 @@ class BeritaController extends Controller
         for($x=0; $x < $count_d; $x++) {
             $detail_barang = array(
                 'berita_id'     => $berita_data->berita_id,
-                'barang_id'     => $request->barangid[$x],
+                'barang_id'     => $request->barang_id[$x],
                 'stok'          => $request->stok[$x],
                 'harga_satuan'  => $request->harga_satuan[$x],
             );
