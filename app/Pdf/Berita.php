@@ -139,22 +139,14 @@ class Berita extends Fpdf
 
             $this->Ln(6);
             $this->Line(11,$this->GetY(),195,$this->GetY());
-            $this->Ln(0.1);
-            $this->Line(11,$this->GetY(),195,$this->GetY());
 
 
-            $this->Ln(6);
-            $this->Line(11,$this->GetY(),195,$this->GetY());
-            $this->Ln(0.1);
-            $this->Line(11,$this->GetY(),195,$this->GetY());
-            $this->Ln(1);
-            $this->setFont('Times','BU',14);
+            $this->Ln(4);
+            $this->setFont('Times','BU',12);
             $this->cell(0,10,'BERITA ACARA PEMERIKSAAN BARANG PERSEDIAAN / STOCK OPNAME',0,0,'C');
             $this->Ln(6);
-            $this->setFont('Times','',10);
+            $this->setFont('Times','b',12);
             $this->cell(0,10,'NOMOR : '.$this->header[0]->berita_kode,0,0,'C');
-
-
             $this->Line(11,$this->GetY(),195,$this->GetY());
             $this->Ln(4);
 
