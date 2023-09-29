@@ -16,7 +16,7 @@ use App\Models\Admin\SupplierModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Yajra\DataTables\Facades\DataTables;
-use App\Pdf\Nota;
+use App\Pdf\Berita;
 use DB;
 
 class BeritaController extends Controller
@@ -304,9 +304,9 @@ class BeritaController extends Controller
 
 
 
-            $myPdf = new Nota($output);
+            $myPdf = new Berita($output);
 
-            $myPdf->Output('I', "Notapesan.pdf", true);
+            $myPdf->Output('I', "BeritaAcara.pdf", true);
 
             exit;
         // }
