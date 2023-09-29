@@ -63,6 +63,8 @@
 
 
                 </table>
+                <br>
+                <button type="button" name="add" class="btn btn-success btn-sm add"><i class="fa fa-plus"></i> Tambah Manual</button>
             </div>
 
 
@@ -96,7 +98,7 @@
                 { 'width': 150, 'targets': 3 },
                 { 'width': 150, 'targets': 4 },
                 { 'width': 150, 'targets': 5 },
-                { 'width': 350, 'targets': 6 },
+                { 'width': 50, 'targets': 6 },
                 ],
         });
     });
@@ -160,6 +162,56 @@
             }
         });
     }
+
+
+    var count = 1;
+
+    function add_input_field(count) {
+
+        var html = '';
+
+        if (count > 1) {
+            html += '<tr>';
+
+            html += '<td> <input type="text" name="jenis_pekerjaan[]" id="jenis_pekerjaan" class="form-control" required/></td>';
+
+            html += '<td><textarea type="text" name="detail_pekerjaan[]" id="detail_pekerjaan" class="form-control" required></textarea></td>';
+
+        }
+
+        var remove_button = '';
+
+        if (count > 1) {
+
+            remove_button = '<button type="button" name="remove" class="btn btn-danger btn-sm remove"><i class="fa fa-trash"></i> Batal</button>';
+
+        } else {
+
+            remove_button = '';
+        }
+
+        html += '<td>' + remove_button + '</td></tr>';
+
+        return html;
+
+    }
+
+    $('#user_table').append(add_input_field(1));
+
+
+    $(document).on('click', '.add', function() {
+
+        count++;
+        $('#user_table').append(add_input_field(count));
+
+
+    });
+
+    $(document).on('click', '.remove', function() {
+
+        $(this).closest('tr').remove();
+
+    });
 
 
 </script>
