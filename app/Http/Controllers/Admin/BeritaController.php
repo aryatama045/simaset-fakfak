@@ -236,10 +236,10 @@ class BeritaController extends Controller
 
         // dd($header, $log_detail);
 
-        return redirect('admin/berita')->with('create_message', 'Success !! Berita Acara Nomor : '. $request->berita_kode);
+        return redirect('admin/berita')->with('create_message', 'Berita Acara Nomor : '. $request->berita_kode);
     }
 
-    public function proses_ubah(Request $request, PbModel $pb)
+    public function proses_ubah(Request $request, BeritaModel $pb)
     {
         $slug = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $request->pb)));
 
@@ -253,10 +253,11 @@ class BeritaController extends Controller
         return response()->json(['success' => 'Berhasil']);
     }
 
-    public function proses_hapus(Request $request, PbModel $pb)
+    public function proses_hapus(Request $request, BeritaModel $berita, $id)
     {
-        //delete
-        $pb->delete();
+
+        BeritaModel::where('berita_id',$id)->delete();
+        BeritadetailModel::where('berita_id',$id)->delete();
 
         return response()->json(['success' => 'Berhasil']);
     }
