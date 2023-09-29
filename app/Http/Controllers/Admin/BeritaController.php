@@ -205,44 +205,38 @@ class BeritaController extends Controller
 
     public function proses_tambah(Request $request)
     {
-        $slug = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $request->pb)));
-
+        
         $header = array(
-            'pb_kode'   => $request->pb_kode,
-            'supplier_id' => $request->pb_supplier,
-            'pb_tanggal'    => $request->pb_tanggal,
-            'pb_keterangan' => $request->keterangan,
-        );
-        // dd($header, $request);
+            'berita_kode'   => $request->berita_kode,
+            'berita_pihak_1'   => $request->berita_pihak_1,
+            'berita_pihak_2'   => $request->berita_pihak_2,
+            'berita_pic'       => '1',
+            'berita_tanggal'    => $request->berita_tanggal,
 
+        );
 
         //insert data
-        // PbModel::create($header);
+        // BeritaModel::create($header);
+
+        $berita_data = BeritaModel::latest()->first();
 
 
-        $c_barang = count($request->barang_kode);
+        $count_d = count($request->barang_kode);
         $log_detail = array();
-        for($x=0; $x < $c_barang; $x++) {
+        for($x=0; $x < $count_d; $x++) {
             $detail_barang = array(
-                'barang_kode' => $request->barang_kode[$x],
-                'satuan'       => $request->satuan[$x],
-                'spek'       => $request->spek[$x],
-                'pb_jumlah'       => $request->jml[$x],
-                'pb_harga'       => $request->harga[$x],
+                'berita_id'     => $berita_data->berita_id,
+                'barang_id'     => $request->barang_id[$x],
+                'stok'          => $request->stok[$x],
+                'harga_satuan'  => $request->harga_satuan[$x],
             );
             array_push($log_detail, $detail_barang);
+            // BeritadetailModel::create($detail_barang);
         }
 
-        // dd($log_detail);
+        dd($header, $log_detail);
 
-
-        // $data = response()->json(['success' => 'Berhasil']);
-
-        // return view('Admin.Berita.index', $data);
-
-        // \Session::flash('create_message', 'Sent successfully');
-
-        return redirect('admin/pb')->with('create_message', 'Pengajuan berhasil No : '. $request->pb_kode);
+        return redirect('admin/berita')->with('create_message', 'Success !! Berita Acara Nomor : '. $request->berita_kode);
     }
 
     public function proses_ubah(Request $request, PbModel $pb)
