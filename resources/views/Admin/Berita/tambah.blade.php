@@ -57,7 +57,6 @@
                         <th>Sisa Stok</th>
                         <th>Harga Satuan</th>
                         <th>Jumlah Harga</th>
-                        <th width="20%">Harga</th>
                         <th><button type="button" class="btn btn-default" onclick="modalBarang()"><i class="fa fa-plus"></i></button></th>
                     </tr>
                     </thead>
