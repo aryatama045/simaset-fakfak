@@ -64,13 +64,13 @@
 
                 </table>
                 <br>
-                <button type="button" name="add" class="btn btn-success btn-sm add"><i class="fa fa-plus"></i> Tambah Manual</button>
+                {{-- <button type="button" name="add" class="btn btn-success btn-sm add"><i class="fa fa-plus"></i> Tambah Manual</button> --}}
             </div>
 
 
             <div class="modal-footer pull-right">
                 <button type="submit" class="btn btn-primary">Simpan <i class="fe fe-check"></i></button>
-                <a href="{{url('admin/pb')}}" class="btn btn-light" >Batal <i class="fe fe-x"></i></a>
+                <a href="{{url('admin/berita')}}" class="btn btn-light" >Batal <i class="fe fe-x"></i></a>
             </div>
 
 
