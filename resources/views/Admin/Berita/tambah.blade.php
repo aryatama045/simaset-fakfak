@@ -3,7 +3,7 @@
 
 <!-- MODAL TAMBAH -->
 <div class="modal fade" data-bs-backdrop="static" id="modaldemo8">
-    <form class="modal-dialog-scrollable" action="{{url('admin/pb/proses_tambah')}}" method="POST">
+    <form class="modal-dialog-scrollable" action="{{url('admin/berita/proses_tambah')}}" method="POST">
     @csrf
     <div class="modal-dialog modal-dialog-centered modal-xl modal-dialog-scrollable" role="document">
         <div class="modal-content ">
@@ -177,20 +177,11 @@
 
             html += '<td><textarea type="text" name="detail_pekerjaan[]" id="detail_pekerjaan" class="form-control" required></textarea></td>';
 
+            html += '<td><button type="button" name="remove" class="btn btn-danger btn-sm remove"><i class="fa fa-trash"></i> Batal</button></td>';
+
+            html += '</tr>';
         }
 
-        var remove_button = '';
-
-        if (count > 1) {
-
-            remove_button = '<button type="button" name="remove" class="btn btn-danger btn-sm remove"><i class="fa fa-trash"></i> Batal</button>';
-
-        } else {
-
-            remove_button = '';
-        }
-
-        html += '<td>' + remove_button + '</td></tr>';
 
         return html;
 
