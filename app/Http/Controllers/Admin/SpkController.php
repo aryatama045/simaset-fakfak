@@ -105,8 +105,9 @@ class SpkController extends Controller
     {
 
         $header = array(
-            'spk_kode'           => $request->spk_kode,
+            'spk_kode'          => $request->spk_kode,
             'spk_jenis'         => $request->spk_jenis,
+            'spk_rekening'      => $request->spk_rekening,
             'spk_tanggal'       => $request->spk_tanggal,
             'spk_pihak_1'       => $request->spk_pihak_1,
             'spk_pihak_2'       => $request->spk_pihak_2,

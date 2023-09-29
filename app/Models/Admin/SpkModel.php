@@ -12,9 +12,10 @@ class SpkModel extends Model
     protected $primaryKey = 'spk_id';
     protected $fillable = [
         'spk_kode',
+        'spk_jenis',
+        'spk_rekening',
         'spk_pic',
         'spk_tanggal',
-        'spk_jenis',
         'spk_pihak_1',
         'spk_pihak_2',
         'spk_mengetahui',
