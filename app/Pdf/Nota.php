@@ -196,7 +196,7 @@ class Nota extends Fpdf
         $this->Ln(6);
         $this->cell(115,1,'',0,0,'L');
         $this->cell(25,1,'Pada Tanggal ',0,0,'L');
-        $this->cell(18,1,' : '.date('d M Y', strtotime($this->header[0]->pb_tanggal)),0,0,'L');
+        $this->cell(18,1,' : '.date('d MM Y', strtotime($this->header[0]->pb_tanggal)),0,0,'L');
         $this->Ln(6);
         $this->setFont('Times','B',11);
         $this->cell(115,1,'',0,0,'L');
