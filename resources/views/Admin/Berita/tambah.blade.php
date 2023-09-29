@@ -59,7 +59,7 @@
                                 <th>Spek</th>
                                 <th>Jumlah</th>
                                 <th width="20%">Harga</th>
-                                <th><button type="button" class="btn btn-default" onclick="modalBarang()"><i class="fa fa-plus"></i></button> List Barang</th>
+                                <th><button type="button" class="btn btn-default" onclick="modalBarang()"><i class="fa fa-plus"></i></button></th>
                             </tr>
                         </thead>
                         <tfoot>
