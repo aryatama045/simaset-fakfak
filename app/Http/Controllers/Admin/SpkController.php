@@ -36,8 +36,8 @@ class SpkController extends Controller
                 ->leftJoin('tbl_supplier as p2', 'h.spk_pihak_2', '=', 'p2.supplier_id')
                 ->leftJoin('tbl_pegawai as m', 'h.spk_mengetahui', '=', 'm.pegawai_id')
                 ->leftJoin('tbl_user', 'h.spk_pic', '=', 'tbl_user.user_id')
-                ->Select('h.*',                
-                    'p1.nip as p1_nip', 'p1.nama_lengkap as p1_nama', 'p1.jabatan as p1_jabatan','p1.alamat as p1_alamat', 
+                ->Select('h.*',
+                    'p1.nip as p1_nip', 'p1.nama_lengkap as p1_nama', 'p1.jabatan as p1_jabatan','p1.alamat as p1_alamat',
                     'm.nip as m_nip', 'm.nama_lengkap as m_nama', 'm.jabatan as m_jabatan', 'm.alamat as m_alamat',
                     'p2.supplier_nama as sp_nama', 'p2.nama_lengkap as sp_nama','p2.jabatan as sp_jabatan', 'p2.alamat as sp_alamat')
             ->orderBy('spk_id', 'DESC')->get();
@@ -129,7 +129,7 @@ class SpkController extends Controller
             SpkdetailModel::create($detail_jenis);
         }
 
-        dd($header, $log_detail);
+        // dd($header, $log_detail);
 
 
 
@@ -174,8 +174,8 @@ class SpkController extends Controller
             ->leftJoin('tbl_pegawai as m', 'h.spk_mengetahui', '=', 'm.pegawai_id')
             ->leftJoin('tbl_user', 'h.spk_pic', '=', 'tbl_user.user_id')
             ->where('h.spk_id', $id)
-            ->Select('h.*',                
-                'p1.nip as p1_nip', 'p1.nama_lengkap as p1_nama', 'p1.jabatan as p1_jabatan','p1.alamat as p1_alamat', 
+            ->Select('h.*',
+                'p1.nip as p1_nip', 'p1.nama_lengkap as p1_nama', 'p1.jabatan as p1_jabatan','p1.alamat as p1_alamat',
                 'm.nip as m_nip', 'm.nama_lengkap as m_nama', 'm.jabatan as m_jabatan', 'm.alamat as m_alamat',
                 'p2.supplier_nama as sp_perusahaan', 'p2.nama_lengkap as sp_nama','p2.jabatan as sp_jabatan', 'p2.alamat as sp_alamat')
             ->orderBy('spk_id', 'DESC')->get();
