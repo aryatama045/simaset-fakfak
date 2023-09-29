@@ -216,7 +216,7 @@ class BeritaController extends Controller
         );
 
         //insert data
-        // BeritaModel::create($header);
+        BeritaModel::create($header);
 
         $berita_data = BeritaModel::latest()->first();
 
@@ -225,16 +225,16 @@ class BeritaController extends Controller
         $log_detail = array();
         for($x=0; $x < $count_d; $x++) {
             $detail_barang = array(
-                'berita_id'     => '1',
+                'berita_id'     => $berita_data->berita_id,
                 'barang_id'     => $request->barang_id[$x],
                 'stok'          => $request->stok[$x],
                 'harga_satuan'  => $request->harga_satuan[$x],
             );
             array_push($log_detail, $detail_barang);
-            // BeritadetailModel::create($detail_barang);
+            BeritadetailModel::create($detail_barang);
         }
 
-        dd($header, $log_detail);
+        // dd($header, $log_detail);
 
         return redirect('admin/berita')->with('create_message', 'Success !! Berita Acara Nomor : '. $request->berita_kode);
     }
