@@ -45,13 +45,25 @@
                 <div class="table-responsive">
                     <table id="table-1" class="table table-bordered text-nowrap border-bottom dataTable no-footer dtr-inline collapsed">
                         <thead>
-                            <th class="border-bottom-0" width="1%">No</th>
-                            <th class="border-bottom-0">Tanggal Masuk</th>
-                            <th class="border-bottom-0">Kode Barang Masuk</th>
-                            <th class="border-bottom-0">Kode Barang</th>
-                            <th class="border-bottom-0">Customer</th>
-                            <th class="border-bottom-0">Barang</th>
-                            <th class="border-bottom-0">Jumlah Masuk</th>
+                            <tr>
+                                <th class="border-bottom-0" rowspan="2" width="1%">No</th>
+                                <th class="border-bottom-0" rowspan="2">Tanggal Masuk</th>
+                                <th class="border-bottom-0" colspan="2">NOMOR</th>
+                            </tr>
+                            <tr>
+                                <th class="border-bottom-0">Kode Barang Masuk</th>
+                                <th class="border-bottom-0">Kode Barang</th>
+                            </tr>
+                            <tr>
+                                <th class="border-bottom-0" colspan="3">JUMLAH</th>
+                            </tr>
+                            
+                            <tr>
+                                <th class="border-bottom-0">Customer</th>
+                                <th class="border-bottom-0">Barang</th>
+                                <th class="border-bottom-0">Jumlah Masuk</th>
+                            </tr>
+                            
                         </thead>
                         <tbody></tbody>
                     </table>
