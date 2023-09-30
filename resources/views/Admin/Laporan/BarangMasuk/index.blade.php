@@ -120,8 +120,8 @@
                     name: 'barang_kode',
                 },
                 {
-                    data: 'customer',
-                    name: 'customer_nama',
+                    data: 'supplier',
+                    name: 'supplier_nama',
                 },
                 {
                     data: 'barang',
