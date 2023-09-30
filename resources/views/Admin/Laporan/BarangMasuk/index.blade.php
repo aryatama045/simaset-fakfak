@@ -48,17 +48,11 @@
                             <tr>
                                 <th class="border-bottom-0" rowspan="2" width="1%">No</th>
                                 <th class="border-bottom-0" rowspan="2">Tanggal Masuk</th>
-                                <th class="border-bottom-0" colspan="2">NOMOR</th>
+                                <th class="border-bottom-0" colspan="2">BARANG</th>
                             </tr>
                             <tr>
                                 <th class="border-bottom-0">Kode Barang Masuk</th>
                                 <th class="border-bottom-0">Kode Barang</th>
-                            </tr>
-                            <tr>
-                                <th class="border-bottom-0" colspan="3">JUMLAH</th>
-                            </tr>
-                            
-                            <tr>
                                 <th class="border-bottom-0">Customer</th>
                                 <th class="border-bottom-0">Barang</th>
                                 <th class="border-bottom-0">Jumlah Masuk</th>
