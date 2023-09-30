@@ -8,6 +8,8 @@ use App\Models\Admin\BarangmasukModel;
 use App\Models\Admin\BarangModel;
 use App\Models\Admin\CustomerModel;
 use App\Models\Admin\SupplierModel;
+use App\Models\Admin\PbModel;
+use App\Models\Admin\PbdetailModel;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -21,6 +23,8 @@ class BarangmasukController extends Controller
         $data["hakTambah"] = AksesModel::leftJoin('tbl_submenu', 'tbl_submenu.submenu_id', '=', 'tbl_akses.submenu_id')->where(array('tbl_akses.role_id' => Session::get('user')->role_id, 'tbl_submenu.submenu_judul' => 'Barang Masuk', 'tbl_akses.akses_type' => 'create'))->count();
         $data["customer"] = CustomerModel::orderBy('customer_id', 'DESC')->get();
         $data["supplier"] = SupplierModel::orderBy('supplier_id', 'DESC')->get();
+        $data["pengadaan"] = PbModel::orderBy('pb_id', 'DESC')->get();
+
         return view('Admin.BarangMasuk.index', $data);
     }
 
@@ -86,6 +90,86 @@ class BarangmasukController extends Controller
                 ->rawColumns(['action', 'tgl', 'supplier', 'barang'])->make(true);
         }
     }
+
+    public function listpengadaan(Request $request)
+    {
+        if ($request->ajax()) {
+            $data = PbModel::leftJoin('tbl_supplier', 'tbl_pb.supplier_id', '=', 'tbl_supplier.supplier_id')
+            ->leftJoin('tbl_pegawai', 'tbl_pb.pb_pejabat', '=', 'tbl_pegawai.pegawai_id')
+            ->leftJoin('tbl_user', 'tbl_pb.pb_pic', '=', 'tbl_user.user_id')
+            ->orderBy('pb_id', 'DESC')->get();
+
+            return Datatables::of($data)
+                ->addIndexColumn()
+                ->addColumn('ket', function ($row) {
+                    $ket = $row->pb_keterangan == '' ? '-' : $row->pb_keterangan;
+
+                    $ket = substr(strip_tags($ket), 0, 10);
+
+                    return $ket;
+                })
+                ->addColumn('footer', function ($row) {
+                    $footer = $row->pb_footer == '' ? '-' : $row->pb_footer;
+                    $footer = substr(strip_tags($footer), 0, 10);
+
+                    return $footer;
+                })
+                ->addColumn('supplier', function ($row) {
+                    $supplier = $row->supplier_nama == '' ? '-' : $row->supplier_nama;
+
+                    return $supplier;
+                })
+                ->addColumn('pejabat', function ($row) {
+                    $pejabat = $row->nama_lengkap == '' ? '-' : $row->nama_lengkap;
+
+                    return $pejabat;
+                })
+                ->addColumn('pic', function ($row) {
+                    $pic = $row->user_nmlengkap == '' ? '-' : $row->user_nmlengkap;
+
+                    return $pic;
+                })
+                ->addColumn('action', function ($row) {
+                    $array = array(
+                        "pb_id" => $row->pb_id,
+                        "pb_kode" => $row->pb_kode,
+                        // "pb_supplier" => $row->supplier_nama,
+                        // "pb_pic" => $row->pb_pic,
+                        // "pb_tanggal" => $row->pb_tanggal,
+                        "pb_keterangan" => trim(preg_replace('/[^A-Za-z0-9-]+/', '_', $row->pb_keterangan))
+                    );
+                    $button = '';
+                    $hakEdit = AksesModel::leftJoin('tbl_submenu', 'tbl_submenu.submenu_id', '=', 'tbl_akses.submenu_id')->where(array('tbl_akses.role_id' => Session::get('user')->role_id, 'tbl_submenu.submenu_judul' => 'Pengadaan Barang', 'tbl_akses.akses_type' => 'update'))->count();
+                    $hakDelete = AksesModel::leftJoin('tbl_submenu', 'tbl_submenu.submenu_id', '=', 'tbl_akses.submenu_id')->where(array('tbl_akses.role_id' => Session::get('user')->role_id, 'tbl_submenu.submenu_judul' => 'Pengadaan Barang', 'tbl_akses.akses_type' => 'delete'))->count();
+                    if ($hakEdit > 0 && $hakDelete > 0) {
+                        $button .= '
+                        <div class="g-2">
+                        <a class="btn text-success btn-sm" target="_blank" href="pb/genInvoice/'.$row->pb_id.'" > <span class="fe fe-printer text-success fs-14"></span> PDF</a>
+                        <a class="btn modal-effect text-primary btn-sm" data-bs-effect="effect-super-scaled" data-bs-toggle="modal" href="#Umodaldemo8" data-bs-toggle="tooltip" data-bs-original-title="Edit" onclick=update(' . json_encode($array) . ')><span class="fe fe-edit text-success fs-14"></span></a>
+                        <a class="btn modal-effect text-danger btn-sm" data-bs-effect="effect-super-scaled" data-bs-toggle="modal" href="#Hmodaldemo8" onclick=hapus(' . json_encode($array) . ')><span class="fe fe-trash-2 fs-14"></span></a>
+                        </div>
+                        ';
+                    } else if ($hakEdit > 0 && $hakDelete == 0) {
+                        $button .= '
+                        <div class="g-2">
+                            <a class="btn modal-effect text-primary btn-sm" data-bs-effect="effect-super-scaled" data-bs-toggle="modal" href="#Umodaldemo8" data-bs-toggle="tooltip" data-bs-original-title="Edit" onclick=update(' . json_encode($array) . ')><span class="fe fe-edit text-success fs-14"></span></a>
+                        </div>
+                        ';
+                    } else if ($hakEdit == 0 && $hakDelete > 0) {
+                        $button .= '
+                        <div class="g-2">
+                        <a class="btn modal-effect text-danger btn-sm" data-bs-effect="effect-super-scaled" data-bs-toggle="modal" href="#Hmodaldemo8" onclick=hapus(' . json_encode($array) . ')><span class="fe fe-trash-2 fs-14"></span></a>
+                        </div>
+                        ';
+                    } else {
+                        $button .= '-';
+                    }
+                    return $button;
+                })
+                ->rawColumns(['action', 'ket'])->make(true);
+        }
+    }
+
 
     public function proses_tambah(Request $request)
     {

@@ -22,7 +22,7 @@
                 <h3 class="card-title">Data</h3>
                 @if ($hakTambah > 0)
                 <div>
-                    <a class="modal-effect btn btn-primary-light" onclick="generateID()" data-bs-effect="effect-super-scaled" data-bs-toggle="modal" href="#modaldemo8">Tambah Data
+                    <a class="modal-effect btn btn-primary-light" onclick="generateID()" data-bs-effect="effect-super-scaled" data-bs-toggle="modal" href="#modalBarang">Tambah Data
                         <i class="fe fe-plus"></i></a>
                 </div>
                 @endif

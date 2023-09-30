@@ -3,7 +3,7 @@
     <div class="modal-dialog modal-xl modal-dialog-scrollable" role="document">
         <div class="modal-content modal-content-demo">
             <div class="modal-header">
-                <h6 class="modal-title">Pilih Barang</h6><button onclick="resetB('tambah')" aria-label="Close" class="btn-close"><span aria-hidden="true">&times;</span></button>
+                <h6 class="modal-title">Pilih Faktur Pengadaan</h6><button onclick="resetB('tambah')" aria-label="Close" class="btn-close"><span aria-hidden="true">&times;</span></button>
             </div>
             <div class="modal-body p-4 pb-5">
                 <input type="hidden" value="tambah" name="param">
@@ -12,14 +12,10 @@
                     <table id="table-2" width="100%" class="table table-bordered text-nowrap border-bottom dataTable no-footer dtr-inline collapsed">
                         <thead>
                             <th class="border-bottom-0" width="1%">No</th>
-                            <th class="border-bottom-0">Gambar</th>
-                            <th class="border-bottom-0">Kode Barang</th>
-                            <th class="border-bottom-0">Nama Barang</th>
-                            <th class="border-bottom-0">Jenis</th>
-                            <th class="border-bottom-0">Satuan</th>
-                            <th class="border-bottom-0">Merk</th>
-                            <th class="border-bottom-0">Stok</th>
-                            <th class="border-bottom-0">Harga</th>
+                            <th class="border-bottom-0">No. Pesanan</th>
+                            <th class="border-bottom-0">Supplier</th>
+                            <th class="border-bottom-0">Mengetahui</th>
+                            <th class="border-bottom-0">Tgl. Pengajuan</th>
                             <th class="border-bottom-0" width="1%">Action</th>
                         </thead>
                         <tbody></tbody>
@@ -88,7 +84,7 @@
             "lengthChange": true,
 
             "ajax": {
-                "url": "{{url('admin/barang/listbarang')}}/param",
+                "url": "{{url('admin/barang-masuk/listpengadaan')}}/param",
                 "data": function(d) {
                     d.param = $('input[name="param"]').val();
                 }
@@ -100,38 +96,20 @@
                     searchable: false
                 },
                 {
-                    data: 'img',
-                    name: 'barang_foto',
-                    searchable: false,
-                    orderable: false
+                    data: 'pb_kode',
+                    name: 'pb_kode',
                 },
                 {
-                    data: 'barang_kode',
-                    name: 'barang_kode',
+                    data: 'supplier',
+                    name: 'supplier',
                 },
                 {
-                    data: 'barang_nama',
-                    name: 'barang_nama',
+                    data: 'pejabat',
+                    name: 'pb_pejabat',
                 },
                 {
-                    data: 'jenisbarang',
-                    name: 'jenisbarang_nama',
-                },
-                {
-                    data: 'satuan',
-                    name: 'satuan_nama',
-                },
-                {
-                    data: 'merk',
-                    name: 'merk_nama'
-                },
-                {
-                    data: 'totalstok',
-                    name: 'barang_stok'
-                },
-                {
-                    data: 'currency',
-                    name: 'barang_harga'
+                    data: 'pb_tanggal',
+                    name: 'pb_tanggal',
                 },
                 {
                     data: 'action',
