@@ -17,11 +17,11 @@
                             <input type="text" name="tglmasuk" class="form-control datepicker-date" placeholder="">
                         </div>
                         <div class="form-group">
-                            <label for="customer" class="form-label">Pilih Customer <span class="text-danger">*</span></label>
-                            <select name="customer" id="customer" class="form-control">
-                                <option value="">-- Pilih Customer --</option>
-                                @foreach ($customer as $c)
-                                <option value="{{ $c->customer_id }}">{{ $c->customer_nama }}</option>
+                            <label for="supplier" class="form-label">Pilih Supplier <span class="text-danger">*</span></label>
+                            <select name="supplier" id="supplier" class="form-control">
+                                <option value="">-- Pilih Supplier --</option>
+                                @foreach ($supplier as $c)
+                                <option value="{{ $c->supplier_id }}">{{ $c->supplier_nama }}</option>
                                 @endforeach
                             </select>
                         </div>

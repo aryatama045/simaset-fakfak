@@ -18,11 +18,11 @@
                             <input type="text" name="tglmasukU" class="form-control datepicker-date" placeholder="">
                         </div>
                         <div class="form-group">
-                            <label for="customerU" class="form-label">Pilih Customer <span class="text-danger">*</span></label>
-                            <select name="customerU" id="customerU" class="form-control">
+                            <label for="supplierU" class="form-label">Pilih Customer <span class="text-danger">*</span></label>
+                            <select name="supplierU" id="supplierU" class="form-control">
                                 <option value="">-- Pilih Customer --</option>
-                                @foreach ($customer as $c)
-                                <option value="{{ $c->customer_id }}">{{ $c->customer_nama }}</option>
+                                @foreach ($supplier as $c)
+                                <option value="{{ $c->supplier_id }}">{{ $c->supplier_nama }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -131,7 +131,7 @@
         const tglmasuk = $("input[name='tglmasukU']").val();
         const status = $("#statusU").val();
         const kdbarang = $("input[name='kdbarangU").val();
-        const customer = $("select[name='customerU']").val();
+        const supplier = $("select[name='supplierU']").val();
         const jml = $("input[name='jmlU']").val();
         setLoadingU(true);
         resetValidU();
@@ -141,9 +141,9 @@
             $("input[name='tglmasukU']").addClass('is-invalid');
             setLoading(Ufalse);
             return false;
-        } else if (customer == "") {
+        } else if (supplier == "") {
             validasi('Customer wajib di pilih!', 'warning');
-            $("select[name='customerU']").addClass('is-invalid');
+            $("select[name='supplierU']").addClass('is-invalid');
             setLoadingU(false);
             return false;
         } else if (status == "false" || kdbarang == '') {
@@ -166,7 +166,7 @@
         const bmkode = $("input[name='bmkodeU']").val();
         const tglmasuk = $("input[name='tglmasukU']").val();
         const kdbarang = $("input[name='kdbarangU']").val();
-        const customer = $("select[name='customerU']").val();
+        const supplier = $("select[name='supplierU']").val();
         const jml = $("input[name='jmlU']").val();
 
         $.ajax({
@@ -177,7 +177,7 @@
                 bmkode: bmkode,
                 tglmasuk: tglmasuk,
                 barang: kdbarang,
-                customer: customer,
+                supplier: supplier,
                 jml: jml
             },
             success: function(data) {
@@ -195,7 +195,7 @@
     function resetValidU() {
         $("input[name='tglmasukU']").removeClass('is-invalid');
         $("input[name='kdbarangU']").removeClass('is-invalid');
-        $("select[name='customerU']").removeClass('is-invalid');
+        $("select[name='supplierU']").removeClass('is-invalid');
         $("input[name='jmlU']").removeClass('is-invalid');
     };
 
@@ -205,7 +205,7 @@
         $("input[name='bmkodeU']").val('');
         $("input[name='tglmasukU']").val('');
         $("input[name='kdbarangU']").val('');
-        $("select[name='customerU']").val('');
+        $("select[name='supplierU']").val('');
         $("input[name='jmlU']").val('0');
         $("#nmbarangU").val('');
         $("#satuanU").val('');

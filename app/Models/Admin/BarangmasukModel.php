@@ -14,6 +14,7 @@ class BarangmasukModel extends Model
         'bm_kode',
         'barang_kode',
         'customer_id',
+        'supplier_id',
         'bm_tanggal',
         'bm_jumlah',
     ]; 

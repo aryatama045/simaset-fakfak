@@ -7,6 +7,7 @@ use App\Models\Admin\AksesModel;
 use App\Models\Admin\BarangmasukModel;
 use App\Models\Admin\BarangModel;
 use App\Models\Admin\CustomerModel;
+use App\Models\Admin\SupplierModel;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -19,13 +20,16 @@ class BarangmasukController extends Controller
         $data["title"] = "Barang Masuk";
         $data["hakTambah"] = AksesModel::leftJoin('tbl_submenu', 'tbl_submenu.submenu_id', '=', 'tbl_akses.submenu_id')->where(array('tbl_akses.role_id' => Session::get('user')->role_id, 'tbl_submenu.submenu_judul' => 'Barang Masuk', 'tbl_akses.akses_type' => 'create'))->count();
         $data["customer"] = CustomerModel::orderBy('customer_id', 'DESC')->get();
+        $data["supplier"] = SupplierModel::orderBy('supplier_id', 'DESC')->get();
         return view('Admin.BarangMasuk.index', $data);
     }
 
     public function show(Request $request)
     {
         if ($request->ajax()) {
-            $data = BarangmasukModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangmasuk.barang_kode')->leftJoin('tbl_customer', 'tbl_customer.customer_id', '=', 'tbl_barangmasuk.customer_id')->orderBy('bm_id', 'DESC')->get();
+            $data = BarangmasukModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangmasuk.barang_kode')
+            ->leftJoin('tbl_supplier', 'tbl_supplier.supplier_id', '=', 'tbl_barangmasuk.supplier_id')
+            ->orderBy('bm_id', 'DESC')->get();
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn('tgl', function ($row) {
@@ -33,10 +37,10 @@ class BarangmasukController extends Controller
 
                     return $tgl;
                 })
-                ->addColumn('customer', function ($row) {
-                    $customer = $row->customer_id == '' ? '-' : $row->customer_nama;
+                ->addColumn('supplier', function ($row) {
+                    $supplier = $row->supplier_id == '' ? '-' : $row->supplier_nama;
 
-                    return $customer;
+                    return $supplier;
                 })
                 ->addColumn('barang', function ($row) {
                     $barang = $row->barang_id == '' ? '-' : $row->barang_nama;
@@ -48,7 +52,7 @@ class BarangmasukController extends Controller
                         "bm_id" => $row->bm_id,
                         "bm_kode" => $row->bm_kode,
                         "barang_kode" => $row->barang_kode,
-                        "customer_id" => $row->customer_id,
+                        "supplier_id" => $row->supplier_id,
                         "bm_tanggal" => $row->bm_tanggal,
                         "bm_jumlah" => $row->bm_jumlah
                     );
@@ -79,7 +83,7 @@ class BarangmasukController extends Controller
                     }
                     return $button;
                 })
-                ->rawColumns(['action', 'tgl', 'customer', 'barang'])->make(true);
+                ->rawColumns(['action', 'tgl', 'supplier', 'barang'])->make(true);
         }
     }
 
@@ -91,7 +95,7 @@ class BarangmasukController extends Controller
             'bm_tanggal' => $request->tglmasuk,
             'bm_kode' => $request->bmkode,
             'barang_kode' => $request->barang,
-            'customer_id'   => $request->customer,
+            'supplier_id'   => $request->supplier,
             'bm_jumlah'   => $request->jml,
         ]);
 
@@ -105,7 +109,7 @@ class BarangmasukController extends Controller
         $barangmasuk->update([
             'bm_tanggal' => $request->tglmasuk,
             'barang_kode' => $request->barang,
-            'customer_id'   => $request->customer,
+            'supplier_id'   => $request->supplier,
             'bm_jumlah'   => $request->jml,
         ]);
 
