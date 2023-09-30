@@ -65,6 +65,23 @@
                     </div>
                 </div>
 
+                <table class="table table-bordered responsive" id="barang_table" width="100%" >
+                    <thead>
+                        <tr>
+                            <th>No. </th>
+                            <th>Kode Barang</th>
+                            <th width="20%">Nama Barang</th>
+                            <th>Satuan</th>
+                            <th>Spek</th>
+                            <th>Jumlah</th>
+                            <th width="20%">Harga</th>
+                            <th><button type="button" class="btn btn-default" onclick="modalBarang()"><i class="fa fa-plus"></i></button></th>
+                        </tr>
+                    </thead>
+
+
+                </table>
+
             </div>
             <div class="modal-footer">
                 <button class="btn btn-primary d-none" id="btnLoader" type="button" disabled="">

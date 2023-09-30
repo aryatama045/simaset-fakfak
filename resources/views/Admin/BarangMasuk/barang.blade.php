@@ -64,7 +64,7 @@
         $('#modalBarang').modal('hide');
     }
 
-    var table2;
+    var table2, barang_table;
     $(document).ready(function() {
         //datatables
         table2 = $('#table-2').DataTable({
@@ -120,8 +120,55 @@
             ],
 
         });
+
+        /* Event On tr Table Browse BKB */
+        // $('#table-2 tbody').on( 'click', 'tr', function () {
+        //     var rowData = table-2.row(this).data();
+        //     copyDocument(rowData[1]);
+        // });
+        /* End Event On tr Table Browse BKB */
     });
 
+
+    /* Get Detail BKB untuk copy document Menggunakan Ajax */
+    function copyDocument(no_doc_trans){
+        $.ajax({
+        url: "{{url('admin/barang-masuk/copydocument')}}",
+        type: 'post',
+        data : {
+            no_doc_trans: no_doc_trans,
+        },
+        dataType: 'json',
+        success:function(response) {
+            
+            if(response.success){
+
+
+                /* Set Data Detail */
+                    barang_table.clear().draw();
+                    $.each(response.detail, function(index, value) {
+                        var result = Object.keys(value).map(function(key) {
+                        return [ value[key]];
+                        });
+                        barang_table.row.add(result).draw( false );
+                    });
+                /* End Set Data Detail */
+
+
+
+                $('#modalBarang').modal('hide');
+                $("input[type=text]").attr("autocomplete", "off");
+            }else{
+                dialog_warning('Notification',response.messages);
+            }
+
+        }
+        });
+    }
+    /* End Get Detail BKB untuk copy document Menggunakan Ajax */
+
+
+    
     function makeid(length) {
         var result = '';
         var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
