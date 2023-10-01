@@ -163,11 +163,10 @@ class BarangmasukController extends Controller
 
         $cek_pb = PbModel::where('pb_id' , $id)->get();
 
-        $kode = $cek_pb[0]->pb_kode;
 
         // dd($cek_pb);
 
-        if($kode != FALSE){
+        if($cek_pb[0] == TRUE){
 
 
             $data["title"] = "Barang Masuk";
