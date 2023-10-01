@@ -378,6 +378,9 @@ class BarangController extends Controller
             $slug_kategori = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $data['kategori'])));
             $kategori       = KategoriModel::firstOrCreate(['kategori_nama' => $data['kategori'], 'kategori_slug' => $slug_kategori, 'kategori_ket' => '']);
 
+            $slug_merk = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $data['merk'])));
+            $merk       = KategoriModel::firstOrCreate(['merk_nama' => $data['merk'], 'merk_slug' => $slug_merk, 'merk_ket' => '']);
+
             $slug_satuan = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $data['satuan'])));
             $satuan_data    = SatuanModel::firstOrCreate(['satuan_nama' => $data['satuan'], 'satuan_slug' => $slug_satuan, 'satuan_keterangan' => '']);
 
@@ -398,6 +401,7 @@ class BarangController extends Controller
             $product->barang_nama       = $data['name'];
             $product->jenisbarang_id    = $jenis_data->jenisbarang_id;
             $product->kategori_id       = $kategori->kategori_id;
+            $product->merk_id           = $merk->merk_id;
             $product->satuan_id         = $satuan_data->satuan_id;
             $product->barang_spek       = $data['spek'];
             $product->barang_stok       = 0;
