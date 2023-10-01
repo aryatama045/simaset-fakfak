@@ -334,7 +334,7 @@ class BarangController extends Controller
     }
 
 
-    public function import__barang(Request $request)
+    public function import_barang(Request $request)
     {
         //get file
         $upload=$request->file('file');
