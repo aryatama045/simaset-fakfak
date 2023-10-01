@@ -19,7 +19,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Import Data *</label>
-                        {{Form::file('file', array('class' => 'form-control','required'))}}
+                        <input type="file" class="form-control" required>
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -36,8 +36,9 @@
                     <span class="spinner-border spinner-border-sm me-1" role="status" aria-hidden="true"></span>
                     Loading...
                 </button>
-                {{Form::submit('Submit', ['class' => 'btn btn-primary'])}}
-                <a href="javascript:void(0)" onclick="checkForm()" id="btnSimpan" class="btn btn-primary">Simpan <i class="fe fe-check"></i></a>
+
+                <button type="submit" class="btn btn-primary">Simpan <i class="fe fe-check"></button>
+                {{-- <a href="javascript:void(0)" onclick="checkForm()" id="btnSimpan" class="btn btn-primary">Simpan <i class="fe fe-check"></i></a> --}}
                 <a href="javascript:void(0)" class="btn btn-light" onclick="reset()" data-bs-dismiss="modal">Batal <i class="fe fe-x"></i></a>
             </div>
 
