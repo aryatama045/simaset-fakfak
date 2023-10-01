@@ -169,11 +169,15 @@ class BarangmasukController extends Controller
 
         if($kode != FALSE){
 
+
             $data["title"] = "Barang Masuk";
             $data["hakTambah"] = AksesModel::leftJoin('tbl_submenu', 'tbl_submenu.submenu_id', '=', 'tbl_akses.submenu_id')->where(array('tbl_akses.role_id' => Session::get('user')->role_id, 'tbl_submenu.submenu_judul' => 'Barang Masuk', 'tbl_akses.akses_type' => 'create'))->count();
             $data["customer"] = CustomerModel::orderBy('customer_id', 'DESC')->get();
             $data["supplier"] = SupplierModel::orderBy('supplier_id', 'DESC')->get();
             $data["pengadaan"] = PbModel::orderBy('pb_id', 'DESC')->get();
+
+            $data["header"] = PbModel::where('pb_id' , $id)->get();
+            $data["detail"] = PbdetailModel::where('pb_id' , $id)->get();
 
             return view('Admin.BarangMasuk.copy', $data);
 
