@@ -1,6 +1,6 @@
 <!-- MODAL Import -->
 <div class="modal fade" data-bs-backdrop="static" id="modalimport">
-    <div class="modal-dialog modal-md modal-dialog-centered" role="document">
+    <div class="modal-dialog  modal-dialog-centered" role="document">
     {!! Form::open(['route' => 'barang.import', 'method' => 'post', 'files' => true]) !!}
 
         <div class="modal-content modal-content-demo">
