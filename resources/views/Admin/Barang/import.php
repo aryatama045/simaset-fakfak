@@ -1,6 +1,7 @@
 <!-- MODAL TAMBAH -->
 <div class="modal fade" data-bs-backdrop="static" id="modalimport">
     <div class="modal-dialog modal-md modal-dialog-centered" role="document">
+    {!! Form::open(['route' => 'product.import', 'method' => 'post', 'files' => true]) !!}
         <div class="modal-content modal-content-demo">
             <div class="modal-header">
                 <h6 class="modal-title">Tambah Barang</h6><button onclick="reset()" aria-label="Close" class="btn-close" data-bs-dismiss="modal"><span aria-hidden="true">&times;</span></button>
@@ -14,6 +15,19 @@
                     <input class="form-control mt-5" id="GetFile" name="importbarang" type="file" onchange="VerifyFileNameAndFileSize()" accept=".csv,.xlsx,.xls">
                 </div>
 
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Import Data *</label>
+                        {{Form::file('file', array('class' => 'form-control','required'))}}
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label> Template File</label>
+                        <a href="public/assets/sample_products.csv" class="btn btn-info btn-block btn-md"><i class="fe fe-download"></i>  File Download</a>
+                    </div>
+                </div>
+
             </div>
 
             <div class="modal-footer">
@@ -21,12 +35,14 @@
                     <span class="spinner-border spinner-border-sm me-1" role="status" aria-hidden="true"></span>
                     Loading...
                 </button>
+                {{Form::submit('Submit', ['class' => 'btn btn-primary'])}}
                 <a href="javascript:void(0)" onclick="checkForm()" id="btnSimpan" class="btn btn-primary">Simpan <i class="fe fe-check"></i></a>
                 <a href="javascript:void(0)" class="btn btn-light" onclick="reset()" data-bs-dismiss="modal">Batal <i class="fe fe-x"></i></a>
             </div>
 
 
         </div>
+    {!! Form::close() !!}
     </div>
 </div>
 
