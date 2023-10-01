@@ -166,7 +166,7 @@ class BarangmasukController extends Controller
 
         // dd($cek_pb);
 
-        if($cek_pb[0] == TRUE){
+        if(isset($cek_pb[0])){
 
 
             $data["title"] = "Barang Masuk";
