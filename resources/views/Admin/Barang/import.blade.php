@@ -9,12 +9,12 @@
             </div>
 
             <div class="modal-body">
-
+{{-- 
 
                 <div class="form-group">
                     <label for="title" class="form-label"> Import Data</label>
                     <input class="form-control mt-5" id="GetFile" name="importbarang" type="file" onchange="VerifyFileNameAndFileSize()" accept=".csv,.xlsx,.xls">
-                </div>
+                </div> --}}
 
                 <div class="col-md-6">
                     <div class="form-group">
@@ -38,7 +38,7 @@
                 </button>
 
                 <button type="submit" class="btn btn-primary">Simpan <i class="fe fe-check"></button>
-                {{-- <a href="javascript:void(0)" onclick="checkForm()" id="btnSimpan" class="btn btn-primary">Simpan <i class="fe fe-check"></i></a> --}}
+                
                 <a href="javascript:void(0)" class="btn btn-light" onclick="reset()" data-bs-dismiss="modal">Batal <i class="fe fe-x"></i></a>
             </div>
 
