@@ -1,7 +1,8 @@
 <!-- MODAL TAMBAH -->
 <div class="modal fade" data-bs-backdrop="static" id="modalimport">
     <div class="modal-dialog modal-md modal-dialog-centered" role="document">
-    {!! Form::open(['route' => 'product.import', 'method' => 'post', 'files' => true]) !!}
+    {!! Form::open(['url' => 'admin/spk/proses_tambah', 'method' => 'post', 'files' => true]) !!}
+
         <div class="modal-content modal-content-demo">
             <div class="modal-header">
                 <h6 class="modal-title">Tambah Barang</h6><button onclick="reset()" aria-label="Close" class="btn-close" data-bs-dismiss="modal"><span aria-hidden="true">&times;</span></button>
