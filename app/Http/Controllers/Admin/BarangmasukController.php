@@ -157,10 +157,9 @@ class BarangmasukController extends Controller
     }
 
 
-    public function copydocument(Request $request){
-		$no_doc_trans = $this->input->post('no_doc_trans');
+    public function copydocument(Request $request, $id){
 
-        dd($no_doc_trans);
+        dd($id);
 
         $data["title"] = "Barang Masuk";
         $data["hakTambah"] = AksesModel::leftJoin('tbl_submenu', 'tbl_submenu.submenu_id', '=', 'tbl_akses.submenu_id')->where(array('tbl_akses.role_id' => Session::get('user')->role_id, 'tbl_submenu.submenu_judul' => 'Barang Masuk', 'tbl_akses.akses_type' => 'create'))->count();
@@ -172,33 +171,33 @@ class BarangmasukController extends Controller
 
 
 		
-        if($no_doc_trans){
-			$output['header'] = array();
-			$header = $this->model_bkb_opening_store->getHeaderBKB($no_doc_trans);
-			if($header){
-				$header[0]['tgl_doc_trans'] = date("d/m/Y",strtotime($header[0]['tgl_doc_trans']));
-				$header[0]['tgl_reff'] 		= date("d/m/Y",strtotime($header[0]['tgl_reff']));
-				$header[0]['tgl_kirim'] 	= date("d/m/Y",strtotime($header[0]['tgl_kirim']));
-				$output['header'] = $header[0];
-			}
-			$output['detail'] = array();
-			$detail = $this->model_bkb_opening_store->getDetailBKB($no_doc_trans);
-			if($detail){
-				$i = 1;
-				foreach ($detail as $key => $value) {
-					$output['detail'][$key] = array(
-						$value['urut'],
-						$value['kd_brg'],
-						$value['nm_barang'],
-						$value['qty'],
-					);
-					$i++;
-				}
-			}
-		}else{
-			$output['data'] = [];
-		}
-		echo json_encode($output);
+        // if($no_doc_trans){
+		// 	$output['header'] = array();
+		// 	$header = $this->model_bkb_opening_store->getHeaderBKB($no_doc_trans);
+		// 	if($header){
+		// 		$header[0]['tgl_doc_trans'] = date("d/m/Y",strtotime($header[0]['tgl_doc_trans']));
+		// 		$header[0]['tgl_reff'] 		= date("d/m/Y",strtotime($header[0]['tgl_reff']));
+		// 		$header[0]['tgl_kirim'] 	= date("d/m/Y",strtotime($header[0]['tgl_kirim']));
+		// 		$output['header'] = $header[0];
+		// 	}
+		// 	$output['detail'] = array();
+		// 	$detail = $this->model_bkb_opening_store->getDetailBKB($no_doc_trans);
+		// 	if($detail){
+		// 		$i = 1;
+		// 		foreach ($detail as $key => $value) {
+		// 			$output['detail'][$key] = array(
+		// 				$value['urut'],
+		// 				$value['kd_brg'],
+		// 				$value['nm_barang'],
+		// 				$value['qty'],
+		// 			);
+		// 			$i++;
+		// 		}
+		// 	}
+		// }else{
+		// 	$output['data'] = [];
+		// }
+		// echo json_encode($output);
 	}
 
 
