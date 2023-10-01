@@ -1,7 +1,7 @@
 <!-- MODAL Import -->
 <div class="modal fade" data-bs-backdrop="static" id="modalimport">
     <div class="modal-dialog  modal-dialog-centered" role="document">
-        <form class="modal-dialog-scrollable" action="{{url('admin/barang/import_barang')}}" method="POST">
+        <form class="modal-dialog-scrollable" enctype='multipart/form-data' action="{{url('admin/barang/import_barang')}}" method="POST">
         @csrf
         <div class="modal-content modal-content-demo">
             <div class="modal-header">
@@ -12,7 +12,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Import Data *</label>
-                        <input type="file" class="form-control" required>
+                        <input name="file" type="file" class="form-control" required>
                     </div>
                 </div>
                 <div class="col-md-6">
