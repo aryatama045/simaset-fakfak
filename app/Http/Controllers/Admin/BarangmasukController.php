@@ -15,6 +15,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Yajra\DataTables\DataTables;
 
+
 class BarangmasukController extends Controller
 {
     public function index()
@@ -162,9 +163,11 @@ class BarangmasukController extends Controller
 
         $cek_pb = PbModel::where('pb_id' , $id)->get();
 
+        $kode = $cek_pb[0]->pb_kode;
+
         // dd($cek_pb);
 
-        if($cek_pb != NULL){
+        if($kode != FALSE){
 
             $data["title"] = "Barang Masuk";
             $data["hakTambah"] = AksesModel::leftJoin('tbl_submenu', 'tbl_submenu.submenu_id', '=', 'tbl_akses.submenu_id')->where(array('tbl_akses.role_id' => Session::get('user')->role_id, 'tbl_submenu.submenu_judul' => 'Barang Masuk', 'tbl_akses.akses_type' => 'create'))->count();
