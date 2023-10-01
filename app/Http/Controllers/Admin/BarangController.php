@@ -373,17 +373,21 @@ class BarangController extends Controller
 
             $data= array_combine($escapedHeader, $columns);
 
-            $slug_jenis = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $data['jenis'])));
-            $jenis_data = JenisBarangModel::firstOrCreate(['jenisbarang_nama' => $data['jenis'], 'jenisbarang_slug' => $slug_jenis, 'jenisbarang_ket' => '']);
+            if($data['jenis'] != NULL)
+                $slug_jenis = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $data['jenis'])));
+                $jenis_data = JenisBarangModel::firstOrCreate(['jenisbarang_nama' => $data['jenis'], 'jenisbarang_slug' => $slug_jenis, 'jenisbarang_ket' => '']);
 
-            $slug_kategori = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $data['kategori'])));
-            $kategori       = KategoriModel::firstOrCreate(['kategori_nama' => $data['kategori'], 'kategori_slug' => $slug_kategori, 'kategori_ket' => '']);
+            if($data['kategori'] != NULL)
+                $slug_kategori = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $data['kategori'])));
+                $kategori       = KategoriModel::firstOrCreate(['kategori_nama' => $data['kategori'], 'kategori_slug' => $slug_kategori, 'kategori_ket' => '']);
 
-            $slug_merk = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $data['merk'])));
-            $merk       = MerkModel::firstOrCreate(['merk_nama' => $data['merk'], 'merk_slug' => $slug_merk, 'merk_keterangan' => '']);
-
-            $slug_satuan = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $data['satuan'])));
-            $satuan_data    = SatuanModel::firstOrCreate(['satuan_nama' => $data['satuan'], 'satuan_slug' => $slug_satuan, 'satuan_keterangan' => '']);
+            if($data['merk'] != NULL)
+                $slug_merk = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $data['merk'])));
+                $merk       = MerkModel::firstOrCreate(['merk_nama' => $data['merk'], 'merk_slug' => $slug_merk, 'merk_keterangan' => '']);
+            
+            if($data['satuan'] != NULL)
+                $slug_satuan = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $data['satuan'])));
+                $satuan_data    = SatuanModel::firstOrCreate(['satuan_nama' => $data['satuan'], 'satuan_slug' => $slug_satuan, 'satuan_keterangan' => '']);
 
             $product        = BarangModel::firstOrNew([ 'barang_nama'=>$data['name'] ]);
 
