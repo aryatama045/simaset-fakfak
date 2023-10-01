@@ -373,19 +373,19 @@ class BarangController extends Controller
 
             $data= array_combine($escapedHeader, $columns);
 
-            if($data['jenis'] != NULL)
+            if($data['jenis'])
                 $slug_jenis = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $data['jenis'])));
                 $jenis_data = JenisBarangModel::firstOrCreate(['jenisbarang_nama' => $data['jenis'], 'jenisbarang_slug' => $slug_jenis, 'jenisbarang_ket' => '']);
 
-            if($data['kategori'] != NULL)
+            if($data['kategori'])
                 $slug_kategori = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $data['kategori'])));
                 $kategori       = KategoriModel::firstOrCreate(['kategori_nama' => $data['kategori'], 'kategori_slug' => $slug_kategori, 'kategori_ket' => '']);
 
-            if($data['merk'] != NULL)
+            if($data['merk'])
                 $slug_merk = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $data['merk'])));
                 $merk       = MerkModel::firstOrCreate(['merk_nama' => $data['merk'], 'merk_slug' => $slug_merk, 'merk_keterangan' => '']);
             
-            if($data['satuan'] != NULL)
+            if($data['satuan'])
                 $slug_satuan = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $data['satuan'])));
                 $satuan_data    = SatuanModel::firstOrCreate(['satuan_nama' => $data['satuan'], 'satuan_slug' => $slug_satuan, 'satuan_keterangan' => '']);
 
