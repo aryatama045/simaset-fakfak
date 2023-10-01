@@ -164,7 +164,7 @@ class BarangmasukController extends Controller
 
         // dd($cek_pb);
 
-        if($cek_pb = TRUE){
+        if($cek_pb != NULL){
 
             $data["title"] = "Barang Masuk";
             $data["hakTambah"] = AksesModel::leftJoin('tbl_submenu', 'tbl_submenu.submenu_id', '=', 'tbl_akses.submenu_id')->where(array('tbl_akses.role_id' => Session::get('user')->role_id, 'tbl_submenu.submenu_judul' => 'Barang Masuk', 'tbl_akses.akses_type' => 'create'))->count();
