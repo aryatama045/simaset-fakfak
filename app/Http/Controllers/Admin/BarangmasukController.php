@@ -159,7 +159,11 @@ class BarangmasukController extends Controller
 
     public function copydocument(Request $request, $id){
 
-        dd($id);
+
+        $cek_pb = PbModel::where('pb_id' , $id)->get();
+
+        dd($cek_pb);
+
 
         $data["title"] = "Barang Masuk";
         $data["hakTambah"] = AksesModel::leftJoin('tbl_submenu', 'tbl_submenu.submenu_id', '=', 'tbl_akses.submenu_id')->where(array('tbl_akses.role_id' => Session::get('user')->role_id, 'tbl_submenu.submenu_judul' => 'Barang Masuk', 'tbl_akses.akses_type' => 'create'))->count();
