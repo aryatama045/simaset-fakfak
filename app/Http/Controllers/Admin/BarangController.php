@@ -356,6 +356,8 @@ class BarangController extends Controller
             array_push($escapedHeader, $escapedItem);
         }
 
+        dd($escapedHeader);
+
         //looping through other columns
         while($columns=fgetcsv($file))
         {
