@@ -17,6 +17,7 @@
 <div class="row">
     <div class="col-sm-6 col-md-6 col-lg-6 col-xl-3">
         <div class="card bg-primary img-card box-primary-shadow">
+            <a href="{{url('admin/jenisbarang')}}">
             <div class="card-body">
                 <div class="d-flex">
                     <div class="text-white">
@@ -26,10 +27,12 @@
                     <div class="ms-auto"> <i class="fe fe-package text-white fs-40 me-2 mt-2"></i> </div>
                 </div>
             </div>
+            </a>
         </div>
     </div>
     <!-- COL END -->
     <div class="col-sm-6 col-md-6 col-lg-6 col-xl-3">
+        <a href="{{url('admin/satuan')}}">
         <div class="card bg-secondary img-card box-secondary-shadow">
             <div class="card-body">
                 <div class="d-flex">
@@ -41,9 +44,11 @@
                 </div>
             </div>
         </div>
+        </a>
     </div>
     <!-- COL END -->
     <div class="col-sm-6 col-md-6 col-lg-6 col-xl-3">
+        <a href="{{url('admin/merk')}}">
         <div class="card  bg-success img-card box-success-shadow">
             <div class="card-body">
                 <div class="d-flex">
@@ -55,9 +60,11 @@
                 </div>
             </div>
         </div>
+        </a>
     </div>
     <!-- COL END -->
     <div class="col-sm-6 col-md-6 col-lg-6 col-xl-3">
+        <a href="{{url('admin/barang')}}">
         <div class="card bg-info img-card box-info-shadow">
             <div class="card-body">
                 <div class="d-flex">
@@ -69,9 +76,11 @@
                 </div>
             </div>
         </div>
+        </a>
     </div>
     <!-- COL END -->
     <div class="col-sm-6 col-md-6 col-lg-6 col-xl-3">
+        <a href="{{url('admin/barang-masuk')}}">
         <div class="card bg-success img-card box-success-shadow">
             <div class="card-body">
                 <div class="d-flex">
@@ -83,9 +92,11 @@
                 </div>
             </div>
         </div>
+        </a>
     </div>
     <!-- COL END -->
     <div class="col-sm-6 col-md-6 col-lg-6 col-xl-3">
+        <a href="{{url('admin/barang-keluar')}}">
         <div class="card bg-danger img-card box-danger-shadow">
             <div class="card-body">
                 <div class="d-flex">
@@ -97,34 +108,39 @@
                 </div>
             </div>
         </div>
+        </a>
     </div>
     <!-- COL END -->
     <div class="col-sm-6 col-md-6 col-lg-6 col-xl-3">
+        <a href="{{url('admin/supplier')}}">
         <div class="card bg-purple img-card box-purple-shadow">
             <div class="card-body">
                 <div class="d-flex">
                     <div class="text-white">
-                        <h2 class="mb-0 number-font">{{$customer}}</h2>
-                        <p class="text-white mb-0">Customer</p>
+                        <h2 class="mb-0 number-font">{{$supplier}}</h2>
+                        <p class="text-white mb-0">Supplier</p>
                     </div>
                     <div class="ms-auto"> <i class="fe fe-user text-white fs-40 me-2 mt-2"></i> </div>
                 </div>
             </div>
         </div>
+        </a>
     </div>
     <!-- COL END -->
     <div class="col-sm-6 col-md-6 col-lg-6 col-xl-3">
+        <a href="{{url('admin/pegawai')}}">
         <div class="card bg-warning img-card box-warning-shadow">
             <div class="card-body">
                 <div class="d-flex">
                     <div class="text-white">
-                        <h2 class="mb-0 number-font">{{$user}}</h2>
-                        <p class="text-white mb-0">User</p>
+                        <h2 class="mb-0 number-font">{{$pegawai}}</h2>
+                        <p class="text-white mb-0">Pegawai</p>
                     </div>
                     <div class="ms-auto"> <i class="fe fe-user text-white fs-40 me-2 mt-2"></i> </div>
                 </div>
             </div>
         </div>
+        </a>
     </div>
     <!-- COL END -->
 </div>
