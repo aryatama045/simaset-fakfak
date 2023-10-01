@@ -1,7 +1,7 @@
 <!-- MODAL Import -->
 <div class="modal fade" data-bs-backdrop="static" id="modalimport">
     <div class="modal-dialog  modal-dialog-centered" role="document">
-    {!! Form::open(['route' => 'barang.import', 'method' => 'post', 'files' => true]) !!}
+        <form class="modal-dialog-scrollable" action="{{url('admin/barang/import_barang')}}" method="POST">
 
         <div class="modal-content modal-content-demo">
             <div class="modal-header">
@@ -43,7 +43,7 @@
 
 
         </div>
-    {!! Form::close() !!}
+        </form>
     </div>
 </div>
 
