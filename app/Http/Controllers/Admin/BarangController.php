@@ -398,7 +398,7 @@ class BarangController extends Controller
             $product->barang_nama       = $data['name'];
             $product->jenisbarang_id    = $jenis_data->jenisbarang_id;
             $product->kategori_id       = $kategori->kategori_id;
-            $product->satuan_id         = $satuan_data->id;
+            $product->satuan_id         = $satuan_data->satuan_id;
             $product->barang_spek       = $data['spek'];
             $product->barang_stok       = 0;
             $product->barang_harga      = $data['harga'];
