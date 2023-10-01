@@ -2,7 +2,7 @@
 <div class="modal fade" data-bs-backdrop="static" id="modalimport">
     <div class="modal-dialog  modal-dialog-centered" role="document">
         <form class="modal-dialog-scrollable" action="{{url('admin/barang/import_barang')}}" method="POST">
-
+        @csrf
         <div class="modal-content modal-content-demo">
             <div class="modal-header">
                 <h6 class="modal-title">Import Barang</h6><button onclick="reset()" aria-label="Close" class="btn-close" data-bs-dismiss="modal"><span aria-hidden="true">&times;</span></button>
