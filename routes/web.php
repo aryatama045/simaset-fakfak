@@ -125,6 +125,7 @@ Route::group(['middleware' => 'userlogin'], function () {
         Route::post('/admin/barang/proses_tambah/', [BarangController::class, 'proses_tambah'])->name('barang.store');
         Route::post('/admin/barang/proses_ubah/{barang}', [BarangController::class, 'proses_ubah']);
         Route::post('/admin/barang/proses_hapus/{barang}', [BarangController::class, 'proses_hapus']);
+        Route::post('/admin/barang/import_product/', [BarangController::class, 'import_product'])->name('barang.import');
     });
 
     Route::middleware(['checkRoleUser:/customer,menu'])->group(function () {
