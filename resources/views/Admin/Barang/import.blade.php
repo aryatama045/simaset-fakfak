@@ -25,7 +25,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label> Template File</label>
-                        <a href="{{FCPATH .('public/assets/sample_products.csv')}}" class="btn btn-info btn-block btn-md"><i class="fe fe-download"></i>  File Download</a>
+                        <a href="{{public_path('assets/sample_products.csv')}}" class="btn btn-info btn-block btn-md"><i class="fe fe-download"></i>  File Download</a>
                     </div>
                 </div>
 
