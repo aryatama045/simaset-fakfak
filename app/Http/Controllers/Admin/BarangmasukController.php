@@ -145,7 +145,7 @@ class BarangmasukController extends Controller
                     
                     $button .= '
                     <div class="g-2">
-                        <a class="btn btn-primary btn-sm" href="{{url(admin/barang-masuk/copydocument/' .$row->pb_id. ')}}"Pilih</a>
+                        <a class="btn btn-primary btn-sm" href="'.url('admin/barang-masuk/copydocument/' .$row->pb_id).'" > Pilih</a>
                         <a class="btn btn-primary btn-sm" href="javascript:void(0)" onclick=copyDocument(' .$row->pb_id. ')>Pilih2</a>
                     </div>
                     ';
