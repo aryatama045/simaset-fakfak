@@ -414,7 +414,7 @@ class BarangController extends Controller
             $product->barang_stok       = 0;
             $product->barang_harga      = $data['harga'];
 
-            if($data['name'] != NULL)
+            if($data['name'])
                 $product->save();
 
             
