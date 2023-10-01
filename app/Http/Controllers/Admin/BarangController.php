@@ -401,7 +401,7 @@ class BarangController extends Controller
             $random = Str::random(13);
 
             $codeProduct = 'BRG-'.$random;
-            $slug_barang = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $data['slug_barang'])));
+            $slug_barang = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $data['name'])));
 
             $product->barang_kode       = $codeProduct;
             $product->barang_nama       = $data['name'];
