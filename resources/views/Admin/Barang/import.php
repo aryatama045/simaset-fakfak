@@ -29,7 +29,9 @@
         </div>
     </div>
 </div>
-@section('formTambahJS')
+
+
+@section('formImportJS')
 <script>
     function setLoading(bool) {
         if (bool == true) {
