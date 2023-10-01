@@ -332,4 +332,110 @@ class BarangController extends Controller
 
         return response()->json(['success' => 'Berhasil']);
     }
+
+
+    public function import__barang(Request $request)
+    {
+        //get file
+        $upload=$request->file('file');
+        $ext = pathinfo($upload->getClientOriginalName(), PATHINFO_EXTENSION);
+        if($ext != 'csv')
+            return redirect()->back()->with('message', 'Please upload a CSV file');
+
+        $filePath=$upload->getRealPath();
+
+        //open and read
+        $file=fopen($filePath, 'r');
+        $header= fgetcsv($file);
+        $escapedHeader=[];
+
+        //validate
+        foreach ($header as $key => $value) {
+            $lheader=strtolower($value);
+            $escapedItem=preg_replace('/[^a-z]/', '', $lheader);
+            array_push($escapedHeader, $escapedItem);
+        }
+
+        //looping through other columns
+        while($columns=fgetcsv($file))
+        {
+            foreach ($columns as $key => $value) {
+                $value=preg_replace('/\D/','',$value);
+            }
+            $data= array_combine($escapedHeader, $columns);
+
+            if($data['brand'] != 'N/A' && $data['brand'] != ''){
+                $lims_brand_data = Brand::firstOrCreate(['title' => $data['brand'], 'is_active' => true]);
+                $code_brand = $lims_brand_data->code;
+            }
+            else
+                $code_brand = null;
+
+            $lims_category_data = Category::firstOrCreate(['name' => $data['category'], 'is_active' => true]);
+
+            $lims_unit_data = Unit::where('unit_code', $data['unitcode'])->first();
+            if(!$lims_unit_data)
+                    return redirect()->back()->with('not_permitted', 'Unit code does not exist in the database.');
+
+            $product = Product::firstOrNew([ 'name'=>$data['name'], 'is_active'=>true ]);
+
+            if($data['image'])
+                $product->image = $data['image'];
+            else
+                $product->image = 'zummXD2dvAtI.png';
+
+            $codeProduct = $this->generateCode($product->name,$code_brand, $lims_category_data->code);
+
+            $product->name = $data['name'];
+            $product->code = $codeProduct;
+            $product->type = strtolower($data['type']);
+            $product->barcode_symbology = 'C128';
+            $product->brand_id = $lims_brand_data->id;
+            $product->category_id = $lims_category_data->id;
+            $product->unit_id = $lims_unit_data->id;
+            $product->purchase_unit_id = $lims_unit_data->id;
+            $product->sale_unit_id = $lims_unit_data->id;
+            $product->cost = $data['cost'];
+            $product->price = $data['price'];
+            $product->price_wholesale = $data['pricewholesale'];
+            $product->tax_method = 1;
+            $product->qty = 0;
+            $product->product_details = $data['productdetails'];
+            $product->is_active = true;
+            $product->save();
+
+            if($data['variantname']) {
+                //dealing with variants
+                $variant_names = explode(",", $data['variantname']);
+                $item_codes = explode(",", $data['itemcode']);
+                $additional_prices = explode(",", $data['additionalprice']);
+                foreach ($variant_names as $key => $variant_name) {
+                    $variant = Variant::firstOrCreate(['name' => $variant_name]);
+                    if($data['itemcode'])
+                        $item_code = $item_codes[$key];
+                    else
+                        $item_code = $variant_name . '-' . $data['code'];
+
+                    if($data['additionalprice'])
+                        $additional_price = $additional_prices[$key];
+                    else
+                        $additional_price = 0;
+
+                    ProductVariant::create([
+                        'product_id' => $product->id,
+                        'variant_id' => $variant->id,
+                        'position' => $key + 1,
+                        'item_code' => $item_code,
+                        'additional_price' => $additional_price,
+                        'qty' => 0
+                    ]);
+                }
+                $product->is_variant = true;
+                $product->save();
+            }
+        }
+        return redirect('products')->with('import_message', 'Product imported successfully');
+    }
+
+
 }
