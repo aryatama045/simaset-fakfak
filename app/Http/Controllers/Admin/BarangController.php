@@ -46,108 +46,106 @@ class BarangController extends Controller
             $data = BarangModel::leftJoin('tbl_jenisbarang', 'tbl_jenisbarang.jenisbarang_id', '=', 'tbl_barang.jenisbarang_id')->leftJoin('tbl_satuan', 'tbl_satuan.satuan_id', '=', 'tbl_barang.satuan_id')->leftJoin('tbl_merk', 'tbl_merk.merk_id', '=', 'tbl_barang.merk_id')->orderBy('barang_id', 'DESC')->get();
             
             return DataTables::of($data)
-                if($data->barang_nama != NULL){
-                    ->addIndexColumn()
-                    ->addColumn('img', function ($row) {
-                        $array = array(
-                            "barang_gambar" => $row->barang_gambar,
-                        );
-                        if ($row->barang_gambar == "image.png") {
-                            $img = '<a data-bs-effect="effect-super-scaled" data-bs-toggle="modal" href="#Gmodaldemo8" onclick=gambar(' . json_encode($array) . ')><span class="avatar avatar-lg cover-image" style="background: url(&quot;' . url('/assets/default/barang') . '/' . $row->barang_gambar . '&quot;) center center;"></span></a>';
-                        } else {
-                            $img = '<a data-bs-effect="effect-super-scaled" data-bs-toggle="modal" href="#Gmodaldemo8" onclick=gambar(' . json_encode($array) . ')><span class="avatar avatar-lg cover-image" style="background: url(&quot;' . url('/uploads/image/' . $row->barang_gambar) . '&quot;) center center;"></span></a>';
-                        }
+                ->addIndexColumn()
+                ->addColumn('img', function ($row) {
+                    $array = array(
+                        "barang_gambar" => $row->barang_gambar,
+                    );
+                    if ($row->barang_gambar == "image.png") {
+                        $img = '<a data-bs-effect="effect-super-scaled" data-bs-toggle="modal" href="#Gmodaldemo8" onclick=gambar(' . json_encode($array) . ')><span class="avatar avatar-lg cover-image" style="background: url(&quot;' . url('/assets/default/barang') . '/' . $row->barang_gambar . '&quot;) center center;"></span></a>';
+                    } else {
+                        $img = '<a data-bs-effect="effect-super-scaled" data-bs-toggle="modal" href="#Gmodaldemo8" onclick=gambar(' . json_encode($array) . ')><span class="avatar avatar-lg cover-image" style="background: url(&quot;' . url('/uploads/image/' . $row->barang_gambar) . '&quot;) center center;"></span></a>';
+                    }
 
-                        return $img;
-                    })
-                    ->addColumn('jenisbarang', function ($row) {
-                        $jenisbarang = $row->jenisbarang_id == '' ? '-' : $row->jenisbarang_nama;
+                    return $img;
+                })
+                ->addColumn('jenisbarang', function ($row) {
+                    $jenisbarang = $row->jenisbarang_id == '' ? '-' : $row->jenisbarang_nama;
 
-                        return $jenisbarang;
-                    })
-                    ->addColumn('satuan', function ($row) {
-                        $satuan = $row->satuan_id == '' ? '-' : $row->satuan_nama;
+                    return $jenisbarang;
+                })
+                ->addColumn('satuan', function ($row) {
+                    $satuan = $row->satuan_id == '' ? '-' : $row->satuan_nama;
 
-                        return $satuan;
-                    })
-                    ->addColumn('merk', function ($row) {
-                        $merk = $row->merk_id == '' ? '-' : $row->merk_nama;
+                    return $satuan;
+                })
+                ->addColumn('merk', function ($row) {
+                    $merk = $row->merk_id == '' ? '-' : $row->merk_nama;
 
-                        return $merk;
-                    })
-                    ->addColumn('currency', function ($row) {
-                        $currency = $row->barang_harga == '' ? '-' : 'Rp ' . number_format($row->barang_harga, 0);
+                    return $merk;
+                })
+                ->addColumn('currency', function ($row) {
+                    $currency = $row->barang_harga == '' ? '-' : 'Rp ' . number_format($row->barang_harga, 0);
 
-                        return $currency;
-                    })
-                    ->addColumn('totalstok', function ($row) use ($request) {
-                        if ($request->tglawal == '') {
-                            $jmlmasuk = BarangmasukModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangmasuk.barang_kode')->leftJoin('tbl_supplier', 'tbl_supplier.supplier_id', '=', 'tbl_barangmasuk.supplier_id')->where('tbl_barangmasuk.barang_kode', '=', $row->barang_kode)->sum('tbl_barangmasuk.bm_jumlah');
-                        } else {
-                            $jmlmasuk = BarangmasukModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangmasuk.barang_kode')->leftJoin('tbl_supplier', 'tbl_supplier.supplier_id', '=', 'tbl_barangmasuk.supplier_id')->whereBetween('bm_tanggal', [$request->tglawal, $request->tglakhir])->where('tbl_barangmasuk.barang_kode', '=', $row->barang_kode)->sum('tbl_barangmasuk.bm_jumlah');
-                        }
+                    return $currency;
+                })
+                ->addColumn('totalstok', function ($row) use ($request) {
+                    if ($request->tglawal == '') {
+                        $jmlmasuk = BarangmasukModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangmasuk.barang_kode')->leftJoin('tbl_supplier', 'tbl_supplier.supplier_id', '=', 'tbl_barangmasuk.supplier_id')->where('tbl_barangmasuk.barang_kode', '=', $row->barang_kode)->sum('tbl_barangmasuk.bm_jumlah');
+                    } else {
+                        $jmlmasuk = BarangmasukModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangmasuk.barang_kode')->leftJoin('tbl_supplier', 'tbl_supplier.supplier_id', '=', 'tbl_barangmasuk.supplier_id')->whereBetween('bm_tanggal', [$request->tglawal, $request->tglakhir])->where('tbl_barangmasuk.barang_kode', '=', $row->barang_kode)->sum('tbl_barangmasuk.bm_jumlah');
+                    }
 
 
-                        if ($request->tglawal) {
-                            $jmlkeluar = BarangkeluarModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangkeluar.barang_kode')->whereBetween('bk_tanggal', [$request->tglawal, $request->tglakhir])->where('tbl_barangkeluar.barang_kode', '=', $row->barang_kode)->sum('tbl_barangkeluar.bk_jumlah');
-                        } else {
-                            $jmlkeluar = BarangkeluarModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangkeluar.barang_kode')->where('tbl_barangkeluar.barang_kode', '=', $row->barang_kode)->sum('tbl_barangkeluar.bk_jumlah');
-                        }
+                    if ($request->tglawal) {
+                        $jmlkeluar = BarangkeluarModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangkeluar.barang_kode')->whereBetween('bk_tanggal', [$request->tglawal, $request->tglakhir])->where('tbl_barangkeluar.barang_kode', '=', $row->barang_kode)->sum('tbl_barangkeluar.bk_jumlah');
+                    } else {
+                        $jmlkeluar = BarangkeluarModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangkeluar.barang_kode')->where('tbl_barangkeluar.barang_kode', '=', $row->barang_kode)->sum('tbl_barangkeluar.bk_jumlah');
+                    }
 
-                        $totalstok = $row->barang_stok + ($jmlmasuk - $jmlkeluar);
-                        if($totalstok == 0){
-                            $result = '<span class="">'.$totalstok.'</span>';
-                        }else if($totalstok > 0){
-                            $result = '<span class="text-success">'.$totalstok.'</span>';
-                        }else{
-                            $result = '<span class="text-danger">'.$totalstok.'</span>';
-                        }
-                        
+                    $totalstok = $row->barang_stok + ($jmlmasuk - $jmlkeluar);
+                    if($totalstok == 0){
+                        $result = '<span class="">'.$totalstok.'</span>';
+                    }else if($totalstok > 0){
+                        $result = '<span class="text-success">'.$totalstok.'</span>';
+                    }else{
+                        $result = '<span class="text-danger">'.$totalstok.'</span>';
+                    }
+                    
 
-                        return $result;
-                    })
-                    ->addColumn('action', function ($row) {
-                        $array = array(
-                            "barang_id" => $row->barang_id,
-                            "jenisbarang_id" => $row->jenisbarang_id,
-                            "satuan_id" => $row->satuan_id,
-                            "merk_id" => $row->merk_id,
-                            "barang_id" => $row->barang_id,
-                            "barang_kode" => $row->barang_kode,
-                            "barang_nama" => trim(preg_replace('/[^A-Za-z0-9-]+/', '_', $row->barang_nama)),
-                            "barang_harga" => $row->barang_harga,
-                            "barang_stok" => $row->barang_stok,
-                            "barang_gambar" => $row->barang_gambar,
-                        );
-                        $button = '';
-                        $hakEdit = AksesModel::leftJoin('tbl_submenu', 'tbl_submenu.submenu_id', '=', 'tbl_akses.submenu_id')->where(array('tbl_akses.role_id' => Session::get('user')->role_id, 'tbl_submenu.submenu_judul' => 'Barang', 'tbl_akses.akses_type' => 'update'))->count();
-                        $hakDelete = AksesModel::leftJoin('tbl_submenu', 'tbl_submenu.submenu_id', '=', 'tbl_akses.submenu_id')->where(array('tbl_akses.role_id' => Session::get('user')->role_id, 'tbl_submenu.submenu_judul' => 'Barang', 'tbl_akses.akses_type' => 'delete'))->count();
-                        if ($hakEdit > 0 && $hakDelete > 0) {
-                            $button .= '
-                            <div class="g-2">
+                    return $result;
+                })
+                ->addColumn('action', function ($row) {
+                    $array = array(
+                        "barang_id" => $row->barang_id,
+                        "jenisbarang_id" => $row->jenisbarang_id,
+                        "satuan_id" => $row->satuan_id,
+                        "merk_id" => $row->merk_id,
+                        "barang_id" => $row->barang_id,
+                        "barang_kode" => $row->barang_kode,
+                        "barang_nama" => trim(preg_replace('/[^A-Za-z0-9-]+/', '_', $row->barang_nama)),
+                        "barang_harga" => $row->barang_harga,
+                        "barang_stok" => $row->barang_stok,
+                        "barang_gambar" => $row->barang_gambar,
+                    );
+                    $button = '';
+                    $hakEdit = AksesModel::leftJoin('tbl_submenu', 'tbl_submenu.submenu_id', '=', 'tbl_akses.submenu_id')->where(array('tbl_akses.role_id' => Session::get('user')->role_id, 'tbl_submenu.submenu_judul' => 'Barang', 'tbl_akses.akses_type' => 'update'))->count();
+                    $hakDelete = AksesModel::leftJoin('tbl_submenu', 'tbl_submenu.submenu_id', '=', 'tbl_akses.submenu_id')->where(array('tbl_akses.role_id' => Session::get('user')->role_id, 'tbl_submenu.submenu_judul' => 'Barang', 'tbl_akses.akses_type' => 'delete'))->count();
+                    if ($hakEdit > 0 && $hakDelete > 0) {
+                        $button .= '
+                        <div class="g-2">
+                        <a class="btn modal-effect text-primary btn-sm" data-bs-effect="effect-super-scaled" data-bs-toggle="modal" href="#Umodaldemo8" data-bs-toggle="tooltip" data-bs-original-title="Edit" onclick=update(' . json_encode($array) . ')><span class="fe fe-edit text-success fs-14"></span></a>
+                        <a class="btn modal-effect text-danger btn-sm" data-bs-effect="effect-super-scaled" data-bs-toggle="modal" href="#Hmodaldemo8" onclick=hapus(' . json_encode($array) . ')><span class="fe fe-trash-2 fs-14"></span></a>
+                        </div>
+                        ';
+                    } else if ($hakEdit > 0 && $hakDelete == 0) {
+                        $button .= '
+                        <div class="g-2">
                             <a class="btn modal-effect text-primary btn-sm" data-bs-effect="effect-super-scaled" data-bs-toggle="modal" href="#Umodaldemo8" data-bs-toggle="tooltip" data-bs-original-title="Edit" onclick=update(' . json_encode($array) . ')><span class="fe fe-edit text-success fs-14"></span></a>
-                            <a class="btn modal-effect text-danger btn-sm" data-bs-effect="effect-super-scaled" data-bs-toggle="modal" href="#Hmodaldemo8" onclick=hapus(' . json_encode($array) . ')><span class="fe fe-trash-2 fs-14"></span></a>
-                            </div>
-                            ';
-                        } else if ($hakEdit > 0 && $hakDelete == 0) {
-                            $button .= '
-                            <div class="g-2">
-                                <a class="btn modal-effect text-primary btn-sm" data-bs-effect="effect-super-scaled" data-bs-toggle="modal" href="#Umodaldemo8" data-bs-toggle="tooltip" data-bs-original-title="Edit" onclick=update(' . json_encode($array) . ')><span class="fe fe-edit text-success fs-14"></span></a>
-                            </div>
-                            ';
-                        } else if ($hakEdit == 0 && $hakDelete > 0) {
-                            $button .= '
-                            <div class="g-2">
-                            <a class="btn modal-effect text-danger btn-sm" data-bs-effect="effect-super-scaled" data-bs-toggle="modal" href="#Hmodaldemo8" onclick=hapus(' . json_encode($array) . ')><span class="fe fe-trash-2 fs-14"></span></a>
-                            </div>
-                            ';
-                        } else {
-                            $button .= '-';
-                        }
+                        </div>
+                        ';
+                    } else if ($hakEdit == 0 && $hakDelete > 0) {
+                        $button .= '
+                        <div class="g-2">
+                        <a class="btn modal-effect text-danger btn-sm" data-bs-effect="effect-super-scaled" data-bs-toggle="modal" href="#Hmodaldemo8" onclick=hapus(' . json_encode($array) . ')><span class="fe fe-trash-2 fs-14"></span></a>
+                        </div>
+                        ';
+                    } else {
+                        $button .= '-';
+                    }
 
-                        return $button;
-                    })
-                }
+                    return $button;
+                })
                 ->rawColumns(['action', 'img', 'jenisbarang', 'satuan', 'merk', 'currency', 'totalstok'])->make(true);
         }
     }
@@ -410,7 +408,8 @@ class BarangController extends Controller
             $product->barang_stok       = 0;
             $product->barang_harga      = $data['harga'];
 
-            $product->save();
+            if($data['name'] != NULL)
+                $product->save();
 
             
         }
