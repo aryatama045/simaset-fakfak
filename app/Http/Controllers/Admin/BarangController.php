@@ -8,6 +8,7 @@ use App\Models\Admin\BarangkeluarModel;
 use App\Models\Admin\BarangmasukModel;
 use App\Models\Admin\BarangModel;
 use App\Models\Admin\JenisBarangModel;
+use App\Models\Admin\KategoriModel;
 use App\Models\Admin\MerkModel;
 use App\Models\Admin\SatuanModel;
 use Illuminate\Http\Request;
@@ -356,7 +357,6 @@ class BarangController extends Controller
             array_push($escapedHeader, $escapedItem);
         }
 
-        dd($escapedHeader);
 
         //looping through other columns
         while($columns=fgetcsv($file))
@@ -364,79 +364,38 @@ class BarangController extends Controller
             foreach ($columns as $key => $value) {
                 $value=preg_replace('/\D/','',$value);
             }
+
             $data= array_combine($escapedHeader, $columns);
 
-            if($data['brand'] != 'N/A' && $data['brand'] != ''){
-                $lims_brand_data = Brand::firstOrCreate(['title' => $data['brand'], 'is_active' => true]);
-                $code_brand = $lims_brand_data->code;
-            }
-            else
-                $code_brand = null;
+            $jenis_data = JenisBarangModel::firstOrCreate(['jenisbarang_nama' => $data['jenis']]);
 
-            $lims_category_data = Category::firstOrCreate(['name' => $data['category'], 'is_active' => true]);
+            $kategori       = Kategori::firstOrCreate(['kategori_nama' => $data['kategori'] ]);
 
-            $lims_unit_data = Unit::where('unit_code', $data['unitcode'])->first();
-            if(!$lims_unit_data)
-                    return redirect()->back()->with('not_permitted', 'Unit code does not exist in the database.');
+            $satuan_data    = Unit::firstOrCreate('satuan_nama', $data['satuan'])->first();
 
-            $product = Product::firstOrNew([ 'name'=>$data['name'], 'is_active'=>true ]);
+            $product        = Barang::firstOrNew([ 'barang_nama'=>$data['name'] ]);
 
             if($data['image'])
-                $product->image = $data['image'];
+                $product->barang_gambar = $data['image'];
             else
-                $product->image = 'zummXD2dvAtI.png';
+                $product->barang_gambar = 'image.png';
 
-            $codeProduct = $this->generateCode($product->name,$code_brand, $lims_category_data->code);
+            $codeProduct = 'BRG-'.datetime();
 
-            $product->name = $data['name'];
-            $product->code = $codeProduct;
-            $product->type = strtolower($data['type']);
-            $product->barcode_symbology = 'C128';
-            $product->brand_id = $lims_brand_data->id;
-            $product->category_id = $lims_category_data->id;
-            $product->unit_id = $lims_unit_data->id;
-            $product->purchase_unit_id = $lims_unit_data->id;
-            $product->sale_unit_id = $lims_unit_data->id;
-            $product->cost = $data['cost'];
-            $product->price = $data['price'];
-            $product->price_wholesale = $data['pricewholesale'];
-            $product->tax_method = 1;
-            $product->qty = 0;
-            $product->product_details = $data['productdetails'];
-            $product->is_active = true;
+            $product->barang_kode       = $codeProduct;
+            $product->barang_nama       = $data['name'];
+            $product->jenisbarang_id    = $jenis_data->jenisbarang_id;
+            $product->kategori_id       = $kategori->kategori_id;
+            $product->satuan_id         = $satuan_data->id;
+            $product->barang_spek       = $data['spek'];
+            $product->barang_stok       = 0;
+            $product->barang_harga      = $data['harga'];
+
             $product->save();
 
-            if($data['variantname']) {
-                //dealing with variants
-                $variant_names = explode(",", $data['variantname']);
-                $item_codes = explode(",", $data['itemcode']);
-                $additional_prices = explode(",", $data['additionalprice']);
-                foreach ($variant_names as $key => $variant_name) {
-                    $variant = Variant::firstOrCreate(['name' => $variant_name]);
-                    if($data['itemcode'])
-                        $item_code = $item_codes[$key];
-                    else
-                        $item_code = $variant_name . '-' . $data['code'];
-
-                    if($data['additionalprice'])
-                        $additional_price = $additional_prices[$key];
-                    else
-                        $additional_price = 0;
-
-                    ProductVariant::create([
-                        'product_id' => $product->id,
-                        'variant_id' => $variant->id,
-                        'position' => $key + 1,
-                        'item_code' => $item_code,
-                        'additional_price' => $additional_price,
-                        'qty' => 0
-                    ]);
-                }
-                $product->is_variant = true;
-                $product->save();
-            }
+            
         }
-        return redirect('products')->with('import_message', 'Product imported successfully');
+        return redirect('admin/barang')->with('create_message', 'Product imported successfully');
     }
 
 
