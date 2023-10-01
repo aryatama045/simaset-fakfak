@@ -367,11 +367,14 @@ class BarangController extends Controller
 
             $data= array_combine($escapedHeader, $columns);
 
-            $jenis_data = JenisBarangModel::firstOrCreate(['jenisbarang_nama' => $data['jenis']]);
+            $slug_jenis = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $data['jenis'])));
+            $jenis_data = JenisBarangModel::firstOrCreate(['jenisbarang_nama' => $data['jenis'], 'jenisbarang_slug' => $slug_jenis, 'jenisbarang_ket' => '']);
 
-            $kategori       = Kategori::firstOrCreate(['kategori_nama' => $data['kategori'] ]);
+            $slug_kategori = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $data['kategori'])));
+            $kategori       = Kategori::firstOrCreate(['kategori_nama' => $data['kategori'], 'kategori_slug' => $slug_jenis, 'kategori_ket' => '']);
 
-            $satuan_data    = Unit::firstOrCreate('satuan_nama', $data['satuan'])->first();
+            $slug_satuan = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $data['satuan'])));
+            $satuan_data    = Unit::firstOrCreate(['satuan_nama' => $data['satuan'], 'satuan_slug' => $slug_jenis, 'satuan_keterangan' => '']);
 
             $product        = Barang::firstOrNew([ 'barang_nama'=>$data['name'] ]);
 
