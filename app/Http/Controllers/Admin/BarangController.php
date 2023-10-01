@@ -401,9 +401,11 @@ class BarangController extends Controller
             $random = Str::random(13);
 
             $codeProduct = 'BRG-'.$random;
+            $slug_barang = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $data['slug_barang'])));
 
             $product->barang_kode       = $codeProduct;
             $product->barang_nama       = $data['name'];
+            $product->barang_slug       = $slug_barang;
             $product->jenisbarang_id    = $jenis_data->jenisbarang_id;
             $product->kategori_id       = $kategori->kategori_id;
             $product->merk_id           = $merk->merk_id;
