@@ -16,6 +16,11 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 use Yajra\DataTables\Facades\DataTables;
 use File;
+use Illuminate\Support\Str;
+
+
+
+
 class BarangController extends Controller
 {
     public function index()
@@ -383,7 +388,11 @@ class BarangController extends Controller
             else
                 $product->barang_gambar = 'image.png';
 
-            $codeProduct = 'BRG-'.datetime();
+            
+
+            $random = Str::random(13);
+
+            $codeProduct = 'BRG-'.$random;
 
             $product->barang_kode       = $codeProduct;
             $product->barang_nama       = $data['name'];
