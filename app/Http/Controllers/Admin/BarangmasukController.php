@@ -162,7 +162,7 @@ class BarangmasukController extends Controller
 
         $cek_pb = PbModel::where('pb_id' , $id)->get();
 
-        dd($cek_pb);
+        // dd($cek_pb);
 
         if($cek_pb){
 
