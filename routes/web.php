@@ -192,6 +192,7 @@ Route::group(['middleware' => 'userlogin'], function () {
         Route::get('/admin/barang/listbarang/{param}', [BarangController::class, 'listbarang']);
 
         Route::get('/admin/barang-masuk/listpengadaan/{param}', [BarangmasukController::class, 'listpengadaan']);
+        Route::get('/admin/barang-masuk/copydocument/{id}', [BarangmasukController::class, 'copydocument']);
     });
 
     Route::middleware(['checkRoleUser:/lap-barang-masuk,submenu'])->group(function () {

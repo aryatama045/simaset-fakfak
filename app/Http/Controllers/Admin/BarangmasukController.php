@@ -145,7 +145,8 @@ class BarangmasukController extends Controller
                     
                     $button .= '
                     <div class="g-2">
-                        <a class="btn btn-primary btn-sm" href="javascript:void(0)" onclick=copyDocument(' .$row->pb_id. ')>Pilih</a>
+                        <a class="btn btn-primary btn-sm" href="{{url(admin/barang-masuk/copydocument/' .$row->pb_id. ')}}"Pilih</a>
+                        <a class="btn btn-primary btn-sm" href="javascript:void(0)" onclick=copyDocument(' .$row->pb_id. ')>Pilih2</a>
                     </div>
                     ';
                     
@@ -156,11 +157,22 @@ class BarangmasukController extends Controller
     }
 
 
-    public function getDetailBKB(){
+    public function copydocument(Request $request){
 		$no_doc_trans = $this->input->post('no_doc_trans');
 
         dd($no_doc_trans);
-		if($no_doc_trans){
+
+        $data["title"] = "Barang Masuk";
+        $data["hakTambah"] = AksesModel::leftJoin('tbl_submenu', 'tbl_submenu.submenu_id', '=', 'tbl_akses.submenu_id')->where(array('tbl_akses.role_id' => Session::get('user')->role_id, 'tbl_submenu.submenu_judul' => 'Barang Masuk', 'tbl_akses.akses_type' => 'create'))->count();
+        $data["customer"] = CustomerModel::orderBy('customer_id', 'DESC')->get();
+        $data["supplier"] = SupplierModel::orderBy('supplier_id', 'DESC')->get();
+        $data["pengadaan"] = PbModel::orderBy('pb_id', 'DESC')->get();
+
+        return view('Admin.BarangMasuk.copy', $data);
+
+
+		
+        if($no_doc_trans){
 			$output['header'] = array();
 			$header = $this->model_bkb_opening_store->getHeaderBKB($no_doc_trans);
 			if($header){
