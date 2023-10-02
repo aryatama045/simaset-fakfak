@@ -17,6 +17,8 @@
 <div class="row row-sm">
     <div class="col-lg-12">
         <div class="card">
+        <form class="modal-dialog-scrollable" action="{{url('admin/barang-masuk/proses_copy/'$header[0]->pb_kode)}}" method="POST">
+        @csrf
             <div class="card-header justify-content-between">
                 <h3 class="card-title">Form Barang Masuk</h3>
             </div>
@@ -78,8 +80,30 @@
                 </table>
 
             </div>
+
+            <div class="card-footer">
+                <button class="btn btn-primary d-none" id="btnLoader" type="button" disabled="">
+                    <span class="spinner-border spinner-border-sm me-1" role="status" aria-hidden="true"></span>
+                    Loading...
+                </button>
+                <a href="javascript:void(0)" onclick="checkForm()" id="btnSimpan" class="btn btn-primary">Simpan <i class="fe fe-check"></i></a>
+                <a href="javascript:void(0)" class="btn btn-light" onclick="reset()" data-bs-dismiss="modal">Batal <i class="fe fe-x"></i></a>
+            </div>
         </div>
     </div>
 </div>
 <!-- END ROW -->
 @endsection
+
+@section('scripts')
+    <script>
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+
+    </script>
+@endsection
+
