@@ -42,19 +42,19 @@ class BarangImport implements ToCollection ,WithHeadingRow
             // $search = BarangModel::where('id', $id)->first();
 
 
-            if($row['jenis'])
+            // if($row['jenis'])
                 $slug_jenis = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $row['jenis'])));
                 $jenis_data = JenisBarangModel::firstOrCreate(['jenisbarang_nama' => $row['jenis'], 'jenisbarang_slug' => $slug_jenis, 'jenisbarang_ket' => '']);
 
-            if($row['kategori'])
+            // if($row['kategori'])
                 $slug_kategori = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $row['kategori'])));
                 $kategori       = KategoriModel::firstOrCreate(['kategori_nama' => $row['kategori'], 'kategori_slug' => $slug_kategori, 'kategori_ket' => '']);
 
-            if($row['merk'])
+            // if($row['merk'])
                 $slug_merk = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $row['merk'])));
                 $merk       = MerkModel::firstOrCreate(['merk_nama' => $row['merk'], 'merk_slug' => $slug_merk, 'merk_keterangan' => '']);
 
-            if($row['satuan'])
+            // if($row['satuan'])
                 $slug_satuan = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $row['satuan'])));
                 $satuan_data    = SatuanModel::firstOrCreate(['satuan_nama' => $row['satuan'], 'satuan_slug' => $slug_satuan, 'satuan_keterangan' => '']);
 
