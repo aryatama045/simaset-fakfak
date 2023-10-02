@@ -233,7 +233,7 @@ class BarangmasukController extends Controller
         for($x=0; $x < $c_barang; $x++){
             $data_barang = array(
                 'bm_tanggal'    => $request->tglmasuk,
-                'bm_kode'       => $request->bm_kode,
+                'bm_kode'       => $request->bmkode,
                 'pb_kode'       => $request->pb_kode,
                 'supplier_id'   => $request->supplier,
                 'barang_kode'   => $request->barang_kode[$x],
