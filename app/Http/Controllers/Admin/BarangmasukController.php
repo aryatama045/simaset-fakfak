@@ -177,7 +177,7 @@ class BarangmasukController extends Controller
             $data["pengadaan"] = PbModel::orderBy('pb_id', 'DESC')->get();
 
             $data["header"] = DB::table('tbl_pb')->leftJoin('tbl_supplier', 'tbl_supplier.supplier_id', '=', 'tbl_pb.supplier_id')->where('pb_id' , $id)->get();
-            $data["detail"] = PbdetailModel::where('pb_id' , $id)->get();
+            $data["detail"] = DB::table('tbl_pbdetail')->leftJoin('tbl_pb', 'tbl_pb_id', '=', 'tbl_pb_id')->where('pb_id' , $id)->get();
 
             $random = Str::random(13);
             $data["bmkode"] = 'BM-'.$random;

@@ -36,10 +36,6 @@
 
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="pb_kode" class="form-label">Kode Pengadaan <span class="text-danger">*</span></label>
-                            <input type="text" readonly class="form-control" value="{{ $header[0]->pb_kode }}">
-                        </div>
-                        <div class="form-group">
                             <label for="supplier_id" class="form-label">Supplier <span class="text-danger">*</span></label>
                             <input type="text" readonly class="form-control" placeholder="{{ $header[0]->supplier_nama }}">
                         </div>
