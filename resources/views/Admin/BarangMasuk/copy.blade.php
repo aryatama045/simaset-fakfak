@@ -17,7 +17,7 @@
 <div class="row row-sm">
     <div class="col-lg-12">
         <div class="card">
-        <form class="modal-dialog-scrollable" action="{{url('admin/barang-masuk/proses_copy/'$header[0]->pb_kode)}}" method="POST">
+        <form class="modal-dialog-scrollable" action="{{url('admin/barang-masuk/proses_copy/'.$header[0]->pb_kode)}}" method="POST">
         @csrf
             <div class="card-header justify-content-between">
                 <h3 class="card-title">Form Barang Masuk</h3>
