@@ -17,7 +17,7 @@
 <div class="row row-sm">
     <div class="col-lg-12">
         <div class="card">
-        <form class="modal-dialog-scrollable" action="{{url('admin/barang-masuk/proses_copy/'.$header[0]->pb_kode)}}" method="POST">
+        <form  action="{{url('admin/barang-masuk/proses_copy/'.$header[0]->pb_id)}}" method="POST">
         @csrf
             <div class="card-header justify-content-between">
                 <h3 class="card-title">Form Barang Masuk</h3>
@@ -86,8 +86,8 @@
                     <span class="spinner-border spinner-border-sm me-1" role="status" aria-hidden="true"></span>
                     Loading...
                 </button>
-                <a href="javascript:void(0)" onclick="checkForm()" id="btnSimpan" class="btn btn-primary">Simpan <i class="fe fe-check"></i></a>
-                <a href="javascript:void(0)" class="btn btn-light" onclick="reset()" data-bs-dismiss="modal">Batal <i class="fe fe-x"></i></a>
+                <button type="submit"  class="btn btn-primary">Simpan <i class="fe fe-check"></i></button>
+                <a href="{{url('admin/barang-masuk')}}" class="btn btn-light" >Batal <i class="fe fe-x"></i></a>
             </div>
         </div>
     </div>
