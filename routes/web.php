@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\BeritaController;
 use App\Http\Controllers\Admin\CustomerController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\JenisBarangController;
+use App\Http\Controllers\Admin\KategoriController;
 use App\Http\Controllers\Admin\PbController;
 use App\Http\Controllers\Admin\SpkController;
 use App\Http\Controllers\Admin\LapBarangKeluarController;
@@ -75,11 +76,11 @@ Route::group(['middleware' => 'userlogin'], function () {
 
     Route::middleware(['checkRoleUser:/kategori,submenu'])->group(function () {
         // Jenis Barang
-        Route::get('/admin/kategori', [JenisBarangController::class, 'index']);
-        Route::get('/admin/kategori/show/', [JenisBarangController::class, 'show'])->name('kategori.getkategori');
-        Route::post('/admin/kategori/proses_tambah/', [JenisBarangController::class, 'proses_tambah'])->name('kategori.store');
-        Route::post('/admin/kategori/proses_ubah/{kategori}', [JenisBarangController::class, 'proses_ubah']);
-        Route::post('/admin/kategori/proses_hapus/{kategori}', [JenisBarangController::class, 'proses_hapus']);
+        Route::get('/admin/kategori', [KategoriController::class, 'index']);
+        Route::get('/admin/kategori/show/', [KategoriController::class, 'show'])->name('kategori.getkategori');
+        Route::post('/admin/kategori/proses_tambah/', [KategoriController::class, 'proses_tambah'])->name('kategori.store');
+        Route::post('/admin/kategori/proses_ubah/{kategori}', [KategoriController::class, 'proses_ubah']);
+        Route::post('/admin/kategori/proses_hapus/{kategori}', [KategoriController::class, 'proses_hapus']);
     });
 
     Route::middleware(['checkRoleUser:/satuan,submenu'])->group(function () {
