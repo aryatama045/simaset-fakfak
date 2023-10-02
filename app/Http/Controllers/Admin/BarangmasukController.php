@@ -14,7 +14,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Yajra\DataTables\DataTables;
-
+use Illuminate\Support\Str;
 
 class BarangmasukController extends Controller
 {
@@ -178,7 +178,10 @@ class BarangmasukController extends Controller
             $data["header"] = PbModel::where('pb_id' , $id)->get();
             $data["detail"] = PbdetailModel::where('pb_id' , $id)->get();
 
-            dd($data["header"],$data["detail"]);
+            $random = Str::random(13);
+            $data["bmkode"] = 'BRG-'.$random;
+
+            dd( $data["bmkode"], $data["header"],$data["detail"]);
 
             return view('Admin.BarangMasuk.copy', $data);
 
