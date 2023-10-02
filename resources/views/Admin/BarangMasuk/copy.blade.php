@@ -72,7 +72,7 @@
                             <td></td>
                             <td>{{ $v->satuan }}</td>
                             <td>{{ $v->spek }}</td>
-                            <td><input type="text" readonly class="form-control" value="{{ $v->pb_jumlah }}"></td>
+                            <td><input type="text" name="jumlah_masuk" class="form-control" value="{{ $v->pb_jumlah }}"></td>
                             <td>{{ $v->pb_harga }}</td>
                         </tr>
                         @endforeach
