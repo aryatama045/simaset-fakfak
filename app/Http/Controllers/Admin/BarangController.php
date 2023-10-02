@@ -373,6 +373,7 @@ class BarangController extends Controller
 
             $data= array_combine($escapedHeader, $columns);
 
+            dd($data);
             // if($data['jenis'])
                 $slug_jenis = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $data['jenis'])));
                 $jenis_data = JenisBarangModel::firstOrCreate(['jenisbarang_nama' => $data['jenis'], 'jenisbarang_slug' => $slug_jenis, 'jenisbarang_ket' => '']);
