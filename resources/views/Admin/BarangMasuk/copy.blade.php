@@ -52,6 +52,7 @@
                 </div>
 
                 <div class="border-bottom"></div>
+                <br><br>
 
                 <table class="table table-bordered responsive" id="barang_table" width="100%" >
                     <thead>
