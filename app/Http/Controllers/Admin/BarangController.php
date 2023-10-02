@@ -71,10 +71,10 @@ class BarangController extends Controller
 
                     return $jenisbarang;
                 })
-                ->addColumn('kategoti', function ($row) {
-                    $kategoti = $row->kategoti_id == '' ? '-' : $row->kategoti_nama;
+                ->addColumn('kategori', function ($row) {
+                    $kategori = $row->kategori_id == '' ? '-' : $row->kategori_nama;
 
-                    return $kategoti;
+                    return $kategori;
                 })
                 ->addColumn('satuan', function ($row) {
                     $satuan = $row->satuan_id == '' ? '-' : $row->satuan_nama;
