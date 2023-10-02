@@ -231,7 +231,7 @@ class BarangmasukController extends Controller
         $log_detail = array();
         $c_barang = count($request->barang_kode);
         for($x=0; $x < $c_barang; $x++){
-            $data_barang = array(
+            $detail_masuk = array(
                 'bm_tanggal'    => $request->tglmasuk,
                 'bm_kode'       => $request->bmkode,
                 'pb_kode'       => $request->pb_kode,
@@ -239,9 +239,16 @@ class BarangmasukController extends Controller
                 'barang_kode'   => $request->barang_kode[$x],
                 'bm_jumlah'     => $request->bm_jumlah[$x],
             );
-            array_push($log_detail, $data_barang);
-            BarangmasukModel::create($data_barang);
+            array_push($log_detail, $detail_masuk);
+            BarangmasukModel::create($detail_masuk);
+
+            $detail_masuk = array(
+                'pb_masuk'     => $request->pb_masuk[$x],
+            );
+            PbdetailModel::update($detail_pb)->where('pb_id', $request->pb_id);
         }
+
+
 
         return redirect('admin/barang-masuk')->with('create_message', 'Barang Masuk Nomor : '. $request->bm_kode);
 
