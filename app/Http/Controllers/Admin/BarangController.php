@@ -483,7 +483,7 @@ class BarangController extends Controller
 
         // Excel::import(new AdjustmentStokExcelImport, $request->file('file'));
 
-        return redirect('admin/barang')->with('create_message', 'Product imported successfully');
+        return redirect('admin/barang')->with('create_message', 'Imported successfully');
     }
 
 
