@@ -66,7 +66,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($detail as $k => $v) {
+                        @foreach($detail as $k => $v)
                         <tr>
                             <td>{{ $v->barang_kode }}</td>
                             <td></td>
@@ -75,7 +75,7 @@
                             <td><input type="text" readonly class="form-control" value="{{ $v->pb_jumlah }}"></td>
                             <td>{{ $v->pb_harga }}</td>
                         </tr>
-                        @}
+                        @endforeach
                     </tbody>
 
 
