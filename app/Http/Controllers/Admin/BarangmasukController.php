@@ -179,9 +179,7 @@ class BarangmasukController extends Controller
             $data["detail"] = PbdetailModel::where('pb_id' , $id)->get();
 
             $random = Str::random(13);
-            $data["bmkode"] = 'BRG-'.$random;
-
-            dd( $data["bmkode"], $data["header"],$data["detail"]);
+            $data["bmkode"] = 'BM-'.$random;
 
             return view('Admin.BarangMasuk.copy', $data);
 

@@ -26,7 +26,13 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="bmkode" class="form-label">Kode Barang Masuk <span class="text-danger">*</span></label>
-                            <input type="text" name="bmkode" readonly class="form-control" value="{{ $header[0]->pb_kode}}">
+                            <input type="text" name="bmkode" readonly class="form-control" value="{{ $bmkode }}">
+                            <input type="text">
+                        </div>
+                        <div class="form-group">
+                            <label for="pb_kode" class="form-label">Kode Pengadaan <span class="text-danger">*</span></label>
+                            <input type="text" name="pb_kode" readonly class="form-control" value="{{ $header[0]->pb_kode }}">
+                            <input type="text" name="pb_id" hidden value="{{ $header[0]->pb_id }}">
                         </div>
                         <div class="form-group">
                             <label for="tglmasuk" class="form-label">Tanggal Masuk <span class="text-danger">*</span></label>
