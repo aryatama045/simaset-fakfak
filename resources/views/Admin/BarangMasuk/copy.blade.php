@@ -32,7 +32,6 @@
                         <div class="form-group">
                             <label for="pb_kode" class="form-label">Kode Pengadaan <span class="text-danger">*</span></label>
                             <input type="text" name="pb_kode" readonly class="form-control" value="{{ $header[0]->pb_kode }}">
-                            <input type="text" name="pb_id" hidden value="{{ $header[0]->pb_id }}">
                         </div>
                         <div class="form-group">
                             <label for="tglmasuk" class="form-label">Tanggal Masuk <span class="text-danger">*</span></label>
@@ -44,6 +43,22 @@
 
                     </div>
                 </div>
+
+                <table class="table table-bordered responsive" id="barang_table" width="100%" >
+                    <thead>
+                        <tr>
+                            <th>No. </th>
+                            <th>Kode Barang</th>
+                            <th width="20%">Nama Barang</th>
+                            <th>Satuan</th>
+                            <th>Spek</th>
+                            <th>Jumlah</th>
+                            <th width="20%">Harga</th>
+                        </tr>
+                    </thead>
+
+
+                </table>
 
             </div>
         </div>
