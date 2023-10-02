@@ -30,8 +30,8 @@
                             <input type="text">
                         </div>
                         <div class="form-group">
-                            <label for="pb_kode" class="form-label">Kode Pengadaan <span class="text-danger">*</span></label>
-                            <input type="text" name="pb_kode" readonly class="form-control" value="{{ $header[0]->pb_kode }}">
+                            <label for="supplier_id" class="form-label">Supplier <span class="text-danger">*</span></label>
+                            <input type="text" name="supplier_id" readonly class="form-control" value="{{ $header[0]->supplier_nama }}">
                         </div>
                         <div class="form-group">
                             <label for="tglmasuk" class="form-label">Tanggal Masuk <span class="text-danger">*</span></label>
