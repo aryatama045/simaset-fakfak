@@ -235,7 +235,7 @@ class BarangmasukController extends Controller
                 'bm_tanggal'    => $request->tglmasuk,
                 'bm_kode'       => $request->bmkode,
                 'pb_kode'       => $request->pb_kode,
-                'supplier_id'   => $request->supplier,
+                'supplier_id'   => $request->supplier_id,
                 'barang_kode'   => $request->barang_kode[$x],
                 'bm_jumlah'     => $request->bm_jumlah[$x],
             );
