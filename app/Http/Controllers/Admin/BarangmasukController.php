@@ -228,22 +228,22 @@ class BarangmasukController extends Controller
     {
 
         # Data barang
-        dd($request);
         $log_detail = array();
-        $c_barang = count($request->barang);
+        $c_barang = count($request->barang_kode);
         for($x=0; $x < $c_barang; $x++){
             $data_barang = array(
                 'bm_tanggal'    => $request->tglmasuk,
-                'bm_kode'       => $request->bmkode,
-                'pb_id'         => $request->pb_id,
+                'bm_kode'       => $request->bm_kode,
+                'pb_kode'       => $request->pb_kode,
                 'supplier_id'   => $request->supplier,
-                'barang_kode'   => $request->barang[$x],
-                'bm_jumlah'     => $request->jml,
+                'barang_kode'   => $request->barang_kode[$x],
+                'bm_jumlah'     => $request->bm_jumlah[$x],
             );
             array_push($log_detail, $data_barang);
-            // BarangmasukModel::create($data_barang);
+            BarangmasukModel::create($data_barang);
         }
 
+        return redirect('admin/barang-masuk')->with('create_message', 'Barang Masuk Nomor : '. $request->bm_kode);
 
     }
 

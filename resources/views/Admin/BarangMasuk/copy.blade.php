@@ -32,14 +32,15 @@
                         </div>
                         <div class="form-group">
                             <label for="tglmasuk" class="form-label">Tanggal Masuk <span class="text-danger">*</span></label>
-                            <input type="text" name="tglmasuk" class="form-control datepicker-date" value="">
+                            <input type="text" name="tglmasuk" class="form-control datepicker-date" required>
                         </div>
                     </div>
 
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="supplier_id" class="form-label">Supplier <span class="text-danger">*</span></label>
-                            <input type="text" readonly class="form-control" placeholder="{{ $header[0]->supplier_nama }}">
+                            <input type="text" readonly class="form-control"  placeholder="{{ $header[0]->supplier_nama }}">
+                            <input type="hidden" name="supplier_id" class="form-control" value="{{ $header[0]->supplier_id }}">
                         </div>
                         <div class="form-group">
                             <label  class="form-label">Tanggal Pengadaan <span class="text-danger">*</span></label>
