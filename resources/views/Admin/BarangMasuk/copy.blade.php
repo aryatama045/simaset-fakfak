@@ -27,7 +27,6 @@
                         <div class="form-group">
                             <label for="bmkode" class="form-label">Kode Barang Masuk <span class="text-danger">*</span></label>
                             <input type="text" name="bmkode" readonly class="form-control" value="{{ $bmkode }}">
-                            <input type="text">
                         </div>
                         <div class="form-group">
                             <label for="supplier_id" class="form-label">Supplier <span class="text-danger">*</span></label>
@@ -43,6 +42,8 @@
 
                     </div>
                 </div>
+
+                <div class="border-bottom"></div>
 
                 <table class="table table-bordered responsive" id="barang_table" width="100%" >
                     <thead>
