@@ -44,7 +44,7 @@ class BarangController extends Controller
         if ($request->ajax()) {
 
             $data = BarangModel::leftJoin('tbl_jenisbarang', 'tbl_jenisbarang.jenisbarang_id', '=', 'tbl_barang.jenisbarang_id')->leftJoin('tbl_satuan', 'tbl_satuan.satuan_id', '=', 'tbl_barang.satuan_id')->leftJoin('tbl_merk', 'tbl_merk.merk_id', '=', 'tbl_barang.merk_id')->orderBy('barang_id', 'DESC')->get();
-            
+
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn('img', function ($row) {
@@ -101,7 +101,7 @@ class BarangController extends Controller
                     }else{
                         $result = '<span class="text-danger">'.$totalstok.'</span>';
                     }
-                    
+
 
                     return $result;
                 })
@@ -207,7 +207,7 @@ class BarangController extends Controller
                     }else{
                         $result = '<span class="text-danger">'.$totalstok.'</span>';
                     }
-                    
+
 
                     return $result;
                 })
@@ -384,7 +384,7 @@ class BarangController extends Controller
             if($data['merk'])
                 $slug_merk = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $data['merk'])));
                 $merk       = MerkModel::firstOrCreate(['merk_nama' => $data['merk'], 'merk_slug' => $slug_merk, 'merk_keterangan' => '']);
-            
+
             if($data['satuan'])
                 $slug_satuan = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $data['satuan'])));
                 $satuan_data    = SatuanModel::firstOrCreate(['satuan_nama' => $data['satuan'], 'satuan_slug' => $slug_satuan, 'satuan_keterangan' => '']);
@@ -396,7 +396,6 @@ class BarangController extends Controller
             else
                 $product->barang_gambar = 'image.png';
 
-            
 
             $random = Str::random(13);
 
@@ -414,10 +413,10 @@ class BarangController extends Controller
             $product->barang_stok       = 0;
             $product->barang_harga      = $data['harga'];
 
-            if($data['name'])
-                $product->save();
+            // if($data['name'])
+            $product->save();
 
-            
+
         }
         return redirect('admin/barang')->with('create_message', 'Product imported successfully');
     }

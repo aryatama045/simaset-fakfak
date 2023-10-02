@@ -143,14 +143,14 @@ class BarangmasukController extends Controller
 
                     $hakEdit = AksesModel::leftJoin('tbl_submenu', 'tbl_submenu.submenu_id', '=', 'tbl_akses.submenu_id')->where(array('tbl_akses.role_id' => Session::get('user')->role_id, 'tbl_submenu.submenu_judul' => 'Pengadaan Barang', 'tbl_akses.akses_type' => 'update'))->count();
                     $hakDelete = AksesModel::leftJoin('tbl_submenu', 'tbl_submenu.submenu_id', '=', 'tbl_akses.submenu_id')->where(array('tbl_akses.role_id' => Session::get('user')->role_id, 'tbl_submenu.submenu_judul' => 'Pengadaan Barang', 'tbl_akses.akses_type' => 'delete'))->count();
-                    
+
                     $button .= '
                     <div class="g-2">
                         <a class="btn btn-primary btn-sm" href="'.url('admin/barang-masuk/copydocument/' .$row->pb_id).'" > Pilih</a>
                         <a class="btn btn-primary btn-sm" href="javascript:void(0)" onclick=copyDocument(' .$row->pb_id. ')>Pilih2</a>
                     </div>
                     ';
-                    
+
                     return $button;
                 })
                 ->rawColumns(['action', 'ket'])->make(true);
@@ -187,10 +187,10 @@ class BarangmasukController extends Controller
         }
 
 
-        
 
 
-		
+
+
         // if($no_doc_trans){
 		// 	$output['header'] = array();
 		// 	$header = $this->model_bkb_opening_store->getHeaderBKB($no_doc_trans);
@@ -219,6 +219,29 @@ class BarangmasukController extends Controller
 		// }
 		// echo json_encode($output);
 	}
+
+    public function proses_copy(Request $request, $id)
+    {
+
+        # Data barang
+
+        $log_detail = array();
+        $c_barang = count($request->barang);
+        for($x=0; $x < $c_barang; $x++){
+            $data_barang = array(
+                'bm_tanggal'    => $request->tglmasuk,
+                'bm_kode'       => $request->bmkode,
+                'pb_id'         => $request->pb_id,
+                'supplier_id'   => $request->supplier,
+                'barang_kode'   => $request->barang[$x],
+                'bm_jumlah'     => $request->jml,
+            );
+            array_push($log_detail, $data_barang);
+            BarangmasukModel::create($data_barang);
+        }
+
+
+    }
 
 
     public function proses_tambah(Request $request)
