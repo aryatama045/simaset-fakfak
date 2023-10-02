@@ -46,7 +46,11 @@ class BarangController extends Controller
     {
         if ($request->ajax()) {
 
-            $data = BarangModel::leftJoin('tbl_jenisbarang', 'tbl_jenisbarang.jenisbarang_id', '=', 'tbl_barang.jenisbarang_id')->leftJoin('tbl_satuan', 'tbl_satuan.satuan_id', '=', 'tbl_barang.satuan_id')->leftJoin('tbl_merk', 'tbl_merk.merk_id', '=', 'tbl_barang.merk_id')->orderBy('barang_id', 'DESC')->get();
+            $data = BarangModel::leftJoin('tbl_jenisbarang', 'tbl_jenisbarang.jenisbarang_id', '=', 'tbl_barang.jenisbarang_id')
+            ->leftJoin('tbl_satuan', 'tbl_satuan.satuan_id', '=', 'tbl_barang.satuan_id')
+            ->leftJoin('tbl_kategori', 'tbl_kategori.kategori_id', '=', 'tbl_barang.kategori_id')
+            ->leftJoin('tbl_merk', 'tbl_merk.merk_id', '=', 'tbl_barang.merk_id')
+            ->orderBy('barang_id', 'DESC')->get();
 
             return DataTables::of($data)
                 ->addIndexColumn()
@@ -66,6 +70,11 @@ class BarangController extends Controller
                     $jenisbarang = $row->jenisbarang_id == '' ? '-' : $row->jenisbarang_nama;
 
                     return $jenisbarang;
+                })
+                ->addColumn('kategoti', function ($row) {
+                    $kategoti = $row->kategoti_id == '' ? '-' : $row->kategoti_nama;
+
+                    return $kategoti;
                 })
                 ->addColumn('satuan', function ($row) {
                     $satuan = $row->satuan_id == '' ? '-' : $row->satuan_nama;
@@ -149,7 +158,7 @@ class BarangController extends Controller
 
                     return $button;
                 })
-                ->rawColumns(['action', 'img', 'jenisbarang', 'satuan', 'merk', 'currency', 'totalstok'])->make(true);
+                ->rawColumns(['action', 'img', 'jenisbarang', 'satuan','kategori', 'merk', 'currency', 'totalstok'])->make(true);
         }
     }
 
