@@ -18,7 +18,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label> Template File</label>
-                        <a href="{{url('/assets/sample_products.csv')}}" target="_blank" class="btn btn-info btn-block btn-md"><i class="fe fe-download"></i>  File Download</a>
+                        <a href="{{url('/assets/sample_product.xlsx')}}" target="_blank" class="btn btn-info btn-block btn-md"><i class="fe fe-download"></i>  File Download</a>
                     </div>
                 </div>
 
@@ -31,7 +31,7 @@
                 </button>
 
                 <button type="submit" class="btn btn-primary">Simpan <i class="fe fe-check"></i></button>
-                
+
                 <a href="javascript:void(0)" class="btn btn-light" onclick="reset()" data-bs-dismiss="modal">Batal <i class="fe fe-x"></i></a>
             </div>
 
