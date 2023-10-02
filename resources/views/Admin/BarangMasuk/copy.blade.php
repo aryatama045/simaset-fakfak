@@ -67,9 +67,8 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @$no=1; foreach($detail as $k => $v) {
+                        @foreach($detail as $k => $v) {
                         <tr>
-                            <td>{{ $no++ }}</td>
                             <td>{{ $v->barang_kode }}</td>
                             <td></td>
                             <td>{{ $v->satuan }}</td>
