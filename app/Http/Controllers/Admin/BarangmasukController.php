@@ -242,10 +242,10 @@ class BarangmasukController extends Controller
             array_push($log_detail, $detail_masuk);
             BarangmasukModel::create($detail_masuk);
 
-            $detail_masuk = array(
-                'pb_masuk'     => $request->pb_masuk[$x],
+            $detail_pb = array(
+                'pb_masuk'     => $request->bm_jumlah[$x],
             );
-            PbdetailModel::update($detail_pb)->where('pb_id', $request->pb_id);
+            PbdetailModel::update($detail_pb)->where(array('pb_id'=>$request->pb_id, 'barang_kode'=>$request->barang_kode));
         }
 
 
