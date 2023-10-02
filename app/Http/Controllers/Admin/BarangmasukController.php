@@ -178,6 +178,8 @@ class BarangmasukController extends Controller
             $data["header"] = PbModel::where('pb_id' , $id)->get();
             $data["detail"] = PbdetailModel::where('pb_id' , $id)->get();
 
+            dd($data["header"],$data["detail"]);
+
             return view('Admin.BarangMasuk.copy', $data);
 
         }else{

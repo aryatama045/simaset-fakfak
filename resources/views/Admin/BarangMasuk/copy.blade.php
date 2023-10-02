@@ -13,7 +13,35 @@
         </div>
     </div>
     <!-- PAGE-HEADER END -->
+<!-- ROW -->
+<div class="row row-sm">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header justify-content-between">
+                <h3 class="card-title">Form Barang Masuk</h3>
+            </div>
 
-@include('Admin.PengadaanBarang.barang')
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="bmkode" class="form-label">Kode Barang Masuk <span class="text-danger">*</span></label>
+                            <input type="text" name="bmkode" readonly class="form-control" value="{{ $header[0]->pb_kode}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="tglmasuk" class="form-label">Tanggal Masuk <span class="text-danger">*</span></label>
+                            <input type="text" name="tglmasuk" class="form-control datepicker-date" value="">
+                        </div>
+                    </div>
 
+                    <div class="col-md-6">
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END ROW -->
 @endsection
