@@ -66,11 +66,11 @@
                     <tbody>
                         @foreach($detail as $k => $v)
                         <tr>
-                            <td>{{ $v->barang_kode }}</td>
+                            <td><input type="hidden" name="barang_kode[]" class="form-control" value="{{ $v->barang_kode }}">{{ $v->barang_kode }}</td>
                             <td>{{ $v->barang_nama }}</td>
                             <td>{{ $v->satuan }}</td>
                             <td>{{ $v->spek }}</td>
-                            <td><input type="text" name="jumlah_masuk" class="form-control" value="{{ $v->pb_jumlah }}"></td>
+                            <td><input type="text" name="bm_jumlah[]" class="form-control" value="{{ $v->pb_jumlah }}" maxlength="{{ $v->pb_jumlah }}"></td>
                             <td>{{ $v->pb_harga }}</td>
                         </tr>
                         @endforeach
