@@ -29,16 +29,24 @@
                             <input type="text" name="bmkode" readonly class="form-control" value="{{ $bmkode }}">
                         </div>
                         <div class="form-group">
-                            <label for="supplier_id" class="form-label">Supplier <span class="text-danger">*</span></label>
-                            <input type="text" name="supplier_id" readonly class="form-control" value="{{ $header[0]->supplier_nama }}">
-                        </div>
-                        <div class="form-group">
                             <label for="tglmasuk" class="form-label">Tanggal Masuk <span class="text-danger">*</span></label>
                             <input type="text" name="tglmasuk" class="form-control datepicker-date" value="">
                         </div>
                     </div>
 
                     <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="pb_kode" class="form-label">Kode Pengadaan <span class="text-danger">*</span></label>
+                            <input type="text" readonly class="form-control" placholder="{{ $header[0]->pb_kode }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="supplier_id" class="form-label">Supplier <span class="text-danger">*</span></label>
+                            <input type="text" readonly class="form-control" placeholder="{{ $header[0]->supplier_nama }}">
+                        </div>
+                        <div class="form-group">
+                            <label  class="form-label">Tanggal Pengadaan <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" placeholder="{{ date('d-M-Y', $header[0]->pb_tanggal) }}">
+                        </div>
 
                     </div>
                 </div>
