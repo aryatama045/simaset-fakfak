@@ -196,31 +196,31 @@ class BarangmasukController extends Controller
 
 
         // if($no_doc_trans){
-		// 	$output['header'] = array();
-		// 	$header = $this->model_bkb_opening_store->getHeaderBKB($no_doc_trans);
-		// 	if($header){
-		// 		$header[0]['tgl_doc_trans'] = date("d/m/Y",strtotime($header[0]['tgl_doc_trans']));
-		// 		$header[0]['tgl_reff'] 		= date("d/m/Y",strtotime($header[0]['tgl_reff']));
-		// 		$header[0]['tgl_kirim'] 	= date("d/m/Y",strtotime($header[0]['tgl_kirim']));
-		// 		$output['header'] = $header[0];
-		// 	}
-		// 	$output['detail'] = array();
-		// 	$detail = $this->model_bkb_opening_store->getDetailBKB($no_doc_trans);
-		// 	if($detail){
-		// 		$i = 1;
-		// 		foreach ($detail as $key => $value) {
-		// 			$output['detail'][$key] = array(
-		// 				$value['urut'],
-		// 				$value['kd_brg'],
-		// 				$value['nm_barang'],
-		// 				$value['qty'],
-		// 			);
-		// 			$i++;
-		// 		}
-		// 	}
-		// }else{
-		// 	$output['data'] = [];
-		// }
+            // 	$output['header'] = array();
+            // 	$header = $this->model_bkb_opening_store->getHeaderBKB($no_doc_trans);
+            // 	if($header){
+            // 		$header[0]['tgl_doc_trans'] = date("d/m/Y",strtotime($header[0]['tgl_doc_trans']));
+            // 		$header[0]['tgl_reff'] 		= date("d/m/Y",strtotime($header[0]['tgl_reff']));
+            // 		$header[0]['tgl_kirim'] 	= date("d/m/Y",strtotime($header[0]['tgl_kirim']));
+            // 		$output['header'] = $header[0];
+            // 	}
+            // 	$output['detail'] = array();
+            // 	$detail = $this->model_bkb_opening_store->getDetailBKB($no_doc_trans);
+            // 	if($detail){
+            // 		$i = 1;
+            // 		foreach ($detail as $key => $value) {
+            // 			$output['detail'][$key] = array(
+            // 				$value['urut'],
+            // 				$value['kd_brg'],
+            // 				$value['nm_barang'],
+            // 				$value['qty'],
+            // 			);
+            // 			$i++;
+            // 		}
+            // 	}
+            // }else{
+            // 	$output['data'] = [];
+            // }
 		// echo json_encode($output);
 	}
 
@@ -228,7 +228,7 @@ class BarangmasukController extends Controller
     {
 
         # Data barang
-
+        dd($request);
         $log_detail = array();
         $c_barang = count($request->barang);
         for($x=0; $x < $c_barang; $x++){
@@ -241,7 +241,7 @@ class BarangmasukController extends Controller
                 'bm_jumlah'     => $request->jml,
             );
             array_push($log_detail, $data_barang);
-            BarangmasukModel::create($data_barang);
+            // BarangmasukModel::create($data_barang);
         }
 
 
