@@ -45,7 +45,7 @@
                         </div>
                         <div class="form-group">
                             <label  class="form-label">Tanggal Pengadaan <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" placeholder="{{ date('d-M-Y', $header[0]->pb_tanggal) }}">
+                            <input type="text" class="form-control" placeholder="{{ date('d-M-Y', strtotime($header[0]->pb_tanggal)) }}">
                         </div>
 
                     </div>
