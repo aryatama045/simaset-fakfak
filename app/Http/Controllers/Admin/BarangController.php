@@ -18,6 +18,9 @@ use Yajra\DataTables\Facades\DataTables;
 use File;
 use Illuminate\Support\Str;
 
+use App\Import\BarangImport;
+use Excel;
+
 
 
 
@@ -341,7 +344,7 @@ class BarangController extends Controller
     }
 
 
-    public function import_barang(Request $request)
+    public function import_barang2(Request $request)
     {
         //get file
         $upload=$request->file('file');
@@ -419,6 +422,71 @@ class BarangController extends Controller
 
 
         }
+        return redirect('admin/barang')->with('create_message', 'Product imported successfully');
+    }
+
+
+    public function import_barang(Request $request)
+    {
+
+        $gudang = request('to_warehouse_id');
+        $file   = $request->file('file');
+
+        $array= Excel::toArray(new BarangImport, $file);
+
+        $data = [];
+        foreach($array as $key => $val){
+
+            foreach ($val as $key2 => $val2){
+
+                if($val2['jenis'])
+                    $slug_jenis = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $val2['jenis'])));
+                    $jenis_data = JenisBarangModel::firstOrCreate(['jenisbarang_nama' => $val2['jenis'], 'jenisbarang_slug' => $slug_jenis, 'jenisbarang_ket' => '']);
+
+                if($val2['kategori'])
+                    $slug_kategori = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $val2['kategori'])));
+                    $kategori       = KategoriModel::firstOrCreate(['kategori_nama' => $val2['kategori'], 'kategori_slug' => $slug_kategori, 'kategori_ket' => '']);
+
+                if($val2['merk'])
+                    $slug_merk = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $val2['merk'])));
+                    $merk       = MerkModel::firstOrCreate(['merk_nama' => $val2['merk'], 'merk_slug' => $slug_merk, 'merk_keterangan' => '']);
+
+                if($val2['satuan'])
+                    $slug_satuan = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $val2['satuan'])));
+                    $satuan_data    = SatuanModel::firstOrCreate(['satuan_nama' => $val2['satuan'], 'satuan_slug' => $slug_satuan, 'satuan_keterangan' => '']);
+
+                $product        = BarangModel::firstOrNew([ 'barang_nama'=>$val2['name'] ]);
+
+                if($val2['image'])
+                    $product->barang_gambar = $val2['image'];
+                else
+                    $product->barang_gambar = 'image.png';
+
+
+                $random = Str::random(13);
+
+                $codeProduct = 'BRG-'.$random;
+                $slug_barang = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $val2['name'])));
+
+                $product->barang_kode       = $codeProduct;
+                $product->barang_nama       = $val2['name'];
+                $product->barang_slug       = $slug_barang;
+                $product->jenisbarang_id    = $jenis_data->jenisbarang_id;
+                $product->kategori_id       = $kategori->kategori_id;
+                $product->merk_id           = $merk->merk_id;
+                $product->satuan_id         = $satuan_data->satuan_id;
+                $product->barang_spek       = $val2['spek'];
+                $product->barang_stok       = 0;
+                $product->barang_harga      = $val2['harga'];
+
+                $product->save();
+
+            }
+        }
+
+
+        // Excel::import(new AdjustmentStokExcelImport, $request->file('file'));
+
         return redirect('admin/barang')->with('create_message', 'Product imported successfully');
     }
 
