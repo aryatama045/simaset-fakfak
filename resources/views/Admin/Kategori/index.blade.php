@@ -3,11 +3,11 @@
 @section('content')
     <!-- PAGE-HEADER -->
     <div class="page-header">
-        <h1 class="page-title">Jenis Barang</h1>
+        <h1 class="page-title">Kategori</h1>
         <div>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item text-gray">Master Barang</li>
-                <li class="breadcrumb-item active" aria-current="page">Jenis Barang</li>
+                <li class="breadcrumb-item active" aria-current="page">Kategori</li>
             </ol>
         </div>
     </div>
@@ -33,7 +33,7 @@
                             class="table table-bordered text-nowrap border-bottom dataTable no-footer dtr-inline collapsed">
                             <thead>
                                 <th class="border-bottom-0" width="1%">No</th>
-                                <th class="border-bottom-0">Jenis Barang</th>
+                                <th class="border-bottom-0">Kategori</th>
                                 <th class="border-bottom-0">Keterangan</th>
                                 <th class="border-bottom-0" width="1%">Action</th>
                             </thead>
@@ -46,20 +46,20 @@
     </div>
     <!-- END ROW -->
 
-    @include('Admin.JenisBarang.tambah')
-    @include('Admin.JenisBarang.edit')
-    @include('Admin.JenisBarang.hapus')
+    @include('Admin.Kategori.tambah')
+    @include('Admin.Kategori.edit')
+    @include('Admin.Kategori.hapus')
 
     <script>
         function update(data) {
-            $("input[name='idjenisbarangU']").val(data.jenisbarang_id);
-            $("input[name='jenisbarangU']").val(data.jenisbarang_nama.replace(/_/g, ' '));
-            $("textarea[name='ketU']").val(data.jenisbarang_ket.replace(/_/g, ' '));
+            $("input[name='idkategoriU']").val(data.kategori_id);
+            $("input[name='kategoriU']").val(data.kategori_nama.replace(/_/g, ' '));
+            $("textarea[name='ketU']").val(data.kategori_ket.replace(/_/g, ' '));
         }
 
         function hapus(data) {
-            $("input[name='idjenisbarang']").val(data.jenisbarang_id);
-            $("#vjenisbarang").html("jenis " + "<b>" + data.jenisbarang_nama.replace(/_/g, ' ') + "</b>");
+            $("input[name='idkategori']").val(data.kategori_id);
+            $("#vkategori").html("kategori " + "<b>" + data.kategori_nama.replace(/_/g, ' ') + "</b>");
         }
 
         function validasi(judul, status) {
@@ -99,7 +99,7 @@
                 lengthChange: true,
 
                 "ajax": {
-                    "url": "{{ route('jenisbarang.getjenisbarang') }}",
+                    "url": "{{ route('kategori.getkategori') }}",
                 },
 
                 "columns": [{
@@ -108,12 +108,12 @@
                         searchable: false
                     },
                     {
-                        data: 'jenisbarang_nama',
-                        name: 'jenisbarang_nama',
+                        data: 'kategori_nama',
+                        name: 'kategori_nama',
                     },
                     {
                         data: 'ket',
-                        name: 'jenisbarang_ket',
+                        name: 'kategori_ket',
                     },
                     {
                         data: 'action',

@@ -3,12 +3,12 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content modal-content-demo">
             <div class="modal-header">
-                <h6 class="modal-title">Tambah Jenis Barang</h6><button aria-label="Close" class="btn-close" data-bs-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                <h6 class="modal-title">Tambah Kategori</h6><button aria-label="Close" class="btn-close" data-bs-dismiss="modal"><span aria-hidden="true">&times;</span></button>
             </div>
             <div class="modal-body">
                 <div class="form-group">
-                    <label for="jenisbarang" class="form-label">Jenis Barang <span class="text-danger">*</span></label>
-                    <input type="text" name="jenisbarang" class="form-control" placeholder="">
+                    <label for="kategori" class="form-label">Kategori <span class="text-danger">*</span></label>
+                    <input type="text" name="kategori" class="form-control" placeholder="">
                 </div>
                 <div class="form-group">
                     <label for="ket" class="form-label">Keterangan</label>
@@ -30,13 +30,13 @@
 @section('formTambahJS')
 <script>
     function checkForm() {
-        const jenis = $("input[name='jenisbarang']").val();
+        const kategori = $("input[name='kategori']").val();
         setLoading(true);
         resetValid();
 
-        if (jenis == "") {
-            validasi('Jenis Barang wajib di isi!', 'warning');
-            $("input[name='jenisbarang']").addClass('is-invalid');
+        if (kategori == "") {
+            validasi('Kategori wajib di isi!', 'warning');
+            $("input[name='kategori']").addClass('is-invalid');
             setLoading(false);
             return false;
         } else {
@@ -45,15 +45,15 @@
     }
 
     function submitForm() {
-        const jenis = $("input[name='jenisbarang']").val();
+        const kategori = $("input[name='kategori']").val();
         const ket = $("textarea[name='ket']").val();
 
         $.ajax({
             type: 'POST',
-            url: "{{route('jenisbarang.store')}}",
+            url: "{{route('kategori.store')}}",
             enctype: 'multipart/form-data',
             data: {
-                jenisbarang: jenis,
+                kategori: kategori,
                 ket: ket
             },
             success: function(data) {
@@ -64,19 +64,19 @@
                 });
                 table.ajax.reload(null, false);
                 reset();
-                
+
             }
         });
     }
 
     function resetValid() {
-        $("input[name='jenisbarang']").removeClass('is-invalid');
+        $("input[name='kategori']").removeClass('is-invalid');
         $("textarea[name='ket']").removeClass('is-invalid');
     };
 
     function reset() {
         resetValid();
-        $("input[name='jenisbarang']").val('');
+        $("input[name='kategori']").val('');
         $("textarea[name='ket']").val('');
         setLoading(false);
     }

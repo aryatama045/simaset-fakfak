@@ -6,8 +6,8 @@
                 <button type="reset" aria-label="Close" class="btn-close position-absolute" data-bs-dismiss="modal"><span aria-hidden="true">×</span></button>
                 <br>
                 <i class="icon icon-exclamation fs-70 text-warning lh-1 my-5 d-inline-block"></i>
-                <h3 class="mb-5">Yakin hapus <span id="vjenisbarang"></span> ?</h3>
-                <input type="hidden" name="idjenisbarang" id="idjenisbarang">
+                <h3 class="mb-5">Yakin hapus <span id="vkategori"></span> ?</h3>
+                <input type="hidden" name="idkategori" id="idkategori">
                 <button class="btn btn-danger-light pd-x-25 d-none" id="btnLoaderH" type="button" disabled="">
                     <span class="spinner-border spinner-border-sm me-1" role="status" aria-hidden="true"></span>
                     Loading...
@@ -23,11 +23,11 @@
 <script>
     function submitFormH() {
         setLoadingH(true);
-        const id = $("input[name='idjenisbarang']").val();
+        const id = $("input[name='idkategori']").val();
 
         $.ajax({
             type: 'POST',
-            url: "{{url('admin/jenisbarang/proses_hapus')}}/" + id,
+            url: "{{url('admin/kategori/proses_hapus')}}/" + id,
             enctype: 'multipart/form-data',
             success: function(data) {
                 swal({
@@ -42,7 +42,7 @@
     }
 
     function resetH() {
-        $("input[name='idjenisbarang']").val('');
+        $("input[name='idkategori']").val('');
         setLoadingH(false);
     }
 

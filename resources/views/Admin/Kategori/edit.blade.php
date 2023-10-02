@@ -3,13 +3,13 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content modal-content-demo">
             <div class="modal-header">
-                <h6 class="modal-title">Ubah Jenis Barang</h6><button aria-label="Close" class="btn-close" data-bs-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                <h6 class="modal-title">Ubah Kategori</h6><button aria-label="Close" class="btn-close" data-bs-dismiss="modal"><span aria-hidden="true">&times;</span></button>
             </div>
             <div class="modal-body">
-                <input type="hidden" name="idjenisbarangU">
+                <input type="hidden" name="idkategoriU">
                 <div class="form-group">
-                    <label for="jenisbarangU" class="form-label">Jenis Barang <span class="text-danger">*</span></label>
-                    <input type="text" name="jenisbarangU" class="form-control" placeholder="">
+                    <label for="kategoriU" class="form-label">Kategori <span class="text-danger">*</span></label>
+                    <input type="text" name="kategoriU" class="form-control" placeholder="">
                 </div>
                 <div class="form-group">
                     <label for="ketU" class="form-label">Keterangan</label>
@@ -31,13 +31,13 @@
 @section('formEditJS')
 <script>
     function checkFormU() {
-        const jenis = $("input[name='jenisbarangU']").val();
+        const jenis = $("input[name='kategoriU']").val();
         setLoadingU(true);
         resetValidU();
 
         if (jenis == "") {
-            validasi('Jenis Barang wajib di isi!', 'warning');
-            $("input[name='jenisbarangU']").addClass('is-invalid');
+            validasi('Kategori wajib di isi!', 'warning');
+            $("input[name='kategoriU']").addClass('is-invalid');
             setLoadingU(false);
             return false;
         } else {
@@ -46,16 +46,16 @@
     }
 
     function submitFormU() {
-        const id = $("input[name='idjenisbarangU']").val();
-        const jenis = $("input[name='jenisbarangU']").val();
+        const id = $("input[name='idkategoriU']").val();
+        const jenis = $("input[name='kategoriU']").val();
         const ket = $("textarea[name='ketU']").val();
 
         $.ajax({
             type: 'POST',
-            url: "{{url('admin/jenisbarang/proses_ubah')}}/" + id,
+            url: "{{url('admin/kategori/proses_ubah')}}/" + id,
             enctype: 'multipart/form-data',
             data: {
-                jenisbarang: jenis,
+                kategori: jenis,
                 ket: ket
             },
             success: function(data) {
@@ -71,14 +71,14 @@
     }
 
     function resetValidU() {
-        $("input[name='jenisbarangU']").removeClass('is-invalid');
+        $("input[name='kategoriU']").removeClass('is-invalid');
         $("textarea[name='ketU']").removeClass('is-invalid');
     };
 
     function resetU() {
         resetValidU();
-        $("input[name='idjenisbarangU']").val('');
-        $("input[name='jenisbarangU']").val('');
+        $("input[name='idkategoriU']").val('');
+        $("input[name='kategoriU']").val('');
         $("textarea[name='ketU']").val('');
         setLoadingU(false);
     }
