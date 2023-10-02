@@ -248,8 +248,6 @@ class BarangmasukController extends Controller
             PbdetailModel::update($detail_pb)->where(array('pb_id'=>$request->pb_id, 'barang_kode'=>$request->barang_kode));
         }
 
-
-
         return redirect('admin/barang-masuk')->with('create_message', 'Barang Masuk Nomor : '. $request->bm_kode);
 
     }
