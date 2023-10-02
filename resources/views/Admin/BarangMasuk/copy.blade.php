@@ -62,10 +62,23 @@
                             <th width="20%">Nama Barang</th>
                             <th>Satuan</th>
                             <th>Spek</th>
-                            <th>Jumlah</th>
-                            <th width="20%">Harga</th>
+                            <th width="20%">Jumlah</th>
+                            <th >Harga</th>
                         </tr>
                     </thead>
+                    <tbody>
+                        @$no=1; foreach($detail as $k => $v) {
+                        <tr>
+                            <td>{{ $no++ }}</td>
+                            <td>{{ $v->barang_kode }}</td>
+                            <td></td>
+                            <td>{{ $v->satuan }}</td>
+                            <td>{{ $v->spek }}</td>
+                            <td><input type="text" readonly class="form-control" value="{{ $v->pb_jumlah }}"></td>
+                            <td>{{ $v->pb_harga }}</td>
+                        </tr>
+                        @}
+                    </tbody>
 
 
                 </table>
