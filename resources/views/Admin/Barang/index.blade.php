@@ -185,11 +185,19 @@
             "ajax": {
                 "url": "{{route('barang.getbarang')}}",
             },
-            'columnDefs': [
+            "columnDefs": [
                 {
-                    'targets': 0,
-                    'checkboxes': true
+                    orderable: false,
+                    targets: 0,
+                    className: 'select-checkbox' //<--- here
                 }
+            ],
+            "select": {
+                style: 'os',
+                selector: 'td:first-child'
+            },
+            "order": [
+                [4, 'asc']
             ],
             "columns": [
                 // {
