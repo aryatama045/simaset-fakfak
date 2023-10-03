@@ -25,7 +25,7 @@
                         </div>
                         <div class="form-group">
                             <label for="pb_footer" class="form-label">Footer Surat<span class="text-danger">*</span></label>
-                            <textarea type="text" name="pb_footer" class="form-control" value="Demikian Nota Pesanan dan atas perhatiannya kami sampaikan terimakasih."></textarea>
+                            <textarea type="text" name="pb_footer" class="form-control" >Demikian Nota Pesanan dan atas perhatiannya kami sampaikan terimakasih.</textarea>
                         </div>
                     </div>
                     <div class="col-md-6">
