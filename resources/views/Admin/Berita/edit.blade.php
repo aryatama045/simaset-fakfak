@@ -71,6 +71,7 @@
                             <th width="20%">Nama Barang</th>
                             <th>Stok</th>
                             <th>Harga</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -80,6 +81,7 @@
                             <td>{{ $v->barang_nama }}</td>
                             <td><input type="text" name="bm_jumlah[]" class="form-control" value="{{ $v->stok }}" maxlength="{{ $v->stok }}"></td>
                             <td>{{ $v->harga_satuan }}</td>
+                            <td><button type="button" name="remove" class="btn btn-sm btn-danger remove"><i class="fa fa-trash"></i></button></td>
                         </tr>
                         @endforeach
                     </tbody>
@@ -114,4 +116,129 @@
 
     </script>
 @endsection
+
+
+@section('formTambahJS')
+<script>
+    $(document).ready(function() {
+        barang_table = $('#barang_table').DataTable({
+            'ordering'    : false,
+            'bPaginate'   : false,
+            'bFilter'     : false,
+            'bInfo'       : false,
+            'fixedColumns': true,
+            'responsive': true,
+            'columnDefs'  : [
+                { 'width': 10, 'targets': 0 },
+                { 'width': 125, 'targets': 1 },
+                { 'width': 125, 'targets': 2 },
+                { 'width': 125, 'targets': 3 },
+                { 'width': 50, 'targets': 4},
+                ],
+        });
+    });
+
+
+
+    $('input[name="kdbarang"]').keypress(function(event) {
+        var keycode = (event.keyCode ? event.keyCode : event.which);
+        if (keycode == '13') {
+            getbarangbyid($('input[name="kdbarang"]').val());
+        }
+    });
+
+    function modalBarang() {
+        $('#modalBarang').modal('show');
+        $('#modaldemo8').addClass('d-none');
+        $('input[name="param"]').val('tambah');
+        resetValid();
+        table2.ajax.reload();
+    }
+
+    function searchBarang() {
+        getbarangbyid($('input[name="kdbarang"]').val());
+        resetValid();
+    }
+
+    function getbarangbyid(id) {
+        $("#loaderkd").removeClass('d-none');
+        $.ajax({
+            type: 'GET',
+            url: "{{ url('admin/barang/getbarang') }}/" + id,
+            processData: false,
+            contentType: false,
+            dataType: 'json',
+            success: function(data) {
+                if (data.length > 0) {
+                    $("#loaderkd").addClass('d-none');
+                    $("#status").val("true");
+                    $("#nmbarang").val(data[0].barang_nama);
+                    $("#satuan").val(data[0].satuan_nama);
+                    $("#jenis").val(data[0].jenisbarang_nama);
+                    $("#harga").val(data[0].barang_harga);
+                } else {
+                    $("#loaderkd").addClass('d-none');
+                    $("#status").val("false");
+                    $("#nmbarang").val('');
+                    $("#satuan").val('');
+                    $("#jenis").val('');
+                    $("#harga").val('');
+                }
+            }
+        });
+    }
+
+
+    // var count = 1;
+
+    function add_input_field(count) {
+
+        var html = '';
+
+        if (count > 1) {
+            html += '<tr>';
+
+            html += '<td><input type="text" name="jenis_pekerjaan[]" id="jenis_pekerjaan" class="form-control" required/></td>';
+
+            html += '<td><input type="text" name="jenis_pekerjaan[]" id="jenis_pekerjaan" class="form-control" required/></td>';
+
+            html += '<td><input type="text" name="jenis_pekerjaan[]" id="jenis_pekerjaan" class="form-control" required/></td>';
+
+            html += '<td><input type="text" name="jenis_pekerjaan[]" id="jenis_pekerjaan" class="form-control" required/></td>';
+
+            html += '<td><input type="text" name="jenis_pekerjaan[]" id="jenis_pekerjaan" class="form-control" required/></td>';
+
+            html += '<td><textarea type="text" name="detail_pekerjaan[]" id="detail_pekerjaan" class="form-control" required></textarea></td>';
+
+            html += '<td><button type="button" name="remove" class="btn btn-danger remove"><i class="fa fa-trash"></i></button></td>';
+
+            html += '</tr>';
+        }
+
+
+        return html;
+
+    }
+
+    $('#barang_table').append(add_input_field(1));
+
+
+    $(document).on('click', '.add', function() {
+
+        count++;
+        $('#barang_table').append(add_input_field(count));
+
+
+    });
+
+    $(document).on('click', '.remove', function() {
+
+        $(this).closest('tr').remove();
+
+    });
+
+
+</script>
+@endsection
+
 
