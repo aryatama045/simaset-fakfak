@@ -18,9 +18,9 @@
                             <input type="text" name="tglmasukU" class="form-control datepicker-date" placeholder="">
                         </div>
                         <div class="form-group">
-                            <label for="supplierU" class="form-label">Pilih Customer <span class="text-danger">*</span></label>
+                            <label for="supplierU" class="form-label">Pilih Supplier <span class="text-danger">*</span></label>
                             <select name="supplierU" id="supplierU" class="form-control">
-                                <option value="">-- Pilih Customer --</option>
+                                <option value="">-- Pilih Supplier --</option>
                                 @foreach ($supplier as $c)
                                 <option value="{{ $c->supplier_id }}">{{ $c->supplier_nama }}</option>
                                 @endforeach
@@ -211,7 +211,7 @@
         $("#satuanU").val('');
         $("#jenisU").val('');
         $("#statusU").val('false');
-        
+
         setLoadingU(false);
     }
 
