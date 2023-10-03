@@ -31,20 +31,31 @@
                             <label for="berita_kode" class="form-label">NO. Berita Acara <span class="text-danger">*</span></label>
                             <input type="text" name="berita_kode" readonly class="form-control" value="{{ $header[0]->berita_kode }}">
                         </div>
+                        </div>
                         <div class="form-group">
-                            <label for="tglmasuk" class="form-label">Tanggal Masuk <span class="text-danger">*</span></label>
-                            <input type="text" name="tglmasuk" class="form-control datepicker-date" required>
+                            <label  class="form-label">Tanggal Dokumen<span class="text-danger">*</span></label>
+                            <input type="text" name="berita_tanggal"  class="form-control datepicker-date" value="{{ date('d-M-Y', strtotime($header[0]->berita_tanggal)) }}">
                         </div>
                     </div>
 
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="supplier_id" class="form-label">Pihak 1 <span class="text-danger">*</span></label>
-                            <input type="text" readonly class="form-control"  placeholder="{{ $header[0]->p1_nama }}">
+                            <label for="berita_pihak_1" class="form-label">Pihak <b>PERTAMA</b> <span class="text-danger">*</span></label>
+                            <select name="berita_pihak_1" class="select select-2 form-control" required>
+                                <option value="">-- <b>{{$header[0]->p1_nama}}</b> --</option>
+                                @foreach ($pegawai as $s)
+                                <option value="{{ $s->pegawai_id }}">{{ $s->nip }} - {{ $s->nama_lengkap }}</option>
+                                @endforeach
+                            </select>
                         </div>
                         <div class="form-group">
-                            <label  class="form-label">Tanggal Pengadaan <span class="text-danger">*</span></label>
-                            <input type="text" readonly class="form-control" placeholder="{{ date('d-M-Y', strtotime($header[0]->berita_tanggal)) }}">
+                            <label for="berita_pihak_2" class="form-label">Pihak <b>KEDUA</b><span class="text-danger">*</span></label>
+                            <select name="berita_pihak_2" class="select select-2 form-control" required>
+                                <option value="">-- <b>{{$header[0]->p2_nama}}</b>--</option>
+                                @foreach ($pegawai as $s)
+                                <option value="{{ $s->pegawai_id }}">{{ $s->nip }} - {{ $s->nama_lengkap }}</option>
+                                @endforeach
+                            </select>
                         </div>
 
                     </div>
