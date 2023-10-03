@@ -53,6 +53,7 @@
                     <table id="table-1" class="table table-bordered text-nowrap border-bottom dataTable no-footer dtr-inline collapsed">
                         <thead>
                             <th class="border-bottom-0" width="1%">No</th>
+                            <th class="border-bottom-0" width="1%">Action</th>
                             <th class="border-bottom-0">Gambar</th>
                             <th class="border-bottom-0">Kode Barang</th>
                             <th class="border-bottom-0">Nama Barang</th>
@@ -62,7 +63,6 @@
                             <th class="border-bottom-0">Merk</th>
                             <th class="border-bottom-0">Stok</th>
                             <th class="border-bottom-0">Harga</th>
-                            <th class="border-bottom-0" width="1%">Action</th>
                         </thead>
                         <tbody></tbody>
                     </table>
@@ -150,6 +150,12 @@
                     searchable: false
                 },
                 {
+                    data: 'action',
+                    name: 'action',
+                    orderable: false,
+                    searchable: false
+                },
+                {
                     data: 'img',
                     name: 'barang_gambar',
                     searchable: false,
@@ -186,12 +192,6 @@
                 {
                     data: 'currency',
                     name: 'barang_harga'
-                },
-                {
-                    data: 'action',
-                    name: 'action',
-                    orderable: false,
-                    searchable: false
                 },
             ],
         });
