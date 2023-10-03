@@ -63,9 +63,9 @@
                     <table id="table-1" class="table table-bordered text-nowrap border-bottom dataTable no-footer dtr-inline collapsed">
                         <thead>
                             <th class="border-bottom-0" width="1%">
-                                <div class="form-check">
+                                <!-- <div class="form-check">
                                     <input type="checkbox" name="select_all" value="1" class="form-check-input" id="example-select-all">
-                                </div>
+                                </div> -->
                             </th>
                             <th class="border-bottom-0" width="1%">Action</th>
                             <th class="border-bottom-0">Gambar</th>
@@ -188,19 +188,6 @@
             lengthChange: true,
             "ajax": {
                 "url": "{{route('barang.getbarang')}}",
-            },
-            "columnDefs": [
-                {
-                    name:'id',
-                    data: 'checkbox',
-                    targets: 0,
-                    checkboxes: {
-                        selectRow: true
-                    }
-                }
-            ],
-            "select": {
-                style: 'multi'
             },
             "columns": [
                 // {
