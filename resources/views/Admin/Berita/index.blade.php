@@ -77,7 +77,6 @@
     <!-- END ROW -->
 
     @include('Admin.Berita.tambah')
-    @include('Admin.Berita.edit')
     @include('Admin.Berita.hapus')
     @include('Admin.Berita.barang')
 
