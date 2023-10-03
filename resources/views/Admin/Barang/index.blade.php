@@ -50,7 +50,15 @@
                 @endif
             </div>
             <div class="card-body">
-                <button type="button" name="bulk_delete" id="bulk_delete" class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-remove"></i></button>
+                <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle" id="dropdownNoAnimation" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">No Animation</button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownNoAnimation">
+                        <a class="dropdown-item" href="#!">Action</a>
+                        <a class="dropdown-item" href="#!" name="bulk_delete" id="bulk_delete">Bulk Delete</a>
+                        <a class="dropdown-item" href="#!">Something else here</a>
+                    </div>
+                </div>
+                <br>
                 <div class="table-responsive">
                     <table id="table-1" class="table table-bordered text-nowrap border-bottom dataTable no-footer dtr-inline collapsed">
                         <thead>
