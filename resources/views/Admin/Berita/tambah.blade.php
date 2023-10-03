@@ -17,7 +17,7 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="berita_kode" class="form-label">No. Berita Acara<span class="text-danger">*</span></label>
-                            <input type="text" name="berita_kode" class="form-control" placeholder="" required>
+                            <input type="text" name="berita_kode" class="form-control" value="{{ $no_berita }}" readonly>
                         </div>
                         <div class="form-group">
                             <label for="berita_pihak_1" class="form-label">Pihak <b>PERTAMA</b> <span class="text-danger">*</span></label>
