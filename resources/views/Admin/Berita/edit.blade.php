@@ -58,9 +58,7 @@
                         <tr>
                             <th>Kode Barang</th>
                             <th width="20%">Nama Barang</th>
-                            <th>Satuan</th>
-                            <th>Spek</th>
-                            <th width="20%">Jumlah</th>
+                            <th>Stok</th>
                             <th>Harga</th>
                         </tr>
                     </thead>
@@ -69,10 +67,8 @@
                         <tr>
                             <td><input type="hidden" name="barang_kode[]" class="form-control" value="{{ $v->barang_kode }}">{{ $v->barang_kode }}</td>
                             <td>{{ $v->barang_nama }}</td>
-                            <td>{{ $v->satuan }}</td>
-                            <td>{{ $v->spek }}</td>
-                            <td><input type="text" name="bm_jumlah[]" class="form-control" value="{{ $v->pb_jumlah }}" maxlength="{{ $v->pb_jumlah }}"></td>
-                            <td>{{ $v->pb_harga }}</td>
+                            <td><input type="text" name="bm_jumlah[]" class="form-control" value="{{ $v->stok }}" maxlength="{{ $v->stok }}"></td>
+                            <td>{{ $v->harga_satuan }}</td>
                         </tr>
                         @endforeach
                     </tbody>
