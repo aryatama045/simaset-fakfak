@@ -1,6 +1,5 @@
 @extends('Master.Layouts.app', ['title' => $title])
 
-<link type="text/css" href="//gyrocode.github.io/jquery-datatables-checkboxes/1.2.12/css/dataTables.checkboxes.css" rel="stylesheet" />
 
 @section('content')
 <!-- PAGE-HEADER -->
@@ -80,7 +79,7 @@
 @include('Admin.Barang.hapus')
 @include('Admin.Barang.gambar')
 @include('Admin.Barang.import')
-<script type="text/javascript" src="//gyrocode.github.io/jquery-datatables-checkboxes/1.2.12/js/dataTables.checkboxes.min.js"></script>
+
 <script>
     function generateID(){
         id = new Date().getTime();
@@ -153,13 +152,6 @@
                 //     searchable: false
                 // },
                 {
-                    data: 'DT_RowIndex',
-                    name: 'DT_RowIndex',
-                    checkboxes: {
-                        selectRow: true
-                    }
-                },
-                {
                     data: 'action',
                     name: 'action',
                     orderable: false,
@@ -204,9 +196,17 @@
                     name: 'barang_harga'
                 },
             ],
-            select: {
-                style: 'multi'
-            },
+            [
+                'defaultContent' => '<input type="checkbox" ' . $this->html->attributes($attributes) . '/>',
+                'title'          => $this->form->checkbox('', '', false, ['id' => 'dataTablesCheckbox']),
+                'data'           => 'checkbox',
+                'name'           => 'checkbox',
+                'orderable'      => false,
+                'searchable'     => false,
+                'exportable'     => false,
+                'printable'      => true,
+                'width'          => '10px',
+            ];
         });
     });
 </script>
