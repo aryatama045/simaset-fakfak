@@ -30,7 +30,8 @@ class PbController extends Controller
         $no_doc = '/'.$bulan.'/NP/BPKAD/'.$tahun;
         $count_pesanan = PbModel::where('pb_kode', $no_doc)->orwhere('pb_kode', 'like', '%'.$no_doc.'%')->count();
 
-        $data["no_pesanan"] = $count_pesanan + 0001;
+        $jum_no = $count_pesanan + 0001;
+        $data["no_pesanan"] = str_pad($jum_no, 4, '0', STR_PAD_LEFT);
         return view('Admin.PengadaanBarang.index', $data);
     }
 
