@@ -264,7 +264,11 @@
                     data:{id:id},
                     success:function(data)
                     {
-                        alert(data);
+                        // alert(data);
+                        swal({
+                            title: "Berhasil dihapus!",
+                            type: "success"
+                        });
                         $('#table-1').DataTable().ajax.reload();
                     }
                 });
