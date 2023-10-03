@@ -34,7 +34,7 @@
 
                         <div class="form-group">
                             <label  class="form-label">Tanggal Dokumen<span class="text-danger">*</span></label>
-                            <input type="text" name="berita_tanggal"  class="form-control datepicker-date" value="{{ date('d-M-Y', strtotime($header[0]->berita_tanggal)) }}">
+                            <input type="text" name="berita_tanggal"  class="form-control datepicker-date" value="{{ date('Y-m-d', strtotime($header[0]->berita_tanggal)) }}">
                         </div>
                     </div>
 
