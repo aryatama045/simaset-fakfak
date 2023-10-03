@@ -185,20 +185,17 @@
             "ajax": {
                 "url": "{{route('barang.getbarang')}}",
             },
-            'columnDefs': [
+            "columnDefs": [
                 {
-                    'targets': 0,
-                    'checkboxes': {
-                    'selectRow': true
+                    targets: 0,
+                    checkboxes: {
+                        selectRow: true
                     }
                 }
             ],
-            'select': {
-                'style': 'multi'
+            "select": {
+                style: 'multi'
             },
-            "order": [
-                [4, 'asc']
-            ],
             "columns": [
                 // {
                 //     data: 'DT_RowIndex',
