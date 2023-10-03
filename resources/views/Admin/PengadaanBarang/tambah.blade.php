@@ -31,7 +31,7 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="pb_tanggal" class="form-label">Tanggal Pengajuan<span class="text-danger">*</span></label>
-                            <input type="text" name="pb_tanggal" class="form-control datepicker-date" placeholder="">
+                            <input type="text" name="pb_tanggal" class="form-control datepicker-date" value="{{date('Y-m-d')}}">
                         </div>
                         <div class="form-group">
                             <label for="pb_supplier" class="form-label">Pilih Supplier <span class="text-danger">*</span></label>
