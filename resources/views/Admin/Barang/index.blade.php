@@ -51,9 +51,9 @@
             </div>
             <div class="card-body">
                 <div class="dropdown">
-                    <button class="btn btn-primary dropdown-toggle" id="dropdownNoAnimation" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">No Animation</button>
+                    <button class="btn btn-primary dropdown-toggle" id="dropdownNoAnimation" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Action</button>
                     <div class="dropdown-menu" aria-labelledby="dropdownNoAnimation">
-                        <a class="dropdown-item" href="#!">Action</a>
                         <a class="dropdown-item" href="#!" name="bulk_delete" id="bulk_delete">Bulk Delete</a>
                         <a class="dropdown-item" href="#!">Something else here</a>
                     </div>
