@@ -529,7 +529,7 @@ class BarangController extends Controller
     function bulk_delete(Request $request)
     {
         $id_array = $request->input('id');
-        dd($id_array);
+        // dd($id_array);
         $barang = BarangModel::whereIn('barang_id', $id_array);
         if($barang->delete())
         {

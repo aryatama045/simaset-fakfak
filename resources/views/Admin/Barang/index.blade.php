@@ -266,7 +266,7 @@
                     {
                         // alert(data);
                         swal({
-                            title: "Berhasil dihapus!",
+                            title: "Berhasil dihapus!" + data,
                             type: "success"
                         });
                         $('#table-1').DataTable().ajax.reload();
