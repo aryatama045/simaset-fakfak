@@ -77,7 +77,7 @@
 
         function hapus(data) {
             $("input[name='idberita']").val(data.berita_id);
-            $("#vberita").html("No Berita " + "<b>" + data.berita_kode + "</b>");
+            $("#vberita").html(" <br> No Berita : " + "<b>" + data.berita_kode + "</b>");
         }
 
         function validasi(judul, status) {
