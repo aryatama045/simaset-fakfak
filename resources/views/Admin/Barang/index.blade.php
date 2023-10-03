@@ -50,6 +50,7 @@
                 @endif
             </div>
             <div class="card-body">
+                <button type="button" name="bulk_delete" id="bulk_delete" class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-remove"></i></button>
                 <div class="table-responsive">
                     <table id="table-1" class="table table-bordered text-nowrap border-bottom dataTable no-footer dtr-inline collapsed">
                         <thead>
@@ -79,6 +80,37 @@
 @include('Admin.Barang.hapus')
 @include('Admin.Barang.gambar')
 @include('Admin.Barang.import')
+
+<div id="studentModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form method="post" id="student_form">
+                <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Add Data</h4>
+                </div>
+                <div class="modal-body">
+                    {{csrf_field()}}
+                    <span id="form_output"></span>
+                    <div class="form-group">
+                        <label>Enter First Name</label>
+                        <input type="text" name="first_name" id="first_name" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label>Enter Last Name</label>
+                        <input type="text" name="last_name" id="last_name" class="form-control" />
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <input type="hidden" name="student_id" id="student_id" value="" />
+                    <input type="hidden" name="button_action" id="button_action" value="insert" />
+                    <input type="submit" name="submit" id="action" value="Add" class="btn btn-info" />
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 
 <script>
     function generateID(){
@@ -202,7 +234,38 @@
                     name: 'barang_harga'
                 },
             ],
+            select: {
+                style: 'multi'
+            },
         });
+    });
+
+
+    $(document).on('click', '#bulk_delete', function(){
+        var id = [];
+        if(confirm("Are you sure you want to Delete this data?"))
+        {
+            $('.student_checkbox:checked').each(function(){
+                id.push($(this).val());
+            });
+            if(id.length > 0)
+            {
+                $.ajax({
+                    url:"{{ route('#')}}",
+                    method:"get",
+                    data:{id:id},
+                    success:function(data)
+                    {
+                        alert(data);
+                        $('#student_table').DataTable().ajax.reload();
+                    }
+                });
+            }
+            else
+            {
+                alert("Please select atleast one checkbox");
+            }
+        }
     });
 </script>
 @endsection
