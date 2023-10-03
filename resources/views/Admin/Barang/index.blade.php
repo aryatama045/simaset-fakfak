@@ -207,7 +207,7 @@
                 //     searchable: false
                 // },
                 {
-                    data: 'checkbox',
+                    data: 'checkboxs',
                     orderable: false,
                     searchable:false,
                     name:'id'
