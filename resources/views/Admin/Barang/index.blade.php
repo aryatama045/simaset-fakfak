@@ -144,10 +144,17 @@
             "ajax": {
                 "url": "{{route('barang.getbarang')}}",
             },
-            "columns": [{
-                    data: 'DT_RowIndex',
-                    name: 'DT_RowIndex',
-                    searchable: false
+            "columns": [
+                // {
+                //     data: 'DT_RowIndex',
+                //     name: 'DT_RowIndex',
+                //     searchable: false
+                // },
+                {
+                    'targets': 0,
+                    'checkboxes': {
+                    'selectRow': true
+                    }
                 },
                 {
                     data: 'action',
