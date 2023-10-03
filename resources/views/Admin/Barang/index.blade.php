@@ -153,9 +153,10 @@
                 //     searchable: false
                 // },
                 {
-                    targets: 0,
+                    data: 'DT_RowIndex',
+                    name: 'DT_RowIndex',
                     checkboxes: {
-                    selectRow: true
+                        selectRow: true
                     }
                 },
                 {
