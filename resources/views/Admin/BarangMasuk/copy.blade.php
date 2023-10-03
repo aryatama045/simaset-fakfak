@@ -33,7 +33,7 @@
                         </div>
                         <div class="form-group">
                             <label for="tglmasuk" class="form-label">Tanggal Masuk <span class="text-danger">*</span></label>
-                            <input type="text" name="tglmasuk" class="form-control datepicker-date" required>
+                            <input type="text" name="tglmasuk" class="form-control datepicker-date" value="{{ date('Y-m-d') }}" required>
                         </div>
                     </div>
 
