@@ -24,6 +24,13 @@ class SpkController extends Controller
         $data["hakTambah"] = AksesModel::leftJoin('tbl_submenu', 'tbl_submenu.submenu_id', '=', 'tbl_akses.submenu_id')->where(array('tbl_akses.role_id' => Session::get('user')->role_id, 'tbl_submenu.submenu_judul' => 'Surat Perintah Kerja', 'tbl_akses.akses_type' => 'create'))->count();
         $data["supplier"] = SupplierModel::orderBy('supplier_id', 'DESC')->get();
         $data["pegawai"] = PegawaiModel::orderBy('pegawai_id', 'DESC')->get();
+
+        $bulan = date('m'); $tahun=date('Y');
+        $no_doc = '/'.$bulan.'/SPK/BPKAD/'.$tahun;
+        $count_pesanan = SpkModel::where('spk_kode', $no_doc)->orwhere('spk_kode', 'like', '%'.$no_doc.'%')->count();
+        $jum_no = $count_pesanan + 0001;
+        $data["no_spk"] = str_pad($jum_no, 4, '0', STR_PAD_LEFT);
+
         return view('Admin.Spk.index', $data);
     }
 

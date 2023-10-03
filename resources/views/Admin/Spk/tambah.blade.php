@@ -18,7 +18,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="spk_kode" class="form-label">No. SPK<span class="text-danger">*</span></label>
-                                <input type="text" name="spk_kode" class="form-control" placeholder="" required>
+                                <input type="text" name="spk_kode" class="form-control" readonly value="{{ $no_spk }}" required>
                             </div>
                             <div class="form-group">
                                 <label for="spk_jenis" class="form-label">Jenis SPK<span class="text-danger">*</span></label>
