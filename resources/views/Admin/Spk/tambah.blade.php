@@ -36,7 +36,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="spk_pihak_1" class="form-label">Pihak <b>PERTAMA</b> <span class="text-danger">*</span></label>
-                                <select name="spk_pihak_1" class="select select-2 form-control">
+                                <select name="spk_pihak_1" class="select select-2 form-control" required>
                                     <option value="">-- Pihak <b>PERTAMA</b> --</option>
                                     @foreach ($pegawai as $s)
                                     <option value="{{ $s->pegawai_id }}">{{ $s->nip }} - {{ $s->nama_lengkap }}</option>
@@ -45,7 +45,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="spk_pihak_2" class="form-label">Pihak <b>KEDUA</b><span class="text-danger">*</span></label>
-                                <select name="spk_pihak_2" class="select select-2 form-control">
+                                <select name="spk_pihak_2" class="select select-2 form-control" required>
                                     <option value="">-- Pihak <b>KEDUA</b>--</option>
                                     @foreach ($supplier as $s)
                                     <option value="{{ $s->supplier_id }}">{{ $s->supplier_nama }}</option>
@@ -54,7 +54,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="spk_mengetahui" class="form-label">Pihak <b>Mengetahui</b><span class="text-danger">*</span></label>
-                                <select name="spk_mengetahui" class="select select-2 form-control">
+                                <select name="spk_mengetahui" class="select select-2 form-control" required>
                                     <option value="">-- Pihak <b>KEDUA</b>--</option>
                                     @foreach ($pegawai as $s)
                                     <option value="{{ $s->pegawai_id }}">{{ $s->nip }} - {{ $s->nama_lengkap }}</option>

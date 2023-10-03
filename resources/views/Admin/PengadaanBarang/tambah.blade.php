@@ -21,7 +21,7 @@
                         </div>
                         <div class="form-group">
                             <label for="pb_keterangan" class="form-label">Body Surat<span class="text-danger">*</span></label>
-                            <textarea type="text" name="pb_keterangan" class="form-control" placeholder=""></textarea>
+                            <textarea type="text" name="pb_keterangan" class="form-control" placeholder="" required></textarea>
                         </div>
                         <div class="form-group">
                             <label for="pb_footer" class="form-label">Footer Surat<span class="text-danger">*</span></label>
@@ -35,7 +35,7 @@
                         </div>
                         <div class="form-group">
                             <label for="pb_supplier" class="form-label">Pilih Supplier <span class="text-danger">*</span></label>
-                            <select name="pb_supplier" class="select select-2 form-control">
+                            <select name="pb_supplier" class="select select-2 form-control" required>
                                 <option value="">-- Pilih Supplier --</option>
                                 @foreach ($supplier as $s)
                                 <option value="{{ $s->supplier_id }}">{{ $s->supplier_nama }}</option>
@@ -45,7 +45,7 @@
 
                         <div class="form-group">
                             <label for="pb_pejabat" class="form-label">Pilih Pejabat Pembuat Komitmen <span class="text-danger">*</span></label>
-                            <select name="pb_pejabat" class="select select-2 form-control">
+                            <select name="pb_pejabat" class="select select-2 form-control" required>
                                 <option value="">-- Pilih Pejabat Mengetahui--</option>
                                 @foreach ($pegawai as $s)
                                 <option value="{{ $s->pegawai_id }}">{{ $s->nip }} - {{ $s->nama_lengkap }}</option>
