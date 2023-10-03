@@ -202,17 +202,6 @@
                     name: 'barang_harga'
                 },
             ],
-            [
-                'defaultContent' => '<input type="checkbox" ' . $this->html->attributes($attributes) . '/>',
-                'title'          => $this->form->checkbox('', '', false, ['id' => 'dataTablesCheckbox']),
-                'data'           => 'checkbox',
-                'name'           => 'checkbox',
-                'orderable'      => false,
-                'searchable'     => false,
-                'exportable'     => false,
-                'printable'      => true,
-                'width'          => '10px',
-            ];
         });
     });
 </script>
