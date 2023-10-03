@@ -199,9 +199,6 @@
                     data: 'checkbox',
                     orderable: false,
                     searchable:false,
-                    checkboxes: {
-                        selectRow: true
-                    },
                     name:'id'
                 },
                 {
