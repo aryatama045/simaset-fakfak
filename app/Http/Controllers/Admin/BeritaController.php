@@ -151,7 +151,7 @@ class BeritaController extends Controller
                     }else{
                         $result = '<span class="text-danger">'.$totalstok.'</span>';
                     }
-                    
+
 
                     return $result;
                 })
@@ -170,8 +170,8 @@ class BeritaController extends Controller
                         $jmlkeluar = BarangkeluarModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangkeluar.barang_kode')->where('tbl_barangkeluar.barang_kode', '=', $row->barang_kode)->sum('tbl_barangkeluar.bk_jumlah');
                     }
 
-                    $totalstok = $row->barang_stok + ($jmlmasuk - $jmlkeluar); 
-                    
+                    $totalstok = $row->barang_stok + ($jmlmasuk - $jmlkeluar);
+
                     $jumlah_harga = $totalstok * $row->barang_harga;
 
                     $array = array(
@@ -206,7 +206,7 @@ class BeritaController extends Controller
     public function proses_tambah(Request $request)
     {
         // dd($request);
-        
+
         $header = array(
             'berita_kode'   => $request->berita_kode,
             'berita_pihak_1'   => $request->berita_pihak_1,
@@ -257,7 +257,7 @@ class BeritaController extends Controller
 
     public function proses_hapus(Request $request, BeritaModel $berita, $id)
     {
-
+        dd($id);
         BeritaModel::where('berita_id',$id)->delete();
         BeritadetailModel::where('berita_id',$id)->delete();
 
