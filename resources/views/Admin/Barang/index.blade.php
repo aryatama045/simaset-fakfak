@@ -185,6 +185,12 @@
             "ajax": {
                 "url": "{{route('barang.getbarang')}}",
             },
+            'columnDefs': [
+                {
+                    'targets': 0,
+                    'checkboxes': true
+                }
+            ],
             "columns": [
                 // {
                 //     data: 'DT_RowIndex',
