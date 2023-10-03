@@ -21,7 +21,7 @@
                         </div>
                         <div class="form-group">
                             <label for="berita_pihak_1" class="form-label">Pihak <b>PERTAMA</b> <span class="text-danger">*</span></label>
-                            <select name="berita_pihak_1" class="select select-2 form-control">
+                            <select name="berita_pihak_1" class="select select-2 form-control" required>
                                 <option value="">-- Pihak <b>PERTAMA</b> --</option>
                                 @foreach ($pegawai as $s)
                                 <option value="{{ $s->pegawai_id }}">{{ $s->nip }} - {{ $s->nama_lengkap }}</option>
@@ -30,7 +30,7 @@
                         </div>
                         <div class="form-group">
                             <label for="berita_pihak_2" class="form-label">Pihak <b>KEDUA</b><span class="text-danger">*</span></label>
-                            <select name="berita_pihak_2" class="select select-2 form-control">
+                            <select name="berita_pihak_2" class="select select-2 form-control" required>
                                 <option value="">-- Pihak <b>KEDUA</b>--</option>
                                 @foreach ($pegawai as $s)
                                 <option value="{{ $s->pegawai_id }}">{{ $s->nip }} - {{ $s->nama_lengkap }}</option>
@@ -45,15 +45,15 @@
                         </div>
                         <div class="form-group">
                             <label for="berita_header" class="form-label">Header Surat<span class="text-danger">*</span></label>
-                            <textarea type="text" name="berita_header" class="form-control" placeholder=""></textarea>
+                            <textarea type="text" name="berita_header" class="form-control" placeholder="" required></textarea>
                         </div>
                         <div class="form-group">
                             <label for="berita_body" class="form-label">Body Surat<span class="text-danger">*</span></label>
-                            <textarea type="text" name="berita_body" class="form-control" placeholder=""></textarea>
+                            <textarea type="text" name="berita_body" class="form-control" placeholder="" required></textarea>
                         </div>
                         <div class="form-group">
                             <label for="berita_footer" class="form-label">Footer Surat<span class="text-danger">*</span></label>
-                            <textarea type="text" name="berita_footer" class="form-control" placeholder=""></textarea>
+                            <textarea type="text" name="berita_footer" class="form-control" placeholder="" required></textarea>
                         </div>
                     </div>
                 </div>
