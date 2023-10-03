@@ -29,7 +29,7 @@ class BeritaController extends Controller
 
         $bulan = date('m'); $tahun=date('Y');
         $no_doc = '/'.$bulan.'/BAPBP/SETWAN/'.$tahun;
-        $count_pesanan = SpkModel::where('berita_kode', $no_doc)->orwhere('berita_kode', 'like', '%'.$no_doc.'%')->count();
+        $count_pesanan = BeritaModel::where('berita_kode', $no_doc)->orwhere('berita_kode', 'like', '%'.$no_doc.'%')->count();
         $jum_no = $count_pesanan + 0001;
         $data["no_berita"] = str_pad($jum_no, 4, '0', STR_PAD_LEFT);
 
