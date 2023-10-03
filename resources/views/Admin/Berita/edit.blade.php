@@ -84,7 +84,7 @@
                     Loading...
                 </button>
                 <button type="submit"  class="btn btn-primary">Simpan <i class="fe fe-check"></i></button>
-                <a href="{{url('admin/barang-masuk')}}" class="btn btn-light" >Batal <i class="fe fe-x"></i></a>
+                <a href="{{url('admin/berita')}}" class="btn btn-light" >Batal <i class="fe fe-x"></i></a>
             </div>
         </div>
     </div>
