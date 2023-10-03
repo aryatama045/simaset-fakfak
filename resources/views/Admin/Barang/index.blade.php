@@ -251,13 +251,13 @@
             if(id.length > 0)
             {
                 $.ajax({
-                    url:"{{ route('#')}}",
+                    url:"{{ route('barang.bulk_delete')}}",
                     method:"get",
                     data:{id:id},
                     success:function(data)
                     {
                         alert(data);
-                        $('#student_table').DataTable().ajax.reload();
+                        $('#table-1').DataTable().ajax.reload();
                     }
                 });
             }

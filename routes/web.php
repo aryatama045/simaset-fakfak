@@ -124,6 +124,7 @@ Route::group(['middleware' => 'userlogin'], function () {
         Route::resource('/admin/barang', \App\Http\Controllers\Admin\BarangController::class);
         Route::get('/admin/barang/show/', [BarangController::class, 'show'])->name('barang.getbarang');
         Route::post('/admin/barang/proses_tambah/', [BarangController::class, 'proses_tambah'])->name('barang.store');
+        Route::post('/admin/barang/bulk_delete/', [BarangController::class, 'bulk_delete'])->name('barang.bulk_delete');
         Route::post('/admin/barang/proses_ubah/{barang}', [BarangController::class, 'proses_ubah']);
         Route::post('/admin/barang/proses_hapus/{barang}', [BarangController::class, 'proses_hapus']);
         Route::post('/admin/barang/import_barang/', [BarangController::class, 'import_barang'])->name('barang.import');
