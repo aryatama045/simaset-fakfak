@@ -178,6 +178,9 @@ Route::group(['middleware' => 'userlogin'], function () {
         Route::post('/admin/berita/proses_tambah/', [BeritaController::class, 'proses_tambah'])->name('berita.store');
         Route::post('/admin/berita/proses_hapus/{berita}', [BeritaController::class, 'proses_hapus']);
 
+        Route::post('/admin/berita/berita_edit/{berita}', [BeritaController::class, 'berita_edit']);
+        Route::post('/admin/berita/proses_edit/{berita}', [BeritaController::class, 'proses_edit']);
+
         Route::get('/admin/barang/getbarang/{id}', [BarangController::class, 'getbarang']);
         Route::get('/admin/berita/listbarang/{param}', [BeritaController::class, 'listbarang']);
 

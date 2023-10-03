@@ -18,18 +18,18 @@
 <div class="row row-sm">
     <div class="col-lg-12">
         <div class="card">
-        <form  action="{{url('admin/barang-masuk/proses_copy/'.$header[0]->pb_id)}}" method="POST">
+        <form  action="{{url('admin/berita/proses_edit/'.$header[0]->berita_id)}}" method="POST">
         @csrf
             <div class="card-header justify-content-between">
-                <h3 class="card-title">Form Barang Masuk</h3>
+                <h3 class="card-title">Edit Berita Acara</h3>
             </div>
 
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="bmkode" class="form-label">Kode Barang Masuk <span class="text-danger">*</span></label>
-                            <input type="text" name="bmkode" readonly class="form-control" value="{{ $bmkode }}">
+                            <label for="berita_kode" class="form-label">NO. Berita Acara <span class="text-danger">*</span></label>
+                            <input type="text" name="berita_kode" readonly class="form-control" value="{{ $berita_kode }}">
                         </div>
                         <div class="form-group">
                             <label for="tglmasuk" class="form-label">Tanggal Masuk <span class="text-danger">*</span></label>
@@ -62,7 +62,7 @@
                             <th>Satuan</th>
                             <th>Spek</th>
                             <th width="20%">Jumlah</th>
-                            <th >Harga</th>
+                            <th>Harga</th>
                         </tr>
                     </thead>
                     <tbody>
