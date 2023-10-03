@@ -31,7 +31,6 @@
                             <label for="berita_kode" class="form-label">NO. Berita Acara <span class="text-danger">*</span></label>
                             <input type="text" name="berita_kode" readonly class="form-control" value="{{ $header[0]->berita_kode }}">
                         </div>
-                        </div>
                         <div class="form-group">
                             <label  class="form-label">Tanggal Dokumen<span class="text-danger">*</span></label>
                             <input type="text" name="berita_tanggal"  class="form-control datepicker-date" value="{{ date('d-M-Y', strtotime($header[0]->berita_tanggal)) }}">
