@@ -152,6 +152,12 @@
                 //     searchable: false
                 // },
                 {
+                    'data': 'checkbox',
+                    'orderable': false,
+                    'searchable':false,
+                    'name':'id'
+                },
+                {
                     data: 'action',
                     name: 'action',
                     orderable: false,

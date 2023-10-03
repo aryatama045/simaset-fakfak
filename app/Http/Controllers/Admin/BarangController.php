@@ -54,6 +54,10 @@ class BarangController extends Controller
 
             return DataTables::of($data)
                 ->addIndexColumn()
+                ->editColumn('checkbox', function($row) {
+                    $checkbox = '<input type="checkbox" value='. $row->barang_id .'>';
+                    return $checkbox;
+                })
                 ->addColumn('img', function ($row) {
                     $array = array(
                         "barang_gambar" => $row->barang_gambar,
@@ -158,7 +162,7 @@ class BarangController extends Controller
 
                     return $button;
                 })
-                ->rawColumns(['action', 'img', 'jenisbarang', 'satuan','kategori', 'merk', 'currency', 'totalstok'])->make(true);
+                ->rawColumns(['checkbox','action', 'img', 'jenisbarang', 'satuan','kategori', 'merk', 'currency', 'totalstok'])->make(true);
         }
     }
 
