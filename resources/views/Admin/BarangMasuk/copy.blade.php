@@ -29,6 +29,7 @@
                         <div class="form-group">
                             <label for="bmkode" class="form-label">Kode Barang Masuk <span class="text-danger">*</span></label>
                             <input type="text" name="bmkode" readonly class="form-control" value="{{ $bmkode }}">
+                            <input type="hidden" name="pb_kode" readonly class="form-control" value="{{ $header[0]->pb_kode }}">
                         </div>
                         <div class="form-group">
                             <label for="tglmasuk" class="form-label">Tanggal Masuk <span class="text-danger">*</span></label>

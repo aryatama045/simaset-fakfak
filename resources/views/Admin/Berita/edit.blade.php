@@ -29,7 +29,7 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="berita_kode" class="form-label">NO. Berita Acara <span class="text-danger">*</span></label>
-                            <input type="text" name="berita_kode" readonly class="form-control" value="{{ $berita_kode }}">
+                            <input type="text" name="berita_kode" readonly class="form-control" value="{{ $header[0]->berita_kode }}">
                         </div>
                         <div class="form-group">
                             <label for="tglmasuk" class="form-label">Tanggal Masuk <span class="text-danger">*</span></label>
@@ -39,13 +39,12 @@
 
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="supplier_id" class="form-label">Supplier <span class="text-danger">*</span></label>
-                            <input type="text" readonly class="form-control"  placeholder="{{ $header[0]->supplier_nama }}">
-                            <input type="hidden" name="supplier_id" class="form-control" value="{{ $header[0]->supplier_id }}">
+                            <label for="supplier_id" class="form-label">Pihak 1 <span class="text-danger">*</span></label>
+                            <input type="text" readonly class="form-control"  placeholder="{{ $header[0]->p1_nama }}">
                         </div>
                         <div class="form-group">
                             <label  class="form-label">Tanggal Pengadaan <span class="text-danger">*</span></label>
-                            <input type="text" readonly class="form-control" placeholder="{{ date('d-M-Y', strtotime($header[0]->pb_tanggal)) }}">
+                            <input type="text" readonly class="form-control" placeholder="{{ date('d-M-Y', strtotime($header[0]->berita_tanggal)) }}">
                         </div>
 
                     </div>
