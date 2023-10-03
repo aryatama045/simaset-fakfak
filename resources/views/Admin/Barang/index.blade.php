@@ -208,15 +208,15 @@
                 //     name: 'DT_RowIndex',
                 //     searchable: false
                 // },
-                // {
-                //     data: 'checkbox',
-                //     orderable: false,
-                //     searchable:false,
-                //     checkboxes: {
-                //         selectRow: true
-                //     },
-                //     name:'id'
-                // },
+                {
+                    data: 'checkbox',
+                    orderable: false,
+                    searchable:false,
+                    checkboxes: {
+                        selectRow: true
+                    },
+                    name:'id'
+                },
                 {
                     data: 'action',
                     name: 'action',
