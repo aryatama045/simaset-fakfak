@@ -272,6 +272,38 @@ class BeritaController extends Controller
     }
 
 
+    public function berita_edit(Request $request, $id){
+
+        $cek_berita = BeritaModel::where('berita_id' , $id)->get();
+
+        if(isset($cek_berita[0])){
+
+            $data["title"] = "Berita Acara";
+            $data["hakTambah"]  = AksesModel::leftJoin('tbl_submenu', 'tbl_submenu.submenu_id', '=', 'tbl_akses.submenu_id')->where(array('tbl_akses.role_id' => Session::get('user')->role_id, 'tbl_submenu.submenu_judul' => 'Berita Acara', 'tbl_akses.akses_type' => 'update'))->count();
+            $data["supplier"]   = SupplierModel::orderBy('supplier_id', 'DESC')->get();
+            $data["berita"]     = BeritaModel::orderBy('berita_id', 'DESC')->get();
+
+            $data["header"] = DB::table('tbl_berita as h')
+                                ->leftJoin('tbl_pegawai as p1', 'p1.pegawai_id', '=', 'h.berita_pihak_1')
+                                ->leftJoin('tbl_pegawai as p2', 'p2.pegawai_id', '=', 'h.berita_pihak_2')
+                                ->where('berita_id' , $id)
+                                ->select('h.*','p1.nip', 'p1.nama_lengkap', 'p1.jabatan','p2.nip', 'p2.nama_lengkap', 'p2.jabatan')
+                                ->get();
+            $data["detail"] = DB::table('tbl_beritadetail')
+                                ->leftJoin('tbl_barang', 'tbl_barang.barang_id', '=', 'tbl_beritadetail.barang_id')
+                                ->where('berita_id' , $id)->get();
+
+            return view('Admin.Berita.edit', $data);
+
+        }else{
+
+            return redirect('admin/berita')->with('error_message', ' Dokumen Tidak Ada Silahkan Cek Kembali');
+
+        }
+
+	}
+
+
 
     public function genInvoice($id)
     {

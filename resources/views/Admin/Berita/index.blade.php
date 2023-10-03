@@ -13,16 +13,28 @@
     </div>
     <!-- PAGE-HEADER END -->
 
-    @if(session()->has('create_message'))
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <h5 class="alert-heading">Success !!</h5>
-            {{ session()->get('create_message') }}
-            <!-- <a class="alert-link" href="#!">Example alert link!</a> -->
-            <button class="btn-close close" type="button" data-bs-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-    @endif
+
+@if(session()->has('create_message'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <h5 class="alert-heading">Success !!</h5>
+        {{ session()->get('create_message') }}
+        <!-- <a class="alert-link" href="#!">Example alert link!</a> -->
+        <button class="btn-close close" type="button" data-bs-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+@endif
+
+@if(session()->has('error_message'))
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <h5 class="alert-heading">Error !!</h5>
+        {{ session()->get('error_message') }}
+        <!-- <a class="alert-link" href="#!">Example alert link!</a> -->
+        <button class="btn-close close" type="button" data-bs-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+@endif
 
 
 
