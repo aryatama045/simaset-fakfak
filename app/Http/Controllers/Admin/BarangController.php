@@ -54,7 +54,7 @@ class BarangController extends Controller
 
             return DataTables::of($data)
                 ->addIndexColumn()
-                ->editColumn('checkboxs', function($row) {
+                ->editColumn('checkbox', function($row) {
                     $checkbox = '<div class="form-check">
                     <input type="checkbox" name="barang_checkbox[]" class="barang_checkbox form-check-input" value='. $row->barang_id .'>
                     </div>';
