@@ -16,8 +16,8 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="pb_kode" class="form-label">Nomor Dokumen<span class="text-danger">*</span></label>
-                            <input type="text" name="pb_kode" class="form-control" placeholder="">
+                            <label for="pb_kode" class="form-label">Nomor Pesanan<span class="text-danger">*</span></label>
+                            <input type="text" name="pb_kode" class="form-control" value="../../NP/BPKAD/{{date('Y')}}">
                         </div>
                         <div class="form-group">
                             <label for="pb_keterangan" class="form-label">Body Surat<span class="text-danger">*</span></label>
