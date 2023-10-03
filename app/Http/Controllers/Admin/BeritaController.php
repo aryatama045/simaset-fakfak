@@ -255,7 +255,7 @@ class BeritaController extends Controller
         return response()->json(['success' => 'Berhasil']);
     }
 
-    public function proses_hapus(Request $request, BeritaModel $berita, $id)
+    public function proses_hapus(Request $request, $id)
     {
 
         BeritaModel::where('berita_id',$id)->delete();
