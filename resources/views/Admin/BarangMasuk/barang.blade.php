@@ -12,11 +12,11 @@
                     <table id="table-2" width="100%" class="table table-bordered text-nowrap border-bottom dataTable no-footer dtr-inline collapsed">
                         <thead>
                             <th class="border-bottom-0" width="1%">No</th>
+                            <th class="border-bottom-0" width="1%">Action</th>
                             <th class="border-bottom-0">No. Pesanan</th>
                             <th class="border-bottom-0">Supplier</th>
                             <th class="border-bottom-0">Mengetahui</th>
                             <th class="border-bottom-0">Tgl. Pengajuan</th>
-                            <th class="border-bottom-0" width="1%">Action</th>
                         </thead>
                         <tbody></tbody>
                     </table>
@@ -96,6 +96,12 @@
                     searchable: false
                 },
                 {
+                    data: 'action',
+                    name: 'action',
+                    orderable: false,
+                    searchable: false
+                },
+                {
                     data: 'pb_kode',
                     name: 'pb_kode',
                 },
@@ -110,13 +116,7 @@
                 {
                     data: 'pb_tanggal',
                     name: 'pb_tanggal',
-                },
-                {
-                    data: 'action',
-                    name: 'action',
-                    orderable: false,
-                    searchable: false
-                },
+                }
             ],
 
         });
@@ -140,7 +140,7 @@
         },
         dataType: 'json',
         success:function(response) {
-            
+
             if(response.success){
 
 
@@ -168,7 +168,7 @@
     /* End Get Detail BKB untuk copy document Menggunakan Ajax */
 
 
-    
+
     function makeid(length) {
         var result = '';
         var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
