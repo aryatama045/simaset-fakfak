@@ -21,7 +21,7 @@
         <form  action="{{url('admin/berita/proses_edit/'.$header[0]->berita_id)}}" method="POST">
         @csrf
             <div class="card-header justify-content-between">
-                <h3 class="card-title">Edit Berita Acara</h3>
+                <h3 class="card-title">Form Edit</h3>
             </div>
 
             <div class="card-body">
@@ -42,7 +42,7 @@
                         <div class="form-group">
                             <label for="berita_pihak_1" class="form-label">Pihak <b>PERTAMA</b> <span class="text-danger">*</span></label>
                             <select name="berita_pihak_1" class="select select-2 form-control" required>
-                                <option value="">-- <b>{{$header[0]->p1_nama}}</b> --</option>
+                                <option value="{{$header[0]->p1_id}}">-- <b>{{$header[0]->p1_nama}}</b> --</option>
                                 @foreach ($pegawai as $s)
                                 <option value="{{ $s->pegawai_id }}">{{ $s->nip }} - {{ $s->nama_lengkap }}</option>
                                 @endforeach
@@ -51,7 +51,7 @@
                         <div class="form-group">
                             <label for="berita_pihak_2" class="form-label">Pihak <b>KEDUA</b><span class="text-danger">*</span></label>
                             <select name="berita_pihak_2" class="select select-2 form-control" required>
-                                <option value="">-- <b>{{$header[0]->p2_nama}}</b>--</option>
+                                <option value="{{$header[0]->p2_id}}">-- <b>{{$header[0]->p2_nama}}</b>--</option>
                                 @foreach ($pegawai as $s)
                                 <option value="{{ $s->pegawai_id }}">{{ $s->nip }} - {{ $s->nama_lengkap }}</option>
                                 @endforeach

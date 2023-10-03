@@ -287,7 +287,7 @@ class BeritaController extends Controller
                                 ->leftJoin('tbl_pegawai as p1', 'p1.pegawai_id', '=', 'h.berita_pihak_1')
                                 ->leftJoin('tbl_pegawai as p2', 'p2.pegawai_id', '=', 'h.berita_pihak_2')
                                 ->where('berita_id' , $id)
-                                ->select('h.*','p1.nip as p1_nip', 'p1.nama_lengkap as p1_nama', 'p1.jabatan as p1_jabatan','p2.nip as p2_nip', 'p2.nama_lengkap as p2_nama', 'p2.jabatan as p2_jabatan')
+                                ->select('h.*','p1.pegawai_id as p1_id','p1.nip as p1_nip', 'p1.nama_lengkap as p1_nama', 'p1.jabatan as p1_jabatan','p2.pegawai_id as p2_id','p2.nip as p2_nip', 'p2.nama_lengkap as p2_nama', 'p2.jabatan as p2_jabatan')
                                 ->get();
             $data["detail"] = DB::table('tbl_beritadetail')
                                 ->leftJoin('tbl_barang', 'tbl_barang.barang_id', '=', 'tbl_beritadetail.barang_id')
