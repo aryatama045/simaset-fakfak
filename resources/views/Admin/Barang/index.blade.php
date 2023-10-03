@@ -189,7 +189,7 @@
                 {
                     orderable: false,
                     targets: 0,
-                    className: 'select-checkbox' //<--- here
+                    className: 'barang_checkbox' //<--- here
                 }
             ],
             "select": {
