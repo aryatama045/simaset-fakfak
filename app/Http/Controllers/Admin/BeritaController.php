@@ -257,7 +257,7 @@ class BeritaController extends Controller
 
     public function proses_hapus(Request $request, BeritaModel $berita, $id)
     {
-        dd($id);
+
         BeritaModel::where('berita_id',$id)->delete();
         BeritadetailModel::where('berita_id',$id)->delete();
 

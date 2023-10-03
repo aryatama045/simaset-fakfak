@@ -77,7 +77,7 @@
 
         function hapus(data) {
             $("input[name='idberita']").val(data.berita_id);
-            $("#vberita").html("berita " + "<b>" + data.berita_kode.replace(/_/g, ' ') + "</b>");
+            $("#vberita").html("No Berita " + "<b>" + data.berita_kode + "</b>");
         }
 
         function validasi(judul, status) {
