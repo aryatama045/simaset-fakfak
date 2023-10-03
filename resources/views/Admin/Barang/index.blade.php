@@ -151,9 +151,9 @@
                 //     searchable: false
                 // },
                 {
-                    'targets': 0,
-                    'checkboxes': {
-                    'selectRow': true
+                    targets: 0,
+                    checkboxes: {
+                    selectRow: true
                     }
                 },
                 {
@@ -201,6 +201,9 @@
                     name: 'barang_harga'
                 },
             ],
+            select: {
+                style: 'multi'
+            },
         });
     });
 </script>
