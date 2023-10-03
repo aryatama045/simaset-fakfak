@@ -189,14 +189,6 @@
             "ajax": {
                 "url": "{{route('barang.getbarang')}}",
             },
-            "columnDefs": [
-                {
-                    targets: 0,
-                    checkboxes: {
-                        selectRow: true
-                    }
-                }
-            ],
             "select": {
                 style: 'multi'
             },
@@ -210,6 +202,9 @@
                     data: 'checkbox',
                     orderable: false,
                     searchable:false,
+                    checkboxes: {
+                        selectRow: true
+                    },
                     name:'id'
                 },
                 {
