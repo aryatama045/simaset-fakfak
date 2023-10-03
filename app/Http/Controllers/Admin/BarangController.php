@@ -526,5 +526,16 @@ class BarangController extends Controller
         return redirect('admin/barang')->with('create_message', 'Product imported successfully');
     }
 
+    function bulk_delete(Request $request)
+    {
+        $id_array = $request->input('id');
+        dd($id_array);
+        $barang = BarangModel::whereIn('barang_id', $id_array);
+        if($barang->delete())
+        {
+            echo 'Data Deleted';
+        }
+    }
+
 
 }
