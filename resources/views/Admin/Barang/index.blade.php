@@ -192,7 +192,7 @@
             'columnDefs': [
                 {
                     'targets': 0,
-                    'checkboxe': {
+                    'checkbox': {
                     'selectRow': true
                     }
                 }
