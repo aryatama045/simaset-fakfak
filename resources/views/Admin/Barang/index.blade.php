@@ -62,7 +62,11 @@
                 <div class="table-responsive">
                     <table id="table-1" class="table table-bordered text-nowrap border-bottom dataTable no-footer dtr-inline collapsed">
                         <thead>
-                            <th class="border-bottom-0" width="1%"><input type="checkbox" name="select_all" value="1" id="example-select-all"></th>
+                            <th class="border-bottom-0" width="1%">
+                                <div class="form-check">
+                                    <input type="checkbox" name="select_all" value="1" class="form-check-input" id="example-select-all">
+                                </div>
+                            </th>
                             <th class="border-bottom-0" width="1%">Action</th>
                             <th class="border-bottom-0">Gambar</th>
                             <th class="border-bottom-0">Kode Barang</th>
