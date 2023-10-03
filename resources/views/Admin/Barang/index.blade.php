@@ -1,5 +1,7 @@
 @extends('Master.Layouts.app', ['title' => $title])
 
+<link type="text/css" href="//gyrocode.github.io/jquery-datatables-checkboxes/1.2.12/css/dataTables.checkboxes.css" rel="stylesheet" />
+
 @section('content')
 <!-- PAGE-HEADER -->
 <div class="page-header">
@@ -78,7 +80,7 @@
 @include('Admin.Barang.hapus')
 @include('Admin.Barang.gambar')
 @include('Admin.Barang.import')
-
+<script type="text/javascript" src="//gyrocode.github.io/jquery-datatables-checkboxes/1.2.12/js/dataTables.checkboxes.min.js"></script>
 <script>
     function generateID(){
         id = new Date().getTime();
