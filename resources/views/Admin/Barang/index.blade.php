@@ -260,7 +260,7 @@
             {
                 $.ajax({
                     url:"{{ route('barang.bulk_delete')}}",
-                    method:"get",
+                    method:"post",
                     data:{id:id},
                     success:function(data)
                     {
