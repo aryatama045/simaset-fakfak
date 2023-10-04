@@ -7,8 +7,8 @@
         <small>No. Berita Acara : {{ $header[0]->berita_kode }}</small></h1>
     <div>
         <ol class="breadcrumb">
-            <li class="breadcrumb-item text-gray">Barang Masuk</li>
-            <li class="breadcrumb-item active" aria-current="page">Tambah</li>
+            <li class="breadcrumb-item text-gray">Berita Acara</li>
+            <li class="breadcrumb-item active" aria-current="page">Edit</li>
         </ol>
     </div>
 </div>
