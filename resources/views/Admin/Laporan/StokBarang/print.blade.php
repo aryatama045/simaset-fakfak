@@ -28,6 +28,7 @@ use Carbon\Carbon;
     <title>{{$title}}</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css"  />
 
     <style>
         /* Default */
@@ -76,8 +77,10 @@ use Carbon\Carbon;
 
         h1,h3,h5,h6{
             text-align:center;
-            padding-right:200px;
+            /* padding-right:200px; */
+            margin:5px;
         }
+
 
         .row{
             margin-top: 50px;
@@ -168,7 +171,7 @@ use Carbon\Carbon;
                     <img id="logo" src="{{url('/assets/default/web/default.png')}}" width="140" height="160" alt="">
                     @endif
                 </div>
-                <div id="text-header" class="col-md-9">
+                <div id="text-header" class="col-md-7">
                     <h3 class="kablogo">PEMERINTAH KABUPATEN SEMARANG</h3>
                     <h1 class="keclogo"><strong>KECAMATAN BERGAS</strong></h1>
                     <h6 class="alamatlogo">Jl. Soekarno-Hatta, No. 68, Telepon/Faximile (0298) 523024</h6>
@@ -263,5 +266,7 @@ use Carbon\Carbon;
     </div>
 
 </body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.js"  ></script>
 
 </html>
