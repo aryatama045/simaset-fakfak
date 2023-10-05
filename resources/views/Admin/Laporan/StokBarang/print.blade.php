@@ -103,13 +103,24 @@ use Carbon\Carbon;
             </tr>
         </thead>
         <tbody>
+            <?php $datas = BarangModel::leftJoin('tbl_jenisbarang', 'tbl_jenisbarang.jenisbarang_id', '=', 'tbl_barang.jenisbarang_id')
+                                        ->leftJoin('tbl_satuan', 'tbl_satuan.satuan_id', '=', 'tbl_barang.satuan_id')
+                                        ->leftJoin('tbl_merk', 'tbl_merk.merk_id', '=', 'tbl_barang.merk_id')
+                                        ->whereBetween('bm_tanggal', [$tglawal, $tglakhir])
+                                        ->orderBy('barang_id', 'DESC')->get(); ?>
+
+
             @php $no=1; @endphp
-            @foreach($data as $d)
+            @foreach($datas as $d)
             <?php
             if($tglawal == ''){
                 $jmlmasuk = BarangmasukModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangmasuk.barang_kode')->leftJoin('tbl_supplier', 'tbl_supplier.supplier_id', '=', 'tbl_barangmasuk.supplier_id')->where('tbl_barangmasuk.barang_kode', '=', $d->barang_kode)->sum('tbl_barangmasuk.bm_jumlah');
             }else{
-                $jmlmasuk = BarangmasukModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangmasuk.barang_kode')->leftJoin('tbl_supplier', 'tbl_supplier.supplier_id', '=', 'tbl_barangmasuk.supplier_id')->where('tbl_barangmasuk.barang_kode', '=', $d->barang_kode)->whereBetween('bm_tanggal', [$tglawal, $tglakhir])->sum('tbl_barangmasuk.bm_jumlah');
+                $jmlmasuk = BarangmasukModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangmasuk.barang_kode')
+                ->leftJoin('tbl_supplier', 'tbl_supplier.supplier_id', '=', 'tbl_barangmasuk.supplier_id')
+                ->where('tbl_barangmasuk.barang_kode', '=', $d->barang_kode)
+                ->whereBetween('bm_tanggal', [$tglawal, $tglakhir])
+                ->sum('tbl_barangmasuk.bm_jumlah');
             }
 
             if ($tglawal != '') {
