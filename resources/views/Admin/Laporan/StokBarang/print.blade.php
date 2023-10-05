@@ -76,8 +76,10 @@ use Carbon\Carbon;
             text-align:center;
             padding-right:200px;
         }
+
         .row{
-            margin-top: 20px;
+            margin-top: 50px;
+            width:100%;
         }
 
         .keclogo{
