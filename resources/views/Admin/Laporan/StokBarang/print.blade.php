@@ -160,9 +160,10 @@ use Carbon\Carbon;
     </center> -->
 
     <div>
+        <div class="container">
         <header>
             <div class="row">
-                <div id="img" class="col-md-3">
+                <div id="img" class="col-md-3 col-sm-3 col-xs-3">
                     <!-- <img id="logo" src="https://getasanbersinar.files.wordpress.com/2016/02/logo-kabupaten-semarang-jawa-tengah.png" width="140" height="160" /> -->
 
                     @if($web->web_logo == '' || $web->web_logo == 'default.png')
@@ -171,7 +172,7 @@ use Carbon\Carbon;
                     <img id="logo" src="{{url('/assets/default/web/default.png')}}" width="85" height="90" alt="">
                     @endif
                 </div>
-                <div id="text-header" class="col-md-7">
+                <div id="text-header" class="col-md-7 col-sm-7 col-xs-7">
                     <h3 class="kablogo">PEMERINTAH KABUPATEN SEMARANG</h3>
                     <h1 class="keclogo"><strong>KECAMATAN BERGAS</strong></h1>
                     <h6 class="alamatlogo">Jl. Soekarno-Hatta, No. 68, Telepon/Faximile (0298) 523024</h6>
@@ -180,7 +181,7 @@ use Carbon\Carbon;
             </div>
         </header>
 
-        <div class="container">
+
             <hr class="garis1"/>
 
             <table border="1" id="table1">
