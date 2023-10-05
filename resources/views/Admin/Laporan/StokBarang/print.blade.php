@@ -28,6 +28,7 @@ use Carbon\Carbon;
     <title>{{$title}}</title>
 
     <style>
+        /* Default */
         * {
             font-family: Arial, Helvetica, sans-serif;
         }
@@ -68,52 +69,65 @@ use Carbon\Carbon;
             align-items: flex-start;
             margin-top: 32px;
         }
+        /* --- END Default --- */
+
 
         h1,h3,h5,h6{
-        text-align:center;
-        padding-right:200px;
+            text-align:center;
+            padding-right:200px;
         }
         .row{
-        margin-top: 20px;
+            margin-top: 20px;
         }
+
         .keclogo{
-        font-size:24px;
-        font-size:3vw;
+            font-size:24px;
+            font-size:3vw;
         }
+
         .kablogo{
-        font-size:2vw;
+            font-size:2vw;
         }
+
         .alamatlogo{
-        font-size:1.5vw;
+            font-size:1.5vw;
         }
+
         .kodeposlogo{
-        font-size:1.7vw;
+            font-size:1.7vw;
         }
+
         #tls{
-        text-align:right;
+            text-align:right;
         }
+
         .alamat-tujuan{
-        margin-left:50%;
+            margin-left:50%;
         }
+
         .garis1{
-        border-top:3px solid black;
-        height: 2px;
-        border-bottom:1px solid black;
+            border-top:3px solid black;
+            height: 2px;
+            border-bottom:1px solid black;
         }
+
         #logo{
-        margin: auto;
-        margin-left: 50%;
-        margin-right: auto;
+            margin: auto;
+            margin-left: 50%;
+            margin-right: auto;
         }
+
         #tempat-tgl{
-        margin-left:120px;
+            margin-left:120px;
         }
+
         #camat{
-        text-align:center;
+            text-align:center;
         }
+
         #nama-camat{
-        margin-top:100px;
-        text-align:center;
+            margin-top:100px;
+            text-align:center;
         }
     </style>
 
