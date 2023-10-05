@@ -3,6 +3,7 @@
 
 <?php
 
+use App\Models\Admin\BarangModel;
 use App\Models\Admin\BarangkeluarModel;
 use App\Models\Admin\BarangmasukModel;
 use Carbon\Carbon;
