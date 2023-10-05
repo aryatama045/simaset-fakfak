@@ -27,6 +27,7 @@ use Carbon\Carbon;
 
     <title>{{$title}}</title>
 
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:400,300|Raleway:300,400,900,700italic,700,300,600">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css"  />
 
@@ -165,9 +166,9 @@ use Carbon\Carbon;
                     <!-- <img id="logo" src="https://getasanbersinar.files.wordpress.com/2016/02/logo-kabupaten-semarang-jawa-tengah.png" width="140" height="160" /> -->
 
                     @if($web->web_logo == '' || $web->web_logo == 'default.png')
-                    <img id="logo" src="{{url('/assets/default/web/default.png')}}" width="140" height="160" alt="">
+                    <img id="logo" src="{{url('/assets/default/web/default.png')}}" width="85" height="90" alt="">
                     @else
-                    <img id="logo" src="{{url('/assets/default/web/default.png')}}" width="140" height="160" alt="">
+                    <img id="logo" src="{{url('/assets/default/web/default.png')}}" width="85" height="90" alt="">
                     @endif
                 </div>
                 <div id="text-header" class="col-md-7">
