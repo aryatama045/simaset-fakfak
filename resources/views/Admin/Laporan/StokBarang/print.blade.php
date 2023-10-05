@@ -88,20 +88,19 @@ use Carbon\Carbon;
         }
 
         .keclogo{
-            font-size:24px;
-            font-size:3vw;
+            font-size:2em;
         }
 
         .kablogo{
-            font-size:2vw;
+            font-size:2em;
         }
 
         .alamatlogo{
-            font-size:1.5vw;
+            font-size:1em;
         }
 
         .kodeposlogo{
-            font-size:1.7vw;
+            font-size:1em;
         }
 
         #tls{
