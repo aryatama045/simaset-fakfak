@@ -151,7 +151,7 @@ use Carbon\Carbon;
         <h4 class="font-medium">{{Carbon::parse($tglawal)->translatedFormat('d F Y')}} - {{Carbon::parse($tglakhir)->translatedFormat('d F Y')}}</h4>
         @endif
     </center> -->
-
+<div>
     <header>
         <div class="row">
             <div id="img" class="col-md-3">
@@ -254,6 +254,7 @@ use Carbon\Carbon;
         </table>
 
     </div>
+</div>
 
 </body>
 
