@@ -93,7 +93,7 @@ use Carbon\Carbon;
         }
 
         .kablogo{
-            font-size:2em;
+            font-size:1em;
         }
 
         .alamatlogo{
