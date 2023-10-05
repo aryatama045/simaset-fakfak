@@ -161,9 +161,9 @@ use Carbon\Carbon;
                     <!-- <img id="logo" src="https://getasanbersinar.files.wordpress.com/2016/02/logo-kabupaten-semarang-jawa-tengah.png" width="140" height="160" /> -->
 
                     @if($web->web_logo == '' || $web->web_logo == 'default.png')
-                    <img id="logo" src="{{url('/assets/default/web/default.png')}}" width="80px" alt="">
+                    <img id="logo" src="{{url('/assets/default/web/default.png')}}" width="140" height="160" alt="">
                     @else
-                    <img id="logo" src="{{url('/assets/default/web/default.png')}}" width="80px" alt="">
+                    <img id="logo" src="{{url('/assets/default/web/default.png')}}" width="140" height="160" alt="">
                     @endif
                 </div>
                 <div id="text-header" class="col-md-9">
