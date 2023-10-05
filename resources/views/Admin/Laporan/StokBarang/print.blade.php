@@ -97,7 +97,7 @@ use Carbon\Carbon;
             <tr>
                     <th align="center" width="1%" rowspan="2"> NO </th>
                     <th colspan="2"> BARANG</th>
-                    <th colspan="4"> TRANSAKSI</th>
+                    <th colspan="3"> TRANSAKSI</th>
             </tr>
 
             <tr>
@@ -106,7 +106,7 @@ use Carbon\Carbon;
                 <th>STOK AWAL</th>
                 <th>JML MASUK</th>
                 <th>JML KELUAR</th>
-                <th>TOTAL</th>
+                <th rowspan="2">TOTAL</th>
             </tr>
 
 
