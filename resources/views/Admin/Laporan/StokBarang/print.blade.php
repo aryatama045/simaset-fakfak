@@ -172,7 +172,7 @@ use Carbon\Carbon;
                     <img id="logo" src="{{url('/assets/default/web/default.png')}}" width="85" height="90" alt="">
                     @endif
                 </div>
-                <div id="text-header" class="col-md-7 col-sm-7 col-xs-7">
+                <div id="text-header" class="col-md-8 col-sm-8 col-xs-8">
                     <h3 class="kablogo">PEMERINTAH KABUPATEN SEMARANG</h3>
                     <h1 class="keclogo"><strong>KECAMATAN BERGAS</strong></h1>
                     <h6 class="alamatlogo">Jl. Soekarno-Hatta, No. 68, Telepon/Faximile (0298) 523024</h6>
