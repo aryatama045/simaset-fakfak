@@ -93,8 +93,14 @@ use Carbon\Carbon;
 
     <table border="1" id="table1">
         <thead>
+
             <tr>
-                <th align="center" width="1%">NO</th>
+                    <th align="center" width="1%" rowspan="2"> NO </th>
+                    <th colspan="2"> BARANG</th>
+                    <th colspan="4"> TRANSAKSI</th>
+            </tr>
+
+            <tr>
                 <th>KODE BARANG</th>
                 <th>BARANG</th>
                 <th>STOK AWAL</th>
@@ -102,46 +108,61 @@ use Carbon\Carbon;
                 <th>JML KELUAR</th>
                 <th>TOTAL</th>
             </tr>
+
+
+        </thead>
+        <thead>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
         </thead>
         <tbody>
             <?php $datas = BarangModel::leftJoin('tbl_jenisbarang', 'tbl_jenisbarang.jenisbarang_id', '=', 'tbl_barang.jenisbarang_id')
-                                        ->leftJoin('tbl_satuan', 'tbl_satuan.satuan_id', '=', 'tbl_barang.satuan_id')
-                                        ->leftJoin('tbl_merk', 'tbl_merk.merk_id', '=', 'tbl_barang.merk_id')
-                                        ->leftJoin('tbl_barangmasuk', 'tbl_barangmasuk.barang_kode', '=', 'tbl_barang.barang_kode')
-                                        ->whereBetween('bm_tanggal', [$tglawal, $tglakhir])
-                                        ->orderBy('barang_id', 'DESC')->get(); ?>
+                ->leftJoin('tbl_satuan', 'tbl_satuan.satuan_id', '=', 'tbl_barang.satuan_id')
+                ->leftJoin('tbl_merk', 'tbl_merk.merk_id', '=', 'tbl_barang.merk_id')
+                ->leftJoin('tbl_barangmasuk', 'tbl_barangmasuk.barang_kode', '=', 'tbl_barang.barang_kode')
+                ->whereBetween('bm_tanggal', [$tglawal, $tglakhir])
+                ->orderBy('barang_id', 'DESC')->get();
+            ?>
 
 
             @php $no=1; @endphp
             @foreach($datas as $d)
-            <?php
-            if($tglawal == ''){
-                $jmlmasuk = BarangmasukModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangmasuk.barang_kode')->leftJoin('tbl_supplier', 'tbl_supplier.supplier_id', '=', 'tbl_barangmasuk.supplier_id')->where('tbl_barangmasuk.barang_kode', '=', $d->barang_kode)->sum('tbl_barangmasuk.bm_jumlah');
-            }else{
-                $jmlmasuk = BarangmasukModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangmasuk.barang_kode')
-                ->leftJoin('tbl_supplier', 'tbl_supplier.supplier_id', '=', 'tbl_barangmasuk.supplier_id')
-                ->where('tbl_barangmasuk.barang_kode', '=', $d->barang_kode)
-                ->whereBetween('bm_tanggal', [$tglawal, $tglakhir])
-                ->sum('tbl_barangmasuk.bm_jumlah');
-            }
+                <?php
+                    if($tglawal == ''){
+                        $jmlmasuk = BarangmasukModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangmasuk.barang_kode')->leftJoin('tbl_supplier', 'tbl_supplier.supplier_id', '=', 'tbl_barangmasuk.supplier_id')->where('tbl_barangmasuk.barang_kode', '=', $d->barang_kode)->sum('tbl_barangmasuk.bm_jumlah');
+                    }else{
+                        $jmlmasuk = BarangmasukModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangmasuk.barang_kode')
+                        ->leftJoin('tbl_supplier', 'tbl_supplier.supplier_id', '=', 'tbl_barangmasuk.supplier_id')
+                        ->where('tbl_barangmasuk.barang_kode', '=', $d->barang_kode)
+                        ->whereBetween('bm_tanggal', [$tglawal, $tglakhir])
+                        ->sum('tbl_barangmasuk.bm_jumlah');
+                    }
 
-            if ($tglawal != '') {
-                $jmlkeluar = BarangkeluarModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangkeluar.barang_kode')->whereBetween('bk_tanggal', [$tglawal, $tglakhir])->where('tbl_barangkeluar.barang_kode', '=', $d->barang_kode)->sum('tbl_barangkeluar.bk_jumlah');
-            } else {
-                $jmlkeluar = BarangkeluarModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangkeluar.barang_kode')->where('tbl_barangkeluar.barang_kode', '=', $d->barang_kode)->sum('tbl_barangkeluar.bk_jumlah');
-            }
+                    if ($tglawal != '') {
+                        $jmlkeluar = BarangkeluarModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangkeluar.barang_kode')->whereBetween('bk_tanggal', [$tglawal, $tglakhir])->where('tbl_barangkeluar.barang_kode', '=', $d->barang_kode)->sum('tbl_barangkeluar.bk_jumlah');
+                    } else {
+                        $jmlkeluar = BarangkeluarModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangkeluar.barang_kode')->where('tbl_barangkeluar.barang_kode', '=', $d->barang_kode)->sum('tbl_barangkeluar.bk_jumlah');
+                    }
 
-            $totalStok = $d->barang_stok + ($jmlmasuk-$jmlkeluar);
-            ?>
-            <tr>
-                <td align="center">{{$no++}}</td>
-                <td>{{$d->barang_kode}}</td>
-                <td>{{$d->barang_nama}}</td>
-                <td align="center">{{$d->barang_stok}}</td>
-                <td align="center">{{$jmlmasuk}}</td>
-                <td align="center">{{$jmlkeluar}}</td>
-                <td align="center">{{$totalStok}}</td>
-            </tr>
+                    $totalStok = $d->barang_stok + ($jmlmasuk-$jmlkeluar);
+                ?>
+
+
+                <tr>
+                    <td align="center">{{$no++}}</td>
+                    <td>{{$d->barang_kode}}</td>
+                    <td>{{$d->barang_nama}}</td>
+                    <td align="center">{{$d->barang_stok}}</td>
+                    <td align="center">{{$jmlmasuk}}</td>
+                    <td align="center">{{$jmlkeluar}}</td>
+                    <td align="center">{{$totalStok}}</td>
+                </tr>
             @endforeach
         </tbody>
     </table>
