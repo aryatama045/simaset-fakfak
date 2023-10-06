@@ -254,7 +254,7 @@ use Carbon\Carbon;
                         <td align="center">{{$no++}}</td>
                         <td></td>
                         <td></td>
-                        <td>{{ $k }}</td> <!-- Jenis Barang -->
+                        <td style="text-align:left; font-size:13;"><strong>{{ $k }}</strong></td> <!-- Jenis Barang -->
                         <td></td>
                         <td></td>
                         <td></td>
@@ -287,7 +287,7 @@ use Carbon\Carbon;
                             $totalStok = $d->barang_stok + ($jmlmasuk-$jmlkeluar);
                         ?>
 
-                        <tr>
+                        <tr style="text-align:left;">
                             <td></td>
                             <td></td>
                             <td></td>
