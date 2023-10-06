@@ -218,27 +218,28 @@ use Carbon\Carbon;
             <thead>
                 <tr>
                     <th rowspan="2"width="1%" > NO </th>
-                    <th colspan="2"> BARANG</th>
-                    <th colspan="3"> TRANSAKSI</th>
-                    <th rowspan="2">TOTAL</th>
+                    <th rowspan="2"width="5%" > TANGGAl </th>
+                    <th rowspan="2"width="5%" > NO./TGL. SURAT DASAR PENERIMAAN/PENGELUARAN </th>
+                    <th rowspan="2"> URAIAN </th>
+                    <th colspan="3"> BARANG-BARANG </th>
+                    <th rowspan="2">HARGA SATUAN</th>
+                    <th colspan="3"> JUMLAH HARGA BARANG YANG DITERIMA/DIKELUARKAN </th>
+                    <th rowspan="2">KET</th>
                 </tr>
 
                 <tr>
-                    <th>KODE BARANG</th>
-                    <th>BARANG</th>
-                    <th>STOK AWAL</th>
-                    <th>JML MASUK</th>
-                    <th>JML KELUAR</th>
+                    <th>MASUK</th>
+                    <th>KELUAR</th>
+                    <th>SISA</th>
+                    <th>BERTAMBAH</th>
+                    <th>BERKURANG</th>
+                    <th>SISA</th>
                 </tr>
 
                 <tr id="thbottom">
-                    <th>1</th>
-                    <th>2</th>
-                    <th>3</th>
-                    <th>4</th>
-                    <th>5</th>
-                    <th>6</th>
-                    <th>7</th>
+                    @for($x=0; $x < 12; $x++;)
+                    <th>{{$x}}</th>
+                    @endfor
                 </tr>
 
             </thead>
@@ -275,6 +276,11 @@ use Carbon\Carbon;
                         <td align="center">{{$jmlmasuk}}</td>
                         <td align="center">{{$jmlkeluar}}</td>
                         <td align="center">{{$totalStok}}</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
                     </tr>
                 @endforeach
             </tbody>
