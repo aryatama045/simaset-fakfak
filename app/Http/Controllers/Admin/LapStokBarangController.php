@@ -32,7 +32,7 @@ class LapStokBarangController extends Controller
             ->groupBy([
                 'tbl_barangmasuk.barang_kode',
                 function ($item) {
-                    return $item['jenisbarang_nama'];
+                    return $item['tbl_barang.jenisbarang_nama'];
                 },
             ], $preserveKeys = true)
             ->orderBy('tbl_barangmasuk.bm_tanggal', 'DESC')->get();
@@ -45,7 +45,7 @@ class LapStokBarangController extends Controller
             ->groupBy([
                 'tbl_barangmasuk.barang_kode',
                 function ($item) {
-                    return $item['jenisbarang_nama'];
+                    return $item['tbl_barang.jenisbarang_nama'];
                 },  ], $preserveKeys = true)
             ->orderBy('barang_id', 'DESC')->get();
         }
