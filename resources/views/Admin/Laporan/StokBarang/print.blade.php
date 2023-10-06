@@ -34,7 +34,7 @@ use Carbon\Carbon;
     <style>
         /* Default */
         * {
-            font-family: Arial, Helvetica, sans-serif;
+            font-family: Times, Helvetica, sans-serif;
         }
 
         #table1 {
@@ -174,7 +174,7 @@ use Carbon\Carbon;
                     @endif
                 </div>
                 <div class="col-md-10 col-sm-10 col-xs-10">
-                    <h3 class="kablogo"> {{ $web->header_1 }}</h3>
+                    <h3 class="kablogo"> <strong>{{ $web->header_1 }}</strong></h3>
                     <h1 class="keclogo"><strong> {{ $web->header_2 }} </strong></h1>
                     <h6 class="alamatlogo"> {{ $web->alamat }} </h6>
                     <!-- <h5 class="kodeposlogo"><strong>BERGAS 50552</strong></h5> -->
