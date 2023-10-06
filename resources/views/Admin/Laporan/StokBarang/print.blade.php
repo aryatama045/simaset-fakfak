@@ -89,11 +89,11 @@ use Carbon\Carbon;
         }
 
         .keclogo{
-            font-size:2rem;
+            font-size:1.8rem;
         }
 
         .kablogo{
-            font-size:1.5rem;
+            font-size:1.8rem;
         }
 
         .alamatlogo{
@@ -121,7 +121,7 @@ use Carbon\Carbon;
 
         #logo{
             margin: auto;
-            margin-left: 45%;
+            margin-left: 35%;
             margin-right: auto;
         }
 
