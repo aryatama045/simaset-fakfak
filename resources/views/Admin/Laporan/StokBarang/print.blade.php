@@ -172,7 +172,7 @@ use Carbon\Carbon;
                     <img id="logo" src="{{url('/assets/default/web/default.png')}}" width="85" height="90" alt="">
                     @endif
                 </div>
-                <div id="text-header" class="col-md-8 col-sm-8 col-xs-8">
+                <div id="text-header" class="col-md-9 col-sm-9 col-xs-9">
                     <h3 class="kablogo"> {{ $web->header_1 }}</h3>
                     <h1 class="keclogo"><strong> {{ $web->header_2 }} </strong></h1>
                     <h6 class="alamatlogo"> {{ $web->alamat }} </h6>
