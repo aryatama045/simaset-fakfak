@@ -63,6 +63,13 @@ use Carbon\Carbon;
             font-size: 13px;
         }
 
+        #thbottom, tr {
+            padding-top: 2px;
+            padding-bottom: 2px;
+            color: black;
+            font-size: 10px;
+        }
+
         #table1 td {
             font-size: 12px;
         }
@@ -212,7 +219,7 @@ use Carbon\Carbon;
             </thead>
 
             <thead>
-                <tr>
+                <tr id="thbottom">
                     <th>1</th>
                     <th>2</th>
                     <th>3</th>
