@@ -87,6 +87,8 @@ class LapStokBarangController extends Controller
                         ->orderBy('barang_id', 'DESC')->get();
             }
 
+            $data = $data->groupBy('jenisbarang_nama');
+
 
             return DataTables::of($data)
                 ->addIndexColumn()
