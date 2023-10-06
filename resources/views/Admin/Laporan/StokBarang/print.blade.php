@@ -200,12 +200,11 @@ use Carbon\Carbon;
 
         <table border="1" id="table1">
             <thead>
-
                 <tr>
-                        <th rowspan="2"width="1%" > NO </th>
-                        <th colspan="2"> BARANG</th>
-                        <th colspan="3"> TRANSAKSI</th>
-                        <th rowspan="2">TOTAL</th>
+                    <th rowspan="2"width="1%" > NO </th>
+                    <th colspan="2"> BARANG</th>
+                    <th colspan="3"> TRANSAKSI</th>
+                    <th rowspan="2">TOTAL</th>
                 </tr>
 
                 <tr>
@@ -216,10 +215,7 @@ use Carbon\Carbon;
                     <th>JML KELUAR</th>
                 </tr>
 
-            </thead>
-
-            <thead id="thbottom">
-                <tr >
+                <tr id="thbottom">
                     <th>1</th>
                     <th>2</th>
                     <th>3</th>
@@ -228,7 +224,9 @@ use Carbon\Carbon;
                     <th>6</th>
                     <th>7</th>
                 </tr>
+
             </thead>
+
 
             <tbody>
 
