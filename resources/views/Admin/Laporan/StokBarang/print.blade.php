@@ -252,8 +252,8 @@ use Carbon\Carbon;
 
                     <tr>
                         <td align="center">{{$no++}}</td>
-                        <td>{{$d->bm_tanggal}}</td>
-                        <td>{{$d->bm_tanggal}}</td>
+                        <td></td>
+                        <td></td>
                         <td>{{ $k }}</td> <!-- Jenis Barang -->
                         <td></td>
                         <td></td>
