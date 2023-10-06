@@ -60,11 +60,11 @@ use Carbon\Carbon;
             padding-top: 12px;
             padding-bottom: 12px;
             color: black;
-            font-size: 12px;
+            font-size: 13px;
         }
 
         #table1 td {
-            font-size: 11px;
+            font-size: 12px;
         }
 
         /* .font-medium {
@@ -195,18 +195,18 @@ use Carbon\Carbon;
             <thead>
 
                 <tr>
-                        <th align="center" rowspan="2"width="1%" > NO </th>
-                        <th align="center" colspan="2"> BARANG</th>
-                        <th align="center" colspan="3"> TRANSAKSI</th>
-                        <th align="center" rowspan="2">TOTAL</th>
+                        <th rowspan="2"width="1%" > NO </th>
+                        <th colspan="2"> BARANG</th>
+                        <th colspan="3"> TRANSAKSI</th>
+                        <th rowspan="2">TOTAL</th>
                 </tr>
 
                 <tr>
-                    <th align="center">KODE BARANG</th>
-                    <th align="center">BARANG</th>
-                    <th align="center">STOK AWAL</th>
-                    <th align="center">JML MASUK</th>
-                    <th align="center">JML KELUAR</th>
+                    <th>KODE BARANG</th>
+                    <th>BARANG</th>
+                    <th>STOK AWAL</th>
+                    <th>JML MASUK</th>
+                    <th>JML KELUAR</th>
 
                 </tr>
 
