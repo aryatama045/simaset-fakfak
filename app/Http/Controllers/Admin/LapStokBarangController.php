@@ -29,12 +29,7 @@ class LapStokBarangController extends Controller
             ->leftJoin('tbl_merk', 'tbl_merk.merk_id', '=', 'tbl_barang.merk_id')
             ->leftJoin('tbl_barangmasuk', 'tbl_barangmasuk.barang_kode', '=', 'tbl_barang.barang_kode')
             ->whereBetween('bm_tanggal', [$request->tglawal, $request->tglakhir])
-            ->groupBy([
-                'tbl_barangmasuk.barang_kode',
-                function ($item) {
-                    return $item['tbl_barang.jenisbarang_nama'];
-                },
-            ], $preserveKeys = true)
+            ->groupBy('tbl_barangmasuk.barang_kode')
             ->orderBy('tbl_barangmasuk.bm_tanggal', 'DESC')->get();
         } else {
             $data['data'] = BarangModel::leftJoin('tbl_jenisbarang', 'tbl_jenisbarang.jenisbarang_id', '=', 'tbl_barang.jenisbarang_id')
@@ -42,13 +37,11 @@ class LapStokBarangController extends Controller
             ->leftJoin('tbl_satuan', 'tbl_satuan.satuan_id', '=', 'tbl_barang.satuan_id')
             ->leftJoin('tbl_merk', 'tbl_merk.merk_id', '=', 'tbl_barang.merk_id')
             ->leftJoin('tbl_barangmasuk', 'tbl_barangmasuk.barang_kode', '=', 'tbl_barang.barang_kode')
-            ->groupBy([
-                'tbl_barangmasuk.barang_kode',
-                function ($item) {
-                    return $item['tbl_barang.jenisbarang_nama'];
-                },  ], $preserveKeys = true)
+            ->groupBy('tbl_barangmasuk.barang_kode')
             ->orderBy('barang_id', 'DESC')->get();
         }
+
+        $data['data'] = $data['data']->groupBy('jenisbarang_nama');
 
         $data["title"] = "Print Stok Barang";
         $data['web'] = WebModel::first();
