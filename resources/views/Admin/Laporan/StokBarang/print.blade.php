@@ -98,8 +98,12 @@ use Carbon\Carbon;
 
 
         .row{
-            margin-top: 50px;
+            /* margin-top: 50px; */
             width:100%;
+        }
+
+        #kop-surat{
+            margin-top: 50px;
         }
 
         .keclogo{
@@ -143,6 +147,10 @@ use Carbon\Carbon;
             margin-left:120px;
         }
 
+        #ttd{
+            margin-top:25px;
+        }
+
         #camat{
             text-align:center;
         }
@@ -177,7 +185,7 @@ use Carbon\Carbon;
     <div>
         <div class="container">
         <header>
-            <div class="row">
+            <div id="kop-surat" class="row">
                 <div class="col-md-2 col-sm-2 col-xs-2">
                     <!-- <img id="logo" src="https://getasanbersinar.files.wordpress.com/2016/02/logo-kabupaten-semarang-jawa-tengah.png" width="140" height="160" /> -->
 
