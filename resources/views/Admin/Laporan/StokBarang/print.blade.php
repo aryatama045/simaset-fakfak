@@ -247,15 +247,14 @@ use Carbon\Carbon;
             <tbody>
 
                 @php $no=1; @endphp
-                @foreach($data as $d)
+                @foreach($data as $k => $v)
 
-                    {{dd($data)}}
 
                     <tr>
                         <td align="center">{{$no++}}</td>
                         <td></td>
                         <td></td>
-                        <td></td>
+                        <td>{{ $v }}</td> <!-- Jenis Barang -->
                         <td></td>
                         <td></td>
                         <td></td>
@@ -266,7 +265,7 @@ use Carbon\Carbon;
                         <td></td>
                     </tr>
 
-
+                    {{dd($data)}}
 
                     <?php
                         if($tglawal == ''){
