@@ -53,6 +53,7 @@ use Carbon\Carbon;
         #table1 th {
             border: 1px solid #ddd;
             padding: 8px;
+            text-align: center;
         }
 
         #table1 th {
