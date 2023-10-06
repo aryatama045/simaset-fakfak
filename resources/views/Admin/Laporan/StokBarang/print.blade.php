@@ -89,11 +89,11 @@ use Carbon\Carbon;
         }
 
         .keclogo{
-            font-size:2em;
+            font-size:2.5rem;
         }
 
         .kablogo{
-            font-size:1em;
+            font-size:1.5rem;
         }
 
         .alamatlogo{
@@ -217,25 +217,9 @@ use Carbon\Carbon;
                 </thead>
 
                 <tbody>
-                    <?php
-                        if($tglawal != ''){
-                        $datas = BarangModel::leftJoin('tbl_jenisbarang', 'tbl_jenisbarang.jenisbarang_id', '=', 'tbl_barang.jenisbarang_id')
-                        ->leftJoin('tbl_satuan', 'tbl_satuan.satuan_id', '=', 'tbl_barang.satuan_id')
-                        ->leftJoin('tbl_merk', 'tbl_merk.merk_id', '=', 'tbl_barang.merk_id')
-                        ->leftJoin('tbl_barangmasuk', 'tbl_barangmasuk.barang_kode', '=', 'tbl_barang.barang_kode')
-                        ->whereBetween('bm_tanggal', [$tglawal, $tglakhir])
-                        ->orderBy('barang_id', 'DESC')->get();
-                        } else {
-                        $datas = BarangModel::leftJoin('tbl_jenisbarang', 'tbl_jenisbarang.jenisbarang_id', '=', 'tbl_barang.jenisbarang_id')
-                        ->leftJoin('tbl_satuan', 'tbl_satuan.satuan_id', '=', 'tbl_barang.satuan_id')
-                        ->leftJoin('tbl_merk', 'tbl_merk.merk_id', '=', 'tbl_barang.merk_id')
-                        ->orderBy('barang_id', 'DESC')->get();
-                        }
-                    ?>
-
 
                     @php $no=1; @endphp
-                    @foreach($datas as $d)
+                    @foreach($data as $d)
                         <?php
                             if($tglawal == ''){
                                 $jmlmasuk = BarangmasukModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangmasuk.barang_kode')->leftJoin('tbl_supplier', 'tbl_supplier.supplier_id', '=', 'tbl_barangmasuk.supplier_id')->where('tbl_barangmasuk.barang_kode', '=', $d->barang_kode)->sum('tbl_barangmasuk.bm_jumlah');
@@ -255,7 +239,6 @@ use Carbon\Carbon;
 
                             $totalStok = $d->barang_stok + ($jmlmasuk-$jmlkeluar);
                         ?>
-
 
                         <tr>
                             <td align="center">{{$no++}}</td>
