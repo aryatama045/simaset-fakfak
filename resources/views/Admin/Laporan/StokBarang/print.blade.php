@@ -210,7 +210,7 @@ use Carbon\Carbon;
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <h1 class="keclogo"><strong> Laporan Stok Barang
                     <?php if($tglawal != ''){ ?>
-                    {{$tglawal}} - {{$tgakhir}} <?php } ?></strong></h1>
+                    {{$tglawal}} - {{$tglakhir}} <?php } ?></strong></h1>
             </div>
         </div>
 
