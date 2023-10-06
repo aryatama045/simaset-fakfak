@@ -217,10 +217,10 @@ use Carbon\Carbon;
         <table border="1" id="table1">
             <thead>
                 <tr>
-                    <th rowspan="2"width="1%" > NO </th>
-                    <th rowspan="2"width="5%" > TANGGAL </th>
-                    <th rowspan="2"width="5%" > NO./TGL. SURAT DASAR PENERIMAAN / PENGELUARAN </th>
-                    <th rowspan="2"> URAIAN </th>
+                    <th rowspan="2" width="1%" > NO </th>
+                    <th rowspan="2" width="5%" > TANGGAL </th>
+                    <th rowspan="2" width="5%" > NO./TGL. SURAT DASAR PENERIMAAN / PENGELUARAN </th>
+                    <th rowspan="2" width="15%"> URAIAN </th>
                     <th colspan="3"> BARANG-BARANG </th>
                     <th rowspan="2">HARGA SATUAN</th>
                     <th colspan="3"> JUMLAH HARGA BARANG YANG DITERIMA / DIKELUARKAN </th>
