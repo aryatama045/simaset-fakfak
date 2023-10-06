@@ -37,6 +37,12 @@ use Carbon\Carbon;
             font-family: Times, Helvetica, sans-serif;
         }
 
+        @media print{
+            @page {
+                size: landscape;
+            }
+        }
+
         #table1 {
             border-collapse: collapse;
             width: 100%;
