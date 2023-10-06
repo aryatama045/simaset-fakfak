@@ -218,8 +218,8 @@ use Carbon\Carbon;
 
             </thead>
 
-            <thead>
-                <tr id="thbottom">
+            <thead id="thbottom">
+                <tr >
                     <th>1</th>
                     <th>2</th>
                     <th>3</th>
