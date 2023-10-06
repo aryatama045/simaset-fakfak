@@ -40,10 +40,9 @@ class LapStokBarangController extends Controller
             ->leftJoin('tbl_merk', 'tbl_merk.merk_id', '=', 'tbl_barang.merk_id')
             ->leftJoin('tbl_barangmasuk', 'tbl_barangmasuk.barang_kode', '=', 'tbl_barang.barang_kode')
             ->groupBy('tbl_barangmasuk.barang_kode')
-            ->groupBy('jenisbarang_nama')
             ->orderBy('barang_id', 'DESC')->get();
 
-            $data['data'] = $data;
+            $data['data'] = $data ->groupBy('jenisbarang_nama');
         }
 
 
