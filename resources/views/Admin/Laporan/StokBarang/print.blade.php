@@ -265,8 +265,6 @@ use Carbon\Carbon;
                         <td></td>
                     </tr>
 
-                    {{dd($data)}}
-
                     @foreach($v as $d)
 
                         {{dd($d)}}
