@@ -291,7 +291,7 @@ use Carbon\Carbon;
                             <td></td>
                             <td></td>
                             <td></td>
-                            <td align="center">{{$d->barang_nama}}</td>
+                            <td style="text-align:left; font-size:12;">{{$d->barang_nama}}</td>
                             <td align="center">{{$jmlmasuk}}</td>
                             <td align="center">{{$jmlkeluar}}</td>
                             <td align="center">{{$totalStok}}</td>
