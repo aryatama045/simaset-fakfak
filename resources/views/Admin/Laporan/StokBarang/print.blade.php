@@ -295,7 +295,7 @@ use Carbon\Carbon;
                             <td align="center">{{$jmlmasuk}}</td>
                             <td align="center">{{$jmlkeluar}}</td>
                             <td align="center">{{$totalStok}}</td>
-                            <td></td>
+                            <td>{{$d->barang_harga}}</td>
                             <td></td>
                             <td></td>
                             <td></td>
