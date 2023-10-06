@@ -206,6 +206,14 @@ use Carbon\Carbon;
 
         <hr class="garis1"/>
 
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <h1 class="keclogo"><strong> Laporan Stok Barang
+                    <?php if($tglawal != ''){ ?>
+                    {{$tglawal}} - {{$tgakhir}} <?php } ?></strong></h1>
+            </div>
+        </div>
+
         <table border="1" id="table1">
             <thead>
                 <tr>
@@ -234,7 +242,6 @@ use Carbon\Carbon;
                 </tr>
 
             </thead>
-
 
             <tbody>
 
