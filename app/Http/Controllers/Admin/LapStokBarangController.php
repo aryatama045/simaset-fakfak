@@ -40,7 +40,7 @@ class LapStokBarangController extends Controller
             ->orderBy('barang_id', 'DESC')->get();
         }
 
-        $data['data'] = $data['data']->select('bm_tanggal')->groupBy('jenisbarang_nama');
+        $data['data'] = $data['data']->groupBy('jenisbarang_nama');
 
         $data["title"] = "Print Stok Barang";
         $data['web'] = WebModel::first();
