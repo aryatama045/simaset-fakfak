@@ -254,7 +254,7 @@ use Carbon\Carbon;
                         <td align="center">{{$no++}}</td>
                         <td></td>
                         <td></td>
-                        <td style="text-align:left; font-size:13;"><strong>{{ $k }}</strong></td> <!-- Jenis Barang -->
+                        <td style="text-align:left; font-size:14;"><strong>{{ $k }}</strong></td> <!-- Jenis Barang -->
                         <td></td>
                         <td></td>
                         <td></td>
