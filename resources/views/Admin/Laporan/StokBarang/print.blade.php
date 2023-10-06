@@ -89,7 +89,7 @@ use Carbon\Carbon;
         }
 
         .keclogo{
-            font-size:2.5rem;
+            font-size:2rem;
         }
 
         .kablogo{
