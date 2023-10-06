@@ -207,19 +207,18 @@ use Carbon\Carbon;
                     <th>STOK AWAL</th>
                     <th>JML MASUK</th>
                     <th>JML KELUAR</th>
-
                 </tr>
 
             </thead>
 
             <thead>
                 <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <th>1</th>
+                    <th>2</th>
+                    <th>3</th>
+                    <th>4</th>
+                    <th>5</th>
+                    <th>6</th>
                 </tr>
             </thead>
 
