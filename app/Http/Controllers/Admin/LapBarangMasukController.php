@@ -24,6 +24,7 @@ class LapBarangMasukController extends Controller
             $data['data'] = BarangmasukModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangmasuk.barang_kode')
             ->leftJoin('tbl_supplier', 'tbl_supplier.supplier_id', '=', 'tbl_barangmasuk.supplier_id')
             ->whereBetween('bm_tanggal', [$request->tglawal, $request->tglakhir])
+            ->groupBy('barang_kode')
             ->orderBy('bm_id', 'DESC')->get();
         } else {
             $data['data'] = BarangmasukModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangmasuk.barang_kode')->leftJoin('tbl_supplier', 'tbl_supplier.supplier_id', '=', 'tbl_barangmasuk.supplier_id')->orderBy('bm_id', 'DESC')->get();
