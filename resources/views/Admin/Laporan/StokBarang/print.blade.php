@@ -163,7 +163,7 @@ use Carbon\Carbon;
         <div class="container">
         <header>
             <div class="row">
-                <div id="img" class="col-md-3 col-sm-3 col-xs-3">
+                <div id="img" class="col-md-2 col-sm-2 col-xs-2">
                     <!-- <img id="logo" src="https://getasanbersinar.files.wordpress.com/2016/02/logo-kabupaten-semarang-jawa-tengah.png" width="140" height="160" /> -->
 
                     @if($web->web_logo == '' || $web->web_logo == 'default.png')
