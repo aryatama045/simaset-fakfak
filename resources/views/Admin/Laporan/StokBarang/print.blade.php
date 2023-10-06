@@ -116,6 +116,7 @@ use Carbon\Carbon;
             border-top:3px solid black;
             height: 2px;
             border-bottom:1px solid black;
+            margin-top: 6px;
         }
 
         #logo{
