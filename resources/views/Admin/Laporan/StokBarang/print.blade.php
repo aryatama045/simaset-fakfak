@@ -148,7 +148,7 @@ use Carbon\Carbon;
         }
 
         #nama-camat{
-            margin-top:100px;
+            margin-top:60px;
             text-align:center;
         }
     </style>
