@@ -299,7 +299,11 @@ use Carbon\Carbon;
                             <td></td>
                             <td></td>
                             <td></td>
-                            <td></td>
+                            <td>
+                                @if($totalStok == 0)
+                                    Habis
+                                @endif
+                            </td>
                         </tr>
 
                     @endforeach
