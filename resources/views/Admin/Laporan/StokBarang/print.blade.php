@@ -270,7 +270,7 @@ use Carbon\Carbon;
 
                     <tr>
                         <td align="center">{{$no++}}</td>
-                        <td>{{$d->barang_kode}}</td>
+                        <td>{{$d->bm_tanggal}}</td>
                         <td>{{$d->barang_nama}}</td>
                         <td align="center">{{$d->barang_stok}}</td>
                         <td align="center">{{$jmlmasuk}}</td>
