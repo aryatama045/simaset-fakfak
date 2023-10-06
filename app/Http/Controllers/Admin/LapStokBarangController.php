@@ -28,7 +28,8 @@ class LapStokBarangController extends Controller
             ->leftJoin('tbl_merk', 'tbl_merk.merk_id', '=', 'tbl_barang.merk_id')
             ->leftJoin('tbl_barangmasuk', 'tbl_barangmasuk.barang_kode', '=', 'tbl_barang.barang_kode')
             ->whereBetween('bm_tanggal', [$request->tglawal, $request->tglakhir])
-            ->groupBy('tbl_barang.barang_kode')->get();
+            ->groupBy('tbl_barangmasuk.barang_kode')
+            ->orderBy('tbl_barangmasuk.bm_id', 'DESC')->get();
         } else {
             $data['data'] = BarangModel::leftJoin('tbl_jenisbarang', 'tbl_jenisbarang.jenisbarang_id', '=', 'tbl_barang.jenisbarang_id')
             ->leftJoin('tbl_satuan', 'tbl_satuan.satuan_id', '=', 'tbl_barang.satuan_id')
