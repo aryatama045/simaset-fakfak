@@ -63,11 +63,11 @@ use Carbon\Carbon;
             font-size: 13px;
         }
 
-        #thbottom, tr {
-            padding-top: 2px;
-            padding-bottom: 2px;
+        #thbottom th {
+            padding-top: 2px !important;
+            padding-bottom: 2px !important;
             color: black;
-            font-size: 10px;
+            font-size: 10px !important;
         }
 
         #table1 td {
