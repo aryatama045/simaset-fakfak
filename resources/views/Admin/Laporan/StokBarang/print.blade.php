@@ -270,6 +270,21 @@ use Carbon\Carbon;
 
                     <tr>
                         <td align="center">{{$no++}}</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td></td>
                         <td>{{$d->bm_tanggal}}</td>
                         <td>{{$d->bm_tanggal}}</td>
                         <td align="center">{{$d->barang_stok}}</td>
