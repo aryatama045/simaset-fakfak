@@ -237,7 +237,7 @@ use Carbon\Carbon;
                 </tr>
 
                 <tr id="thbottom">
-                    @for($x=0; $x < 12; $x++;)
+                    @for($x=0; $x < 12; $x++)
                     <th>{{$x}}</th>
                     @endfor
                 </tr>
