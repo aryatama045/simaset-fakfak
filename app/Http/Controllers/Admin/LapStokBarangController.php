@@ -39,19 +39,34 @@ class LapStokBarangController extends Controller
         $data['tglawal'] = $request->tglawal;
         $data['tglakhir'] = $request->tglakhir;
         $pdf = PDF::loadView('Admin.Laporan.StokBarang.pdf', $data);
-        
+
         if($request->tglawal){
             return $pdf->download('lap-stok-'.$request->tglawal.'-'.$request->tglakhir.'.pdf');
         }else{
             return $pdf->download('lap-stok-semua-tanggal.pdf');
         }
-        
+
     }
 
     public function show(Request $request)
     {
         if ($request->ajax()) {
-            $data = BarangModel::leftJoin('tbl_jenisbarang', 'tbl_jenisbarang.jenisbarang_id', '=', 'tbl_barang.jenisbarang_id')->leftJoin('tbl_satuan', 'tbl_satuan.satuan_id', '=', 'tbl_barang.satuan_id')->leftJoin('tbl_merk', 'tbl_merk.merk_id', '=', 'tbl_barang.merk_id')->orderBy('barang_id', 'DESC')->get();
+
+            if($request->tglawal == ''){
+                $data = BarangModel::leftJoin('tbl_jenisbarang', 'tbl_jenisbarang.jenisbarang_id', '=', 'tbl_barang.jenisbarang_id')
+                ->leftJoin('tbl_satuan', 'tbl_satuan.satuan_id', '=', 'tbl_barang.satuan_id')
+                ->leftJoin('tbl_merk', 'tbl_merk.merk_id', '=', 'tbl_barang.merk_id')
+                ->orderBy('barang_id', 'DESC')->get();
+            }else{
+                $data = BarangModel::leftJoin('tbl_jenisbarang', 'tbl_jenisbarang.jenisbarang_id', '=', 'tbl_barang.jenisbarang_id')
+                        ->leftJoin('tbl_satuan', 'tbl_satuan.satuan_id', '=', 'tbl_barang.satuan_id')
+                        ->leftJoin('tbl_merk', 'tbl_merk.merk_id', '=', 'tbl_barang.merk_id')
+                        ->leftJoin('tbl_barangmasuk', 'tbl_barangmasuk.barang_kode', '=', 'tbl_barang.barang_kode')
+                        ->whereBetween('bm_tanggal', [$tglawal, $tglakhir])
+                        ->orderBy('barang_id', 'DESC')->get();
+            }
+
+
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn('stokawal', function ($row) {
@@ -103,7 +118,7 @@ class LapStokBarangController extends Controller
                     }else{
                         $result = '<span class="text-danger">'.$totalstok.'</span>';
                     }
-                    
+
 
                     return $result;
                 })
