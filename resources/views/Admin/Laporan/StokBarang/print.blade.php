@@ -46,7 +46,7 @@ use Carbon\Carbon;
         #table1 {
             border-collapse: collapse;
             width: 100%;
-            margin-top: 32px;
+            margin-top: 20px;
         }
 
         #table1 td,
@@ -57,10 +57,10 @@ use Carbon\Carbon;
         }
 
         #table1 th {
-            padding-top: 12px;
-            padding-bottom: 12px;
+            padding-top: 4px;
+            padding-bottom: 4px;
             color: black;
-            font-size: 13px;
+            font-size: 12px;
         }
 
         #thbottom th {
