@@ -79,15 +79,15 @@ class LapStokBarangController extends Controller
                 ->orderBy('barang_id', 'DESC')->get();
             }else{
                 $data = BarangModel::leftJoin('tbl_jenisbarang', 'tbl_jenisbarang.jenisbarang_id', '=', 'tbl_barang.jenisbarang_id')
-                        ->leftJoin('tbl_satuan', 'tbl_satuan.satuan_id', '=', 'tbl_barang.satuan_id')
-                        ->leftJoin('tbl_merk', 'tbl_merk.merk_id', '=', 'tbl_barang.merk_id')
-                        ->leftJoin('tbl_barangmasuk', 'tbl_barangmasuk.barang_kode', '=', 'tbl_barang.barang_kode')
-                        ->whereBetween('bm_tanggal', [$request->tglawal, $request->tglakhir])
-                        ->groupBy('tbl_barangmasuk.barang_kode')
-                        ->orderBy('barang_id', 'DESC')->get();
+                ->leftJoin('tbl_satuan', 'tbl_satuan.satuan_id', '=', 'tbl_barang.satuan_id')
+                ->leftJoin('tbl_merk', 'tbl_merk.merk_id', '=', 'tbl_barang.merk_id')
+                ->leftJoin('tbl_barangmasuk', 'tbl_barangmasuk.barang_kode', '=', 'tbl_barang.barang_kode')
+                ->whereBetween('bm_tanggal', [$request->tglawal, $request->tglakhir])
+                ->groupBy('tbl_barangmasuk.barang_kode')
+                ->orderBy('barang_id', 'DESC')->get();
             }
 
-            $data = $data->groupBy('jenisbarang_nama');
+            // $data = $data->groupBy('jenisbarang_nama');
 
 
             return DataTables::of($data)
