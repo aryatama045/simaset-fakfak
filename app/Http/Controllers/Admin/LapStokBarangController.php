@@ -32,7 +32,7 @@ class LapStokBarangController extends Controller
             ->groupBy('tbl_barangmasuk.barang_kode')
             ->orderBy('tbl_barangmasuk.bm_tanggal', 'DESC')->get();
 
-            $data['data']->groupBy('jenisbarang_nama');
+            $data['data'] = $data['data']->groupBy('jenisbarang_nama');
         } else {
             $data['data'] = BarangModel::leftJoin('tbl_jenisbarang', 'tbl_jenisbarang.jenisbarang_id', '=', 'tbl_barang.jenisbarang_id')
             ->leftJoin('tbl_kategori', 'tbl_kategori.kategori_id', '=', 'tbl_barang.kategori_id')
@@ -42,7 +42,7 @@ class LapStokBarangController extends Controller
             ->groupBy('tbl_barangmasuk.barang_kode')
             ->orderBy('barang_id', 'DESC')->get();
 
-            $data['data']->groupBy('jenisbarang_nama');
+            $data['data'] = $data['data']->groupBy('jenisbarang_nama');
         }
 
 
