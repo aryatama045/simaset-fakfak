@@ -252,8 +252,8 @@ use Carbon\Carbon;
 
                     <tr>
                         <td align="center">{{$no++}}</td>
-                        <td></td>
-                        <td></td>
+                        <td>{{$d->bm_tanggal}}</td>
+                        <td>{{$d->bm_tanggal}}</td>
                         <td>{{ $k }}</td> <!-- Jenis Barang -->
                         <td></td>
                         <td></td>
@@ -289,9 +289,9 @@ use Carbon\Carbon;
 
                         <tr>
                             <td></td>
-                            <td>{{$d->bm_tanggal}}</td>
-                            <td>{{$d->bm_tanggal}}</td>
-                            <td align="center">{{$d->barang_stok}}</td>
+                            <td></td>
+                            <td></td>
+                            <td align="center">{{$d->barang_nama}}</td>
                             <td align="center">{{$jmlmasuk}}</td>
                             <td align="center">{{$jmlkeluar}}</td>
                             <td align="center">{{$totalStok}}</td>
