@@ -173,10 +173,10 @@ use Carbon\Carbon;
                     @endif
                 </div>
                 <div id="text-header" class="col-md-8 col-sm-8 col-xs-8">
-                    <h3 class="kablogo">PEMERINTAH KABUPATEN SEMARANG</h3>
-                    <h1 class="keclogo"><strong>KECAMATAN BERGAS</strong></h1>
-                    <h6 class="alamatlogo">Jl. Soekarno-Hatta, No. 68, Telepon/Faximile (0298) 523024</h6>
-                    <h5 class="kodeposlogo"><strong>BERGAS 50552</strong></h5>
+                    <h3 class="kablogo"> {{ $web->header_1 }}</h3>
+                    <h1 class="keclogo"><strong> {{ $web->header_2 }} </strong></h1>
+                    <h6 class="alamatlogo"> {{ $web->header_alamat }} </h6>
+                    <!-- <h5 class="kodeposlogo"><strong>BERGAS 50552</strong></h5> -->
                 </div>
             </div>
         </header>
