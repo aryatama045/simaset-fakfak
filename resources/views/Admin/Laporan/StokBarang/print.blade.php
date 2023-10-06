@@ -120,7 +120,7 @@ use Carbon\Carbon;
 
         #logo{
             margin: auto;
-            margin-left: 50%;
+            margin-left: 45%;
             margin-right: auto;
         }
 
