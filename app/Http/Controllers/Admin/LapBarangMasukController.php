@@ -8,6 +8,7 @@ use App\Models\Admin\WebModel;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
+use DB;
 use PDF;
 
 class LapBarangMasukController extends Controller
@@ -20,7 +21,7 @@ class LapBarangMasukController extends Controller
 
     public function print(Request $request)
     {
-        if ($request->tglawal) {
+        if ($request->tglawal != '') {
             $data['data'] = DB::table('tbl_barangmasuk')
             ->leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangmasuk.barang_kode')
             ->leftJoin('tbl_supplier', 'tbl_supplier.supplier_id', '=', 'tbl_barangmasuk.supplier_id')
@@ -28,7 +29,9 @@ class LapBarangMasukController extends Controller
             ->groupBy('tbl_barangmasuk.barang_kode')
             ->orderBy('bm_id', 'DESC')->get();
         } else {
-            $data['data'] = BarangmasukModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangmasuk.barang_kode')->leftJoin('tbl_supplier', 'tbl_supplier.supplier_id', '=', 'tbl_barangmasuk.supplier_id')->orderBy('bm_id', 'DESC')->get();
+            $data['data'] = BarangmasukModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangmasuk.barang_kode')
+            ->leftJoin('tbl_supplier', 'tbl_supplier.supplier_id', '=', 'tbl_barangmasuk.supplier_id')
+            ->orderBy('bm_id', 'DESC')->get();
         }
 
         $data["title"] = "Print Barang Masuk";
