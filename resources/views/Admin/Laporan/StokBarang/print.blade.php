@@ -163,7 +163,7 @@ use Carbon\Carbon;
         <div class="container">
         <header>
             <div class="row">
-                <div id="img" class="col-md-2 col-sm-2 col-xs-2">
+                <div class="col-md-2 col-sm-2 col-xs-2">
                     <!-- <img id="logo" src="https://getasanbersinar.files.wordpress.com/2016/02/logo-kabupaten-semarang-jawa-tengah.png" width="140" height="160" /> -->
 
                     @if($web->web_logo == '' || $web->web_logo == 'default.png')
@@ -172,7 +172,7 @@ use Carbon\Carbon;
                     <img id="logo" src="{{url('/assets/default/web/default.png')}}" width="85" height="90" alt="">
                     @endif
                 </div>
-                <div id="text-header" class="col-md-9 col-sm-9 col-xs-9">
+                <div class="col-md-10 col-sm-10 col-xs-10">
                     <h3 class="kablogo"> {{ $web->header_1 }}</h3>
                     <h1 class="keclogo"><strong> {{ $web->header_2 }} </strong></h1>
                     <h6 class="alamatlogo"> {{ $web->alamat }} </h6>
