@@ -248,6 +248,26 @@ use Carbon\Carbon;
 
                 @php $no=1; @endphp
                 @foreach($data as $d)
+
+                    {{dd($data)}}
+
+                    <tr>
+                        <td align="center">{{$no++}}</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+
+
                     <?php
                         if($tglawal == ''){
                             $jmlmasuk = BarangmasukModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangmasuk.barang_kode')->leftJoin('tbl_supplier', 'tbl_supplier.supplier_id', '=', 'tbl_barangmasuk.supplier_id')->where('tbl_barangmasuk.barang_kode', '=', $d->barang_kode)->sum('tbl_barangmasuk.bm_jumlah');
@@ -269,21 +289,6 @@ use Carbon\Carbon;
                     ?>
 
                     <tr>
-                        <td align="center">{{$no++}}</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-
-                    <tr>
                         <td></td>
                         <td>{{$d->bm_tanggal}}</td>
                         <td>{{$d->bm_tanggal}}</td>
@@ -297,6 +302,8 @@ use Carbon\Carbon;
                         <td></td>
                         <td></td>
                     </tr>
+
+
                 @endforeach
             </tbody>
 
