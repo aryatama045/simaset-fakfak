@@ -294,6 +294,12 @@ use Carbon\Carbon;
                             $totalStok = $d->barang_stok + ($jmlmasuk-$jmlkeluar);
                         ?>
 
+                        @if(isset($t))
+                        <tr>
+                            <td colspan="12"> <strong>LAPORAN KESELURUHAN</strong></td>
+                        </tr>
+                        @endif
+
                         <tr style="text-align:left;">
                             <td></td>
                             <td></td>
