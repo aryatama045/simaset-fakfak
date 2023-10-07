@@ -250,15 +250,16 @@ use Carbon\Carbon;
             </thead>
 
             <tbody>
-
-                @foreach($data as $t => $vt)
-
                 @php $no=1; @endphp
-                @foreach($vt as $k => $v)
-
+                @foreach($data as $t => $vt)
 
                     <tr>
                         <td align="center">{{$no++}}</td>
+                
+                @foreach($vt as $k => $v)
+
+
+                    
                         <td>{{$t}}</td>
                         <td>{{$t}}</td>
                         <td style="text-align:left; font-size:14;"><strong>{{ $k }}</strong></td> <!-- Jenis Barang -->
