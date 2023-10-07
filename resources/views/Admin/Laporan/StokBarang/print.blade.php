@@ -251,10 +251,10 @@ use Carbon\Carbon;
 
             <tbody>
 
-                @foreach($data as $t)
+                @foreach($data as $t => $vt)
 
                 @php $no=1; @endphp
-                @foreach($t as $k => $v)
+                @foreach($vt as $k => $v)
 
 
                     <tr>
