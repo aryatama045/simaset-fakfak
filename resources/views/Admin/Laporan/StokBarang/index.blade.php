@@ -34,10 +34,15 @@
                         <div class="form-group">
                             <input type="text" name="tglakhir" class="form-control datepicker-date" placeholder="Tanggal Akhir">
                         </div>
+                        <div class="form-group">
+                            <button class="btn btn-success-light" onclick="filter()"><i class="fe fe-filter"></i> Filter</button>
+                            <button class="btn btn-secondary-light" onclick="reset()"><i class="fe fe-refresh-ccw"></i> Reset</button>
+                        </div>
+
+                        
                     </div>
                     <div class="col-md-6">
-                        <button class="btn btn-success-light" onclick="filter()"><i class="fe fe-filter"></i> Filter</button>
-                        <button class="btn btn-secondary-light" onclick="reset()"><i class="fe fe-refresh-ccw"></i> Reset</button>
+                        
                         <button class="btn btn-primary-light" onclick="print()"><i class="fe fe-printer"></i> Print</button>
                         <button class="btn btn-danger-light" onclick="pdf()"><i class="fa fa-file-pdf-o"></i> PDF</button>
                     </div>
