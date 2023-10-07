@@ -321,8 +321,10 @@ use Carbon\Carbon;
         <footer>
             <div id="ttd" class="row">
                 <div class="col-md-4">
-                    <p id="pengurus"> <strong>MENGETAHUI</strong></p>
-                    <p id="pengurus"><strong>SEKRETARIS DPRD <br /> KABUPATEN FAKFAK</strong></p>
+                    <p id="pengurus"> <strong>MENGETAHUI <br />
+                        SEKRETARIS DPRD <br />
+                        KABUPATEN FAKFAK</strong>
+                    </p>
                     <div id="nama-pengurus"><strong><u>SUPRIJONO, S.Sos, MM</u></strong><br />
                         NIP : 19710608 199610 1 002
                     </div>
