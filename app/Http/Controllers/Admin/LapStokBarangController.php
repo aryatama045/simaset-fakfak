@@ -43,7 +43,7 @@ class LapStokBarangController extends Controller
         // $data['data'] = $data['data']->groupBy('jenisbarang_nama');
 
         $data['data'] = $data['data']->groupBy([
-            // 'bm_tanggal',
+            'bm_tanggal',
             function ($item) {
                 return $item['jenisbarang_nama'];
             },
