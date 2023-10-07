@@ -291,7 +291,7 @@ use Carbon\Carbon;
                                 ->leftJoin('tbl_supplier', 'tbl_supplier.supplier_id', '=', 'tbl_barangmasuk.supplier_id')
                                 ->where('tbl_barangmasuk.barang_kode', '=', $d->barang_kode)
                                 ->whereBetween('bm_tanggal', [$tglawal, $tglakhir])
-                                ->count();
+                                ->sum('tbl_barangmasuk.bm_jumlah');
                             }
 
                             if ($tglawal != '') {
@@ -302,7 +302,7 @@ use Carbon\Carbon;
                             } else {
                                 $jmlkeluar = BarangkeluarModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangkeluar.barang_kode')
                                 ->where('tbl_barangkeluar.barang_kode', '=', $d->barang_kode)
-                                ->count();
+                                ->sum('tbl_barangkeluar.bk_jumlah');
                             }
 
                             $totalStok = $d->barang_stok + ($jmlmasuk-$jmlkeluar);
