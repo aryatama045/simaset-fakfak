@@ -257,7 +257,7 @@ use Carbon\Carbon;
                 
                 @foreach($vt as $k => $v)
 
-                    @if(isset($t))
+                    @if(!isset($t))
                     <tr>
                         <td colspan="12"> <strong>LAPORAN KESELURUHAN</strong></td>
                     </tr>
