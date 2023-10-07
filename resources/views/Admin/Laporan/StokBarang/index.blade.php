@@ -26,14 +26,16 @@
                         <label for="" class="fw-bold">Filter Tanggal</label>
                     </div>
                     <div class="col-md-6">
-                        <div class="form-group mb-2">
-                            <label for="tglawal" class="sr-only">Tanggal Awal</label>
-                            <input type="text" name="tglawal" class="form-control datepicker-date" placeholder="Tanggal Awal">
-                        </div>
-                        <div class="form-group mx-sm-3 mb-2">
-                            <label for="tglakhir" class="sr-only">Tanggal Akhir</label>
-                            <input type="text" name="tglakhir" class="form-control datepicker-date" placeholder="Tanggal Akhir">
-                        </div>
+                        <div class="form-inline ">  
+                            <div class="form-group mb-2">
+                                <label for="tglawal" class="sr-only">Tanggal Awal</label>
+                                <input type="text" name="tglawal" class="form-control datepicker-date" placeholder="Tanggal Awal">
+                            </div>
+                            <div class="form-group mx-sm-3 mb-2">
+                                <label for="tglakhir" class="sr-only">Tanggal Akhir</label>
+                                <input type="text" name="tglakhir" class="form-control datepicker-date" placeholder="Tanggal Akhir">
+                            </div>
+                        </div> 
                         <div class="form-group">
                             <button class="btn btn-success-light" onclick="filter()"><i class="fe fe-filter"></i> Filter</button>
                             <button class="btn btn-secondary-light" onclick="reset()"><i class="fe fe-refresh-ccw"></i> Reset</button>
