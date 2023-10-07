@@ -210,7 +210,8 @@ use Carbon\Carbon;
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <h1 class="keclogo"><strong> Laporan Stok Barang
                     <?php if($tglawal != ''){ ?>
-                    {{$tglawal}} - {{$tglakhir}} <?php }else{ ?> - Seluruh Barang <?php } ?></strong></h1>
+                        {{Carbon::parse($tglawal)->translatedFormat('d F Y')}} - {{Carbon::parse($tglakhir)->translatedFormat('d F Y')}}
+                    <?php }else{ ?> - Seluruh Barang <?php } ?></strong></h1>
             </div>
         </div>
 
@@ -318,7 +319,8 @@ use Carbon\Carbon;
                 <div class="col-md-4"></div>
                 <div class="col-md-4"></div>
                 <div class="col-md-4">
-                    <p id="camat"><strong>CAMAT BERGAS</strong></p>
+                    <p> Fakfak, {{Carbon::translatedFormat('d F Y')}} </p>
+                    <p id="camat"><strong>PENGURUS BARANG</strong></p>
                     <div id="nama-camat"><strong><u>TRI MARTONO, SH, MM</u></strong><br />
                         Pembina Tk. I<br />
                         NIP. 196703221995031001
