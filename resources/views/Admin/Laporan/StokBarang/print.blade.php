@@ -259,79 +259,78 @@ use Carbon\Carbon;
                         </tr>
                     @endif
                 
-                @foreach($vt as $k => $v)
+                    @foreach($vt as $k => $v)
 
-                   
-
-                    <tr>
-                        <td align="center">{{$no++}}</td>                        
-                        <td>{{$t}}</td>
-                        <td>{{$t}}</td>
-                        <td style="text-align:left; font-size:14;"><strong>{{ $k }}</strong></td> <!-- Jenis Barang -->
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-
-                    @foreach($v as $d)
-
-                        <?php
-                            if($tglawal == ''){
-                                $jmlmasuk = BarangmasukModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangmasuk.barang_kode')
-                                ->leftJoin('tbl_supplier', 'tbl_supplier.supplier_id', '=', 'tbl_barangmasuk.supplier_id')
-                                ->where('tbl_barangmasuk.barang_kode', '=', $d->barang_kode)
-                                ->sum('tbl_barangmasuk.bm_jumlah');
-                            }else{
-                                $jmlmasuk = BarangmasukModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangmasuk.barang_kode')
-                                ->leftJoin('tbl_supplier', 'tbl_supplier.supplier_id', '=', 'tbl_barangmasuk.supplier_id')
-                                ->where('tbl_barangmasuk.barang_kode', '=', $d->barang_kode)
-                                ->whereBetween('bm_tanggal', [$tglawal, $tglakhir])
-                                ->sum('tbl_barangmasuk.bm_jumlah');
-                            }
-
-                            if ($tglawal != '') {
-                                $jmlkeluar = BarangkeluarModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangkeluar.barang_kode')
-                                ->whereBetween('bk_tanggal', [$tglawal, $tglakhir])
-                                ->where('tbl_barangkeluar.barang_kode', '=', $d->barang_kode)
-                                ->sum('tbl_barangkeluar.bk_jumlah');
-                            } else {
-                                $jmlkeluar = BarangkeluarModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangkeluar.barang_kode')
-                                ->where('tbl_barangkeluar.barang_kode', '=', $d->barang_kode)
-                                ->sum('tbl_barangkeluar.bk_jumlah');
-                            }
-
-                            $totalStok = $d->barang_stok + ($jmlmasuk-$jmlkeluar);
-                        ?>
-
-                        
-
-                        <tr style="text-align:left;">
+                        <tr>
+                            <td align="center">{{$no++}}</td>                        
+                            <td>{{$t}}</td>
+                            <td>{{$t}}</td>
+                            <td style="text-align:left; font-size:14;"><strong>{{ $k }}</strong></td> <!-- Jenis Barang -->
                             <td></td>
                             <td></td>
                             <td></td>
-                            <td style="text-align:left; font-size:12;">{{$d->barang_nama}}</td>
-                            <td align="center">{{$jmlmasuk}}</td>
-                            <td align="center">{{$jmlkeluar}}</td>
-                            <td align="center">{{$totalStok}}</td>
-                            <td>{{ number_format($d->barang_harga,0,"",'.')}}</td>
-                            <td><?php $bertambah = $jmlmasuk * $d->barang_harga; echo number_format($bertambah,0,"",'.'); ?> </td>
-                            <td><?php $berkurang = $jmlkeluar * $d->barang_harga; echo number_format($berkurang,0,"",'.'); ?></td>
-                            <td><?php $sisa = $bertambah - $berkurang; echo number_format($sisa,0,"",'.'); ?></td>
-                            <td>
-                                @if($totalStok == 0)
-                                    Habis
-                                @endif
-                            </td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
                         </tr>
+
+                        @foreach($v as $d)
+
+                            <?php
+                                if($tglawal == ''){
+                                    $jmlmasuk = BarangmasukModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangmasuk.barang_kode')
+                                    ->leftJoin('tbl_supplier', 'tbl_supplier.supplier_id', '=', 'tbl_barangmasuk.supplier_id')
+                                    ->where('tbl_barangmasuk.barang_kode', '=', $d->barang_kode)
+                                    ->sum('tbl_barangmasuk.bm_jumlah');
+                                }else{
+                                    $jmlmasuk = BarangmasukModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangmasuk.barang_kode')
+                                    ->leftJoin('tbl_supplier', 'tbl_supplier.supplier_id', '=', 'tbl_barangmasuk.supplier_id')
+                                    ->where('tbl_barangmasuk.barang_kode', '=', $d->barang_kode)
+                                    ->whereBetween('bm_tanggal', [$tglawal, $tglakhir])
+                                    ->sum('tbl_barangmasuk.bm_jumlah');
+                                }
+
+                                if ($tglawal != '') {
+                                    $jmlkeluar = BarangkeluarModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangkeluar.barang_kode')
+                                    ->whereBetween('bk_tanggal', [$tglawal, $tglakhir])
+                                    ->where('tbl_barangkeluar.barang_kode', '=', $d->barang_kode)
+                                    ->sum('tbl_barangkeluar.bk_jumlah');
+                                } else {
+                                    $jmlkeluar = BarangkeluarModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangkeluar.barang_kode')
+                                    ->where('tbl_barangkeluar.barang_kode', '=', $d->barang_kode)
+                                    ->sum('tbl_barangkeluar.bk_jumlah');
+                                }
+
+                                $totalStok = $d->barang_stok + ($jmlmasuk-$jmlkeluar);
+                            ?>
+
+                            
+
+                            <tr style="text-align:left;">
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td style="text-align:left; font-size:12;">{{$d->barang_nama}}</td>
+                                <td align="center">{{$jmlmasuk}}</td>
+                                <td align="center">{{$jmlkeluar}}</td>
+                                <td align="center">{{$totalStok}}</td>
+                                <td>{{ number_format($d->barang_harga,0,"",'.')}}</td>
+                                <td><?php $bertambah = $jmlmasuk * $d->barang_harga; echo number_format($bertambah,0,"",'.'); ?> </td>
+                                <td><?php $berkurang = $jmlkeluar * $d->barang_harga; echo number_format($berkurang,0,"",'.'); ?></td>
+                                <td><?php $sisa = $bertambah - $berkurang; echo number_format($sisa,0,"",'.'); ?></td>
+                                <td>
+                                    @if($totalStok == 0)
+                                        Habis
+                                    @endif
+                                </td>
+                            </tr>
+
+                        @endforeach
 
                     @endforeach
 
-                @endforeach
                 @endforeach
             </tbody>
 
