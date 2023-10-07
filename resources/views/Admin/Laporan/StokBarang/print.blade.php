@@ -151,11 +151,15 @@ use Carbon\Carbon;
             margin-top:25px;
         }
 
-        #camat{
+        #tanggal-pengurus{
             text-align:center;
         }
 
-        #nama-camat{
+        #pengurus{
+            text-align:center;
+        }
+
+        #nama-pengurus{
             margin-top:60px;
             text-align:center;
         }
@@ -316,14 +320,19 @@ use Carbon\Carbon;
 
         <footer>
             <div id="ttd" class="row">
-                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <p id="pengurus"> <strong>MENGETAHUI</strong></p>
+                    <p id="pengurus"><strong>SEKRETARIS DPRD <br /> KABUPATEN FAKFAK</strong></p>
+                    <div id="nama-pengurus"><strong><u>SUPRIJONO, S.Sos, MM</u></strong><br />
+                        NIP : 19710608 199610 1 002
+                    </div>
+                </div>
                 <div class="col-md-4"></div>
                 <div class="col-md-4">
-                    <p> Fakfak, {{date('d F Y')}} </p>
-                    <p id="camat"><strong>PENGURUS BARANG</strong></p>
-                    <div id="nama-camat"><strong><u>TRI MARTONO, SH, MM</u></strong><br />
-                        Pembina Tk. I<br />
-                        NIP. 196703221995031001
+                    <p id="tanggal-pengurus"> Fakfak, {{date('d F Y')}} </p>
+                    <p id="pengurus"><strong>PENGURUS BARANG</strong></p>
+                    <div id="nama-pengurus"><strong><u>RUSDI</u></strong><br />
+                        NIP : 19780910 200801 1 014
                     </div>
                 </div>
             </div>
