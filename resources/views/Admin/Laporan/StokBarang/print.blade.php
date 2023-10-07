@@ -253,7 +253,7 @@ use Carbon\Carbon;
                 @php $no=1; @endphp
                 @foreach($data as $t => $vt)
 
-                    @if($t != NULLL)
+                    @if($t == NULLL)
                         <tr>
                             <td colspan="12"> <strong>LAPORAN KESELURUHAN</strong></td>
                         </tr>
