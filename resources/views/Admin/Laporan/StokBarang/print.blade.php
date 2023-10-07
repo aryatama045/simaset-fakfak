@@ -319,7 +319,7 @@ use Carbon\Carbon;
                 <div class="col-md-4"></div>
                 <div class="col-md-4"></div>
                 <div class="col-md-4">
-                    <p> Fakfak, {{Carbon::translatedFormat('d F Y')}} </p>
+                    <p> Fakfak, {{date('d F Y')}} </p>
                     <p id="camat"><strong>PENGURUS BARANG</strong></p>
                     <div id="nama-camat"><strong><u>TRI MARTONO, SH, MM</u></strong><br />
                         Pembina Tk. I<br />
