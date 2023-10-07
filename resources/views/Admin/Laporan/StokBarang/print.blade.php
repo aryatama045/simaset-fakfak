@@ -253,15 +253,15 @@ use Carbon\Carbon;
                 @php $no=1; @endphp
                 @foreach($data as $t => $vt)
 
-                    
-                
-                @foreach($vt as $k => $v)
-
                     @if(!isset($t))
                     <tr>
                         <td colspan="12"> <strong>LAPORAN KESELURUHAN</strong></td>
                     </tr>
                     @endif
+                
+                @foreach($vt as $k => $v)
+
+                   
 
                     <tr>
                         <td align="center">{{$no++}}</td>                        
