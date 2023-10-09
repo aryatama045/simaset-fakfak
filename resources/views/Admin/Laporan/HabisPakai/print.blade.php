@@ -39,7 +39,7 @@ use Carbon\Carbon;
 
         @media print{
             @page {
-                size: landscape legal;
+                size: 14in 8.5in ;
             }
         }
 
