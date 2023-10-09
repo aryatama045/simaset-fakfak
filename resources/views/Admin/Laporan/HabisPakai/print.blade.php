@@ -3,6 +3,7 @@
 
 <?php
 
+use App\Models\Admin\BarangModel;
 use App\Models\Admin\BarangkeluarModel;
 use App\Models\Admin\BarangmasukModel;
 use Carbon\Carbon;
@@ -26,35 +27,54 @@ use Carbon\Carbon;
 
     <title>{{$title}}</title>
 
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:400,300|Raleway:300,400,900,700italic,700,300,600">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css"  />
+
     <style>
+        /* Default */
         * {
-            font-family: Arial, Helvetica, sans-serif;
+            font-family: Times, Helvetica, sans-serif;
+        }
+
+        @media print{
+            @page {
+                size: landscape;
+            }
         }
 
         #table1 {
             border-collapse: collapse;
             width: 100%;
-            margin-top: 32px;
+            margin-top: 20px;
         }
 
         #table1 td,
         #table1 th {
             border: 1px solid #ddd;
             padding: 8px;
+            text-align: center;
         }
 
         #table1 th {
-            padding-top: 12px;
-            padding-bottom: 12px;
+            padding-top: 4px;
+            padding-bottom: 4px;
             color: black;
             font-size: 12px;
         }
 
-        #table1 td {
-            font-size: 11px;
+        #thbottom th {
+            padding-top: 2px !important;
+            padding-bottom: 2px !important;
+            color: black;
+            font-size: 10px !important;
         }
 
-        .font-medium {
+        #table1 td {
+            font-size: 12px;
+        }
+
+        /* .font-medium {
             font-weight: 500;
         }
 
@@ -66,6 +86,82 @@ use Carbon\Carbon;
             display: flex;
             align-items: flex-start;
             margin-top: 32px;
+        } */
+        /* --- END Default --- */
+
+
+        h1,h3,h5,h6{
+            text-align:center;
+            /* padding-right:200px; */
+            margin:5px;
+        }
+
+
+        .row{
+            /* margin-top: 50px; */
+            width:100%;
+        }
+
+        #kop-surat{
+            margin-top: 50px;
+        }
+
+        .keclogo{
+            font-size:1.8rem;
+        }
+
+        .kablogo{
+            font-size:1.8rem;
+        }
+
+        .alamatlogo{
+            font-size:1em;
+        }
+
+        .kodeposlogo{
+            font-size:1em;
+        }
+
+        #tls{
+            text-align:right;
+        }
+
+        .alamat-tujuan{
+            margin-left:50%;
+        }
+
+        .garis1{
+            border-top:3px solid black;
+            height: 2px;
+            border-bottom:1px solid black;
+            margin-top: 6px;
+        }
+
+        #logo{
+            margin: auto;
+            margin-left: 35%;
+            margin-right: auto;
+        }
+
+        #tempat-tgl{
+            margin-left:120px;
+        }
+
+        #ttd{
+            margin-top:25px;
+        }
+
+        #tanggal-pengurus{
+            text-align:center;
+        }
+
+        #pengurus{
+            text-align:center;
+        }
+
+        #nama-pengurus{
+            margin-top:60px;
+            text-align:center;
         }
     </style>
 
@@ -73,7 +169,7 @@ use Carbon\Carbon;
 
 <body onload="window.print()">
 
-    <center>
+    <!-- <center>
         @if($web->web_logo == '' || $web->web_logo == 'default.png')
         <img src="{{url('/assets/default/web/default.png')}}" width="80px" alt="">
         @else
@@ -88,51 +184,187 @@ use Carbon\Carbon;
         @else
         <h4 class="font-medium">{{Carbon::parse($tglawal)->translatedFormat('d F Y')}} - {{Carbon::parse($tglakhir)->translatedFormat('d F Y')}}</h4>
         @endif
-    </center>
+    </center> -->
 
-    <table border="1" id="table1">
-        <thead>
-            <tr>
-                <th align="center" width="1%">NO</th>
-                <th>KODE BARANG</th>
-                <th>BARANG</th>
-                <th>STOK AWAL</th>
-                <th>JML MASUK</th>
-                <th>JML KELUAR</th>
-                <th>TOTAL</th>
-            </tr>
-        </thead>
-        <tbody>
-            @php $no=1; @endphp
-            @foreach($data as $d)
-            <?php 
-            if($tglawal == ''){
-                $jmlmasuk = BarangmasukModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangmasuk.barang_kode')->leftJoin('tbl_customer', 'tbl_customer.customer_id', '=', 'tbl_barangmasuk.customer_id')->where('tbl_barangmasuk.barang_kode', '=', $d->barang_kode)->sum('tbl_barangmasuk.bm_jumlah');
-            }else{
-                $jmlmasuk = BarangmasukModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangmasuk.barang_kode')->leftJoin('tbl_customer', 'tbl_customer.customer_id', '=', 'tbl_barangmasuk.customer_id')->where('tbl_barangmasuk.barang_kode', '=', $d->barang_kode)->whereBetween('bm_tanggal', [$tglawal, $tglakhir])->sum('tbl_barangmasuk.bm_jumlah');
-            }
+    <div>
+        <div class="container">
+        <header>
+            <div id="kop-surat" class="row">
+                <div class="col-md-2 col-sm-2 col-xs-2">
+                    <!-- <img id="logo" src="https://getasanbersinar.files.wordpress.com/2016/02/logo-kabupaten-semarang-jawa-tengah.png" width="140" height="160" /> -->
 
-            if ($tglawal != '') {
-                $jmlkeluar = BarangkeluarModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangkeluar.barang_kode')->whereBetween('bk_tanggal', [$tglawal, $tglakhir])->where('tbl_barangkeluar.barang_kode', '=', $d->barang_kode)->sum('tbl_barangkeluar.bk_jumlah');
-            } else {
-                $jmlkeluar = BarangkeluarModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangkeluar.barang_kode')->where('tbl_barangkeluar.barang_kode', '=', $d->barang_kode)->sum('tbl_barangkeluar.bk_jumlah');
-            }
+                    @if($web->web_logo == '' || $web->web_logo == 'default.png')
+                    <img id="logo" src="{{url('/assets/default/web/default.png')}}" width="85" height="90" alt="">
+                    @else
+                    <img id="logo" src="{{url('/assets/default/web/default.png')}}" width="85" height="90" alt="">
+                    @endif
+                </div>
+                <div class="col-md-10 col-sm-10 col-xs-10">
+                    <h3 class="kablogo"> <strong>{{ $web->header_1 }}</strong></h3>
+                    <h1 class="keclogo"><strong> {{ $web->header_2 }} </strong></h1>
+                    <h6 class="alamatlogo"> {{ $web->alamat }} </h6>
+                    <!-- <h5 class="kodeposlogo"><strong>BERGAS 50552</strong></h5> -->
+                </div>
+            </div>
+        </header>
 
-            $totalStok = $d->barang_stok + ($jmlmasuk-$jmlkeluar);
-            ?>
-            <tr>
-                <td align="center">{{$no++}}</td>
-                <td>{{$d->barang_kode}}</td>
-                <td>{{$d->barang_nama}}</td>
-                <td align="center">{{$d->barang_stok}}</td>
-                <td align="center">{{$jmlmasuk}}</td>
-                <td align="center">{{$jmlkeluar}}</td>
-                <td align="center">{{$totalStok}}</td>
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
+        <hr class="garis1"/>
+
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <h1 class="keclogo"><strong> Laporan Stok Barang
+                    <?php if($tglawal != ''){ ?>
+                        {{Carbon::parse($tglawal)->translatedFormat('d F Y')}} - {{Carbon::parse($tglakhir)->translatedFormat('d F Y')}}
+                    <?php }else{ ?> - Seluruh Barang <?php } ?></strong></h1>
+            </div>
+        </div>
+
+        <table border="1" id="table1">
+            <thead>
+                <tr>
+                    <th rowspan="2" width="1%" > NO </th>
+                    <th rowspan="2" width="5%" > TANGGAL </th>
+                    <th rowspan="2" width="5%" > NO./TGL. SURAT DASAR PENERIMAAN / PENGELUARAN </th>
+                    <th rowspan="2" width="15%"> URAIAN </th>
+                    <th colspan="3"> BARANG-BARANG </th>
+                    <th rowspan="2">HARGA SATUAN</th>
+                    <th colspan="3"> JUMLAH HARGA BARANG YANG DITERIMA / DIKELUARKAN </th>
+                    <th rowspan="2">KET</th>
+                </tr>
+
+                <tr>
+                    <th>MASUK</th>
+                    <th>KELUAR</th>
+                    <th>SISA</th>
+                    <th>BERTAMBAH</th>
+                    <th>BERKURANG</th>
+                    <th>SISA</th>
+                </tr>
+
+                <tr id="thbottom">
+                    @for($x=1; $x <= 12; $x++)
+                    <th>{{$x}}</th>
+                    @endfor
+                </tr>
+
+            </thead>
+
+            <tbody>
+                @php $no=1; @endphp
+                @foreach($data as $t => $vt)
+
+                    @if($t == NULL)
+                        <tr>
+                            <td colspan="12"> <strong>LAPORAN KESELURUHAN</strong></td>
+                        </tr>
+                    @endif
+
+                    @foreach($vt as $k => $v)
+
+                        <tr>
+                            <td align="center">{{$no++}}</td>
+                            <td>{{$t}}</td>
+                            <td>{{$t}}</td>
+                            <td style="text-align:left; font-size:14;"><strong>{{ $k }}</strong></td> <!-- Jenis Barang -->
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+
+                        @foreach($v as $d)
+
+                            <?php
+                                if($tglawal == ''){
+                                    $jmlmasuk = BarangmasukModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangmasuk.barang_kode')
+                                    ->leftJoin('tbl_supplier', 'tbl_supplier.supplier_id', '=', 'tbl_barangmasuk.supplier_id')
+                                    ->where('tbl_barangmasuk.barang_kode', '=', $d->barang_kode)
+                                    ->sum('tbl_barangmasuk.bm_jumlah');
+                                }else{
+                                    $jmlmasuk = BarangmasukModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangmasuk.barang_kode')
+                                    ->leftJoin('tbl_supplier', 'tbl_supplier.supplier_id', '=', 'tbl_barangmasuk.supplier_id')
+                                    ->where('tbl_barangmasuk.barang_kode', '=', $d->barang_kode)
+                                    ->whereBetween('bm_tanggal', [$tglawal, $tglakhir])
+                                    ->sum('tbl_barangmasuk.bm_jumlah');
+                                }
+
+                                if ($tglawal != '') {
+                                    $jmlkeluar = BarangkeluarModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangkeluar.barang_kode')
+                                    ->whereBetween('bk_tanggal', [$tglawal, $tglakhir])
+                                    ->where('tbl_barangkeluar.barang_kode', '=', $d->barang_kode)
+                                    ->sum('tbl_barangkeluar.bk_jumlah');
+                                } else {
+                                    $jmlkeluar = BarangkeluarModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangkeluar.barang_kode')
+                                    ->where('tbl_barangkeluar.barang_kode', '=', $d->barang_kode)
+                                    ->sum('tbl_barangkeluar.bk_jumlah');
+                                }
+
+                                $totalStok = $d->barang_stok + ($jmlmasuk-$jmlkeluar);
+                            ?>
+
+
+
+                            <tr style="text-align:left;">
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td style="text-align:left; font-size:12;">{{$d->barang_nama}}</td>
+                                <td align="center">{{$jmlmasuk}}</td>
+                                <td align="center">{{$jmlkeluar}}</td>
+                                <td align="center">{{$totalStok}}</td>
+                                <td>{{ number_format($d->barang_harga,0,"",'.')}}</td>
+                                <td><?php $bertambah = $jmlmasuk * $d->barang_harga; echo number_format($bertambah,0,"",'.'); ?> </td>
+                                <td><?php $berkurang = $jmlkeluar * $d->barang_harga; echo number_format($berkurang,0,"",'.'); ?></td>
+                                <td><?php $sisa = $bertambah - $berkurang; echo number_format($sisa,0,"",'.'); ?></td>
+                                <td>
+                                    @if($totalStok == 0)
+                                        Habis
+                                    @endif
+                                </td>
+                            </tr>
+
+                        @endforeach
+
+                    @endforeach
+
+                @endforeach
+            </tbody>
+
+        </table>
+
+        <footer>
+            <div id="ttd" class="row">
+                <div class="col-md-4">
+                    <p id="pengurus"> <strong>MENGETAHUI <br />
+                        SEKRETARIS DPRD <br />
+                        KABUPATEN FAKFAK</strong>
+                    </p>
+                    <div id="nama-pengurus"><strong><u>SUPRIJONO, S.Sos, MM</u></strong><br />
+                        NIP : 19710608 199610 1 002
+                    </div>
+                </div>
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <p id="tanggal-pengurus"> Fakfak, {{date('d F Y')}} </p>
+                    <p id="pengurus"><strong>PENGURUS BARANG</strong></p>
+                    <div id="nama-pengurus"><strong><u>RUSDI</u></strong><br />
+                        NIP : 19780910 200801 1 014
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        </div>
+
+
+    </div>
 
 </body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.js"  ></script>
 
 </html>
