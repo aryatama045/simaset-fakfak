@@ -228,7 +228,7 @@ use Carbon\Carbon;
                     <th rowspan="2" width="15%"> URAIAN </th>
                     <th colspan="3"> BARANG-BARANG </th>
                     <th rowspan="2">HARGA SATUAN</th>
-                    <th colspan="5"> JUMLAH HARGA BARANG YANG DITERIMA / DIKELUARKAN </th>
+                    <th colspan="6"> JUMLAH HARGA BARANG YANG DITERIMA / DIKELUARKAN </th>
                     <th rowspan="2">KET</th>
                 </tr>
 
