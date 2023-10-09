@@ -224,7 +224,7 @@ use Carbon\Carbon;
                 <tr>
                     <th rowspan="2" width="1%" > NO </th>
                     <th colspan="7"> PENERIMAAN </th>
-                    <th rowspan="2" width="20%" > BERITA ACARA PEMERIKSAAN </th>
+                    <th colspan="2" width="20%" > BERITA ACARA PEMERIKSAAN </th>
                     <th colspan="4"> PENGELUARAN </th>
                     <th rowspan="2">KET</th>
                 </tr>
