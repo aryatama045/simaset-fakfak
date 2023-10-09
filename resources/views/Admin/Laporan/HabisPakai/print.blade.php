@@ -319,8 +319,8 @@ use Carbon\Carbon;
                             <tr style="text-align:left;">
                                 <td></td>
                                 <td></td>
-                                <td></td>
                                 <td style="text-align:left; font-size:12;">{{$d->barang_nama}}</td>
+                                <td></td>
                                 <td align="center">{{$jmlmasuk}}</td>
                                 <td align="center">{{$jmlkeluar}}</td>
                                 <td align="center">{{$totalStok}}</td>
