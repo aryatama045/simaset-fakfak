@@ -3,11 +3,11 @@
 @section('content')
 <!-- PAGE-HEADER -->
 <div class="page-header">
-    <h1 class="page-title">Laporan Stok Barang</h1>
+    <h1 class="page-title">Laporan Habis Pakai</h1>
     <div>
         <ol class="breadcrumb">
             <li class="breadcrumb-item text-gray">Laporan</li>
-            <li class="breadcrumb-item active" aria-current="page">Stok Barang</li>
+            <li class="breadcrumb-item active" aria-current="page">Habis Pakai</li>
         </ol>
     </div>
 </div>
@@ -25,21 +25,27 @@
                     <div class="col-12">
                         <label for="" class="fw-bold">Filter Tanggal</label>
                     </div>
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <input type="text" name="tglawal" class="form-control datepicker-date" placeholder="Tanggal Awal">
+                    <div class="col-md-6">
+                        <div class="form-inline ">
+                            <div class="form-group mb-2">
+                                <label for="tglawal" class="sr-only">Tanggal Awal</label>
+                                <input type="text" name="tglawal" class="form-control datepicker-date" placeholder="Tanggal Awal">
+                            </div>
+                            <div class="form-group mx-sm-3 mb-2">
+                                <label for="tglakhir" class="sr-only">Tanggal Akhir</label>
+                                <input type="text" name="tglakhir" class="form-control datepicker-date" placeholder="Tanggal Akhir">
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-3">
                         <div class="form-group">
-                            <input type="text" name="tglakhir" class="form-control datepicker-date" placeholder="Tanggal Akhir">
+                            <button class="btn btn-success-light" onclick="filter()"><i class="fe fe-filter"></i> Filter</button>
+                            <button class="btn btn-secondary-light" onclick="reset()"><i class="fe fe-refresh-ccw"></i> Reset</button>
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <button class="btn btn-success-light" onclick="filter()"><i class="fe fe-filter"></i> Filter</button>
-                        <button class="btn btn-secondary-light" onclick="reset()"><i class="fe fe-refresh-ccw"></i> Reset</button>
-                        <button class="btn btn-primary-light" onclick="print()"><i class="fe fe-printer"></i> Print</button>
-                        <button class="btn btn-danger-light" onclick="pdf()"><i class="fa fa-file-pdf-o"></i> PDF</button>
+                        <div class="pull-right">
+                            <button class="btn btn-primary-light" onclick="print()"><i class="fe fe-printer"></i> Print</button>
+                            <button class="btn btn-danger-light" onclick="pdf()"><i class="fa fa-file-pdf-o"></i> PDF</button>
+                        </div>
                     </div>
                 </div>
                 <div class="table-responsive">
@@ -95,7 +101,7 @@
             lengthChange: true,
 
             "ajax": {
-                "url": "{{ route('lap-sb.getlap-sb') }}",
+                "url": "{{ route('lap-hp.getlap-hp') }}",
                 "data": function(d) {
                     d.tglawal = $('input[name="tglawal"]').val();
                     d.tglakhir = $('input[name="tglakhir"]').val();
@@ -162,7 +168,7 @@
         var tglawal = $('input[name="tglawal"]').val();
         var tglakhir = $('input[name="tglakhir"]').val();
         window.open(
-            "{{route('lap-sb.print')}}?tglawal=" + tglawal + "&tglakhir=" + tglakhir,
+            "{{route('lap-hp.print')}}?tglawal=" + tglawal + "&tglakhir=" + tglakhir,
             '_blank'
         );
 
@@ -172,7 +178,7 @@
         var tglawal = $('input[name="tglawal"]').val();
         var tglakhir = $('input[name="tglakhir"]').val();
         window.open(
-            "{{route('lap-sb.pdf')}}?tglawal=" + tglawal + "&tglakhir=" + tglakhir,
+            "{{route('lap-hp.pdf')}}?tglawal=" + tglawal + "&tglakhir=" + tglakhir,
             '_blank'
         );
 
