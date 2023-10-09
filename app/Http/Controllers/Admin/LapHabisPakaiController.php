@@ -28,8 +28,6 @@ class LapHabisPakaiController extends Controller
     public function print(Request $request)
     {
 
-        dd('test');
-
         if($request->tglawal != ''){
             $data['data'] = BarangModel::leftJoin('tbl_jenisbarang', 'tbl_jenisbarang.jenisbarang_id', '=', 'tbl_barang.jenisbarang_id')
             ->leftJoin('tbl_kategori', 'tbl_kategori.kategori_id', '=', 'tbl_barang.kategori_id')

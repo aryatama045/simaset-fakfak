@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\SpkController;
 use App\Http\Controllers\Admin\LapBarangKeluarController;
 use App\Http\Controllers\Admin\LapBarangMasukController;
 use App\Http\Controllers\Admin\LapStokBarangController;
+use App\Http\Controllers\Admin\LapHabisPakaiController;
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\MerkController;
 use App\Http\Controllers\Admin\PegawaiController;
