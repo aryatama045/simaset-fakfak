@@ -270,8 +270,8 @@ use Carbon\Carbon;
                         <tr>
                             <td align="center">{{$no++}}</td>
                             <td>{{$t}}</td>
-                            <td>{{$t}}</td>
                             <td style="text-align:left; font-size:14;"><strong>{{ $k }}</strong></td> <!-- Jenis Barang -->
+                            <td></td>
                             <td></td>
                             <td></td>
                             <td></td>
