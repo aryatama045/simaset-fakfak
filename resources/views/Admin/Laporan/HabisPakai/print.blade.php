@@ -39,14 +39,14 @@ use Carbon\Carbon;
 
         @media print{
             @page {
-                size: landscape;
+                size: landscape legal;
             }
         }
 
         #table1 {
             border-collapse: collapse;
             width: 100%;
-            margin-top: 20px;
+            margin-top: 15px;
         }
 
         #table1 td,
