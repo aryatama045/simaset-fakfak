@@ -212,7 +212,7 @@ use Carbon\Carbon;
 
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
-                <h1 class="keclogo"><strong> Laporan Stok Barang
+                <h1 class="keclogo"><strong> Laporan Habis Pakai
                     <?php if($tglawal != ''){ ?>
                         {{Carbon::parse($tglawal)->translatedFormat('d F Y')}} - {{Carbon::parse($tglakhir)->translatedFormat('d F Y')}}
                     <?php }else{ ?> - Seluruh Barang <?php } ?></strong></h1>
