@@ -224,19 +224,19 @@ use Carbon\Carbon;
                 <tr>
                     <th rowspan="2" width="1%" > NO </th>
                     <th colspan="7"> PENERIMAAN </th>
-                    <th colspan="2" width="20%" > BERITA ACARA PEMERIKSAAN </th>
+                    <th colspan="2"> BERITA ACARA PEMERIKSAAN </th>
                     <th colspan="4"> PENGELUARAN </th>
-                    <th rowspan="2">KET</th>
+                    <th rowspan="2"> KET</th>
                 </tr>
 
                 <tr>
                     <th width="5%">TANGGAL DITERIMA</th>
-                    <th width="20%" >JENIS / NAMA BARANG</th>
+                    <th width="35%" >JENIS/NAMA BARANG</th>
                     <th> MERK / UKURAN</th>
                     <th> TAHUN PEMBUATAN</th>
                     <th> JUMLAH SATUAN / BARANG</th>
-                    <th width="7%"> TGL. / NO. KONTRAK / SP / SPK</th>
-                    <th width="5%"> HARGA SATUAN</th>
+                    <th> TGL. / NO. KONTRAK / SP / SPK</th>
+                    <th> HARGA SATUAN</th>
 
                     <th> TANGGAL</th>
                     <th> NOMOR</th>
