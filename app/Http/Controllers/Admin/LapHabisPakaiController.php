@@ -62,7 +62,7 @@ class LapHabisPakaiController extends Controller
 
 
 
-        $data["title"] = "Print Stok Barang";
+        $data["title"] = "Print Habis Pakai";
         $data['web'] = WebModel::first();
         $data['tglawal'] = $request->tglawal;
         $data['tglakhir'] = $request->tglakhir;
