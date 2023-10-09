@@ -34,6 +34,16 @@
                             <input type="text" name="pb_tanggal" class="form-control datepicker-date" value="{{date('Y-m-d')}}">
                         </div>
                         <div class="form-group">
+                            <label for="spk_kode" class="form-label">Pilih Dokumen SPK <span class="text-danger">*</span></label>
+                            <select name="spk_kode" class="select select-2 form-control" required>
+                                <option value="">-- Pilih Dokumen SPK --</option>
+                                @foreach ($spk as $s)
+                                <option value="{{ $s->spk_kode }}">{{ $s->spk_kode }} - {{ $s->spk_jenis }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <div class="form-group">
                             <label for="pb_supplier" class="form-label">Pilih Supplier <span class="text-danger">*</span></label>
                             <select name="pb_supplier" class="select select-2 form-control" required>
                                 <option value="">-- Pilih Supplier --</option>

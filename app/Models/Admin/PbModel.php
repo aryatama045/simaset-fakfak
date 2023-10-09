@@ -12,6 +12,7 @@ class PbModel extends Model
     protected $primaryKey = 'pb_id';
     protected $fillable = [
         'pb_kode',
+        'spk_kode',
         'supplier_id',
         'pb_pejabat',
         'pb_pic',

@@ -8,7 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Admin\AksesModel;
 use App\Models\Admin\PbModel;
 use App\Models\Admin\PbdetailModel;
-
+use App\Models\Admin\SpkModel;
 use App\Models\Admin\SupplierModel;
 use App\Models\Admin\PegawaiModel;
 use Illuminate\Http\Request;
@@ -25,6 +25,7 @@ class PbController extends Controller
         $data["hakTambah"] = AksesModel::leftJoin('tbl_submenu', 'tbl_submenu.submenu_id', '=', 'tbl_akses.submenu_id')->where(array('tbl_akses.role_id' => Session::get('user')->role_id, 'tbl_submenu.submenu_judul' => 'Pengadaan Barang', 'tbl_akses.akses_type' => 'create'))->count();
         $data["supplier"] = SupplierModel::orderBy('supplier_id', 'DESC')->get();
         $data["pegawai"] = PegawaiModel::orderBy('pegawai_id', 'DESC')->get();
+        $data["spk"] = SpkModel::orderBy('spk_id', 'DESC')->get();
 
         $bulan = date('m'); $tahun=date('Y');
         $no_doc = '/'.$bulan.'/NP/BPKAD/'.$tahun;
@@ -126,6 +127,7 @@ class PbController extends Controller
     {
         $header = array(
             'pb_kode'       => $request->pb_kode,
+            'spk_kode'      => $request->spk_kode,
             'supplier_id'   => $request->pb_supplier,
             'pb_pejabat'    => $request->pb_pejabat,
             'pb_tanggal'    => $request->pb_tanggal,
