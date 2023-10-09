@@ -223,27 +223,28 @@ use Carbon\Carbon;
             <thead>
                 <tr>
                     <th rowspan="2" width="1%" > NO </th>
-                    <th rowspan="2" width="5%" > TANGGAL </th>
-                    <th rowspan="2" width="5%" > NO./TGL. SURAT DASAR PENERIMAAN / PENGELUARAN </th>
-                    <th rowspan="2" width="15%"> URAIAN </th>
-                    <th colspan="3"> BARANG-BARANG </th>
-                    <th rowspan="2">HARGA SATUAN</th>
-
-                    <th colspan="6"> JUMLAH HARGA BARANG YANG DITERIMA / DIKELUARKAN </th>
+                    <th colspan="7"> PENERIMAAN </th>
+                    <th rowspan="2" width="20%" > BERITA ACARA PEMERIKSAAN </th>
+                    <th colspan="4"> PENGELUARAN </th>
                     <th rowspan="2">KET</th>
                 </tr>
 
                 <tr>
-                    <th>MASUK</th>
-                    <th>KELUAR</th>
-                    <th>SISA</th>
+                    <th width="5%">TANGGAL DITERIMA</th>
+                    <th width="20%" >JENIS / NAMA BARANG</th>
+                    <th width="5%"> MERK / UKURAN</th>
+                    <th width="5%"> TAHUN PEMBUATAN</th>
+                    <th width="5%"> JUMLAH SATUAN / BARANG</th>
+                    <th width="7%"> TGL. / NO. KONTRAK / SP / SPK</th>
+                    <th width="5%"> HARGA SATUAN</th>
 
-                    <th>BERTAMBAH</th>
-                    <th>BERKURANG</th>
-                    <th>BERKURANG</th>
-                    <th>BERKURANG</th>
-                    <th>BERKURANG</th>
-                    <th>SISA</th>
+                    <th> TANGGAL</th>
+                    <th> NOMOR</th>
+
+                    <th> TANGGAL DIKELUARKAN</th>
+                    <th> DISERAHKAN KEPADA</th>
+                    <th> JUMLAH SATUAN / BARANG</th>
+                    <th> TGL./NO. SURAT PENYERAHAN</th>
                 </tr>
 
                 <tr id="thbottom">
