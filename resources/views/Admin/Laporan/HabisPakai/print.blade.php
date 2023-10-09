@@ -232,9 +232,9 @@ use Carbon\Carbon;
                 <tr>
                     <th width="5%">TANGGAL DITERIMA</th>
                     <th width="20%" >JENIS / NAMA BARANG</th>
-                    <th width="5%"> MERK / UKURAN</th>
-                    <th width="5%"> TAHUN PEMBUATAN</th>
-                    <th width="5%"> JUMLAH SATUAN / BARANG</th>
+                    <th> MERK / UKURAN</th>
+                    <th> TAHUN PEMBUATAN</th>
+                    <th> JUMLAH SATUAN / BARANG</th>
                     <th width="7%"> TGL. / NO. KONTRAK / SP / SPK</th>
                     <th width="5%"> HARGA SATUAN</th>
 
