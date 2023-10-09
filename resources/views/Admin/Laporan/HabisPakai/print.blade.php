@@ -60,7 +60,7 @@ use Carbon\Carbon;
             padding-top: 4px;
             padding-bottom: 4px;
             color: black;
-            font-size: 12px;
+            font-size: 11px;
         }
 
         #thbottom th {
@@ -270,7 +270,7 @@ use Carbon\Carbon;
                         <tr>
                             <td align="center">{{$no++}}</td>
                             <td>{{$t}}</td>
-                            <td style="text-align:left; font-size:14;"><strong>{{ $k }}</strong></td> <!-- Jenis Barang -->
+                            <td style="text-align:left; font-size:11px;"><strong>{{ $k }}</strong></td> <!-- Jenis Barang -->
                             <td></td>
                             <td></td>
                             <td></td>
