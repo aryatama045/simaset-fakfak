@@ -235,6 +235,14 @@ Route::group(['middleware' => 'userlogin'], function () {
         Route::get('/admin/lap-stok-barang/show/', [LapStokBarangController::class, 'show'])->name('lap-sb.getlap-sb');
     });
 
+    Route::middleware(['checkRoleUser:/lap-habis-pakai,submenu'])->group(function () {
+        // Laporan Habis Pakai
+        Route::resource('/admin/lap-habis-pakai', \App\Http\Controllers\Admin\LapHabisPakaiController::class);
+        Route::get('/admin/laphabispakai/print/', [LapHabisPakaiController::class, 'print'])->name('lap-hp.print');
+        Route::get('/admin/laphabispakai/pdf/', [LapHabisPakaiController::class, 'pdf'])->name('lap-hp.pdf');
+        Route::get('/admin/lap-habis-pakai/show/', [LapHabisPakaiController::class, 'show'])->name('lap-hp.getlap-hp');
+    });
+
     Route::middleware(['checkRoleUser:1,othermenu'])->group(function () {
 
         Route::middleware(['checkRoleUser:2,othermenu'])->group(function () {
