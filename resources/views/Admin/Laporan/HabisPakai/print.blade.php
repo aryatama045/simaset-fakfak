@@ -228,7 +228,7 @@ use Carbon\Carbon;
                     <th rowspan="2" width="15%"> URAIAN </th>
                     <th colspan="3"> BARANG-BARANG </th>
                     <th rowspan="2">HARGA SATUAN</th>
-                    <th colspan="6"> JUMLAH HARGA BARANG YANG DITERIMA / DIKELUARKAN </th>
+                    <th colspan="7"> JUMLAH HARGA BARANG YANG DITERIMA / DIKELUARKAN </th>
                     <th rowspan="2">KET</th>
                 </tr>
 
@@ -245,7 +245,7 @@ use Carbon\Carbon;
                 </tr>
 
                 <tr id="thbottom">
-                    @for($x=1; $x <= 12; $x++)
+                    @for($x=1; $x <= 15; $x++)
                     <th>{{$x}}</th>
                     @endfor
                 </tr>
@@ -269,6 +269,9 @@ use Carbon\Carbon;
                             <td>{{$t}}</td>
                             <td>{{$t}}</td>
                             <td style="text-align:left; font-size:14;"><strong>{{ $k }}</strong></td> <!-- Jenis Barang -->
+                            <td></td>
+                            <td></td>
+                            <td></td>
                             <td></td>
                             <td></td>
                             <td></td>
@@ -310,7 +313,6 @@ use Carbon\Carbon;
                             ?>
 
 
-
                             <tr style="text-align:left;">
                                 <td></td>
                                 <td></td>
@@ -323,6 +325,9 @@ use Carbon\Carbon;
                                 <td><?php $bertambah = $jmlmasuk * $d->barang_harga; echo number_format($bertambah,0,"",'.'); ?> </td>
                                 <td><?php $berkurang = $jmlkeluar * $d->barang_harga; echo number_format($berkurang,0,"",'.'); ?></td>
                                 <td><?php $sisa = $bertambah - $berkurang; echo number_format($sisa,0,"",'.'); ?></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
                                 <td>
                                     @if($totalStok == 0)
                                         Habis
