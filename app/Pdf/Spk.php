@@ -70,6 +70,29 @@ class Spk extends Fpdf
             return implode(" ",array_splice($words,15,$word_limit));
         }
 
+        function tgl_indo($tanggal){
+            $bulan = array (
+                1 =>   'Januari',
+                'Februari',
+                'Maret',
+                'April',
+                'Mei',
+                'Juni',
+                'Juli',
+                'Agustus',
+                'September',
+                'Oktober',
+                'November',
+                'Desember'
+            );
+            $pecahkan = explode('-', $tanggal);
+            // variabel pecahkan 0 = tahun
+            // variabel pecahkan 1 = bulan
+            // variabel pecahkan 2 = tanggal
+            return $pecahkan[2] . ' ' . $bulan[ (int)$pecahkan[1] ] . ' ' . $pecahkan[0];
+        }
+
+
         function hari_ini(){
             $hari = date ("D");
 
@@ -254,7 +277,7 @@ class Spk extends Fpdf
             $this->cell(95,1,$this->limit_words2($this->header[0]->spk_jenis,5),0,0,'C');
             $this->setFont('Times','',10);
             $this->cell(25,1,'Tanggal  ',0,0,'L');
-            $this->cell(35,1,': '.$this->header[0]->spk_tanggal ,0,0,'L');
+            $this->cell(35,1,': '.$this->tgl_indo($this->header[0]->spk_tanggal) ,0,0,'L');
             $this->Ln(4);
 
             $this->setFont('Times','B',9);
@@ -507,7 +530,7 @@ class Spk extends Fpdf
         $this->Ln(6);
         $this->cell(115,1,'',0,0,'L');
         $this->cell(25,1,'Pada Tanggal ',0,0,'L');
-        $this->cell(18,1,' : 18 April 2023',0,0,'L');
+        $this->cell(18,1,' : '.$this->tgl_indo($this->header[0]->spk_tanggal),0,0,'L');
         $this->Ln(6);
         $this->setFont('Times','B',11);
         $this->cell(115,1,'',0,0,'L');
