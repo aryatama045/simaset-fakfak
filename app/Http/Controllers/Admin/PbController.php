@@ -228,7 +228,7 @@ class PbController extends Controller
 
             $myPdf = new Nota($output);
 
-            $myPdf->Output('I', "Notapesan.pdf", true);
+            $myPdf->Output('I', "Nota-pesan(".$data_header->no_dok.").pdf", true);
 
             exit;
         }
