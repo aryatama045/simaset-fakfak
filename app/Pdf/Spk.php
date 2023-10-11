@@ -294,7 +294,7 @@ class Spk extends Fpdf
             // $this->MultiCell(175,6,$this->header[0]->spk_header, 0);
 
 
-            $this->MultiCell(175,6,'Pada hari ini ' .$this->hari_tanggal_tahun($this->header[0]->spk_tanggal). ', yang bertanda tangan dibawah ini :', 0);
+            $this->MultiCell(175,6,'Pada hari ini ' .ucwords($this->hari_tanggal_tahun($this->header[0]->spk_tanggal)). ', yang bertanda tangan dibawah ini :', 0);
 
             $this->Ln(4);
             $this->setFont('Times','',11);
