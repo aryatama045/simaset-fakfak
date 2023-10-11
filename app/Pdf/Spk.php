@@ -439,7 +439,8 @@ class Spk extends Fpdf
 
 
         $this->Ln(4);
-        $this->Multicell(175,5,$this->header[0]->spk_footer,0);
+        // $this->Multicell(175,5,$this->header[0]->spk_footer,0);
+        $this->Multicell(175,5,'Demikian Surat Perintah Kerja ini berlaku sejak tanggal diterbitkan yang dibuat dalam rangkap 7 (tujuh), 2 (dua) asli ditandatangani diatas materai Rp. 10.000,- (Sepuluh Ribu Rupiah) dan 5 (lima) rangkap untuk dipergunakan sebagaimana mestinya.',0);
         $this->Ln(8);
         $this->tandaTangan();
         $this->Ln(8);
