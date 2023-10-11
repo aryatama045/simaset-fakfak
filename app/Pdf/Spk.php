@@ -124,7 +124,10 @@ class Spk extends Fpdf
             );
             $hr = date('w', strtotime($waktu));
             $hari = $hari_array[$hr];
-            $tanggal = date('j', strtotime($waktu));
+            $spell_tanggal = date('j', strtotime($waktu));
+            $tanggal = $this->terbilang($spell_tanggal);
+
+
             $bulan_array = array(
                 1 => 'Januari',
                 2 => 'Februari',
@@ -142,14 +145,15 @@ class Spk extends Fpdf
             $bl = date('n', strtotime($waktu));
             $bulan = $bulan_array[$bl];
             $spell_tahun = date('Y', strtotime($waktu));
-            $tahun = $this->terbilang($spell_tahun)
+            $tahun = $this->terbilang($spell_tahun);
             $jam = date( 'H:i:s', strtotime($waktu));
 
             //untuk menampilkan hari, tanggal bulan tahun jam
-            //return "$hari, $tanggal $bulan $tahun $jam";
+            //return "$hari, $tanggal $bulan $tahun $jam"; Rabu, 13 Maret 2019
 
             //untuk menampilkan hari, tanggal bulan tahun
-            return "$hari, $tanggal $bulan $tahun";
+            return "$hari Tanggal $tanggal Bulan $bulan Tahun $tahun";
+
         }
 
     #------ END ---------------------------------------------------
@@ -289,9 +293,8 @@ class Spk extends Fpdf
             $this->setFont('Times','',11);
             // $this->MultiCell(175,6,$this->header[0]->spk_header, 0);
 
-            $hari = date('D', $this->header[0]->spk_tanggal);
 
-            $this->MultiCell(175,6,'Pada hari ini ' .$this->hari_ini($hari). ' Tanggal  Empat Bulan Maret Tahun Dua Ribu Dua Puluh Dua, yang bertanda tangan dibawah ini :', 0);
+            $this->MultiCell(175,6,'Pada hari ini ' .$this->hari_tanggal_tahun($this->header[0]->spk_tanggal). ' Tanggal  Empat Bulan Maret Tahun Dua Ribu Dua Puluh Dua, yang bertanda tangan dibawah ini :', 0);
 
             $this->Ln(4);
             $this->setFont('Times','',11);
