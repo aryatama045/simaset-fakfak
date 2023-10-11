@@ -198,7 +198,7 @@ class PbController extends Controller
             ->leftjoin('tbl_pegawai as p', 'h.pb_pejabat', '=', 'p.pegawai_id')
             ->leftjoin('tbl_user as u', 'h.pb_pic', '=', 'u.user_id')
             ->where('h.pb_id', $id)
-            ->select('h.pb_kode as no_dok','h.pb_keterangan','h.pb_footer','h.created_at','h.pb_tanggal',
+            ->select('h.pb_kode as no_dok','h.pb_dibuat','h.pb_keterangan','h.pb_footer','h.created_at','h.pb_tanggal',
                     's.supplier_nama as supplier','s.supplier_keterangan',
                     'p.nip', 'p.nama_lengkap','p.jabatan',
                     'u.user_nmlengkap as nama_user' )
