@@ -185,15 +185,9 @@ class Nota extends Fpdf
         // Go to 1.5 cm from bottom
         $this->SetY(-120);
         $this->Ln(2);
-        // $this->Line(11,$this->GetY(),199,$this->GetY());
-        // $this->Ln(2);
-        // $this->cell(18,1,'*Note : ',0,0,'L');
-        // $this->cell(95,1,'Total',0,0,'R');
-        // $this->cell(20,1,number_format('4555',0,"",'.'),0,0,'R');
-        // $this->cell(20,1,'',0,0,'R');
         $this->cell(115,1,'',0,0,'L');
         $this->cell(25,1,'Dibuat di ',0,0,'L');
-        $this->cell(18,1,' : Fakfak',0,0,'L');
+        $this->cell(18,1,' : '.$this->header[0]->pb_dibuat,0,0,'L');
         $this->Ln(6);
         $this->cell(115,1,'',0,0,'L');
         $this->cell(25,1,'Pada Tanggal ',0,0,'L');

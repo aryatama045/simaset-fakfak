@@ -16,6 +16,7 @@ class PbModel extends Model
         'supplier_id',
         'pb_pejabat',
         'pb_pic',
+        'pb_dibuat',
         'pb_keterangan',
         'pb_footer',
         'pb_tanggal',

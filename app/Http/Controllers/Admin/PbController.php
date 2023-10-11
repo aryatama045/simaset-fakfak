@@ -131,6 +131,7 @@ class PbController extends Controller
             'supplier_id'   => $request->pb_supplier,
             'pb_pejabat'    => $request->pb_pejabat,
             'pb_tanggal'    => $request->pb_tanggal,
+            'pb_dibuat'     => $request->pb_dibuat,
             'pb_keterangan' => $request->pb_keterangan,
             'pb_footer'     => $request->pb_footer,
         );

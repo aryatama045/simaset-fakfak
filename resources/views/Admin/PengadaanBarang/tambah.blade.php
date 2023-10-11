@@ -17,7 +17,11 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="pb_kode" class="form-label">Nomor Pesanan<span class="text-danger">*</span></label>
-                            <input type="text" name="pb_kode" class="form-control" value="{{ $no_pesanan }}/{{date('m')}}/NP/BPKAD/{{date('Y')}}">
+                            <input type="text" name="pb_kode" class="form-control" value="{{ $no_pesanan }}/{{date('m')}}/NP/BPKAD/{{date('Y')}}" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="pb_dibuat" class="form-label">Di Buat<span class="text-danger">*</span></label>
+                            <input type="text" name="pb_dibuat" class="form-control" value="FakFak">
                         </div>
                         <div class="form-group">
                             <label for="pb_keterangan" class="form-label">Body Surat<span class="text-danger">*</span></label>

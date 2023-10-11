@@ -70,6 +70,47 @@ class Spk extends Fpdf
             return implode(" ",array_splice($words,15,$word_limit));
         }
 
+        function hari_ini(){
+            $hari = date ("D");
+
+            switch($hari){
+                case 'Sun':
+                    $hari_ini = "Minggu";
+                break;
+
+                case 'Mon':
+                    $hari_ini = "Senin";
+                break;
+
+                case 'Tue':
+                    $hari_ini = "Selasa";
+                break;
+
+                case 'Wed':
+                    $hari_ini = "Rabu";
+                break;
+
+                case 'Thu':
+                    $hari_ini = "Kamis";
+                break;
+
+                case 'Fri':
+                    $hari_ini = "Jumat";
+                break;
+
+                case 'Sat':
+                    $hari_ini = "Sabtu";
+                break;
+
+                default:
+                    $hari_ini = "Tidak di ketahui";
+                break;
+            }
+
+            return "<b>" . $hari_ini . "</b>";
+
+        }
+
     #------ END ---------------------------------------------------
 
 
@@ -98,7 +139,7 @@ class Spk extends Fpdf
                 $temp = $this->penyebut($nilai/1000000000) . " milyar" . $this->penyebut(fmod($nilai,1000000000));
             } else if ($nilai < 1000000000000000) {
                 $temp = $this->penyebut($nilai/1000000000000) . " trilyun" . $this->penyebut(fmod($nilai,1000000000000));
-            }     
+            }
             return $temp;
         }
 
@@ -205,7 +246,10 @@ class Spk extends Fpdf
     function HeaderList(){
         if($this->halaman == 1){
             $this->setFont('Times','',11);
-            $this->MultiCell(175,6,$this->header[0]->spk_header, 0);
+            // $this->MultiCell(175,6,$this->header[0]->spk_header, 0);
+
+            $hari = date('D', $this->header[0]->spk_tanggal);
+            $this->MultiCell(175,6,'Pada hari ini ' .hari_ini($hari). ' Tanggal  Empat Bulan Maret Tahun Dua Ribu Dua Puluh Dua, yang bertanda tangan dibawah ini :', 0);
 
             $this->Ln(4);
             $this->setFont('Times','',11);
