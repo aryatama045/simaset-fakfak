@@ -183,7 +183,7 @@ class Nota extends Fpdf
                 $this->cell(5,1,$row++.'.',0,0,'L');
                 // $this->cell(45,1,$value->barang_kode,0,0,'L');
                 $this->cell(20,1,$value->barang_nama,0,0,'L');
-                $this->cell(25,1,rupiah($value->jumlah),0,0,'C');
+                $this->cell(25,1,number_format($value->jumlah,0,"",'.'),0,0,'C');
                 $this->cell(20,1,$value->satuan_nama,0,0,'L');
                 // $this->cell(20,1,number_format($value->pb_harga,0,"",'.'),0,0,'C');
                 // $this->grand_kirim += $value->qty;
