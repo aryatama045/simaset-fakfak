@@ -189,7 +189,7 @@ class PbController extends Controller
 
     public function genInvoice($id)
     {
-
+        ob_clean();
         if (!empty($id)){
 
 
