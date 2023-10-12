@@ -189,9 +189,7 @@ class PbController extends Controller
 
     public function genInvoice($id)
     {
-        ob_clean();
         if (!empty($id)){
-
 
             $data_header = DB::table('tbl_pb as h')
             ->leftjoin('tbl_supplier as s', 'h.supplier_id', '=', 's.supplier_id')
@@ -225,10 +223,13 @@ class PbController extends Controller
                 // }
             }
 
-
+            ob_end_clean(); //    the buffer and never prints or returns anything.
+            ob_start(); // it starts buffering
             $myPdf = new Nota($output);
 
             $myPdf->Output('I', "Nota-pesan(".$output['header'][0]->no_dok.").pdf", true);
+
+            ob_end_flush();
 
             exit;
         }
