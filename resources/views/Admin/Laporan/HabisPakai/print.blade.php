@@ -320,10 +320,13 @@ use Carbon\Carbon;
                                 <td></td>
                                 <td></td>
                                 <td style="text-align:left; font-size:12;">{{$d->barang_nama}}</td>
+                                <td> {{$d->merk_nama}} </td>
+                                <td>{{ date('Y', $d->bm_tanggal) }}</td>
+                                <td>{{$jmlmasuk}}</td>
                                 <td></td>
-                                <td align="center">{{$jmlmasuk}}</td>
+                                <!-- <td align="center">{{$jmlmasuk}}</td>
                                 <td align="center">{{$jmlkeluar}}</td>
-                                <td align="center">{{$totalStok}}</td>
+                                <td align="center">{{$totalStok}}</td> -->
                                 <td>{{ number_format($d->barang_harga,0,"",'.')}}</td>
                                 <td><?php $bertambah = $jmlmasuk * $d->barang_harga; echo number_format($bertambah,0,"",'.'); ?> </td>
                                 <td><?php $berkurang = $jmlkeluar * $d->barang_harga; echo number_format($berkurang,0,"",'.'); ?></td>
