@@ -39,7 +39,7 @@ class LapHabisPakaiController extends Controller
             ->groupBy('tbl_barangmasuk.barang_kode')
             ->orderBy('tbl_barangmasuk.bm_tanggal', 'DESC')->get();
             $data['data'] = $data['data']->groupBy([
-                'bm_tanggal','spk_kode',
+                'bm_tanggal',
                 function ($item) {
                     return $item['jenisbarang_nama'];
                 },
@@ -54,7 +54,7 @@ class LapHabisPakaiController extends Controller
             ->whereBetween('bm_tanggal', [date('Y-01-01'), date('Y-12-31')])
             ->orderBy('barang_id', 'DESC')->get();
             $data['data'] = $data['data']->groupBy([
-                'bm_tanggal','spk_kode',
+                'bm_tanggal',
                 function ($item) {
                     return $item['jenisbarang_nama'];
                 },
