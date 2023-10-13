@@ -330,7 +330,7 @@ use Carbon\Carbon;
                                 <td>{{ number_format($d->barang_harga,0,"",'.')}}</td>
                                 <td></td>
                                 <td></td> <!-- Berita Acara-->
-                                <td>{{date('d F Y', $d->bk_tanggal)}}</td>
+                                <td>{{date('d F Y', strtotime($d->bk_tanggal))}}</td>
                                 <td>{{$d->bk_tujuan}}</td>
                                 <td>{{$d->bk_jumlah}}</td>
                                 <td></td>
