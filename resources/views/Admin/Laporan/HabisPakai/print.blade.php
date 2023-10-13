@@ -269,12 +269,12 @@ use Carbon\Carbon;
 
                         <tr>
                             <td align="center">{{$no++}}</td>
-                            <td>{{$t}}</td>
+                            <td></td>
                             <td style="text-align:left; font-size:11px;"><strong>{{ $k }}</strong></td> <!-- Jenis Barang -->
                             <td></td>
                             <td></td>
                             <td></td>
-                            <td> </td><!-- SPK Kode -->
+                            <td>{{$t}}</td><!-- SPK Kode -->
                             <td></td>
                             <td></td>
                             <td></td>
@@ -323,7 +323,7 @@ use Carbon\Carbon;
                                 <td> {{$d->merk_nama}} </td>
                                 <td>{{Carbon::parse($d->bm_tanggal)->translatedFormat('Y')}}</td>
                                 <td>{{$jmlmasuk}}</td>
-                                <td> {{$d->spk_kode}} </td>
+                                <td> </td>
                                 <!-- <td align="center">{{$jmlmasuk}}</td>
                                 <td align="center">{{$jmlkeluar}}</td>
                                 <td align="center">{{$totalStok}}</td> -->
