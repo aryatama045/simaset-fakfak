@@ -212,21 +212,17 @@
         if (count > 1) {
             html += '<tr>';
 
-            html += '<td> <input type="text" name="jenis_pekerjaan[]" id="jenis_pekerjaan" class="form-control" required/></td>';
+            html += '<td><input type="text" name="jenis_pekerjaan[]" id="jenis_pekerjaan" class="form-control" required/></td>';
 
             html += '<td><textarea type="text" name="detail_pekerjaan[]" id="detail_pekerjaan" class="form-control" required></textarea></td>';
 
-        }
-
-        var remove_button = '';
-
-        if (count > 1) {
-
             html += '<td><button type="button" name="remove" class="btn btn-danger btn-sm remove"><i class="fa fa-trash"></i> Batal</button></td>';
 
+            html += '</tr>';
+
         }
 
-        html += '</tr>';
+
 
         return html;
 
