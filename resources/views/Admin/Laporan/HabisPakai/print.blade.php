@@ -317,7 +317,7 @@ use Carbon\Carbon;
 
 
                             <tr style="text-align:left;">
-                                <td></td>
+                                <td>{{ ($d->bm_tanggal)!=''?date('d-m-Y', strtotime($d->bm_tanggal)) : '-'}}</td>
                                 <td></td>
                                 <td style="text-align:left; font-size:12;">{{$d->barang_nama}}</td>
                                 <td> {{$d->merk_nama}} </td>
