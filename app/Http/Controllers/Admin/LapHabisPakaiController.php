@@ -38,6 +38,7 @@ class LapHabisPakaiController extends Controller
             ->leftJoin('tbl_pb', 'tbl_barangmasuk.pb_kode', '=', 'tbl_pb.pb_kode')
             ->whereBetween('bm_tanggal', [$request->tglawal, $request->tglakhir])
             ->groupBy('tbl_barangmasuk.barang_kode')
+            ->groupBy('tbl_barangkeluar.bk_tanggal')
             ->orderBy('tbl_barangmasuk.bm_tanggal', 'DESC')->get();
             $data['data'] = $data['data']->groupBy([
                 'spk_kode',
@@ -54,6 +55,8 @@ class LapHabisPakaiController extends Controller
             ->leftJoin('tbl_barangkeluar', 'tbl_barangkeluar.barang_kode', '=', 'tbl_barang.barang_kode')
             ->leftJoin('tbl_pb', 'tbl_barangmasuk.pb_kode', '=', 'tbl_pb.pb_kode')
             ->whereBetween('bm_tanggal', [date('Y-01-01'), date('Y-12-31')])
+            ->groupBy('tbl_barangmasuk.barang_kode')
+            ->groupBy('tbl_barangkeluar.bk_tanggal')
             ->orderBy('barang_id', 'DESC')->get();
             $data['data'] = $data['data']->groupBy([
                 'spk_kode',
