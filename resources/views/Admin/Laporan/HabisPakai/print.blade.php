@@ -322,7 +322,7 @@ use Carbon\Carbon;
                                 <td style="text-align:left; font-size:12;">{{$d->barang_nama}}</td>
                                 <td> {{$d->merk_nama}} </td>
                                 <td>{{Carbon::parse($d->bm_tanggal)->translatedFormat('Y')}}</td>
-                                <td>{{$d->bm_jumlah}}</td>
+                                <td>{{$jmlmasuk}}</td>
                                 <td> </td>
                                 <!-- <td align="center">{{$jmlmasuk}}</td>
                                 <td align="center">{{$jmlkeluar}}</td>
@@ -332,7 +332,7 @@ use Carbon\Carbon;
                                 <td></td> <!-- Berita Acara-->
                                 <td>{{ ($d->bk_tanggal)!=''?date('d-m-Y', strtotime($d->bk_tanggal)) : '-'}}</td>
                                 <td>{{$d->bk_tujuan}}</td>
-                                <td>{{$d->bk_jumlah}}</td>
+                                <td>{{$jmlkeluar}}</td>
                                 <td></td>
                                 <td>
                                     @if($totalStok == 0)
