@@ -61,7 +61,7 @@ class LapHabisPakaiController extends Controller
 
         // $data['data'] = $data['data']->groupBy('jenisbarang_nama');
 
-
+        dd($data['data']);
 
         $data["title"] = "Print Habis Pakai";
         $data['web'] = WebModel::first();
