@@ -321,7 +321,7 @@ use Carbon\Carbon;
                                 <td></td>
                                 <td style="text-align:left; font-size:12;">{{$d->barang_nama}}</td>
                                 <td> {{$d->merk_nama}} </td>
-                                <td>{{ date('Y', $d->bm_tanggal) }}</td>
+                                <td>{{Carbon::parse($d->bm_tanggal)->translatedFormat('Y')}}</td>
                                 <td>{{$jmlmasuk}}</td>
                                 <td></td>
                                 <!-- <td align="center">{{$jmlmasuk}}</td>
