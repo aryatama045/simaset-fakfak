@@ -323,7 +323,7 @@ use Carbon\Carbon;
                                 <td> {{$d->merk_nama}} </td>
                                 <td>{{Carbon::parse($d->bm_tanggal)->translatedFormat('Y')}}</td>
                                 <td>{{$jmlmasuk}}</td>
-                                <td></td>
+                                <td> {{$d->spk_kode}} </td>
                                 <!-- <td align="center">{{$jmlmasuk}}</td>
                                 <td align="center">{{$jmlkeluar}}</td>
                                 <td align="center">{{$totalStok}}</td> -->
