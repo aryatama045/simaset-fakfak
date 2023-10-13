@@ -274,7 +274,7 @@ use Carbon\Carbon;
                             <td></td>
                             <td></td>
                             <td></td>
-                            <td></td>
+                            <td> </td><!-- SPK Kode -->
                             <td></td>
                             <td></td>
                             <td></td>

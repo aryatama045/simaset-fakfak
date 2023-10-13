@@ -43,6 +43,7 @@ class LapHabisPakaiController extends Controller
                 function ($item) {
                     return $item['jenisbarang_nama'];
                 },
+                'spk_kode',
             ], $preserveKeys = true);
         } else {
             $data['data'] = BarangModel::leftJoin('tbl_jenisbarang', 'tbl_jenisbarang.jenisbarang_id', '=', 'tbl_barang.jenisbarang_id')
@@ -58,6 +59,7 @@ class LapHabisPakaiController extends Controller
                 function ($item) {
                     return $item['jenisbarang_nama'];
                 },
+                'spk_kode',
             ], $preserveKeys = true);
         }
 
