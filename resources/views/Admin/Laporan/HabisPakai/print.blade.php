@@ -330,7 +330,7 @@ use Carbon\Carbon;
                                 <td>{{ number_format($d->barang_harga,0,"",'.')}}</td>
                                 <td></td>
                                 <td></td> <!-- Berita Acara-->
-                                <td>{{Carbon::parse($d->bk_tanggal)->translatedFormat('d-M-Y')}}</td>
+                                <td>{{isset(Carbon::parse($d->bk_tanggal)->translatedFormat('d-M-Y'))?Carbon::parse($d->bk_tanggal)->translatedFormat('d-M-Y'): '-'}}</td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
