@@ -84,7 +84,7 @@
                         </tbody>
                         <tfoot>
                             <tr>
-                                <th><button type="button" name="add" class="btn btn-success btn-sm add"><i class="fa fa-plus"></i> Tambah </button> </th>
+                                <th colspan="2"><button type="button" name="add" class="btn btn-success btn-sm add"><i class="fa fa-plus"></i> Tambah </button> </th>
                             </tr>
                         </tfoot>
                     </table>
@@ -222,13 +222,11 @@
 
         if (count > 1) {
 
-            remove_button = '<td><button type="button" name="remove" class="btn btn-danger btn-sm remove"><i class="fa fa-trash"></i> Batal</button></td>';
+            html += '<td><button type="button" name="remove" class="btn btn-danger btn-sm remove"><i class="fa fa-trash"></i> Batal</button></td>';
 
-        } else {
-            remove_button = '<td></td>';
         }
 
-        html +=  remove_button + '</tr>';
+        html += '</tr>';
 
         return html;
 
