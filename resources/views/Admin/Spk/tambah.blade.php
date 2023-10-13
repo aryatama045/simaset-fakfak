@@ -222,14 +222,13 @@
 
         if (count > 1) {
 
-            remove_button = '<button type="button" name="remove" class="btn btn-danger btn-sm remove"><i class="fa fa-trash"></i> Batal</button>';
+            remove_button = '<td><button type="button" name="remove" class="btn btn-danger btn-sm remove"><i class="fa fa-trash"></i> Batal</button></td>';
 
         } else {
-
-            remove_button = '';
+            remove_button = '<td></td>';
         }
 
-        html += '<td>' + remove_button + '</td></tr>';
+        html +=  remove_button + '</tr>';
 
         return html;
 
