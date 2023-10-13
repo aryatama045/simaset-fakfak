@@ -44,7 +44,7 @@
                     <div class="col-md-6">
                         <div class="pull-right">
                             <button class="btn btn-primary-light" onclick="print()"><i class="fe fe-printer"></i> Print</button>
-                            <button class="btn btn-danger-light" onclick="pdf()"><i class="fa fa-file-pdf-o"></i> PDF</button>
+                            <!-- <button class="btn btn-danger-light" onclick="pdf()"><i class="fa fa-file-pdf-o"></i> PDF</button> -->
                         </div>
                     </div>
                 </div>
