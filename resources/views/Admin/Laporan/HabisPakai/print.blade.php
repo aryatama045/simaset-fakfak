@@ -328,9 +328,9 @@ use Carbon\Carbon;
                                 <td align="center">{{$jmlkeluar}}</td>
                                 <td align="center">{{$totalStok}}</td> -->
                                 <td>{{ number_format($d->barang_harga,0,"",'.')}}</td>
-                                <td><?php $bertambah = $jmlmasuk * $d->barang_harga; echo number_format($bertambah,0,"",'.'); ?> </td>
-                                <td><?php $berkurang = $jmlkeluar * $d->barang_harga; echo number_format($berkurang,0,"",'.'); ?></td>
-                                <td><?php $sisa = $bertambah - $berkurang; echo number_format($sisa,0,"",'.'); ?></td>
+                                <td></td>
+                                <td></td> <!-- Berita Acara-->
+                                <td>{{Carbon::parse($d->bk_tanggal)->translatedFormat('d-M-Y')}}</td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
