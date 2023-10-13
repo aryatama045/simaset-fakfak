@@ -331,8 +331,8 @@ use Carbon\Carbon;
                                 <td></td>
                                 <td></td> <!-- Berita Acara-->
                                 <td>{{Carbon::parse($d->bk_tanggal)->translatedFormat('d-m-Y')}}</td>
-                                <td></td>
-                                <td></td>
+                                <td>{{$d->bk_tujuan}}</td>
+                                <td>{{$d->bk_jumlah}}</td>
                                 <td></td>
                                 <td>
                                     @if($totalStok == 0)
