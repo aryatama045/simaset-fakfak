@@ -525,8 +525,8 @@ class Spk extends Fpdf
             $this->cell(10,1,$no++,0,0,'L');
             $this->cell(45,1,$value->barang_nama,0,0,'L');
             $this->cell(35,1,$value->pb_jumlah,0,0,'C');
-            $this->cell(40,1,number_format($value->barang_harga, 0),0,0,'L');
-            $this->cell(40,1,rupiah($jumlah_harga),0,0,'L');
+            $this->cell(40,1,"Rp. ".number_format($value->barang_harga, 0),0,0,'L');
+            $this->cell(40,1,"Rp.  ".number_format($jumlah_harga, 0),0,0,'L');
             $this->Ln(4);
         }
         $this->setFont('Arial','B',7);
