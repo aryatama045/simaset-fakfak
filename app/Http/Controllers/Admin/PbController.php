@@ -223,14 +223,11 @@ class PbController extends Controller
                 // }
             }
 
+            ob_end_clean(); //    the buffer and never prints or returns anything.
             ob_start(); // it starts buffering
-            
-            
             $myPdf = new Nota($output);
 
             $myPdf->Output('I', "Nota-pesan(".$output['header'][0]->no_dok.").pdf", true);
-
-            ob_end_clean(); //    the buffer and never prints or returns anything.
 
             ob_end_flush();
 
