@@ -494,7 +494,7 @@ class Spk extends Fpdf
         $this->AddPage();
         $this->HeaderLampiran();
 
-        $this->Ln(4);
+        $this->Ln(16);
         $this->Line(11,$this->GetY(),195,$this->GetY());
         $this->Ln(2);
         $this->setFont('Times','B',10);
