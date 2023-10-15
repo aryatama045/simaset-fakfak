@@ -479,7 +479,7 @@ class Spk extends Fpdf
 
         $this->Ln(1);
         $this->setFont('Times','BU',14);
-        $this->cell(0,10,'Surat Lampiran Perintah Kerja',0,0,'C');
+        $this->cell(0,10,'Lampiran Surat Perintah Kerja',0,0,'C');
 
         $this->Ln(4);
 
