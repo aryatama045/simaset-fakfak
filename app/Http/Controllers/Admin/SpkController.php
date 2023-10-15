@@ -205,11 +205,11 @@ class SpkController extends Controller
 
             // dd($data_header, $data_detail, $data_lampiran);
 
-
+            $spk_kode = $output['header'][0]->spk_kode;
 
             $myPdf = new Spk($output);
 
-            $myPdf->Output('I', "Spk(".$output['header'][0]['spk_kode'].").pdf", true);
+            $myPdf->Output('I', "Spk(".$spk_kode.").pdf", true);
 
             exit;
         }
