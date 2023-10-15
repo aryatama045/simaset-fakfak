@@ -185,8 +185,8 @@ class SpkController extends Controller
                 ->get();
 
                 $data_lampiran = DB::table('tbl_pbdetail as pbd')
-                ->leftJoin('tbl_pb pb', 'pbd.pb_id', '=', 'pb.pb_id')
-                ->leftJoin('tbl_spk spk', 'pbd.spk_kode', '=', 'spk.spk_kode')
+                ->leftJoin('tbl_pb as pb', 'pbd.pb_id', '=', 'pb.pb_id')
+                ->leftJoin('tbl_spk as spk', 'pb.spk_kode', '=', 'spk.spk_kode')
                 ->where('spk.spk_id', $id)
                 ->select('pbd.*')
                 ->get();
