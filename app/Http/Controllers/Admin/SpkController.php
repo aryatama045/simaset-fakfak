@@ -187,8 +187,9 @@ class SpkController extends Controller
                 $data_lampiran = DB::table('tbl_pbdetail as pbd')
                 ->leftJoin('tbl_pb as pb', 'pbd.pb_id', '=', 'pb.pb_id')
                 ->leftJoin('tbl_spk as spk', 'pb.spk_kode', '=', 'spk.spk_kode')
+                ->leftjoin('tbl_barang as brg', 'pbd.barang_id', '=', 'brg.barang_id')
                 ->where('spk.spk_id', $id)
-                ->select('pbd.*')
+                ->select('pbd.*','brg.barang_nama','brg.barang_harga')
                 ->get();
 
 

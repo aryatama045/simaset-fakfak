@@ -494,6 +494,45 @@ class Spk extends Fpdf
         $this->AddPage();
         $this->HeaderLampiran();
 
+        $this->Ln(4);
+        $this->Line(11,$this->GetY(),195,$this->GetY());
+        $this->Ln(2);
+        $this->setFont('Times','B',10);
+        $this->cell(212,1,'',0,0,'R');
+        $this->Ln(2);
+        $this->cell(10,1,'NO',0,0,'L');
+        $this->cell(45,1,'URAIAN',0,0,'L');
+        $this->cell(35,1,'SISA STOK',0,0,'C');
+        $this->cell(40,1,'HARGA SATUAN',0,0,'L');
+        $this->cell(40,1,'JUMLAH HARGA',0,0,'L');
+        $this->Ln(2);
+        $this->Ln(3);
+        $this->Line(11,$this->GetY(),195,$this->GetY());
+        $this->Ln(4);
+
+        $baris  = 1;
+        $row    = 1;
+
+        $no=1;
+        foreach ($this->lampiran as $key => $value) {
+            if($this->GetY() > 204.80125){
+                $this->AddPage();
+            }
+
+
+            $jumlah_harga = $value->stok * $value->barang_harga;
+            $this->setFont('Times','',10);
+            $this->cell(10,1,$no++,0,0,'L');
+            $this->cell(45,1,$value->barang_nama,0,0,'L');
+            $this->cell(35,1,$value->stok,0,0,'C');
+            $this->cell(40,1,number_format($value->barang_harga, 0),0,0,'L');
+            $this->cell(40,1,number_format($jumlah_harga, 0),0,0,'L');
+            $this->Ln(4);
+        }
+        $this->setFont('Arial','B',7);
+        $this->Line(11,$this->GetY(),195,$this->GetY());
+        $this->Ln(4);
+
 
         $this->Ln(8);
         $this->tandaTangan();
