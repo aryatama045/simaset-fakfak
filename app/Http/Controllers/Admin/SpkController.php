@@ -203,7 +203,7 @@ class SpkController extends Controller
                 }
             }
 
-            dd($data_header, $data_detail, $data_lampiran);
+            // dd($data_header, $data_detail, $data_lampiran);
 
 
 
