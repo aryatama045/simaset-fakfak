@@ -534,7 +534,7 @@ class Spk extends Fpdf
         }
 
         $this->Ln(4);
-        $this->cell(40,1,"Rp.  ".number_format($total, 0),0,0,'L');
+        $this->cell(135,1,"Rp.  ".number_format($total, 0),0,0,'L');
 
         $this->setFont('Arial','B',7);
         $this->Line(11,$this->GetY(),195,$this->GetY());
