@@ -529,7 +529,7 @@ class Spk extends Fpdf
             $this->cell(40,1,"Rp.  ".number_format($jumlah_harga, 0),0,0,'L');
             $this->Ln(4);
 
-            $total +=  $jumlah_harga:
+            $total +=  $jumlah_harga;
         }
 
         
