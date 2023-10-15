@@ -205,11 +205,16 @@ class SpkController extends Controller
 
             // dd($data_header, $data_detail, $data_lampiran);
 
+            ob_end_clean(); //    the buffer and never prints or returns anything.
+            ob_start(); // it starts buffering
+
             $spk_kode = $output['header'][0]->spk_kode;
 
             $myPdf = new Spk($output);
 
             $myPdf->Output('I', "Spk(".$spk_kode.").pdf", true);
+
+            ob_end_flush();
 
             exit;
         }
