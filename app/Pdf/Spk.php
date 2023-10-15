@@ -28,6 +28,7 @@ class Spk extends Fpdf
         $this->data     = $data;
         $this->header   = $this->data['header'];
         $this->detail   = $this->data['detail'];
+        $this->lampiran = $this->data['lampiran'];
         $this->general_setting = $this->data['general_setting'];
 
 
