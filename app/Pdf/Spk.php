@@ -533,7 +533,7 @@ class Spk extends Fpdf
             $total += $jumlah_harga;
         }
         $this->Ln(4);
-        $this->setFont('Arial','B',7);
+        $this->setFont('Arial','B',11);
         $this->Line(11,$this->GetY(),195,$this->GetY());
 
         $this->Ln(4);
