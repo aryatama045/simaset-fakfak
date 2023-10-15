@@ -446,6 +446,58 @@ class Spk extends Fpdf
         $this->Ln(8);
         $this->mengetahui();
 
+        $this->lampiran();
+
+
+    }
+
+
+
+    function HeaderLampiran()
+    {
+        $this->Ln(8);
+        
+        // $parth_image = public_path() .'/uploads/image/';
+        // $this->Image($parth_image .$this->general_setting->web_logo, 24, 5, 20, 25);
+
+        $this->setFont('Times','B',12);
+        $this->cell(195,1,$this->general_setting->header_1,0,0, 'C');
+
+        $this->Ln(5);
+        $this->setFont('Times','B',12);
+        $this->cell(195,1,$this->general_setting->header_2,0,0, 'C');
+
+        $this->Ln(4);
+        $this->setFont('Times','',9);
+        $this->cell(195,2,$this->general_setting->alamat,0,0,'C');
+        // $this->cell(0,2,'Page '.$this->halaman." of ".$this->total_halaman,0,0,'R');
+
+        $this->Ln(6);
+        $this->Line(11,$this->GetY(),195,$this->GetY());
+        $this->Ln(0.1);
+        $this->Line(11,$this->GetY(),195,$this->GetY());
+
+        $this->Ln(1);
+        $this->setFont('Times','BU',14);
+        $this->cell(0,10,'Surat Lampiran Perintah Kerja',0,0,'C');
+
+        $this->Ln(4);
+
+
+
+    }
+
+
+    function lampiran()
+    {
+        $this->AddPage();
+        $this->HeaderLampiran();
+
+
+        $this->Ln(8);
+        $this->tandaTangan();
+        $this->Ln(8);
+        $this->mengetahui();
 
 
     }
