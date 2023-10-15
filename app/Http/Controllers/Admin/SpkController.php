@@ -209,7 +209,7 @@ class SpkController extends Controller
 
             $myPdf = new Spk($output);
 
-            $myPdf->Output('I', "Spk(".$output['header'][0]->spk_kode.").pdf", true);
+            $myPdf->Output('I', "Spk(".$output['header'][0]['spk_kode'].").pdf", true);
 
             exit;
         }
