@@ -170,8 +170,9 @@ class SpkController extends Controller
             ->leftJoin('tbl_supplier as p2', 'h.spk_pihak_2', '=', 'p2.supplier_id')
             ->leftJoin('tbl_pegawai as m', 'h.spk_mengetahui', '=', 'm.pegawai_id')
             ->leftJoin('tbl_user', 'h.spk_pic', '=', 'tbl_user.user_id')
+            ->leftJoin('tbl_pb pb', 'h.spk_kode', '=', 'pb.spk_kode')
             ->where('h.spk_id', $id)
-            ->Select('h.*',
+            ->Select('h.*','pb.spk_kode as pb_spk',
                 'p1.nip as p1_nip', 'p1.nama_lengkap as p1_nama', 'p1.jabatan as p1_jabatan','p1.alamat as p1_alamat',
                 'm.nip as m_nip', 'm.nama_lengkap as m_nama', 'm.jabatan as m_jabatan', 'm.alamat as m_alamat',
                 'p2.supplier_nama as sp_perusahaan', 'p2.nama_lengkap as sp_nama','p2.jabatan as sp_jabatan', 'p2.alamat as sp_alamat')
@@ -184,6 +185,13 @@ class SpkController extends Controller
                 ->select('spkd.*')
                 ->get();
 
+                $data_lampiran = DB::table('tbl_pbdetail as pbd')
+                ->leftJoin('tbl_pb pb', 'pbd.pb_id', '=', 'pb.pb_id')
+                ->leftJoin('tbl_spk spk', 'pbd.spk_kode', '=', 'spk.spk_kode')
+                ->where('spk.spk_id', $id)
+                ->select('pbd.*')
+                ->get();
+
 
                 $general_setting = DB::table('tbl_web')->latest()->first();
 
@@ -191,6 +199,7 @@ class SpkController extends Controller
                     $output['general_setting']		= $general_setting;
                     $output['header']		= $data_header;
                     $output['detail']		= $data_detail;
+                    $output['lampiran']		= $data_lampiran;
                 }
             }
 
@@ -200,7 +209,7 @@ class SpkController extends Controller
 
             $myPdf = new Spk($output);
 
-            $myPdf->Output('I', "Spk.pdf", true);
+            $myPdf->Output('I', "Spk(".$output['header'][0]->no_dok.").pdf", true);
 
             exit;
         }
