@@ -17,7 +17,6 @@ class PbdetailModel extends Model
         'barang_kode',
         'pb_harga',
         'pb_jumlah',
-        'pb_masuk',
         'satuan',
         'spek',
     ];

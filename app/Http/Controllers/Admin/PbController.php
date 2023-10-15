@@ -155,7 +155,7 @@ class PbController extends Controller
                 'pb_harga'      => $request->harga[$x],
             );
             array_push($log_detail, $detail_barang);
-            PbdetailModel::create( $detail_barang);
+            PbdetailModel::create($detail_barang);
         }
 
         return redirect('admin/pb')->with('create_message', 'Pengajuan Nomor : '. $request->pb_kode);
