@@ -532,6 +532,9 @@ class Spk extends Fpdf
 
             $total += $jumlah_harga;
         }
+        $this->Ln(4);
+        $this->setFont('Arial','B',7);
+        $this->Line(11,$this->GetY(),195,$this->GetY());
 
         $this->Ln(4);
         $this->cell(10,1,'',0,0,'L');
@@ -540,6 +543,7 @@ class Spk extends Fpdf
         $this->cell(40,1,'',0,0,'L');
         $this->cell(40,1,"Rp.  ".number_format($total, 0),0,0,'L');
 
+        $this->Ln(4);
         $this->setFont('Arial','B',7);
         $this->Line(11,$this->GetY(),195,$this->GetY());
         $this->Ln(4);
