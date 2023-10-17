@@ -208,7 +208,7 @@ use Carbon\Carbon;
                     <th rowspan="3" width="5%" > TANGGAL </th>
                     <th rowspan="3" width="5%" > NAMA TOKO </th>
                     <th colspan="2"> DOKUMEN FAKTUR </th>
-                    <th rowspan="3" width="10%"> NAMA BARANG</th>
+                    <th rowspan="3" width="20%"> NAMA BARANG</th>
                     <th rowspan="3" width="3%"> BANYAK NYA </th>
                     <th rowspan="3" width="3%"> HARGA SATUAN </th>
                     <th rowspan="3" width="3%"> JUMLAH HARGA </th>
@@ -225,8 +225,8 @@ use Carbon\Carbon;
                 </tr>
 
                 <tr>
-                    <th>NOMOR</th>
-                    <th>TANGGAL</th>
+                    <th width="7%">NOMOR</th>
+                    <th width="5%">TANGGAL</th>
                 </tr>
 
                 <tr id="thbottom">
