@@ -217,8 +217,8 @@ use Carbon\Carbon;
                 </tr>
 
                 <tr>
-                    <th rowspan="2">NOMOR</th>
-                    <th rowspan="2">TANGGAL</th>
+                    <th rowspan="2" width="7%">NOMOR</th>
+                    <th rowspan="2" width="5%">TANGGAL</th>
 
                     <th colspan="2"> B.A PENERIMAAN </th>
 
