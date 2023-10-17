@@ -164,22 +164,38 @@ use Carbon\Carbon;
 
 <body onload="window.print()">
 
-    <center>
-        @if($web->web_logo == '' || $web->web_logo == 'default.png')
-        <img src="{{url('/assets/default/web/default.png')}}" width="80px" alt="">
-        @else
-        <img src="{{url('/assets/default/web/default.png')}}" width="80px" alt="">
-        @endif
-    </center>
+<div>
+    <div class="container">
+    <header>
+        <div id="kop-surat" class="row">
+            <div class="col-md-2 col-sm-2 col-xs-2">
+                <!-- <img id="logo" src="https://getasanbersinar.files.wordpress.com/2016/02/logo-kabupaten-semarang-jawa-tengah.png" width="140" height="160" /> -->
 
-    <center>
-        <h1 class="font-medium">Laporan Barang Masuk</h1>
-        @if($tglawal == '')
-        <h4 class="font-medium">Semua Tanggal</h4>
-        @else
-        <h4 class="font-medium">{{Carbon::parse($tglawal)->translatedFormat('d F Y')}} - {{Carbon::parse($tglakhir)->translatedFormat('d F Y')}}</h4>
-        @endif
-    </center>
+                @if($web->web_logo == '' || $web->web_logo == 'default.png')
+                <img id="logo" src="{{url('/assets/default/web/default.png')}}" width="85" height="90" alt="">
+                @else
+                <img id="logo" src="{{url('/assets/default/web/default.png')}}" width="85" height="90" alt="">
+                @endif
+            </div>
+            <div class="col-md-10 col-sm-10 col-xs-10">
+                <h3 class="kablogo"> <strong>{{ $web->header_1 }}</strong></h3>
+                <h1 class="keclogo"><strong> {{ $web->header_2 }} </strong></h1>
+                <h6 class="alamatlogo"> {{ $web->alamat }} </h6>
+                <!-- <h5 class="kodeposlogo"><strong>BERGAS 50552</strong></h5> -->
+            </div>
+        </div>
+    </header>
+
+    <hr class="garis1"/>
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <h1 class="keclogo"><strong> Laporan Stok Barang
+                <?php if($tglawal != ''){ ?>
+                    {{Carbon::parse($tglawal)->translatedFormat('d F Y')}} - {{Carbon::parse($tglakhir)->translatedFormat('d F Y')}}
+                <?php }else{ ?> - Seluruh Barang <?php } ?></strong></h1>
+        </div>
+    </div>
 
 
     <table border="1" id="table1">
@@ -239,6 +255,10 @@ use Carbon\Carbon;
             @endforeach
         </tbody>
     </table>
+
+    </div>
+
+</div>
 
 </body>
 
