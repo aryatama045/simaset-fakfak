@@ -164,101 +164,121 @@ use Carbon\Carbon;
 
 <body onload="window.print()">
 
-<div>
     <div class="container">
-    <header>
-        <div id="kop-surat" class="row">
-            <div class="col-md-2 col-sm-2 col-xs-2">
-                <!-- <img id="logo" src="https://getasanbersinar.files.wordpress.com/2016/02/logo-kabupaten-semarang-jawa-tengah.png" width="140" height="160" /> -->
+        <header>
+            <div id="kop-surat" class="row">
+                <div class="col-md-2 col-sm-2 col-xs-2">
+                    <!-- <img id="logo" src="https://getasanbersinar.files.wordpress.com/2016/02/logo-kabupaten-semarang-jawa-tengah.png" width="140" height="160" /> -->
 
-                @if($web->web_logo == '' || $web->web_logo == 'default.png')
-                <img id="logo" src="{{url('/assets/default/web/default.png')}}" width="85" height="90" alt="">
-                @else
-                <img id="logo" src="{{url('/assets/default/web/default.png')}}" width="85" height="90" alt="">
-                @endif
+                    @if($web->web_logo == '' || $web->web_logo == 'default.png')
+                    <img id="logo" src="{{url('/assets/default/web/default.png')}}" width="85" height="90" alt="">
+                    @else
+                    <img id="logo" src="{{url('/assets/default/web/default.png')}}" width="85" height="90" alt="">
+                    @endif
+                </div>
+                <div class="col-md-10 col-sm-10 col-xs-10">
+                    <h3 class="kablogo"> <strong>{{ $web->header_1 }}</strong></h3>
+                    <h1 class="keclogo"><strong> {{ $web->header_2 }} </strong></h1>
+                    <h6 class="alamatlogo"> {{ $web->alamat }} </h6>
+                    <!-- <h5 class="kodeposlogo"><strong>BERGAS 50552</strong></h5> -->
+                </div>
             </div>
-            <div class="col-md-10 col-sm-10 col-xs-10">
-                <h3 class="kablogo"> <strong>{{ $web->header_1 }}</strong></h3>
-                <h1 class="keclogo"><strong> {{ $web->header_2 }} </strong></h1>
-                <h6 class="alamatlogo"> {{ $web->alamat }} </h6>
-                <!-- <h5 class="kodeposlogo"><strong>BERGAS 50552</strong></h5> -->
+        </header>
+
+        <hr class="garis1"/>
+
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <h1 class="keclogo"><strong> Laporan Stok Barang
+                    <?php if($tglawal != ''){ ?>
+                        {{Carbon::parse($tglawal)->translatedFormat('d F Y')}} - {{Carbon::parse($tglakhir)->translatedFormat('d F Y')}}
+                    <?php }else{ ?> - Seluruh Barang <?php } ?></strong></h1>
             </div>
         </div>
-    </header>
 
-    <hr class="garis1"/>
 
-    <div class="row">
-        <div class="col-md-12 col-sm-12 col-xs-12">
-            <h1 class="keclogo"><strong> Laporan Stok Barang
-                <?php if($tglawal != ''){ ?>
-                    {{Carbon::parse($tglawal)->translatedFormat('d F Y')}} - {{Carbon::parse($tglakhir)->translatedFormat('d F Y')}}
-                <?php }else{ ?> - Seluruh Barang <?php } ?></strong></h1>
-        </div>
+        <table border="1" id="table1">
+            <thead>
+                <tr>
+                    <th rowspan="3" width="1%" > NO </th>
+                    <th rowspan="3" width="5%" > TANGGAL </th>
+                    <th rowspan="3" width="5%" > NAMA TOKO </th>
+                    <th rowspan="3" width="15%"> URAIAN </th>
+                    <th colspan="2"> DOKUMEN FAKTUR </th>
+                    <th rowspan="3"> NAMA BARANG</th>
+                    <th colspan="3"> BANYAK NYA </th>
+                    <th rowspan="3"> HARGA SATUAN </th>
+                    <th rowspan="3"> JUMLAH HARGA </th>
+                    <th colspan="2"> BUKTI PENERIMAAN </th>
+                    <th rowspan="3"> KET </th>
+                </tr>
+
+                <tr>
+                    <th rowspan="2">NOMOR</th>
+                    <th rowspan="2">TANGGAL</th>
+
+                    <th colspan="2"> B.A PENERIMAAN </th>
+
+                    <th>SISA</th>
+                    <th>BERTAMBAH</th>
+                    <th>BERKURANG</th>
+                    <th>SISA</th>
+                </tr>
+
+                <tr>
+                    <th>NOMOR</th>
+                    <th>TANGGAL</th>
+                </tr>
+
+                <tr id="thbottom">
+                    @for($x=1; $x <= 12; $x++)
+                    <th>{{$x}}</th>
+                    @endfor
+                </tr>
+
+            </thead>
+
+
+            <tbody>
+                @php $no=1; @endphp
+                @foreach($data as $d)
+                <tr>
+                    <td align="center">{{$no++}}</td>
+                    <td>{{Carbon::parse($d->bm_tanggal)->translatedFormat('d F Y')}}</td>
+                    <td>{{$d->bm_kode}}</td>
+                    <td>{{$d->barang_kode}}</td>
+                    <td>{{$d->supplier_nama}}</td>
+                    <td>{{$d->barang_nama}}</td>
+                    <td align="center">{{$d->bm_jumlah}}</td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+
+        <footer>
+            <div id="ttd" class="row">
+                <div class="col-md-4">
+                    <p id="pengurus"> <strong>MENGETAHUI <br />
+                        SEKRETARIS DPRD <br />
+                        KABUPATEN FAKFAK</strong>
+                    </p>
+                    <div id="nama-pengurus"><strong><u>SUPRIJONO, S.Sos, MM</u></strong><br />
+                        NIP : 19710608 199610 1 002
+                    </div>
+                </div>
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <p id="tanggal-pengurus"> Fakfak, {{date('d F Y')}} </p>
+                    <p id="pengurus"><strong>PENGURUS BARANG</strong></p>
+                    <div id="nama-pengurus"><strong><u>RUSDI</u></strong><br />
+                        NIP : 19780910 200801 1 014
+                    </div>
+                </div>
+            </div>
+        </footer>
+
     </div>
 
-
-    <table border="1" id="table1">
-        <thead>
-            <tr>
-                <th rowspan="3" width="1%" > NO </th>
-                <th rowspan="3" width="5%" > TANGGAL </th>
-                <th rowspan="3" width="5%" > NAMA TOKO </th>
-                <th rowspan="3" width="15%"> URAIAN </th>
-                <th colspan="2"> DOKUMEN FAKTUR </th>
-                <th rowspan="3"> NAMA BARANG</th>
-                <th colspan="3"> BANYAK NYA </th>
-                <th rowspan="3"> HARGA SATUAN </th>
-                <th rowspan="3"> JUMLAH HARGA </th>
-                <th colspan="2"> BUKTI PENERIMAAN </th>
-                <th rowspan="3"> KET </th>
-            </tr>
-
-            <tr>
-                <th rowspan="2">NOMOR</th>
-                <th rowspan="2">TANGGAL</th>
-
-                <th colspan="2"> B.A PENERIMAAN </th>
-
-                <th>SISA</th>
-                <th>BERTAMBAH</th>
-                <th>BERKURANG</th>
-                <th>SISA</th>
-            </tr>
-
-            <tr>
-                <th>NOMOR</th>
-                <th>TANGGAL</th>
-            </tr>
-
-            <tr id="thbottom">
-                @for($x=1; $x <= 12; $x++)
-                <th>{{$x}}</th>
-                @endfor
-            </tr>
-
-        </thead>
-
-
-        <tbody>
-            @php $no=1; @endphp
-            @foreach($data as $d)
-            <tr>
-                <td align="center">{{$no++}}</td>
-                <td>{{Carbon::parse($d->bm_tanggal)->translatedFormat('d F Y')}}</td>
-                <td>{{$d->bm_kode}}</td>
-                <td>{{$d->barang_kode}}</td>
-                <td>{{$d->supplier_nama}}</td>
-                <td>{{$d->barang_nama}}</td>
-                <td align="center">{{$d->bm_jumlah}}</td>
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
-
-    </div>
-
-</div>
 
 </body>
 
