@@ -223,10 +223,6 @@ use Carbon\Carbon;
 
                     <th colspan="2"> B.A PENERIMAAN </th>
 
-                    <th>SISA</th>
-                    <th>BERTAMBAH</th>
-                    <th>BERKURANG</th>
-                    <th>SISA</th>
                 </tr>
 
                 <tr>
