@@ -210,7 +210,7 @@ use Carbon\Carbon;
                     <th rowspan="3" width="15%"> URAIAN </th>
                     <th colspan="2"> DOKUMEN FAKTUR </th>
                     <th rowspan="3"> NAMA BARANG</th>
-                    <th colspan="3"> BANYAK NYA </th>
+                    <th rowspan="3"> BANYAK NYA </th>
                     <th rowspan="3"> HARGA SATUAN </th>
                     <th rowspan="3"> JUMLAH HARGA </th>
                     <th colspan="2"> BUKTI PENERIMAAN </th>
