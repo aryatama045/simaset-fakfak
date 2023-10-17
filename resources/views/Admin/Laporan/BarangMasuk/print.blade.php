@@ -193,7 +193,7 @@ use Carbon\Carbon;
 
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
-                <h1 class="keclogo"><strong> Laporan Stok Barang
+                <h1 class="keclogo"><strong> Laporan Penerimaan
                     <?php if($tglawal != ''){ ?>
                         {{Carbon::parse($tglawal)->translatedFormat('d F Y')}} - {{Carbon::parse($tglakhir)->translatedFormat('d F Y')}}
                     <?php }else{ ?> - Seluruh Barang <?php } ?></strong></h1>
@@ -249,6 +249,11 @@ use Carbon\Carbon;
                     <td>{{Carbon::parse($d->bm_tanggal)->translatedFormat('d F Y')}}</td>
                     <td>{{$d->barang_nama}}</td>
                     <td align="center">{{$d->bm_jumlah}}</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
                 </tr>
                 @endforeach
             </tbody>
