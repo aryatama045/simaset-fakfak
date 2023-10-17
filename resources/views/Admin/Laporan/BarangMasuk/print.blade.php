@@ -209,9 +209,9 @@ use Carbon\Carbon;
                     <th rowspan="3" width="5%" > NAMA TOKO </th>
                     <th colspan="2"> DOKUMEN FAKTUR </th>
                     <th rowspan="3" width="10%"> NAMA BARANG</th>
-                    <th rowspan="3" width="5%"> BANYAK NYA </th>
-                    <th rowspan="3" width="5%"> HARGA SATUAN </th>
-                    <th rowspan="3" width="5%"> JUMLAH HARGA </th>
+                    <th rowspan="3" width="3%"> BANYAK NYA </th>
+                    <th rowspan="3" width="3%"> HARGA SATUAN </th>
+                    <th rowspan="3" width="3%"> JUMLAH HARGA </th>
                     <th colspan="2"> BUKTI PENERIMAAN </th>
                     <th rowspan="3"> KET </th>
                 </tr>
