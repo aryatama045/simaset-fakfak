@@ -207,9 +207,8 @@ use Carbon\Carbon;
                     <th rowspan="3" width="1%" > NO </th>
                     <th rowspan="3" width="5%" > TANGGAL </th>
                     <th rowspan="3" width="5%" > NAMA TOKO </th>
-                    <th rowspan="3" width="15%"> URAIAN </th>
                     <th colspan="2"> DOKUMEN FAKTUR </th>
-                    <th rowspan="3"> NAMA BARANG</th>
+                    <th rowspan="3" width="10%"> NAMA BARANG</th>
                     <th rowspan="3"> BANYAK NYA </th>
                     <th rowspan="3"> HARGA SATUAN </th>
                     <th rowspan="3"> JUMLAH HARGA </th>
