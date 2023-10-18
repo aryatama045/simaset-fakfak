@@ -241,25 +241,11 @@ use Carbon\Carbon;
             <tbody>
                 @php $no=1; $tgl_dokumen = ''; @endphp
                 @foreach($data as $d)
-                    <tr>
-                        <td align="center">{{$no++}}</td>
-                        <td>{{Carbon::parse($d->bm_tanggal)->translatedFormat('d F Y')}}</td>
-                        <td>{{$d->supplier_nama}}</td>
-                        <td>{{$d->pb_kode}}</td>
-                        <td>{{Carbon::parse($d->bm_tanggal)->translatedFormat('d F Y')}}</td>
-                        <td>{{$d->jenisbarang_nama}}</td>
-                        <td align="center">{{$d->bm_jumlah}}</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
 
                     @if($tgl_dokumen != $d->bm_tanggal)
                         <tr>
-                            <td align="center"></td>
-                            <td></td>
+                            <td align="center">{{$no++}}</td>
+                            <td>{{Carbon::parse($d->bm_tanggal)->translatedFormat('d F Y')}}</td>
                             <td>{{$d->supplier_nama}}</td>
                             <td>{{$d->pb_kode}}</td>
                             <td>{{Carbon::parse($d->bm_tanggal)->translatedFormat('d F Y')}}</td>
@@ -272,6 +258,21 @@ use Carbon\Carbon;
                             <td></td>
                         </tr>
                     @endif
+
+                    <tr>
+                        <td align="center"></td>
+                        <td></td>
+                        <td></td>
+                        <td>{{$d->pb_kode}}</td>
+                        <td>{{Carbon::parse($d->bm_tanggal)->translatedFormat('d F Y')}}</td>
+                        <td>{{$d->jenisbarang_nama}}</td>
+                        <td align="center">{{$d->bm_jumlah}}</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
 
                     @php $tgl_dokumen = $d->bm_tanggal; @endphp
                 @endforeach
