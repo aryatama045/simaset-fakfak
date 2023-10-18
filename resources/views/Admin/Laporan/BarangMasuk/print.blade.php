@@ -248,8 +248,11 @@ use Carbon\Carbon;
                             <td align="center">{{$no++}}</td>
                             <td>{{Carbon::parse($d->bm_tanggal)->translatedFormat('d F Y')}}</td>
                             <td>{{$d->supplier_nama}}</td>
+
                             @if($pb_kode != $d->pb_kode)
-                            <td>{{$d->pb_kode}}</td>
+                                <td>{{$d->pb_kode}}</td>
+                            @else
+                                <td></td>
                             @endif
 
                             <td>{{Carbon::parse($d->bm_tanggal)->translatedFormat('d F Y')}}</td>
