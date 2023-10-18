@@ -245,7 +245,7 @@ use Carbon\Carbon;
                     <?php $sj_h += $d->bm_jumlah * $d->barang_harga; $sj_h++; ?>
 
                     <!-- Header List -->
-                    @if($tgl_dokumen != $d->bm_tanggal)
+                    @if($pb_kode != $d->pb_kode)
 
                         <tr>
                             <td align="center">{{$no++}}</td>
