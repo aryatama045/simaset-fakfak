@@ -256,7 +256,7 @@ use Carbon\Carbon;
                             @endif
 
                             <td>{{Carbon::parse($d->bm_tanggal)->translatedFormat('d F Y')}}</td>
-                            <td align="left"><p style="font-size:14px;"><b>{{$d->jenisbarang_nama}}</b></p></td>
+                            <td><p style="font-size:14px;text-align:left;"><b>{{$d->jenisbarang_nama}}</b></p></td>
                             <td align="center"></td>
                             <td></td>
                             <td></td>
@@ -272,7 +272,7 @@ use Carbon\Carbon;
                         <td></td>
                         <td></td>
                         <td>{{Carbon::parse($d->bm_tanggal)->translatedFormat('d F Y')}}</td>
-                        <td align="left">{{$d->barang_nama}}</td>
+                        <td style="font-size:14px;text-align:left;">{{$d->barang_nama}}</td>
                         <td align="center">{{$d->bm_jumlah}}</td>
                         <td></td>
                         <td></td>
