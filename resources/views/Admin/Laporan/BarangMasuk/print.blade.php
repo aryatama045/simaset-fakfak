@@ -259,7 +259,7 @@ use Carbon\Carbon;
                             <td><p style="font-size:14px;text-align:left;"><b>{{$d->jenisbarang_nama}}</b></p></td>
                             <td align="center"></td>
                             <td></td>
-                            <td></td>
+                            <td>{{ $sj_h }}</td>
                             <td></td>
                             <td></td>
                             <td></td>
