@@ -256,7 +256,7 @@ use Carbon\Carbon;
                         <td></td>
                     </tr>
 
-                    @if($tgl_dokumen != $d->pb_kode)
+                    @if($tgl_dokumen != $d->bm_tanggal)
                         <tr>
                             <td align="center"></td>
                             <td></td>
