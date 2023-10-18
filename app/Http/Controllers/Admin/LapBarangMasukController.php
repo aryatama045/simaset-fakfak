@@ -32,6 +32,7 @@ class LapBarangMasukController extends Controller
             $data['data'] = BarangmasukModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangmasuk.barang_kode')
             ->leftJoin('tbl_supplier', 'tbl_supplier.supplier_id', '=', 'tbl_barangmasuk.supplier_id')
             ->leftJoin('tbl_jenisbarang as jns', 'jns.jenisbarang_id', '=', 'tbl_barang.jenisbarang_id' )
+            ->withCount('tbl_barangmasuk.bm_jumlah')->withSum('tbl_barangmasuk.bm_jumlah', 'tbl_barang.barang_harga')
             ->orderBy('bm_id', 'DESC')->get();
         }
 
