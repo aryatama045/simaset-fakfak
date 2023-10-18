@@ -295,7 +295,7 @@ use Carbon\Carbon;
                     <td></td>
                     <td align="center"></td>
                     <td align="center"></td>
-                    <td align="center">{{ number_format($sj_h,0,"",'.') }}</td>
+                    <td align="center"><b>{{ number_format($sj_h,0,"",'.') }}</b></td>
                     <td></td>
                     <td></td>
                     <td></td>
