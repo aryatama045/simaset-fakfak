@@ -258,12 +258,13 @@ use Carbon\Carbon;
                             <td>{{Carbon::parse($d->bm_tanggal)->translatedFormat('d F Y')}}</td>
                             <td><p style="font-size:14px;text-align:left;"><b>{{$d->jenisbarang_nama}}</b></p></td>
                             <td align="center"></td>
-                            <td></td>
+                            <td></td> <?php $sj_h = $d->bm_jumlah * $d->barang_harga; echo $j_h; ?>
                             <td></td>
                             <td></td>
                             <td></td>
                             <td></td>
                         </tr>
+
                     @endif
 
                     <tr>

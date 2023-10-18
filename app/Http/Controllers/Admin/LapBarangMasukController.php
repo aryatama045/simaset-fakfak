@@ -33,7 +33,6 @@ class LapBarangMasukController extends Controller
             ->leftJoin('tbl_supplier', 'tbl_supplier.supplier_id', '=', 'tbl_barangmasuk.supplier_id')
             ->leftJoin('tbl_jenisbarang as jns', 'jns.jenisbarang_id', '=', 'tbl_barang.jenisbarang_id' )
             ->orderBy('bm_id', 'DESC')
-            ->withCount('tbl_barangmasuk.bm_jumlah')->withSum('tbl_barangmasuk.bm_jumlah', 'tbl_barang.barang_harga')
             ->get();
         }
 
