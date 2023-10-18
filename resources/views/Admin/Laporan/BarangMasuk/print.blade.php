@@ -206,7 +206,7 @@ use Carbon\Carbon;
                 <tr>
                     <th rowspan="3" width="1%" > NO </th>
                     <th rowspan="3" width="5%" > TANGGAL </th>
-                    <th rowspan="3" width="25%" > NAMA TOKO </th>
+                    <th rowspan="3" width="20%" > NAMA TOKO </th>
                     <th colspan="2"> DOKUMEN FAKTUR </th>
                     <th rowspan="3" width="30%"> NAMA BARANG</th>
                     <th rowspan="3" width="3%"> BANYAK NYA </th>
