@@ -32,7 +32,7 @@ class LapBarangMasukController extends Controller
             $data['data'] = BarangmasukModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangmasuk.barang_kode')
             ->leftJoin('tbl_supplier', 'tbl_supplier.supplier_id', '=', 'tbl_barangmasuk.supplier_id')
             ->leftJoin('tbl_pb as pb', 'pb.pb_kode', '=', 'tbl_barangmasuk.pb_kode')
-            ->leftJoin('tbl_jenis as jns', 'jns.jenisbarang_id', '=', 'tbl_barang.jenisbarang_id' )
+            ->leftJoin('tbl_jenisbarang as jns', 'jns.jenisbarang_id', '=', 'tbl_barang.jenisbarang_id' )
             ->orderBy('bm_id', 'DESC')->get();
         }
 
