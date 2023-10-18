@@ -242,8 +242,6 @@ use Carbon\Carbon;
                 @php $no=1; $sj_h=0; $tj_h=0; $tgl_dokumen = ''; $pb_kode = ''; @endphp
                 @foreach($data as $d)
 
-                    <?php $sj_h += $d->bm_jumlah * $d->barang_harga; ?>
-
                     <!-- Header List -->
                     @if($tgl_dokumen != $d->bm_tanggal)
 
@@ -291,7 +289,7 @@ use Carbon\Carbon;
                         <td></td>
                     </tr>
 
-                    @php $tgl_dokumen = $d->bm_tanggal; $pb_kode = $d->pb_kode; @endphp
+                    @php $tgl_dokumen = $d->bm_tanggal; $pb_kode = $d->pb_kode; $sj_h += $d->bm_jumlah * $d->barang_harga; @endphp
 
 
 
