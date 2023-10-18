@@ -259,7 +259,7 @@ use Carbon\Carbon;
                     @if($tgl_dokumen != $d->pb_kode)
                         <tr>
                             <td align="center"></td>
-                            <td>{{Carbon::parse($d->bm_tanggal)->translatedFormat('d F Y')}}</td>
+                            <td></td>
                             <td>{{$d->supplier_nama}}</td>
                             <td>{{$d->pb_kode}}</td>
                             <td>{{Carbon::parse($d->bm_tanggal)->translatedFormat('d F Y')}}</td>
