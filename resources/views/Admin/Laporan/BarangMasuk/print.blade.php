@@ -239,22 +239,41 @@ use Carbon\Carbon;
 
 
             <tbody>
-                @php $no=1; @endphp
+                @php $no=1; $no_dokumen = ''; @endphp
                 @foreach($data as $d)
-                <tr>
-                    <td align="center">{{$no++}}</td>
-                    <td>{{Carbon::parse($d->bm_tanggal)->translatedFormat('d F Y')}}</td>
-                    <td>{{$d->supplier_nama}}</td>
-                    <td>{{$d->pb_kode}}</td>
-                    <td>{{Carbon::parse($d->bm_tanggal)->translatedFormat('d F Y')}}</td>
-                    <td>{{$d->barang_nama}}</td>
-                    <td align="center">{{$d->bm_jumlah}}</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
+                    <tr>
+                        <td align="center">{{$no++}}</td>
+                        <td>{{Carbon::parse($d->bm_tanggal)->translatedFormat('d F Y')}}</td>
+                        <td>{{$d->supplier_nama}}</td>
+                        <td>{{$d->pb_kode}}</td>
+                        <td>{{Carbon::parse($d->bm_tanggal)->translatedFormat('d F Y')}}</td>
+                        <td>{{$d->barang_nama}}</td>
+                        <td align="center">{{$d->bm_jumlah}}</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                    @if($no_dokumen == $d->pb_kode)
+                        <tr>
+                            <td align="center"></td>
+                            <td>{{Carbon::parse($d->bm_tanggal)->translatedFormat('d F Y')}}</td>
+                            <td>{{$d->supplier_nama}}</td>
+                            <td>{{$d->pb_kode}}</td>
+                            <td>{{Carbon::parse($d->bm_tanggal)->translatedFormat('d F Y')}}</td>
+                            <td>{{$d->barang_nama}}</td>
+                            <td align="center">{{$d->bm_jumlah}}</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    @endif
+
+                    @php $no_dokumen = $d->pb_kode; @endphp
                 @endforeach
             </tbody>
         </table>
