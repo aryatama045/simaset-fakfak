@@ -239,7 +239,7 @@ use Carbon\Carbon;
 
 
             <tbody>
-                @php $no=1; $no_dokumen = ''; @endphp
+                @php $no=1; $tgl_dokumen = ''; @endphp
                 @foreach($data as $d)
                     <tr>
                         <td align="center">{{$no++}}</td>
@@ -256,7 +256,7 @@ use Carbon\Carbon;
                         <td></td>
                     </tr>
 
-                    @if($no_dokumen == $d->pb_kode)
+                    @if($tgl_dokumen == $d->pb_kode)
                         <tr>
                             <td align="center"></td>
                             <td>{{Carbon::parse($d->bm_tanggal)->translatedFormat('d F Y')}}</td>
@@ -273,7 +273,7 @@ use Carbon\Carbon;
                         </tr>
                     @endif
 
-                    @php $no_dokumen = $d->pb_kode; @endphp
+                    @php $tgl_dokumen = $d->bm_tanggal; @endphp
                 @endforeach
             </tbody>
         </table>
