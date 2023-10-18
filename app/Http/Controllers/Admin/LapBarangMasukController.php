@@ -25,6 +25,7 @@ class LapBarangMasukController extends Controller
             $data['data'] = DB::table('tbl_barangmasuk')
             ->leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangmasuk.barang_kode')
             ->leftJoin('tbl_supplier', 'tbl_supplier.supplier_id', '=', 'tbl_barangmasuk.supplier_id')
+            ->leftJoin('tbl_jenisbarang as jns', 'jns.jenisbarang_id', '=', 'tbl_barang.jenisbarang_id' )
             ->whereBetween('bm_tanggal', [$request->tglawal, $request->tglakhir])
             ->orderBy('bm_id', 'DESC')
             ->get();
@@ -33,7 +34,7 @@ class LapBarangMasukController extends Controller
             ->leftJoin('tbl_supplier', 'tbl_supplier.supplier_id', '=', 'tbl_barangmasuk.supplier_id')
             ->leftJoin('tbl_jenisbarang as jns', 'jns.jenisbarang_id', '=', 'tbl_barang.jenisbarang_id' )
             ->orderBy('bm_id', 'DESC')
-            // ->groupBy('bm_tanggal')
+            ->groupBy('bm_tanggal')
             ->get();
         }
 
