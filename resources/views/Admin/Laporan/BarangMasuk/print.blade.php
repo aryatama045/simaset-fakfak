@@ -243,44 +243,47 @@ use Carbon\Carbon;
                 @foreach($data as $d)
 
                     <!-- Header List -->
-                    @if($tgl_dokumen != $d->bm_tanggal)
-                        <tr>
-                            <td align="center">{{$no++}}</td>
-                            <td>{{Carbon::parse($d->bm_tanggal)->translatedFormat('d F Y')}}</td>
-                            <td>{{$d->supplier_nama}}</td>
+                    @if($sj_h != 0)
+                        @if($tgl_dokumen != $d->bm_tanggal)
+                            <tr>
+                                <td align="center">{{$no++}}</td>
+                                <td>{{Carbon::parse($d->bm_tanggal)->translatedFormat('d F Y')}}</td>
+                                <td>{{$d->supplier_nama}}</td>
 
-                            @if($pb_kode != $d->pb_kode)
-                                <td>{{$d->pb_kode}}</td>
-                            @else
+                                @if($pb_kode != $d->pb_kode)
+                                    <td>{{$d->pb_kode}}</td>
+                                @else
+                                    <td></td>
+                                @endif
+
+                                <td>{{Carbon::parse($d->bm_tanggal)->translatedFormat('d F Y')}}</td>
+                                <td><p style="font-size:14px;text-align:left;"><b>{{$d->jenisbarang_nama}}</b></p></td>
+                                <td align="center"></td>
                                 <td></td>
-                            @endif
+                                <td>{{ $sj_h }}</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
 
-                            <td>{{Carbon::parse($d->bm_tanggal)->translatedFormat('d F Y')}}</td>
-                            <td><p style="font-size:14px;text-align:left;"><b>{{$d->jenisbarang_nama}}</b></p></td>
+                        @endif
+
+                        <tr>
                             <td align="center"></td>
                             <td></td>
-                            <td>{{ $sj_h }}</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td style="font-size:14px;text-align:left;">{{$d->barang_nama}}</td>
+                            <td align="center">{{$d->bm_jumlah}}</td>
+                            <td align="center">{{ number_format($d->barang_harga,0,"",'.') }}</td>
+                            <td align="center"><?php $j_h = $d->bm_jumlah * $d->barang_harga; echo number_format($j_h,0,"",'.'); ?></td>
                             <td></td>
                             <td></td>
                             <td></td>
                         </tr>
 
                     @endif
-
-                    <tr>
-                        <td align="center"></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td style="font-size:14px;text-align:left;">{{$d->barang_nama}}</td>
-                        <td align="center">{{$d->bm_jumlah}}</td>
-                        <td align="center">{{ number_format($d->barang_harga,0,"",'.') }}</td>
-                        <td align="center"><?php $j_h = $d->bm_jumlah * $d->barang_harga; echo number_format($j_h,0,"",'.'); ?></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
 
                     <?php $sj_h += $d->bm_jumlah * $d->barang_harga;  ?>
                     @php $tgl_dokumen = $d->bm_tanggal; $pb_kode = $d->pb_kode; @endphp
