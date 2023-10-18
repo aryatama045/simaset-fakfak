@@ -256,7 +256,7 @@ use Carbon\Carbon;
                         <td></td>
                     </tr>
 
-                    @if($tgl_dokumen == $d->pb_kode)
+                    @if($tgl_dokumen != $d->pb_kode)
                         <tr>
                             <td align="center"></td>
                             <td>{{Carbon::parse($d->bm_tanggal)->translatedFormat('d F Y')}}</td>
