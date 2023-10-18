@@ -285,23 +285,6 @@ use Carbon\Carbon;
                     <?php $sj_h += $d->bm_jumlah * $d->barang_harga;  ?>
                     @php $tgl_dokumen = $d->bm_tanggal; $pb_kode = $d->pb_kode; @endphp
 
-                    @if($tgl_dokumen != $d->bm_tanggal)
-                        <tr>
-                            <td align="center"></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td align="center"></td>
-                            <td align="center"></td>
-                            <td align="center">{{$sj_h}}</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                    @endif
-
                 @endforeach
 
 
