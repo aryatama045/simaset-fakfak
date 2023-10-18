@@ -247,7 +247,7 @@ use Carbon\Carbon;
                         <td>{{$d->supplier_nama}}</td>
                         <td>{{$d->pb_kode}}</td>
                         <td>{{Carbon::parse($d->bm_tanggal)->translatedFormat('d F Y')}}</td>
-                        <td>{{$d->barang_nama}}</td>
+                        <td>{{$d->jenisbarang_nama}}</td>
                         <td align="center">{{$d->bm_jumlah}}</td>
                         <td></td>
                         <td></td>
