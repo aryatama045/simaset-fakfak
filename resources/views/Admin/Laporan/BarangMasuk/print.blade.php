@@ -244,6 +244,7 @@ use Carbon\Carbon;
 
                     <!-- Header List -->
                     @if($tgl_dokumen != $d->bm_tanggal)
+                        <?php $sj_h = $d->bm_jumlah * $d->barang_harga; $sj_h++; ?>
                         <tr>
                             <td align="center">{{$no++}}</td>
                             <td>{{Carbon::parse($d->bm_tanggal)->translatedFormat('d F Y')}}</td>
@@ -258,8 +259,8 @@ use Carbon\Carbon;
                             <td>{{Carbon::parse($d->bm_tanggal)->translatedFormat('d F Y')}}</td>
                             <td><p style="font-size:14px;text-align:left;"><b>{{$d->jenisbarang_nama}}</b></p></td>
                             <td align="center"></td>
-                            <td></td> <?php $sj_h = $d->bm_jumlah * $d->barang_harga; echo $j_h; ?>
                             <td></td>
+                            <td>{{ $sj_h }}</td>
                             <td></td>
                             <td></td>
                             <td></td>
