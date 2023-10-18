@@ -284,22 +284,24 @@ use Carbon\Carbon;
 
                     <?php $sj_h += $d->bm_jumlah * $d->barang_harga;  ?>
                     @php $tgl_dokumen = $d->bm_tanggal; $pb_kode = $d->pb_kode; @endphp
+
+                    <tr>
+                        <td align="center"></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td align="center"></td>
+                        <td align="center"></td>
+                        <td align="center"><b>{{ number_format($sj_h,0,"",'.') }}</b></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
                 @endforeach
 
-                <tr>
-                    <td align="center"></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td align="center"></td>
-                    <td align="center"></td>
-                    <td align="center"><b>{{ number_format($sj_h,0,"",'.') }}</b></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
+
             </tbody>
         </table>
 
