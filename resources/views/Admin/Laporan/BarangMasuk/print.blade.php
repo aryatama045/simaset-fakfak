@@ -239,18 +239,22 @@ use Carbon\Carbon;
 
 
             <tbody>
-                @php $no=1; $tgl_dokumen = ''; @endphp
+                @php $no=1; $tgl_dokumen = ''; $pb_kode = ''; @endphp
                 @foreach($data as $d)
 
+                    <!-- Header List -->
                     @if($tgl_dokumen != $d->bm_tanggal)
                         <tr>
                             <td align="center">{{$no++}}</td>
                             <td>{{Carbon::parse($d->bm_tanggal)->translatedFormat('d F Y')}}</td>
                             <td>{{$d->supplier_nama}}</td>
+                            @if($pb_kode != $d->pb_kode)
                             <td>{{$d->pb_kode}}</td>
+                            @endif
+
                             <td>{{Carbon::parse($d->bm_tanggal)->translatedFormat('d F Y')}}</td>
                             <td><p style="font-size:14px;"><b>{{$d->jenisbarang_nama}}</b></p></td>
-                            <td align="center">{{$d->bm_jumlah}}</td>
+                            <td align="center"></td>
                             <td></td>
                             <td></td>
                             <td></td>
@@ -263,7 +267,7 @@ use Carbon\Carbon;
                         <td align="center"></td>
                         <td></td>
                         <td></td>
-                        <td>{{$d->pb_kode}}</td>
+                        <td></td>
                         <td>{{Carbon::parse($d->bm_tanggal)->translatedFormat('d F Y')}}</td>
                         <td>{{$d->barang_nama}}</td>
                         <td align="center">{{$d->bm_jumlah}}</td>
@@ -274,7 +278,7 @@ use Carbon\Carbon;
                         <td></td>
                     </tr>
 
-                    @php $tgl_dokumen = $d->bm_tanggal; @endphp
+                    @php $tgl_dokumen = $d->bm_tanggal; $pb_kode = $d->pb_kode; @endphp
                 @endforeach
             </tbody>
         </table>
