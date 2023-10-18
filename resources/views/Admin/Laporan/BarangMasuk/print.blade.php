@@ -262,7 +262,13 @@ use Carbon\Carbon;
                             <td><p style="font-size:14px;text-align:left;"><b>{{$d->jenisbarang_nama}}</b></p></td>
                             <td align="center"></td>
                             <td></td>
-                            <td></td>
+
+                            @if($sj_h > 0)
+                                <td>{{$sj_h}}</td>
+                            @else
+                                <td></td>
+                            @endif
+
                             <td></td>
                             <td></td>
                             <td></td>
