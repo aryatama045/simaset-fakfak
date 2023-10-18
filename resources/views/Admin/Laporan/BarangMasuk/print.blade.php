@@ -285,6 +285,23 @@ use Carbon\Carbon;
                     <?php $sj_h += $d->bm_jumlah * $d->barang_harga;  ?>
                     @php $tgl_dokumen = $d->bm_tanggal; $pb_kode = $d->pb_kode; @endphp
 
+
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td align="center"><?php echo number_format($sj_h,0,"",'.'); ?></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+
                 @endforeach
 
 
