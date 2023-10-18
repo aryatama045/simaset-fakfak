@@ -277,7 +277,7 @@ use Carbon\Carbon;
                         <td></td>
                         <td style="font-size:14px;text-align:left;">{{$d->barang_nama}}</td>
                         <td align="center">{{$d->bm_jumlah}}</td>
-                        <td align="center">{{$d->barang_harga}}</td>
+                        <td align="center">{{ rupiah($d->barang_harga) }}</td>
                         <td align="center"><?php $j_h = $d->bm_jumlah * $d->barang_harga; echo $j_h; ?></td>
                         <td></td>
                         <td></td>
