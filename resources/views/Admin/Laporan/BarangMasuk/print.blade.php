@@ -243,7 +243,7 @@ use Carbon\Carbon;
                 @foreach($data as $d)
 
                     <!-- Header List -->
-                    @if($sj_h != 0)
+                    @if($sj_h > 0)
                         @if($tgl_dokumen != $d->bm_tanggal)
                             <tr>
                                 <td align="center">{{$no++}}</td>
