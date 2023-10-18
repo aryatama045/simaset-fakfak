@@ -242,9 +242,10 @@ use Carbon\Carbon;
                 @php $no=1; $tgl_dokumen = ''; $pb_kode = ''; @endphp
                 @foreach($data as $d)
 
+                    <?php $sj_h = $d->bm_jumlah * $d->barang_harga; $sj_h++; ?>
+
                     <!-- Header List -->
                     @if($tgl_dokumen != $d->bm_tanggal)
-                        <?php $sj_h = $d->bm_jumlah * $d->barang_harga; $sj_h++; ?>
                         <tr>
                             <td align="center">{{$no++}}</td>
                             <td>{{Carbon::parse($d->bm_tanggal)->translatedFormat('d F Y')}}</td>
