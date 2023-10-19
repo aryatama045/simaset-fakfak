@@ -92,15 +92,39 @@ use Carbon\Carbon;
     <table border="1" id="table1">
         <thead>
             <tr>
-                <th align="center" width="1%">NO</th>
-                <th>TGL KELUAR</th>
-                <th>KODE BRG KELUAR</th>
-                <th>KODE BARANG</th>
-                <th>BARANG</th>
-                <th>JML KELUAR</th>
-                <th>TUJUAN</th>
+                <th rowspan="3" width="1%" > NO </th>
+                <th rowspan="3" width="7%" > TANGGAL </th>
+                <th rowspan="3" width="15%" > NAMA TOKO </th>
+                <th colspan="2"> DOKUMEN FAKTUR </th>
+                <th rowspan="3" width="30%"> NAMA BARANG</th>
+                <th rowspan="3" width="3%"> BANYAK NYA </th>
+                <th rowspan="3" width="3%"> HARGA SATUAN </th>
+                <th rowspan="3" width="3%"> JUMLAH HARGA </th>
+                <th colspan="2"> BUKTI PENERIMAAN </th>
+                <th rowspan="3"> KET </th>
+            </tr>
+
+            <tr>
+                <th rowspan="2" width="7%">NOMOR</th>
+                <th rowspan="2" width="7%">TANGGAL</th>
+
+                <th colspan="2"> B.A PENERIMAAN </th>
+
+            </tr>
+
+            <tr>
+                <th width="7%">NOMOR</th>
+                <th width="7%">TANGGAL</th>
+            </tr>
+
+            <tr id="thbottom">
+                @for($x=1; $x <= 12; $x++)
+                <th>{{$x}}</th>
+                @endfor
             </tr>
         </thead>
+
+
         <tbody>
             @php $no=1; @endphp
             @foreach($data as $d)
