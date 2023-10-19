@@ -28,6 +28,7 @@ use Carbon\Carbon;
     <title>{{$title}}</title>
 
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:400,300|Raleway:300,400,900,700italic,700,300,600">
+    <link rel="stylesheet" type="text/css" href='http://fonts.googleapis.com/css?family=Times:400,300,700'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css"  />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" />
@@ -35,7 +36,8 @@ use Carbon\Carbon;
     <style>
         /* Default */
         * {
-            font-family: Times, Helvetica, sans-serif;
+            /* font-family: Times, Helvetica, sans-serif; */
+            font-family: 'Times', sans-serif !important;
             font-size: 1.3rem;
         }
 
