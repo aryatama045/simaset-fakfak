@@ -254,7 +254,7 @@ use Carbon\Carbon;
                 </div>
 
                 <div class="form-group row">
-                    <label for="staticEmail" class="col-sm-5 col-form-label">MERK/TYPE/JENIS/NAMA BARANG</label>
+                    <label for="staticEmail" class="col-sm-5 col-form-label">MERK / TYPE / JENIS / NAMA BARANG</label>
                     <div class="col-sm-7">
                     :
                     </div>
