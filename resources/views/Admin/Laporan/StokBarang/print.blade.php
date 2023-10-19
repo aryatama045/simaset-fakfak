@@ -207,7 +207,7 @@ use Carbon\Carbon;
                 </div>
                 <div class="col-md-10 col-sm-10 col-xs-10">
                     <h3 class="font-weight-bold"> {{ $web->header_1 }} </h3>
-                    <h2 class="font-weight-bold"> {{ $web->header_2 }}  </h2>
+                    <h1 class="keclogo font-weight-bold"> {{ $web->header_2 }}  </h1>
                     <h6 class="alamatlogo"> {{ $web->alamat }} </h6>
                     <!-- <h5 class="kodeposlogo"><strong>BERGAS 50552</strong></h5> -->
                 </div>
