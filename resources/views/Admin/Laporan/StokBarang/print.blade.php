@@ -224,7 +224,7 @@ use Carbon\Carbon;
         </div>
 
         <div id="alamat" class="row">
-            <div id="lampiran" class="col-md-8">
+            <div id="lampiran" class="col-md-8 col align-self-start">
                 <div class="form-group row">
                     <label for="staticEmail" class="col-sm-5 col-form-label">SKPD</label>
                     <div class="col-sm-7">
@@ -267,7 +267,7 @@ use Carbon\Carbon;
                     </div>
                 </div>
             </div>
-            <div id="tgl-srt" class="col-md-4">
+            <div id="tgl-srt" class="col-md-4 col align-self-end">
                 <div class="form-group row">
                     <label for="staticEmail" class="col-sm-6 col-form-label">KARTU NO.</label>
                     <div class="col-sm-6">
