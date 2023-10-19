@@ -214,7 +214,7 @@ use Carbon\Carbon;
 
         <hr class="garis1"/>
 
-        <div class="row">
+        <div class="row" style="margin-bottom:35px;">
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <h1 class="keclogo"><strong> Laporan Stok Barang
                     <?php if($tglawal != ''){ ?>
@@ -226,43 +226,43 @@ use Carbon\Carbon;
         <div id="alamat" class="row">
             <div id="lampiran" class="col-md-6">
                 <div class="form-group row">
-                    <label for="staticEmail" class="col-sm-3 col-form-label">SKPD</label>
-                    <div class="col-sm-9">
+                    <label for="staticEmail" class="col-sm-5 col-form-label">SKPD</label>
+                    <div class="col-sm-7">
                     : SEKRETARIAT DPRD
                     </div>
                 </div>
 
                 <div class="form-group row">
-                    <label for="staticEmail" class="col-sm-3 col-form-label">KABUPATEN</label>
-                    <div class="col-sm-9">
+                    <label for="staticEmail" class="col-sm-5 col-form-label">KABUPATEN</label>
+                    <div class="col-sm-7">
                     : FAKFAK
                     </div>
                 </div>
 
                 <div class="form-group row">
-                    <label for="staticEmail" class="col-sm-3 col-form-label">PROVINSI</label>
-                    <div class="col-sm-9">
+                    <label for="staticEmail" class="col-sm-5 col-form-label">PROVINSI</label>
+                    <div class="col-sm-7">
                     : PAPUA BARAT
                     </div>
                 </div>
 
                 <div class="form-group row">
-                    <label for="staticEmail" class="col-sm-3 col-form-label">GUDANG</label>
-                    <div class="col-sm-9">
+                    <label for="staticEmail" class="col-sm-5 col-form-label">GUDANG</label>
+                    <div class="col-sm-7">
                     :
                     </div>
                 </div>
 
                 <div class="form-group row">
-                    <label for="staticEmail" class="col-sm-3 col-form-label">MERK/TYPE/JENIS/NAMA BARANG</label>
-                    <div class="col-sm-9">
+                    <label for="staticEmail" class="col-sm-5 col-form-label">MERK/TYPE/JENIS/NAMA BARANG</label>
+                    <div class="col-sm-7">
                     :
                     </div>
                 </div>
 
                 <div class="form-group row">
-                    <label for="staticEmail" class="col-sm-3 col-form-label">SATUAN</label>
-                    <div class="col-sm-9">
+                    <label for="staticEmail" class="col-sm-5 col-form-label">SATUAN</label>
+                    <div class="col-sm-7">
                     :
                     </div>
                 </div>
