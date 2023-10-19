@@ -267,14 +267,20 @@ use Carbon\Carbon;
                     </div>
                 </div>
             </div>
-            <!-- <div id="tgl-srt" class="col-md-6">
-                <p id="tls">Bergas, 30 April 2018</p>
-
-                <p class="alamat-tujuan">Kepada Yth. :<br />
-                Kepala Desa</p>
-                <p class="alamat-tujuan">se - Kecamatan Bergas
-                </p>
-            </div> -->
+            <div id="tgl-srt" class="col-md-6">
+                <div class="form-group row">
+                    <label for="staticEmail" class="col-sm-3 col-form-label">KARTU NO.</label>
+                    <div class="col-sm-9">
+                    :
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="staticEmail" class="col-sm-3 col-form-label">SPESIFIKASI</label>
+                    <div class="col-sm-9">
+                    :
+                    </div>
+                </div>
+            </div>
         </div>
 
         <table border="1" id="table1">
