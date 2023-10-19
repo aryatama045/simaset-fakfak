@@ -227,42 +227,42 @@ use Carbon\Carbon;
         <div id="alamat" class="row">
             <div id="lampiran" class="col-md-8 col align-self-start">
                 <div class="form-group row">
-                    <label for="staticEmail" class="col-sm-5 col-form-label">SKPD</label>
+                    <label for="staticEmail" class="col-sm-5">SKPD</label>
                     <div class="col-sm-7">
                     : SEKRETARIAT DPRD
                     </div>
                 </div>
 
                 <div class="form-group row">
-                    <label for="staticEmail" class="col-sm-5 col-form-label">KABUPATEN</label>
+                    <label for="staticEmail" class="col-sm-5">KABUPATEN</label>
                     <div class="col-sm-7">
                     : FAKFAK
                     </div>
                 </div>
 
                 <div class="form-group row">
-                    <label for="staticEmail" class="col-sm-5 col-form-label">PROVINSI</label>
+                    <label for="staticEmail" class="col-sm-5">PROVINSI</label>
                     <div class="col-sm-7">
                     : PAPUA BARAT
                     </div>
                 </div>
 
                 <div class="form-group row">
-                    <label for="staticEmail" class="col-sm-5 col-form-label">GUDANG</label>
+                    <label for="staticEmail" class="col-sm-5">GUDANG</label>
                     <div class="col-sm-7">
                     :
                     </div>
                 </div>
 
                 <div class="form-group row">
-                    <label for="staticEmail" class="col-sm-5 col-form-label">MERK / TYPE / JENIS / NAMA BARANG</label>
+                    <label for="staticEmail" class="col-sm-5">MERK / TYPE / JENIS / NAMA BARANG</label>
                     <div class="col-sm-7">
                     :
                     </div>
                 </div>
 
                 <div class="form-group row">
-                    <label for="staticEmail" class="col-sm-5 col-form-label">SATUAN</label>
+                    <label for="staticEmail" class="col-sm-5">SATUAN</label>
                     <div class="col-sm-7">
                     :
                     </div>
@@ -270,16 +270,14 @@ use Carbon\Carbon;
             </div>
             <div id="tgl-srt" class="col-md-4 col align-self-end">
                 <div class="form-group row">
-                    <label for="staticEmail" class="col-sm-6 col-form-label">KARTU NO.</label>
+                    <label for="staticEmail" class="col-sm-6">KARTU NO.</label>
                     <div class="col-sm-6">
                     :
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="staticEmail" class="col-sm-6 col-form-label">SPESIFIKASI</label>
-                    <div class="col-sm-6">
-                    :
-                    </div>
+                    <label for="staticEmail" class="col-sm-6">SPESIFIKASI</label>
+                    <div class="col-sm-6"> : </div>
                 </div>
             </div>
         </div>
