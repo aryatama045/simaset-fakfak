@@ -191,6 +191,22 @@ use Carbon\Carbon;
 
         <hr class="garis1"/>
 
+        <div id="alamat" class="row">
+            <div id="lampiran" class="col-md-6">
+                Nomor	: 005 / <br />
+                Lampiran	: - <br />
+                Perihal	: Undangan
+            </div>
+            <div id="tgl-srt" class="col-md-6">
+                <p id="tls">Bergas, 30 April 2018</p>
+
+                <p class="alamat-tujuan">Kepada Yth. :<br />
+                Kepala Desa</p>
+                <p class="alamat-tujuan">se - Kecamatan Bergas
+                </p>
+            </div>
+        </div>
+
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <h1 class="keclogo"><strong> Laporan Penerimaan
