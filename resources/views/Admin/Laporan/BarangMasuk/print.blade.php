@@ -240,7 +240,7 @@ use Carbon\Carbon;
                     <th rowspan="3" width="7%" > TANGGAL </th>
                     <th rowspan="3" width="15%" > NAMA TOKO </th>
                     <th colspan="2"> DOKUMEN FAKTUR </th>
-                    <th rowspan="3" width="27%"> NAMA BARANG</th>
+                    <th rowspan="3" width="22%"> NAMA BARANG</th>
                     <th rowspan="3" width="3%"> BANYAK NYA </th>
                     <th rowspan="3" width="3%"> HARGA SATUAN </th>
                     <th rowspan="3" width="3%"> JUMLAH HARGA </th>
