@@ -100,6 +100,10 @@ use Carbon\Carbon;
             width:100%;
         }
 
+        .form-group{
+            margin-bottom: 0px;
+        }
+
         #kop-surat{
             margin-top: 50px;
         }
@@ -238,7 +242,7 @@ use Carbon\Carbon;
                 <tr>
                     <th rowspan="3" width="1%" > NO </th>
                     <th rowspan="3" width="7%" > TANGGAL </th>
-                    <th rowspan="3" width="15%" > NAMA TOKO </th>
+                    <th rowspan="3" width="10%" > NAMA TOKO </th>
                     <th colspan="2"> DOKUMEN FAKTUR </th>
                     <th rowspan="3" width="22%"> NAMA BARANG</th>
                     <th rowspan="3" width="3%"> BANYAK NYA </th>
