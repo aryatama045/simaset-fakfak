@@ -36,8 +36,8 @@ use Carbon\Carbon;
     <style>
         /* Default */
         * {
-            /* font-family: Times, Helvetica, sans-serif; */
-            font-family: 'Times', sans-serif !important;
+            font-family: Times, Helvetica, sans-serif !important;
+            /* font-family: 'Times', sans-serif !important; */
             font-size: 1.3rem;
         }
 
