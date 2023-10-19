@@ -191,11 +191,37 @@ use Carbon\Carbon;
 
         <hr class="garis1"/>
 
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <h1 class="keclogo"><strong> Laporan Penerimaan
+                    <?php if($tglawal != ''){ ?>
+                        {{Carbon::parse($tglawal)->translatedFormat('d F Y')}} - {{Carbon::parse($tglakhir)->translatedFormat('d F Y')}}
+                    <?php }else{ ?> - Seluruh Barang <?php } ?></strong></h1>
+            </div>
+        </div>
+
         <div id="alamat" class="row">
             <div id="lampiran" class="col-md-6">
-                Nomor	: 005 / <br />
-                Lampiran	: - <br />
-                Perihal	: Undangan
+                <div class="form-group row">
+                    <label for="staticEmail" class="col-sm-2 col-form-label">SKPD</label>
+                    <div class="col-sm-10">
+                    : SEKRETARIAT DPRD
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="staticEmail" class="col-sm-2 col-form-label">KABUPATEN</label>
+                    <div class="col-sm-10">
+                    : FAKFAK
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="staticEmail" class="col-sm-2 col-form-label">KOTA</label>
+                    <div class="col-sm-10">
+                    : FAKFAK
+                    </div>
+                </div>
             </div>
             <div id="tgl-srt" class="col-md-6">
                 <p id="tls">Bergas, 30 April 2018</p>
@@ -206,16 +232,6 @@ use Carbon\Carbon;
                 </p>
             </div>
         </div>
-
-        <div class="row">
-            <div class="col-md-12 col-sm-12 col-xs-12">
-                <h1 class="keclogo"><strong> Laporan Penerimaan
-                    <?php if($tglawal != ''){ ?>
-                        {{Carbon::parse($tglawal)->translatedFormat('d F Y')}} - {{Carbon::parse($tglakhir)->translatedFormat('d F Y')}}
-                    <?php }else{ ?> - Seluruh Barang <?php } ?></strong></h1>
-            </div>
-        </div>
-
 
         <table border="1" id="table1">
             <thead>
