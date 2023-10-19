@@ -36,6 +36,7 @@ use Carbon\Carbon;
         /* Default */
         * {
             font-family: Times, Helvetica, sans-serif;
+            font-size: 1.3rem;
         }
 
         @media print{
