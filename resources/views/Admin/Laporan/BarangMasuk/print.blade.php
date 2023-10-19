@@ -278,11 +278,11 @@ use Carbon\Carbon;
                     @if($tgl_dokumen != $d->bm_tanggal)
                         <tr>
                             <td align="center">{{$no++}}</td>
-                            <td>{{Carbon::parse($d->bm_tanggal)->translatedFormat('d F Y')}}</td>
-                            <td>{{$d->supplier_nama}}</td>
+                            <td><b>{{Carbon::parse($d->bm_tanggal)->translatedFormat('d F Y')}}</b></td>
+                            <td><b>{{$d->supplier_nama}}</b></td>
 
                             @if($pb_kode != $d->pb_kode)
-                                <td>{{$d->pb_kode}}</td>
+                                <td><b>{{$d->pb_kode}}</b></td>
                             @else
                                 <td></td>
                             @endif
@@ -293,7 +293,7 @@ use Carbon\Carbon;
                             <td></td>
                             <td></td>
                             @if($bm_kode != $d->bm_kode)
-                                <td>{{$d->bm_kode}}</td>
+                                <td><b>{{$d->bm_kode}}</b></td>
                             @else
                                 <td></td>
                             @endif
