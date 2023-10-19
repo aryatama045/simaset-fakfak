@@ -109,7 +109,7 @@ use Carbon\Carbon;
         }
 
         #kop-surat{
-            margin-top: 50px;
+            margin-top: 30px;
         }
 
         .keclogo{
