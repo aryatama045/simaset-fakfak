@@ -102,6 +102,10 @@ use Carbon\Carbon;
             width:100%;
         }
 
+        .form-group{
+            margin-bottom: 0px;
+        }
+
         #kop-surat{
             margin-top: 50px;
         }
@@ -219,6 +223,60 @@ use Carbon\Carbon;
             </div>
         </div>
 
+        <div id="alamat" class="row">
+            <div id="lampiran" class="col-md-6">
+                <div class="form-group row">
+                    <label for="staticEmail" class="col-sm-3 col-form-label">SKPD</label>
+                    <div class="col-sm-9">
+                    : SEKRETARIAT DPRD
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="staticEmail" class="col-sm-3 col-form-label">KABUPATEN</label>
+                    <div class="col-sm-9">
+                    : FAKFAK
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="staticEmail" class="col-sm-3 col-form-label">PROVINSI</label>
+                    <div class="col-sm-9">
+                    : PAPUA BARAT
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="staticEmail" class="col-sm-3 col-form-label">GUDANG</label>
+                    <div class="col-sm-9">
+                    :
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="staticEmail" class="col-sm-3 col-form-label">MERK/TYPE/JENIS/NAMA BARANG</label>
+                    <div class="col-sm-9">
+                    :
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="staticEmail" class="col-sm-3 col-form-label">SATUAN</label>
+                    <div class="col-sm-9">
+                    :
+                    </div>
+                </div>
+            </div>
+            <!-- <div id="tgl-srt" class="col-md-6">
+                <p id="tls">Bergas, 30 April 2018</p>
+
+                <p class="alamat-tujuan">Kepada Yth. :<br />
+                Kepala Desa</p>
+                <p class="alamat-tujuan">se - Kecamatan Bergas
+                </p>
+            </div> -->
+        </div>
+
         <table border="1" id="table1">
             <thead>
                 <tr>
@@ -258,11 +316,11 @@ use Carbon\Carbon;
                             <td colspan="12"> <strong>LAPORAN KESELURUHAN</strong></td>
                         </tr>
                     @endif
-                
+
                     @foreach($vt as $k => $v)
 
                         <tr>
-                            <td align="center">{{$no++}}</td>                        
+                            <td align="center">{{$no++}}</td>
                             <td>{{$t}}</td>
                             <td>{{$t}}</td>
                             <td style="text-align:left; font-size:14;"><strong>{{ $k }}</strong></td> <!-- Jenis Barang -->
@@ -306,7 +364,7 @@ use Carbon\Carbon;
                                 $totalStok = $d->barang_stok + ($jmlmasuk-$jmlkeluar);
                             ?>
 
-                            
+
 
                             <tr style="text-align:left;">
                                 <td></td>

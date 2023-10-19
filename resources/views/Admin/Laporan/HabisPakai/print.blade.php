@@ -102,6 +102,10 @@ use Carbon\Carbon;
             width:100%;
         }
 
+        .form-group{
+            margin-bottom: 0px;
+        }
+
         #kop-surat{
             margin-top: 50px;
         }
@@ -212,11 +216,44 @@ use Carbon\Carbon;
 
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
-                <h1 class="keclogo"><strong> Laporan Habis Pakai
+                <h1 class="keclogo"><strong> Laporan Barang Habis Pakai
                     <?php if($tglawal != ''){ ?>
                         {{Carbon::parse($tglawal)->translatedFormat('d F Y')}} - {{Carbon::parse($tglakhir)->translatedFormat('d F Y')}}
                     <?php }else{ ?> - Seluruh Barang <?php } ?></strong></h1>
             </div>
+        </div>
+
+        <div id="alamat" class="row">
+            <div id="lampiran" class="col-md-6">
+                <div class="form-group row">
+                    <label for="staticEmail" class="col-sm-3 col-form-label">SKPD</label>
+                    <div class="col-sm-9">
+                    : SEKRETARIAT DPRD
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="staticEmail" class="col-sm-3 col-form-label">KABUPATEN</label>
+                    <div class="col-sm-9">
+                    : FAKFAK
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="staticEmail" class="col-sm-3 col-form-label">PROVINSI</label>
+                    <div class="col-sm-9">
+                    : PAPUA BARAT
+                    </div>
+                </div>
+            </div>
+            <!-- <div id="tgl-srt" class="col-md-6">
+                <p id="tls">Bergas, 30 April 2018</p>
+
+                <p class="alamat-tujuan">Kepada Yth. :<br />
+                Kepala Desa</p>
+                <p class="alamat-tujuan">se - Kecamatan Bergas
+                </p>
+            </div> -->
         </div>
 
         <table border="1" id="table1">
