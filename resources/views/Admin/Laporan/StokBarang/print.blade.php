@@ -269,14 +269,14 @@ use Carbon\Carbon;
             </div>
             <div id="tgl-srt" class="col-md-4">
                 <div class="form-group row">
-                    <label for="staticEmail" class="col-sm-3 col-form-label">KARTU NO.</label>
-                    <div class="col-sm-9">
+                    <label for="staticEmail" class="col-sm-6 col-form-label">KARTU NO.</label>
+                    <div class="col-sm-6">
                     :
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="staticEmail" class="col-sm-3 col-form-label">SPESIFIKASI</label>
-                    <div class="col-sm-9">
+                    <label for="staticEmail" class="col-sm-6 col-form-label">SPESIFIKASI</label>
+                    <div class="col-sm-6">
                     :
                     </div>
                 </div>
