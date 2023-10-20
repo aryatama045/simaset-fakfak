@@ -265,9 +265,9 @@ use Carbon\Carbon;
             <tbody>
                 @php $no=1;  $tgl_dokumen = ''; $jb = '';  @endphp
 
-                @foreach($data as $tgl)
+                @foreach($data as $tk => $tgl)
 
-                    @foreach($tgl as $k )
+                    @foreach($tgl as $nk => $k )
 
                         <!-- Header List -->
                             <tr>
@@ -284,7 +284,7 @@ use Carbon\Carbon;
                             </tr>
 
                         @php $no_d=1; @endphp
-                        @foreach($k as $i => $d )
+                        @foreach($k as $d )
 
                             <tr>
                                 <td align="center"></td>
