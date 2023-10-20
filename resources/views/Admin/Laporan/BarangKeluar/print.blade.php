@@ -293,8 +293,8 @@ use Carbon\Carbon;
                         <td>{{$d->bk_tujuan}}</td>
                         <td>sda</td>
                         <td>
-                            <?php $ket = $d->barang_stok - $d->bk_jumlah;
-                            if($ket == 0) { ?>
+                            <?php
+                            if($d->barang_stok == 0) { ?>
                                 Habis
                             <?php } ?>
                         </td>
