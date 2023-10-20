@@ -273,7 +273,7 @@ use Carbon\Carbon;
                             <tr>
                                 <td align="center">
                                     @if($tgl_dokumen != $tk)
-                                        {{$no++}}
+                                        <b>{{$no++}}</b>
                                     @endif
                                 </td>
                                 <td>
