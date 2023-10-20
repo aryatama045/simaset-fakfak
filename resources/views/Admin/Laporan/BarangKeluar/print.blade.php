@@ -278,7 +278,7 @@ use Carbon\Carbon;
                                 </td>
                                 <td>
                                     @if($tgl_dokumen != $tk)
-                                        <b>{{ date('d-F-Y', strtotime($tk)) }}</b>
+                                        <b>{{ date('d-M-Y', strtotime($tk)) }}</b>
                                     @endif
                                 </td>
                                 <td></td>
@@ -289,7 +289,7 @@ use Carbon\Carbon;
                                 <td></td>
                                 <td>
                                     @if($tgl_dokumen != $tk)
-                                    <b>{{ date('d-F-Y', strtotime($tk)) }}</b>
+                                    <b>{{ date('d-M-Y', strtotime($tk)) }}</b>
                                     @endif
                                 </td><!-- Tgl Penyerahan -->
                                 <td></td>
