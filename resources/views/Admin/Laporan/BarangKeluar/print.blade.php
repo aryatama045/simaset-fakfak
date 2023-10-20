@@ -272,7 +272,7 @@ use Carbon\Carbon;
                             <td align="center">{{$no++}}</td>
                             <td>{{Carbon::parse($d->bk_tanggal)->translatedFormat('d F Y')}}</td>
                             <td></td>
-                            <td>{{$d->barang_kode}}</td>
+                            <td align="left">{{$d->barang_kode}}</td>
                             <td></td>
                             <td align="center"></td> <!-- Total Harga -->
                             <td></td>
@@ -286,7 +286,7 @@ use Carbon\Carbon;
                         <td align="center"></td>
                         <td></td>
                         <td>{{$no_d++}}</td>
-                        <td>{{$d->barang_nama}}</td>
+                        <td align="left">{{$d->barang_nama}}</td>
                         <td>{{$d->bk_jumlah}}</td>
                         <td align="center"> </td> <!-- Harga -->
                         <td></td> <!-- Subtotal Harga -->
