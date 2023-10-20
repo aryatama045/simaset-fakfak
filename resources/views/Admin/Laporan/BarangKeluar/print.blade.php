@@ -243,14 +243,14 @@ use Carbon\Carbon;
             <thead>
                 <tr>
                     <th width="1%"> NO </th>
-                    <th width="7%"> TANGGAL </th>
-                    <th width="15%"> NO URUT </th>
+                    <th width="15%"> TANGGAL </th>
+                    <th width="5%"> NO URUT </th>
                     <th width="30%"> NAMA BARANG</th>
                     <th width="3%"> BANYAK NYA </th>
                     <th width="3%"> HARGA SATUAN </th>
                     <th width="3%"> JUMLAH HARGA </th>
                     <th> UNTUK </th>
-                    <th> PENYERAHAN TANGGAL </th>
+                    <th width="15%"> PENYERAHAN TANGGAL </th>
                     <th> KET </th>
                 </tr>
 
