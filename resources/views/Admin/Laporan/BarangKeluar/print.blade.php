@@ -272,14 +272,14 @@ use Carbon\Carbon;
                         <!-- Header List -->
                             <tr>
                                 <td align="center">{{$no++}}</td>
-                                <td>{{$tgl}}</td>
+                                <td>{{$tk}}</td>
                                 <td></td>
-                                <td style="font-size:14px;text-align:left;"><b>{{$k}}</b></td>
+                                <td style="font-size:14px;text-align:left;"><b>{{$nk}}</b></td>
                                 <td></td>
                                 <td align="center"></td> <!-- Total Harga -->
                                 <td></td>
                                 <td></td>
-                                <td>{{$tgl}}</td><!-- Tgl Penyerahan -->
+                                <td>{{$tk}}</td><!-- Tgl Penyerahan -->
                                 <td></td>
                             </tr>
 
