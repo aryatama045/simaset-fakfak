@@ -271,17 +271,17 @@ use Carbon\Carbon;
                     @foreach($tgl as $k )
 
                         <!-- Header List -->
-                        @if($tgl_dokumen != $tgl )
+                        @if($tgl_dokumen != $data )
                             <tr>
                                 <td align="center">{{$no++}}</td>
-                                <td>{{Carbon::parse($tgl)->translatedFormat('d F Y')}}</td>
+                                <td>{{Carbon::parse($data)->translatedFormat('d F Y')}}</td>
                                 <td></td>
                                 <td style="font-size:14px;text-align:left;"><b>{{$k}}</b></td>
                                 <td></td>
                                 <td align="center"></td> <!-- Total Harga -->
                                 <td></td>
                                 <td></td>
-                                <td>{{Carbon::parse($tgl)->translatedFormat('d F Y')}}</td><!-- Tgl Penyerahan -->
+                                <td>{{Carbon::parse($data)->translatedFormat('d F Y')}}</td><!-- Tgl Penyerahan -->
                                 <td></td>
                             </tr>
                         @endif
@@ -311,7 +311,7 @@ use Carbon\Carbon;
                         @php $jb = $d->jenisbarang_nama @endphp
                         @endforeach
 
-                        @php $tgl_dokumen = $tgl; @endphp
+                        @php $tgl_dokumen = $data; @endphp
 
                     @endforeach
                 @endforeach
