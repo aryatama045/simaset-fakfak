@@ -268,7 +268,7 @@ use Carbon\Carbon;
                 @foreach($data as $tgl)
 
 
-                @foreach($tgl as $d)
+                @foreach($tgl as $k => $d)
 
                     <!-- Header List -->
                     @if($tgl_dokumen != $d->bk_tanggal )
