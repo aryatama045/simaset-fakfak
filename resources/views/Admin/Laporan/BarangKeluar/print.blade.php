@@ -265,10 +265,10 @@ use Carbon\Carbon;
             <tbody>
                 @php $no=1; $no_d=1; $tgl_dokumen = ''; $jb = '';  @endphp
 
-                @foreach($tgl as $data)
+                @foreach($data as $tgl)
 
 
-                @foreach($data as $d)
+                @foreach($tgl as $d)
 
                     <!-- Header List -->
                     @if($tgl_dokumen != $d->bk_tanggal )
