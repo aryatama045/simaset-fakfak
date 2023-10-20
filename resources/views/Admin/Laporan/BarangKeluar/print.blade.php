@@ -242,16 +242,16 @@ use Carbon\Carbon;
         <table border="1" id="table1">
             <thead>
                 <tr>
-                    <th rowspan="2" width="1%" > NO </th>
-                    <th rowspan="2" width="7%" > TANGGAL </th>
-                    <th rowspan="2" width="15%" > NO URUT </th>
-                    <th rowspan="2" width="30%"> NAMA BARANG</th>
-                    <th rowspan="2" width="3%"> BANYAK NYA </th>
-                    <th rowspan="2" width="3%"> HARGA SATUAN </th>
-                    <th rowspan="2" width="3%"> JUMLAH HARGA </th>
-                    <th rowspan="2" > UNTUK </th>
-                    <th rowspan="2"> PENYERAHAN TANGGAL </th>
-                    <th rowspan="2" > KET </th>
+                    <th width="1%"> NO </th>
+                    <th width="7%"> TANGGAL </th>
+                    <th width="15%"> NO URUT </th>
+                    <th width="30%"> NAMA BARANG</th>
+                    <th width="3%"> BANYAK NYA </th>
+                    <th width="3%"> HARGA SATUAN </th>
+                    <th width="3%"> JUMLAH HARGA </th>
+                    <th> UNTUK </th>
+                    <th> PENYERAHAN TANGGAL </th>
+                    <th> KET </th>
                 </tr>
 
                 <tr id="thbottom">
@@ -263,7 +263,7 @@ use Carbon\Carbon;
 
 
             <tbody>
-                @php $no=1; $tgl_dokumen = '';  @endphp
+                @php $no=1; $no_d=1; $tgl_dokumen = '';  @endphp
                 @foreach($data as $d)
 
                     <!-- Header List -->
@@ -284,8 +284,8 @@ use Carbon\Carbon;
 
                     <tr>
                         <td align="center"></td>
-                        <td>{{Carbon::parse($d->bk_tanggal)->translatedFormat('d F Y')}}</td>
-                        <td>{{$no++}}</td>
+                        <td></td>
+                        <td>{{$no_d++}}</td>
                         <td>{{$d->barang_kode}}</td>
                         <td>{{$d->barang_nama}}</td>
                         <td align="center">{{$d->bk_jumlah}}</td>
