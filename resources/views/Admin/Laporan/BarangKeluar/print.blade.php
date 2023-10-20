@@ -263,52 +263,57 @@ use Carbon\Carbon;
 
 
             <tbody>
-                @php $no=1; $no_d=1; $tgl_dokumen = ''; $jb = '';  @endphp
+                @php $no=1;  $tgl_dokumen = ''; $jb = '';  @endphp
 
                 @foreach($data as $tgl)
 
 
-                @foreach($tgl as $k )
-
-                    @foreach($k as $d )
+                    @foreach($tgl as $k )
 
                         <!-- Header List -->
-                        @if($tgl_dokumen != $d->bk_tanggal )
+                        @if($tgl_dokumen != $tgl )
                             <tr>
                                 <td align="center">{{$no++}}</td>
-                                <td>{{Carbon::parse($d->bk_tanggal)->translatedFormat('d F Y')}}</td>
+                                <td>{{Carbon::parse($tgl)->translatedFormat('d F Y')}}</td>
                                 <td></td>
-                                <td style="font-size:14px;text-align:left;"><b>{{$d->jenisbarang_nama}}</b></td>
+                                <td style="font-size:14px;text-align:left;"><b>{{$k}}</b></td>
                                 <td></td>
                                 <td align="center"></td> <!-- Total Harga -->
                                 <td></td>
                                 <td></td>
-                                <td>{{Carbon::parse($d->bk_tanggal)->translatedFormat('d F Y')}}</td><!-- Tgl Penyerahan -->
+                                <td>{{Carbon::parse($tgl)->translatedFormat('d F Y')}}</td><!-- Tgl Penyerahan -->
                                 <td></td>
                             </tr>
                         @endif
 
-                        <tr>
-                            <td align="center"></td>
-                            <td></td>
-                            <td>{{$no_d++}}</td>
-                            <td style="text-align:left;">{{$d->barang_nama}}</td>
-                            <td>{{$d->bk_jumlah}}</td>
-                            <td align="center">{{ number_format($d->barang_harga,0,"",'.') }} </td> <!-- Harga -->
-                            <td></td> <!-- Subtotal Harga -->
-                            <td>{{$d->bk_tujuan}}</td>
-                            <td>sda</td>
-                            <td>
-                                <?php
-                                if($d->barang_stok == 0) { ?>
-                                    Habis
-                                <?php } ?>
-                            </td>
-                        </tr>
 
-                        @php $tgl_dokumen = $d->bk_tanggal; $jb = $d->jenisbarang_nama @endphp
+                        @php $no_d=1; @endphp
+                        @foreach($k as $d )
+
+                            <tr>
+                                <td align="center"></td>
+                                <td></td>
+                                <td>{{$no_d++}}</td>
+                                <td style="text-align:left;">{{$d->barang_nama}}</td>
+                                <td>{{$d->bk_jumlah}}</td>
+                                <td align="center">{{ number_format($d->barang_harga,0,"",'.') }} </td> <!-- Harga -->
+                                <td></td> <!-- Subtotal Harga -->
+                                <td>{{$d->bk_tujuan}}</td>
+                                <td>sda</td>
+                                <td>
+                                    <?php
+                                    if($d->barang_stok == 0) { ?>
+                                        Habis
+                                    <?php } ?>
+                                </td>
+                            </tr>
+
+                        @php $jb = $d->jenisbarang_nama @endphp
+                        @endforeach
+
+                        @php $tgl_dokumen = $tgl; @endphp
+
                     @endforeach
-                @endforeach
                 @endforeach
             </tbody>
         </table>
