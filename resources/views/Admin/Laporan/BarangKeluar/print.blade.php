@@ -267,7 +267,7 @@ use Carbon\Carbon;
                 @foreach($data as $d)
 
                     <!-- Header List -->
-                    @if($tgl_dokumen != $d->bk_tanggal && $jb != $d->jenisbarang_nama)
+                    <!-- @if($tgl_dokumen != $d->bk_tanggal && $jb != $d->jenisbarang_nama) -->
                         <tr>
                             <td align="center">{{$no++}}</td>
                             <td>{{Carbon::parse($d->bk_tanggal)->translatedFormat('d F Y')}}</td>
@@ -280,7 +280,7 @@ use Carbon\Carbon;
                             <td>{{Carbon::parse($d->bk_tanggal)->translatedFormat('d F Y')}}</td><!-- Tgl Penyerahan -->
                             <td></td>
                         </tr>
-                    @endif
+                    <!-- @endif -->
 
                     <tr>
                         <td align="center"></td>
