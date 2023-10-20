@@ -24,13 +24,24 @@ class LapBarangKeluarController extends Controller
             $data['data'] = BarangkeluarModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangkeluar.barang_kode')
                             ->leftJoin('tbl_jenisbarang as jb', 'jb.jenisbarang_id', '=', 'tbl_barang.jenisbarang_id')
                             ->whereBetween('bk_tanggal', [$request->tglawal, $request->tglakhir])
-                            ->groupBy('jenisbarang_nama')
                             ->orderBy('bk_id', 'DESC')->get();
+
+            $data['data'] = $data['data']->groupBy([
+                'bk_tanggal',
+                function ($item) {
+                    return $item['jenisbarang_nama'];
+                },
+            ], $preserveKeys = true);
         } else {
             $data['data'] = BarangkeluarModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangkeluar.barang_kode')
                             ->leftJoin('tbl_jenisbarang as jb', 'jb.jenisbarang_id', '=', 'tbl_barang.jenisbarang_id')
-                            ->groupBy('jenisbarang_nama')
                             ->orderBy('bk_id', 'DESC')->get();
+            $data['data'] = $data['data']->groupBy([
+                'bk_tanggal',
+                function ($item) {
+                    return $item['jenisbarang_nama'];
+                },
+            ], $preserveKeys = true);
         }
 
         $data["title"] = "Print Barang Masuk";
