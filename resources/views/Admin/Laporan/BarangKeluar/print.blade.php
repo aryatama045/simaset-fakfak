@@ -312,9 +312,9 @@ use Carbon\Carbon;
 
                         @endforeach
 
+                        @php $tgl_dokumen = $tk;  @endphp
                     @endforeach
 
-                    @php $tgl_dokumen = $tk;  @endphp
                 @endforeach
             </tbody>
         </table>
