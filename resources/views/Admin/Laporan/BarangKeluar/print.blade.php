@@ -267,11 +267,9 @@ use Carbon\Carbon;
 
                 @foreach($data as $tgl)
 
-
                     @foreach($tgl as $k )
 
                         <!-- Header List -->
-                        @if($tgl_dokumen != $tgl )
                             <tr>
                                 <td align="center">{{$no++}}</td>
                                 <td>{{$tgl}}</td>
@@ -281,14 +279,12 @@ use Carbon\Carbon;
                                 <td align="center"></td> <!-- Total Harga -->
                                 <td></td>
                                 <td></td>
-                                <td>{{ $tgl}}</td><!-- Tgl Penyerahan -->
+                                <td>{{$tgl}}</td><!-- Tgl Penyerahan -->
                                 <td></td>
                             </tr>
-                        @endif
-
 
                         @php $no_d=1; @endphp
-                        @foreach($k as $d )
+                        @foreach($k as $i => $d )
 
                             <tr>
                                 <td align="center"></td>
@@ -308,10 +304,8 @@ use Carbon\Carbon;
                                 </td>
                             </tr>
 
-                        @php $jb = $d->jenisbarang_nama @endphp
                         @endforeach
 
-                        @php $tgl_dokumen = $tgl; @endphp
 
                     @endforeach
                 @endforeach
