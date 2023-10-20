@@ -274,14 +274,14 @@ use Carbon\Carbon;
                         @if($tgl_dokumen != $data )
                             <tr>
                                 <td align="center">{{$no++}}</td>
-                                <td>{{Carbon::parse($data)->translatedFormat('d F Y')}}</td>
+                                <td>{{$data}}</td>
                                 <td></td>
                                 <td style="font-size:14px;text-align:left;"><b>{{$k}}</b></td>
                                 <td></td>
                                 <td align="center"></td> <!-- Total Harga -->
                                 <td></td>
                                 <td></td>
-                                <td>{{Carbon::parse($data)->translatedFormat('d F Y')}}</td><!-- Tgl Penyerahan -->
+                                <td>{{ $data}}</td><!-- Tgl Penyerahan -->
                                 <td></td>
                             </tr>
                         @endif
