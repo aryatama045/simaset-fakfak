@@ -292,7 +292,12 @@ use Carbon\Carbon;
                         <td></td> <!-- Subtotal Harga -->
                         <td>{{$d->bk_tujuan}}</td>
                         <td>sda</td>
-                        <td></td>
+                        <td>
+                            <?php $ket = $d->barang_stok - $d->bk_jumlah;
+                            if($ket == 0) { ?>
+                                Habis
+                            <?php } ?>
+                        </td>
                     </tr>
 
                     @php $tgl_dokumen = $d->bk_tanggal; @endphp
