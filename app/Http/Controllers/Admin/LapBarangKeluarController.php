@@ -22,10 +22,12 @@ class LapBarangKeluarController extends Controller
     {
         if ($request->tglawal) {
             $data['data'] = BarangkeluarModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangkeluar.barang_kode')
+                            ->leftJoin('tbl_jenisbarang as jb', 'jb.jenisbarang_id', '=', 'tbl_barang.jenisbarang_id')
                             ->whereBetween('bk_tanggal', [$request->tglawal, $request->tglakhir])
                             ->orderBy('bk_id', 'DESC')->get();
         } else {
             $data['data'] = BarangkeluarModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangkeluar.barang_kode')
+                            ->leftJoin('tbl_jenisbarang as jb', 'jb.jenisbarang_id', '=', 'tbl_barang.jenisbarang_id')
                             ->orderBy('bk_id', 'DESC')->get();
         }
 
