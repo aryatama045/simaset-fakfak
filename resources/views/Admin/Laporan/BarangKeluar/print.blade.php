@@ -288,7 +288,7 @@ use Carbon\Carbon;
                         <td>{{$no_d++}}</td>
                         <td style="text-align:left;">{{$d->barang_nama}}</td>
                         <td>{{$d->bk_jumlah}}</td>
-                        <td align="center"> </td> <!-- Harga -->
+                        <td align="center">{{ number_format($d->barang_harga,0,"",'.') }} </td> <!-- Harga -->
                         <td></td> <!-- Subtotal Harga -->
                         <td>{{$d->bk_tujuan}}</td>
                         <td>sda</td>
