@@ -271,10 +271,14 @@ use Carbon\Carbon;
 
                         <!-- Header List -->
                             <tr>
-                                <td align="center">{{$no++}}</td>
+                                <td align="center">
+                                    @if($tgl_dokumen != $tk)
+                                        {{$no++}}
+                                    @endif
+                                </td>
                                 <td>
                                     @if($tgl_dokumen != $tk)
-                                        {{$tk}}
+                                        <b>{{ date('d-F-Y', $tk) }}</b>
                                     @endif
                                 </td>
                                 <td></td>
@@ -284,7 +288,7 @@ use Carbon\Carbon;
                                 <td></td>
                                 <td></td>
                                 <td>@if($tgl_dokumen != $tk)
-                                        {{$tk}}
+                                        {{ date('d-F-Y', $tk) }}
                                     @endif</td><!-- Tgl Penyerahan -->
                                 <td></td>
                             </tr>
