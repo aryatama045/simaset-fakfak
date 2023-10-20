@@ -287,9 +287,11 @@ use Carbon\Carbon;
                                 <td align="center"></td> <!-- Total Harga -->
                                 <td></td>
                                 <td></td>
-                                <td>@if($tgl_dokumen != $tk)
-                                        {{ date('d-F-Y', $tk) }}
-                                    @endif</td><!-- Tgl Penyerahan -->
+                                <td>
+                                    @if($tgl_dokumen != $tk)
+                                    <b>{{ date('d-F-Y', $tk) }}</b>
+                                    @endif
+                                </td><!-- Tgl Penyerahan -->
                                 <td></td>
                             </tr>
 
