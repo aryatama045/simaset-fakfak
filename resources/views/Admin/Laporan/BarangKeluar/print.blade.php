@@ -263,8 +263,8 @@ use Carbon\Carbon;
 
 
             <tbody>
-                @php $no=1;  $tgl_dokumen = ''; $jb = '';  @endphp
 
+                @php $no=1;  $tgl_dokumen = ''; $jb = '';  @endphp
                 @foreach($data as $tk => $tgl)
 
                     @foreach($tgl as $nk => $k )
@@ -272,7 +272,11 @@ use Carbon\Carbon;
                         <!-- Header List -->
                             <tr>
                                 <td align="center">{{$no++}}</td>
-                                <td>{{$tk}}</td>
+                                <td>
+                                    @if($tgl_dokumen != $tk)
+                                        {{$tk}}
+                                    @endif
+                                </td>
                                 <td></td>
                                 <td style="font-size:14px;text-align:left;"><b>{{$nk}}</b></td>
                                 <td></td>
@@ -306,8 +310,9 @@ use Carbon\Carbon;
 
                         @endforeach
 
-
                     @endforeach
+
+                    @php $tgl_dokumen = $tk;  @endphp
                 @endforeach
             </tbody>
         </table>
