@@ -273,10 +273,10 @@ use Carbon\Carbon;
                             <td>{{Carbon::parse($d->bk_tanggal)->translatedFormat('d F Y')}}</td>
                             <td></td>
                             <td>{{$d->barang_kode}}</td>
-                            <td>{{$d->barang_nama}}</td>
-                            <td align="center">{{$d->bk_jumlah}}</td>
-                            <td>{{$d->bk_tujuan}}</td>
                             <td></td>
+                            <td align="center"></td> <!-- Total Harga -->
+                            <td></td>
+                            <td>{{Carbon::parse($d->bk_tanggal)->translatedFormat('d F Y')}}</td><!-- Tgl Penyerahan -->
                             <td></td>
                             <td></td>
                         </tr>
@@ -286,12 +286,12 @@ use Carbon\Carbon;
                         <td align="center"></td>
                         <td></td>
                         <td>{{$no_d++}}</td>
-                        <td>{{$d->barang_kode}}</td>
                         <td>{{$d->barang_nama}}</td>
-                        <td align="center">{{$d->bk_jumlah}}</td>
+                        <td>{{$d->bk_jumlah}}</td>
+                        <td align="center"> </td> <!-- Harga -->
+                        <td></td> <!-- Subtotal Harga -->
                         <td>{{$d->bk_tujuan}}</td>
-                        <td></td>
-                        <td></td>
+                        <td>sda</td>
                         <td></td>
                     </tr>
 
