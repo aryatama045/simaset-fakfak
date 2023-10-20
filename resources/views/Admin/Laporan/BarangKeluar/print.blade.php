@@ -276,8 +276,8 @@ use Carbon\Carbon;
                             <td></td>
                             <td align="center"></td> <!-- Total Harga -->
                             <td></td>
-                            <td>{{Carbon::parse($d->bk_tanggal)->translatedFormat('d F Y')}}</td><!-- Tgl Penyerahan -->
                             <td></td>
+                            <td>{{Carbon::parse($d->bk_tanggal)->translatedFormat('d F Y')}}</td><!-- Tgl Penyerahan -->
                             <td></td>
                         </tr>
                     @endif
