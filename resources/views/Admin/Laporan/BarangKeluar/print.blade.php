@@ -242,33 +242,20 @@ use Carbon\Carbon;
         <table border="1" id="table1">
             <thead>
                 <tr>
-                    <th rowspan="3" width="1%" > NO </th>
-                    <th rowspan="3" width="7%" > TANGGAL </th>
-                    <th rowspan="3" width="15%" > NAMA TOKO </th>
-                    <th colspan="2"> DOKUMEN FAKTUR </th>
-                    <th rowspan="3" width="30%"> NAMA BARANG</th>
-                    <th rowspan="3" width="3%"> BANYAK NYA </th>
-                    <th rowspan="3" width="3%"> HARGA SATUAN </th>
-                    <th rowspan="3" width="3%"> JUMLAH HARGA </th>
-                    <th colspan="2"> BUKTI PENERIMAAN </th>
-                    <th rowspan="3"> KET </th>
-                </tr>
-
-                <tr>
-                    <th rowspan="2" width="7%">NOMOR</th>
-                    <th rowspan="2" width="7%">TANGGAL</th>
-
-                    <th colspan="2"> B.A PENERIMAAN </th>
-
-                </tr>
-
-                <tr>
-                    <th width="7%">NOMOR</th>
-                    <th width="7%">TANGGAL</th>
+                    <th rowspan="2" width="1%" > NO </th>
+                    <th rowspan="2" width="7%" > TANGGAL </th>
+                    <th rowspan="2" width="15%" > NO URUT </th>
+                    <th rowspan="2" width="30%"> NAMA BARANG</th>
+                    <th rowspan="2" width="3%"> BANYAK NYA </th>
+                    <th rowspan="2" width="3%"> HARGA SATUAN </th>
+                    <th rowspan="2" width="3%"> JUMLAH HARGA </th>
+                    <th rowspan="2" > UNTUK </th>
+                    <th rowspan="2"> PENYERAHAN TANGGAL </th>
+                    <th rowspan="2" > KET </th>
                 </tr>
 
                 <tr id="thbottom">
-                    @for($x=1; $x <= 12; $x++)
+                    @for($x=1; $x <= 10; $x++)
                     <th>{{$x}}</th>
                     @endfor
                 </tr>
@@ -278,15 +265,21 @@ use Carbon\Carbon;
             <tbody>
                 @php $no=1; @endphp
                 @foreach($data as $d)
-                <tr>
-                    <td align="center">{{$no++}}</td>
-                    <td>{{Carbon::parse($d->bk_tanggal)->translatedFormat('d F Y')}}</td>
-                    <td>{{$d->bk_kode}}</td>
-                    <td>{{$d->barang_kode}}</td>
-                    <td>{{$d->barang_nama}}</td>
-                    <td align="center">{{$d->bk_jumlah}}</td>
-                    <td>{{$d->bk_tujuan}}</td>
-                </tr>
+
+                    <tr>
+                        <td align="center">{{$no++}}</td>
+                        <td>{{Carbon::parse($d->bk_tanggal)->translatedFormat('d F Y')}}</td>
+                        <td>{{$d->bk_kode}}</td>
+                        <td>{{$d->barang_kode}}</td>
+                        <td>{{$d->barang_nama}}</td>
+                        <td align="center">{{$d->bk_jumlah}}</td>
+                        <td>{{$d->bk_tujuan}}</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+
                 @endforeach
             </tbody>
         </table>
