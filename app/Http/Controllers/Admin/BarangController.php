@@ -554,7 +554,7 @@ class BarangController extends Controller
     {
         $data = BarangModel::get()->toArray();
         // dd($type, $data);
-        return Excel::store('laravelcode', function($excel) use ($data) {
+        return Excel::download('laravelcode', function($excel) use ($data) {
             $excel->sheet('mySheet', function($sheet) use ($data)
             {
                 $sheet->cell('A1', function($cell) {$cell->setValue('Nama Barang');   });
