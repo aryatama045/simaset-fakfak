@@ -553,7 +553,7 @@ class BarangController extends Controller
     {
         $type = 'xlsx';
         $data = BarangModel::get();
-        dd($data);
+        dd($type, $data);
         return Excel::create('laravelcode', function($excel) use ($data) {
             $excel->sheet('mySheet', function($sheet) use ($data)
             {
