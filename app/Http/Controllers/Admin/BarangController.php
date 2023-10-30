@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Storage;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Str;
 use App\Import\BarangImport;
+use Illuminate\Support\Facades\Input;
 use File;
 use Redirect;
 use Excel;
