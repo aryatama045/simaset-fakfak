@@ -549,7 +549,7 @@ class BarangController extends Controller
         }
     }
 
-    public function exportDataBarang()
+    function export_barang()
     {
         $type = 'xlsx';
         $data = BarangModel::get()->toArray();
