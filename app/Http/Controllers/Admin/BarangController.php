@@ -549,21 +549,22 @@ class BarangController extends Controller
         }
     }
 
-    public function exportUserData($type)
+    public function exportDataBarang()
     {
-        $data = User::get()->toArray();
+        $type = 'xlsx';
+        $data = BarangModel::get()->toArray();
         return Excel::create('laravelcode', function($excel) use ($data) {
             $excel->sheet('mySheet', function($sheet) use ($data)
             {
-                $sheet->cell('A1', function($cell) {$cell->setValue('First Name');   });
-                $sheet->cell('B1', function($cell) {$cell->setValue('Last Name');   });
-                $sheet->cell('C1', function($cell) {$cell->setValue('Email');   });
+                $sheet->cell('A1', function($cell) {$cell->setValue('Nama Barang');   });
+                $sheet->cell('B1', function($cell) {$cell->setValue('Stok');   });
+                $sheet->cell('C1', function($cell) {$cell->setValue('Harga');   });
                 if (!empty($data)) {
                     foreach ($data as $key => $value) {
                         $i= $key+2;
-                        $sheet->cell('A'.$i, $value['firstname']);
-                        $sheet->cell('B'.$i, $value['lastname']);
-                        $sheet->cell('C'.$i, $value['email']);
+                        $sheet->cell('A'.$i, $value['barang_nama']);
+                        $sheet->cell('B'.$i, $value['barang_stok']);
+                        $sheet->cell('C'.$i, $value['barang_harga']);
                     }
                 }
             });
