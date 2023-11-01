@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Storage;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Str;
 use App\Import\BarangImport;
+use App\Export\BarangExport;
 use Illuminate\Support\Facades\Input;
 use File;
 use Redirect;
@@ -552,24 +553,33 @@ class BarangController extends Controller
 
     function export_barang($type)
     {
-        $data = BarangModel::get()->toArray();
-        // dd($type, $data);
-        return Excel::download('laravelcode', function($excel) use ($data) {
-            $excel->sheet('mySheet', function($sheet) use ($data)
-            {
-                $sheet->cell('A1', function($cell) {$cell->setValue('Nama Barang');   });
-                $sheet->cell('B1', function($cell) {$cell->setValue('Stok');   });
-                $sheet->cell('C1', function($cell) {$cell->setValue('Harga');   });
-                if (!empty($data)) {
-                    foreach ($data as $key => $value) {
-                        $i= $key+2;
-                        $sheet->cell('A'.$i, $value['barang_nama']);
-                        $sheet->cell('B'.$i, $value['barang_stok']);
-                        $sheet->cell('C'.$i, $value['barang_harga']);
-                    }
-                }
-            });
-        })->download($type);
+        // $data = BarangModel::get()->toArray();
+        // // dd($type, $data);
+        // return Excel::download('laravelcode', function($excel) use ($data) {
+        //     $excel->sheet('mySheet', function($sheet) use ($data)
+        //     {
+        //         $sheet->cell('A1', function($cell) {$cell->setValue('Nama Barang');   });
+        //         $sheet->cell('B1', function($cell) {$cell->setValue('Stok');   });
+        //         $sheet->cell('C1', function($cell) {$cell->setValue('Harga');   });
+        //         if (!empty($data)) {
+        //             foreach ($data as $key => $value) {
+        //                 $i= $key+2;
+        //                 $sheet->cell('A'.$i, $value['barang_nama']);
+        //                 $sheet->cell('B'.$i, $value['barang_stok']);
+        //                 $sheet->cell('C'.$i, $value['barang_harga']);
+        //             }
+        //         }
+        //     });
+        // })->download($type);
+
+        try{
+            return Excel::download(new AllStudentExport, 'all_student_export.csv');
+        }catch(\Exception $e) {
+            // Toastr::error('Operation Failed', 'Failed');
+            // return redirect()->back();
+
+            return redirect()->back()->with('error_message', 'Operation Failed');
+        }
     }
 
 
