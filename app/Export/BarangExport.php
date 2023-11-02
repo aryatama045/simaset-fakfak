@@ -15,6 +15,7 @@ class BarangExport implements FromCollection, WithHeadings, ShouldAutoSize, With
 {
     public function headings():array{
         return[
+            'No.',
             'Nama Barang',
             'Stok',
             'Harga',
@@ -41,6 +42,7 @@ class BarangExport implements FromCollection, WithHeadings, ShouldAutoSize, With
         $data_barang = BarangModel::select('barang_nama', 'barang_stok', 'barang_harga', 'barang_id')
                     ->get();
 
+        $no=1;
         foreach ($data_barang as $barang) {
             // $data= [];
             // foreach ($barang->studentRecords as $record) {
@@ -52,6 +54,7 @@ class BarangExport implements FromCollection, WithHeadings, ShouldAutoSize, With
             // }
             // $classSection = implode(', ', $data);
             $all_barang_data[] = [
+                $no++,
                 $barang->barang_nama,
                 $barang->barang_stok,
                 $barang->barang_harga,
