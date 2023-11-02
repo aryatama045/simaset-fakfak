@@ -27,9 +27,21 @@ class BarangExport implements FromCollection, WithHeadings, ShouldAutoSize, With
         return [
             AfterSheet::class    => function(AfterSheet $event) {
                 $cellRange = 'A1:W1'; // All headers
-                $event->sheet->getDelegate()->getStyle($cellRange)->getFont()->setSize(14);
+                $event->sheet->getDelegate()->getStyle($cellRange)->getFont()->setSize(12);
             },
+
         ];
+
+        $styleArray = [
+            'borders' => [
+                'outline' => [
+                    'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THICK,
+                    'color' => ['argb' => 'FFFF0000'],
+                ],
+            ],
+        ];
+
+        $worksheet->getStyle('B2:G8')->applyFromArray($styleArray);
     }
 
     /**
