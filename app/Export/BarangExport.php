@@ -20,7 +20,7 @@ class BarangExport implements FromCollection, WithHeadings, ShouldAutoSize, With
         return [
             AfterSheet::class    => function(AfterSheet $event) {
                 $cellRange = 'A1:W1'; // All headers
-                $event->sheet->getDelegate()->getStyle($cellRange)->getFont()->setSize(12);
+                $event->sheet->getDelegate()->getStyle($cellRange)->getFont()->setSize(14);
             },
 
         ];
@@ -34,7 +34,7 @@ class BarangExport implements FromCollection, WithHeadings, ShouldAutoSize, With
             ],
         ];
 
-        $worksheet->getStyle('B2:G8')->applyFromArray($styleArray);
+        $worksheet->getStyle('')->applyFromArray($styleArray);
     }
 
     /**
