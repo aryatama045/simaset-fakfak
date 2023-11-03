@@ -88,7 +88,7 @@ class BarangExport implements FromCollection, WithHeadings, ShouldAutoSize, With
                 $barang->kategori_nama,
                 $barang->jenisbarang_nama,
                 $barang->merk_nama,
-                $barang->satuan,
+                $barang->satuan_nama,
                 $barang->barang_stok,
                 $barang->barang_harga,
                 '',
