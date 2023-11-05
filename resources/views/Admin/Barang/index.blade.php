@@ -77,7 +77,7 @@
                 <br>
 
                 <div class="tab-content">
-                    <div role="tabpanel" class="tab-pane active" id="databarang">
+                    <div role="tabpanel" class="tab-pane fade in active" id="databarang">
                         <div class="table-responsive">
                             <table id="table-1" class="table table-bordered text-nowrap border-bottom dataTable no-footer dtr-inline collapsed">
                                 <thead>
@@ -107,7 +107,7 @@
                     </div>
 
 
-                    <div role="tabpanel" class="tab-pane" id="history">
+                    <div role="tabpanel" class="tab-pane fade" id="history">
                         <div class="table-responsive">
                             <table id="table-history" class="table table-bordered text-nowrap border-bottom dataTable no-footer dtr-inline collapsed">
                                 <thead>
