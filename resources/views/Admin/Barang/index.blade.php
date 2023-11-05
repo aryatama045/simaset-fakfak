@@ -44,14 +44,14 @@
 
         <div class="card">
             <div class="card-header justify-content-between">
-                <ul class="nav nav-tabs">
+                <!-- <ul class="nav nav-tabs">
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="#">Data Barang</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">History</a>
                     </li>
-                </ul>
+                </ul> -->
 
                 <nav class="nav">
                     <a class="nav-link active disabled" href="#">Data Barang</a>
