@@ -44,19 +44,14 @@
 
         <div class="card">
             <div class="card-header justify-content-between">
-                <!-- <ul class="nav nav-tabs">
+                <ul class="nav " role="tablist">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Data Barang</a>
+                        <a class="nav-link active" href="#databarang" role="tab" data-toggle="tab">Data Barang</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">History</a>
+                        <a class="nav-link" href="#history" role="tab" data-toggle="tab">History</a>
                     </li>
-                </ul> -->
-
-                <nav class="nav" role="tablist">
-                    <a class="nav-link active" href="#databarang" role="tab" data-toggle="tab">Data Barang</a>
-                    <a class="nav-link" href="#history" role="tab" data-toggle="tab">History</a>
-                </nav>
+                </ul>
 
 
                 <!-- <h3 class="card-title">Data</h3> -->
