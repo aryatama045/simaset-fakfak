@@ -44,7 +44,7 @@
                 <h3 class="card-title">Data</h3>
                 @if($hakTambah > 0)
                 <div>
-                    <a href="barang/export_barang/xlsx" target="_blank" class="btn btn-success">Export <i class="fe fe-download"></i></a>
+                    <a class="modal-effect btn btn-default-light" href="barang/export_barang/xlsx" target="_blank" >Export <i class="fe fe-download"></i></a>
                     <a class="modal-effect btn btn-success-light" onclick="generateID()" data-bs-effect="effect-super-scaled" data-bs-toggle="modal" href="#modalimport">Import <i class="fe fe-upload"></i></a>
                     <a class="modal-effect btn btn-primary-light" onclick="generateID()" data-bs-effect="effect-super-scaled" data-bs-toggle="modal" href="#modaldemo8">Tambah Data <i class="fe fe-plus"></i></a>
                 </div>
@@ -62,6 +62,8 @@
                 </div>
                 @endif
                 <br>
+
+
                 <div class="table-responsive">
                     <table id="table-1" class="table table-bordered text-nowrap border-bottom dataTable no-footer dtr-inline collapsed">
                         <thead>
@@ -87,6 +89,8 @@
                         <tbody></tbody>
                     </table>
                 </div>
+
+
             </div>
         </div>
     </div>
