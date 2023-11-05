@@ -54,7 +54,7 @@
                 </ul> -->
 
                 <nav class="nav" role="tablist">
-                    <a class="nav-link active" href="#data-barang" role="tab" data-toggle="tab">Data Barang</a>
+                    <a class="nav-link active" href="#databarang" role="tab" data-toggle="tab">Data Barang</a>
                     <a class="nav-link" href="#history" role="tab" data-toggle="tab">History</a>
                 </nav>
 
@@ -82,7 +82,7 @@
                 <br>
 
                 <div class="tab-content">
-                    <div role="tabpanel" class="tab-pane fade in active" id="data-barang">
+                    <div role="tabpanel" class="tab-pane active" id="databarang">
                         <div class="table-responsive">
                             <table id="table-1" class="table table-bordered text-nowrap border-bottom dataTable no-footer dtr-inline collapsed">
                                 <thead>
@@ -112,7 +112,7 @@
                     </div>
 
 
-                    <div role="tabpanel" class="tab-pane fade" id="history">
+                    <div role="tabpanel" class="tab-pane" id="history">
                         <div class="table-responsive">
                             <table id="table-history" class="table table-bordered text-nowrap border-bottom dataTable no-footer dtr-inline collapsed">
                                 <thead>
