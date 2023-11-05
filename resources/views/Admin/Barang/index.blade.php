@@ -53,6 +53,11 @@
                     </li>
                 </ul>
 
+                <nav class="nav">
+                    <a class="nav-link active disabled" href="#">Data Barang</a>
+                    <a class="nav-link" href="#">History</a>
+                </nav>
+
 
                 <!-- <h3 class="card-title">Data</h3> -->
                 @if($hakTambah > 0)
