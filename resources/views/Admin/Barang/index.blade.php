@@ -53,9 +53,9 @@
                     </li>
                 </ul> -->
 
-                <nav class="nav">
+                <nav class="nav" role="tablist">
                     <a class="nav-link active" href="#data-barang" role="tab" data-toggle="tab">Data Barang</a>
-                    <a class="nav-link active" href="#history" role="tab" data-toggle="tab">History</a>
+                    <a class="nav-link" href="#history" role="tab" data-toggle="tab">History</a>
                 </nav>
 
 
