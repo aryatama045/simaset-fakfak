@@ -51,6 +51,7 @@
                 @endif
             </div>
             <div class="card-body">
+                @if($hakDelete > 0)
                 <div class="dropdown">
                     <button class="btn btn-primary dropdown-toggle" id="dropdownNoAnimation" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Bulk Action</button>
@@ -59,16 +60,20 @@
                         <!-- <a class="dropdown-item" href="#!">Something else here</a> -->
                     </div>
                 </div>
+                @endif
                 <br>
                 <div class="table-responsive">
                     <table id="table-1" class="table table-bordered text-nowrap border-bottom dataTable no-footer dtr-inline collapsed">
                         <thead>
+                            @if($hakEdit > 0)
                             <th class="border-bottom-0" width="1%">
                                 <div class="form-check">
                                     <input type="checkbox" name="select_all" value="1" class="form-check-input" id="example-select-all">
                                 </div>
                             </th>
                             <th class="border-bottom-0" width="1%">Action</th>
+                            @endif
+
                             <th class="border-bottom-0">Gambar</th>
                             <th class="border-bottom-0">Kode Barang</th>
                             <th class="border-bottom-0">Nama Barang</th>
