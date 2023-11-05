@@ -36,12 +36,25 @@
     </div>
 @endif
 
+
+
 <!-- ROW -->
 <div class="row row-sm">
     <div class="col-lg-12">
+
         <div class="card">
             <div class="card-header justify-content-between">
-                <h3 class="card-title">Data</h3>
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Data Barang</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">History</a>
+                    </li>
+                </ul>
+
+
+                <!-- <h3 class="card-title">Data</h3> -->
                 @if($hakTambah > 0)
                 <div>
                     <a class="btn btn-default-light" href="barang/export_barang/xlsx" target="_blank" >Export <i class="fe fe-download"></i></a>
