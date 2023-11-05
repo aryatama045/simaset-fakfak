@@ -54,8 +54,8 @@
                 </ul> -->
 
                 <nav class="nav">
-                    <a class="nav-link active" href="#">Data Barang</a>
-                    <a class="nav-link" href="#">History</a>
+                    <a class="nav-link active" href="#data-barang" role="tab" data-toggle="tab">Data Barang</a>
+                    <a class="nav-link active" href="#history" role="tab" data-toggle="tab">History</a>
                 </nav>
 
 
@@ -81,32 +81,56 @@
                 @endif
                 <br>
 
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane fade in active" id="data-barang">
+                        <div class="table-responsive">
+                            <table id="table-1" class="table table-bordered text-nowrap border-bottom dataTable no-footer dtr-inline collapsed">
+                                <thead>
+                                    @if($hakEdit > 0)
+                                    <th class="border-bottom-0" width="1%">
+                                        <div class="form-check">
+                                            <input type="checkbox" name="select_all" value="1" class="form-check-input" id="example-select-all">
+                                        </div>
+                                    </th>
+                                    <th class="border-bottom-0" width="1%">Action</th>
+                                    @endif
 
-                <div class="table-responsive">
-                    <table id="table-1" class="table table-bordered text-nowrap border-bottom dataTable no-footer dtr-inline collapsed">
-                        <thead>
-                            @if($hakEdit > 0)
-                            <th class="border-bottom-0" width="1%">
-                                <div class="form-check">
-                                    <input type="checkbox" name="select_all" value="1" class="form-check-input" id="example-select-all">
-                                </div>
-                            </th>
-                            <th class="border-bottom-0" width="1%">Action</th>
-                            @endif
+                                    <th class="border-bottom-0">Gambar</th>
+                                    <th class="border-bottom-0">Kode Barang</th>
+                                    <th class="border-bottom-0">Nama Barang</th>
+                                    <th class="border-bottom-0">Jenis</th>
+                                    <th class="border-bottom-0">Kategori</th>
+                                    <th class="border-bottom-0">Satuan</th>
+                                    <th class="border-bottom-0">Merk</th>
+                                    <th class="border-bottom-0">Stok</th>
+                                    <th class="border-bottom-0">Harga</th>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
 
-                            <th class="border-bottom-0">Gambar</th>
-                            <th class="border-bottom-0">Kode Barang</th>
-                            <th class="border-bottom-0">Nama Barang</th>
-                            <th class="border-bottom-0">Jenis</th>
-                            <th class="border-bottom-0">Kategori</th>
-                            <th class="border-bottom-0">Satuan</th>
-                            <th class="border-bottom-0">Merk</th>
-                            <th class="border-bottom-0">Stok</th>
-                            <th class="border-bottom-0">Harga</th>
-                        </thead>
-                        <tbody></tbody>
-                    </table>
+                    </div>
+
+
+                    <div role="tabpanel" class="tab-pane fade" id="history">
+                        <div class="table-responsive">
+                            <table id="table-history" class="table table-bordered text-nowrap border-bottom dataTable no-footer dtr-inline collapsed">
+                                <thead>
+                                    <th class="border-bottom-0">Kode Barang</th>
+                                    <th class="border-bottom-0">Nama Barang</th>
+                                    <th class="border-bottom-0">Ket. Hapus</th>
+                                    <th class="border-bottom-0">User By</th>
+                                    <th class="border-bottom-0">Date</th>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+
+                    </div>
                 </div>
+
+
+                        
 
 
             </div>
