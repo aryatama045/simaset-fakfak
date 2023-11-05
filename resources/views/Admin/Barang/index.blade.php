@@ -54,7 +54,7 @@
                 </ul> -->
 
                 <nav class="nav">
-                    <a class="nav-link active disabled" href="#">Data Barang</a>
+                    <a class="nav-link active" href="#">Data Barang</a>
                     <a class="nav-link" href="#">History</a>
                 </nav>
 
