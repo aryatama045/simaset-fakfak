@@ -235,7 +235,7 @@ $(document).ready(function () {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
     });
-    var table;
+    var table,table2;
     $(document).ready(function() {
         //datatables
         table = $('#table-1').DataTable({
@@ -327,7 +327,7 @@ $(document).ready(function () {
             },
         });
 
-        table = $('#table-history').DataTable({
+        table2 = $('#table-history').DataTable({
             "processing": true,
             "serverSide": true,
             "info": true,
