@@ -189,7 +189,7 @@ class BarangController extends Controller
 
             $data = BarangHistoryModel::leftJoin('tbl_barang', 'tbl_barang.barang_id', '=', 'tbl_barang_log.barang_id')
             ->leftJoin('tbl_user', 'tbl_user.user_id', '=', 'tbl_barang_log.user_id')
-            ->select('tbl_barang_log.keterangan','tbl_barang_log.created_at as tanggal', 'tbl_user.usernmlengkap as fullname', 'tbl_barang.barang_kode','tbl_barang.barang_nama')
+            ->select('tbl_barang_log.keterangan as ket_history','tbl_barang_log.created_at as tanggal', 'tbl_user.usernmlengkap as fullname', 'tbl_barang.barang_kode','tbl_barang.barang_nama')
             ->orderBy('created_at', 'DESC')->get();
 
             dd($data);
@@ -206,10 +206,10 @@ class BarangController extends Controller
 
                     return $barang_nama;
                 })
-                ->addColumn('keterangan', function ($row) {
-                    $keterangan = $row->keterangan == '' ? '-' : $row->keterangan;
+                ->addColumn('ket_history', function ($row) {
+                    $ket_history = $row->ket_history == '' ? '-' : $row->ket_history;
 
-                    return $keterangan;
+                    return $ket_history;
                 })
                 ->addColumn('fullname', function ($row) {
                     $fullname = $row->fullname == '' ? '-' : $row->fullname;
@@ -221,7 +221,7 @@ class BarangController extends Controller
 
                     return $tanggal;
                 })
-                ->rawColumns(['barang_kode', 'barang_nama', 'keterangan','fullname', 'tanggal' ])->make(true);
+                ->rawColumns(['barang_kode', 'barang_nama', 'ket_history','fullname', 'tanggal' ])->make(true);
         }
     }
 
