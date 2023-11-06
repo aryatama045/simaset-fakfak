@@ -189,7 +189,7 @@ class BarangController extends Controller
 
             $data = BarangHistoryModel::leftJoin('tbl_barang', 'tbl_barang.barang_id', '=', 'tbl_barang_log.barang_id')
             ->leftJoin('tbl_user', 'tbl_user.user_id', '=', 'tbl_barang_log.user_id')
-            ->select('keterangan', 'tbl_user.usernmlengkap as fullname', 'tbl_barang.barang_kode','tbl_barang.barang_nama','created_at as tanggal')
+            ->select('tbl_barang_log.keterangan', 'tbl_user.usernmlengkap as fullname', 'tbl_barang.barang_kode','tbl_barang.barang_nama','tbl_barang_log.created_at as tanggal')
             ->orderBy('created_at', 'DESC')->get();
 
             return DataTables::of($data)
