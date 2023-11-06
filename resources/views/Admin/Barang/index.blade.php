@@ -354,8 +354,8 @@ $(document).ready(function () {
                     name: 'barang_nama',
                 },
                 {
-                    data: 'keterangan',
-                    name: 'keterangan',
+                    data: 'ket_history',
+                    name: 'ket_history',
                 },
                 {
                     data: 'fullname',
