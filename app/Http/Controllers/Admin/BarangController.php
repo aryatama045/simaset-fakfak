@@ -7,6 +7,7 @@ use App\Models\Admin\AksesModel;
 use App\Models\Admin\BarangkeluarModel;
 use App\Models\Admin\BarangmasukModel;
 use App\Models\Admin\BarangModel;
+use App\Models\Admin\BarangHistoryModel;
 use App\Models\Admin\JenisBarangModel;
 use App\Models\Admin\KategoriModel;
 use App\Models\Admin\MerkModel;
@@ -38,18 +39,6 @@ class BarangController extends Controller
         $data["satuan"] =  SatuanModel::orderBy('satuan_id', 'DESC')->get();
         $data["merk"] =  MerkModel::orderBy('merk_id', 'DESC')->get();
         return view('Admin.Barang.index', $data);
-    }
-
-    public function history()
-    {
-        $data["title"] = "Barang";
-        $data["hakEdit"] = AksesModel::leftJoin('tbl_submenu', 'tbl_submenu.submenu_id', '=', 'tbl_akses.submenu_id')->where(array('tbl_akses.role_id' => Session::get('user')->role_id, 'tbl_submenu.submenu_judul' => 'Barang', 'tbl_akses.akses_type' => 'update'))->count();
-        $data["hakDelete"] = AksesModel::leftJoin('tbl_submenu', 'tbl_submenu.submenu_id', '=', 'tbl_akses.submenu_id')->where(array('tbl_akses.role_id' => Session::get('user')->role_id, 'tbl_submenu.submenu_judul' => 'Barang', 'tbl_akses.akses_type' => 'delete'))->count();
-        $data["hakTambah"] = AksesModel::leftJoin('tbl_submenu', 'tbl_submenu.submenu_id', '=', 'tbl_akses.submenu_id')->where(array('tbl_akses.role_id' => Session::get('user')->role_id, 'tbl_submenu.submenu_judul' => 'Barang', 'tbl_akses.akses_type' => 'create'))->count();
-        $data["jenisbarang"] =  JenisBarangModel::orderBy('jenisbarang_id', 'DESC')->get();
-        $data["satuan"] =  SatuanModel::orderBy('satuan_id', 'DESC')->get();
-        $data["merk"] =  MerkModel::orderBy('merk_id', 'DESC')->get();
-        return view('Admin.Barang.history', $data);
     }
 
     public function getbarang($id)
@@ -191,6 +180,46 @@ class BarangController extends Controller
                     return $button;
                 })
                 ->rawColumns(['checkbox','action', 'img', 'jenisbarang', 'satuan','kategori', 'merk', 'currency', 'totalstok'])->make(true);
+        }
+    }
+
+    public function showhistory(Request $request)
+    {
+        if ($request->ajax()) {
+
+            $data = BarangHistoryModel::leftJoin('tbl_barang', 'tbl_barang.barang_id', '=', 'tbl_barang_log.barang_id')
+            ->leftJoin('tbl_user', 'tbl_user.user_id', '=', 'tbl_barang_log.user_id')
+            ->select('keterangan', 'tbl_user.usernmlengkap as fullname', 'tbl_barang.barang_kode','tbl_barang.barang_nama','created_at as tanggal')
+            ->orderBy('created_at', 'DESC')->get();
+
+            return DataTables::of($data)
+                ->addIndexColumn()
+                ->addColumn('barang_kode', function ($row) {
+                    $barang_kode = $row->barang_kode == '' ? '-' : $row->barang_kode;
+
+                    return $barang_kode;
+                })
+                ->addColumn('barang_nama', function ($row) {
+                    $barang_nama = $row->barang_nama == '' ? '-' : $row->barang_nama;
+
+                    return $barang_nama;
+                })
+                ->addColumn('keterangan', function ($row) {
+                    $keterangan = $row->keterangan == '' ? '-' : $row->keterangan;
+
+                    return $keterangan;
+                })
+                ->addColumn('fullname', function ($row) {
+                    $fullname = $row->fullname == '' ? '-' : $row->fullname;
+
+                    return $fullname;
+                })
+                ->addColumn('tanggal', function ($row) {
+                    $tanggal = $row->tanggal == '' ? '-' : $row->tanggal;
+
+                    return $tanggal;
+                })
+                ->rawColumns(['barang_kode', 'barang_nama', 'keterangan','fullname', 'tanggal' ])->make(true);
         }
     }
 
