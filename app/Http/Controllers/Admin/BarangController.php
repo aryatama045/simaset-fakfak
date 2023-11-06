@@ -187,7 +187,7 @@ class BarangController extends Controller
     {
         if ($request->ajax()) {
 
-            $data = BarangHistoryModel::leftJoin('tbl_barang', 'tbl_barang.barang_id', '=', 'tbl_barang_log.barang_id')
+            $data = BaranghistoryModel::leftJoin('tbl_barang', 'tbl_barang.barang_id', '=', 'tbl_barang_log.barang_id')
             ->leftJoin('tbl_user', 'tbl_user.user_id', '=', 'tbl_barang_log.user_id')
             ->select('keterangan as ket_history','created_at as tanggal', 'tbl_user.usernmlengkap as fullname', 'tbl_barang.barang_kode','tbl_barang.barang_nama')
             ->orderBy('created_at', 'DESC')->get();
