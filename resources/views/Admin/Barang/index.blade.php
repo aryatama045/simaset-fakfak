@@ -53,6 +53,13 @@
                     </li>
                 </ul>
 
+                <div id="content">
+                    <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+                        <li class="active"><a href="#red" data-toggle="tab">Red</a></li>
+                        <li><a href="#orange" data-toggle="tab">Orange</a></li>
+                    </ul>
+                </div>
+
 
                 <!-- <h3 class="card-title">Data</h3> -->
                 @if($hakTambah > 0)
@@ -75,6 +82,18 @@
                 </div>
                 @endif
                 <br>
+
+                <div id="my-tab-content" class="tab-content">
+                    <div class="tab-pane active" id="red">
+                        <h1>Red</h1>
+                        <p>red red red red red red</p>
+                    </div>
+                    <div class="tab-pane" id="orange">
+                        <h1>Orange</h1>
+                        <p>orange orange orange orange orange</p>
+                    </div>
+                </div>
+
 
                 <table id="table-1" class="table table-bordered text-nowrap border-bottom dataTable no-footer dtr-inline collapsed">
                     <thead>
@@ -99,6 +118,7 @@
                     </thead>
                     <tbody></tbody>
                 </table>
+
 
 
             </div>
