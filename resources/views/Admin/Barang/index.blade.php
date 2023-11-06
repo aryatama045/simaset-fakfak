@@ -44,12 +44,13 @@
 
         <div class="card">
             <div class="card-header justify-content-between">
-                <ul class="nav " role="tablist">
+
+                <ul class="nav nav-tabs" role="tablist">
                     <li class="nav-item">
-                        <a class="nav-link active" href="{{url('admin/barang')}}" >Data Barang</a>
+                        <a class="nav-link active" href="#databarang" data-toggle="tab" >Data Barang</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{url('admin/barang/history')}}" >History</a>
+                        <a class="nav-link" href="#history" data-toggle="tab" >History</a>
                     </li>
                 </ul>
 
@@ -76,47 +77,51 @@
                 @endif
                 <br>
 
-                <div id="content">
-                    <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
-                        <li class="active"><a href="#red" data-toggle="tab">Red</a></li>
-                        <li><a href="#orange" data-toggle="tab">Orange</a></li>
-                    </ul>
-                </div>
+
                 <div id="my-tab-content" class="tab-content">
-                    <div class="tab-pane active" id="red">
-                        <h1>Red</h1>
-                        <p>red red red red red red</p>
+                    <div class="tab-pane active" id="databarang">
+                        <table id="table-1" class="table table-bordered text-nowrap border-bottom dataTable no-footer dtr-inline collapsed">
+                            <thead>
+                                @if($hakEdit > 0)
+                                <th class="border-bottom-0" width="1%">
+                                    <div class="form-check">
+                                        <input type="checkbox" name="select_all" value="1" class="form-check-input" id="example-select-all">
+                                    </div>
+                                </th>
+                                <th class="border-bottom-0" width="1%">Action</th>
+                                @endif
+
+                                <th class="border-bottom-0">Gambar</th>
+                                <th class="border-bottom-0">Kode Barang</th>
+                                <th class="border-bottom-0">Nama Barang</th>
+                                <th class="border-bottom-0">Jenis</th>
+                                <th class="border-bottom-0">Kategori</th>
+                                <th class="border-bottom-0">Satuan</th>
+                                <th class="border-bottom-0">Merk</th>
+                                <th class="border-bottom-0">Stok</th>
+                                <th class="border-bottom-0">Harga</th>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
                     </div>
-                    <div class="tab-pane" id="orange">
-                        <h1>Orange</h1>
-                        <p>orange orange orange orange orange</p>
+
+                    <div class="tab-pane" id="history">
+                        <table id="table-history" class="table table-bordered text-nowrap border-bottom dataTable no-footer dtr-inline collapsed">
+                            <thead>
+                                <th class="border-bottom-0">Kode Barang</th>
+                                <th class="border-bottom-0">Nama Barang</th>
+                                <th class="border-bottom-0">Ket. Hapus</th>
+                                <th class="border-bottom-0">User By</th>
+                                <th class="border-bottom-0">Date</th>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+
                     </div>
                 </div>
 
 
-                <table id="table-1" class="table table-bordered text-nowrap border-bottom dataTable no-footer dtr-inline collapsed">
-                    <thead>
-                        @if($hakEdit > 0)
-                        <th class="border-bottom-0" width="1%">
-                            <div class="form-check">
-                                <input type="checkbox" name="select_all" value="1" class="form-check-input" id="example-select-all">
-                            </div>
-                        </th>
-                        <th class="border-bottom-0" width="1%">Action</th>
-                        @endif
 
-                        <th class="border-bottom-0">Gambar</th>
-                        <th class="border-bottom-0">Kode Barang</th>
-                        <th class="border-bottom-0">Nama Barang</th>
-                        <th class="border-bottom-0">Jenis</th>
-                        <th class="border-bottom-0">Kategori</th>
-                        <th class="border-bottom-0">Satuan</th>
-                        <th class="border-bottom-0">Merk</th>
-                        <th class="border-bottom-0">Stok</th>
-                        <th class="border-bottom-0">Harga</th>
-                    </thead>
-                    <tbody></tbody>
-                </table>
 
 
 
