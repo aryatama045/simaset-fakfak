@@ -128,8 +128,8 @@
                                 <th class="border-bottom-0">Kode Barang</th>
                                 <th class="border-bottom-0">Nama Barang</th>
                                 <!-- <th class="border-bottom-0">Keterangan</th> -->
-                                <th class="border-bottom-0">User By</th>
-                                <th class="border-bottom-0">Date</th>
+                                <!-- <th class="border-bottom-0">User By</th> -->
+                                <!-- <th class="border-bottom-0">Date</th> -->
                             </thead>
                             <tbody></tbody>
                         </table>
@@ -366,14 +366,14 @@ $(document).ready(function () {
                 //     data: 'keterangan',
                 //     name: 'keterangan',
                 // },
-                {
-                    data: 'fullname',
-                    name: 'fullname',
-                },
-                {
-                    data: 'created_at',
-                    name: 'created_at'
-                },
+                // {
+                //     data: 'fullname',
+                //     name: 'fullname',
+                // },
+                // {
+                //     data: 'created_at',
+                //     name: 'created_at'
+                // },
             ]
         });
     });
