@@ -54,11 +54,12 @@
         <div class="card">
             <ul class="nav nav-tabs mb-3" style="margin:0rem !important;" id="ex1" role="tablist">
                 <li class="nav-item">
-                    <a class="nav-link " href="#databarang" data-toggle="tab"
+                    <a class="nav-link " href="#databarang" data-toggle="tab" aria-expanded="true"
                     >Data Barang</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#history" data-toggle="tab" >History</a>
+                    <a class="nav-link" href="#history" data-toggle="tab" aria-expanded="false">
+                    History</a>
                 </li>
             </ul>
 
