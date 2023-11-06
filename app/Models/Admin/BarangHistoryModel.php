@@ -5,7 +5,7 @@ namespace App\Models\Admin;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class BarangHistoryModel extends Model
+class BaranghistoryModel extends Model
 {
     use HasFactory;
     protected $table = "tbl_barang_log";

@@ -7,7 +7,7 @@ use App\Models\Admin\AksesModel;
 use App\Models\Admin\BarangkeluarModel;
 use App\Models\Admin\BarangmasukModel;
 use App\Models\Admin\BarangModel;
-use App\Models\Admin\BarangHistoryModel;
+use App\Models\Admin\BaranghistoryModel;
 use App\Models\Admin\JenisBarangModel;
 use App\Models\Admin\KategoriModel;
 use App\Models\Admin\MerkModel;
@@ -208,11 +208,6 @@ class BarangController extends Controller
                     $ket_history = $row->ket_history == '' ? '-' : $row->ket_history;
 
                     return $ket_history;
-                })
-                ->addColumn('fullname', function ($row) {
-                    $fullname = $row->fullname == '' ? '-' : $row->fullname;
-
-                    return $fullname;
                 })
                 ->addColumn('tanggal', function ($row) {
                     $tanggal = $row->tanggal == '' ? '-' : date('d/m/y h:i A', strtotime($row->tanggal));
