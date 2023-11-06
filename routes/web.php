@@ -158,7 +158,7 @@ Route::group(['middleware' => 'userlogin'], function () {
         Route::get('/admin/barang/getbarang/{id}', [BarangController::class, 'getbarang']);
         Route::get('/admin/barang/listbarang/{param}', [BarangController::class, 'listbarang']);
 
-        Route::get('/admin/pb/genInvoice/{id}', [PbController::class, 'genInvoice'])->name('sale.invoice');
+        Route::get('/admin/pb/genInvoice/{id}', [PbController::class, 'genInvoice']);
     });
 
     Route::middleware(['checkRoleUser:/spk,submenu'])->group(function () {
@@ -172,7 +172,7 @@ Route::group(['middleware' => 'userlogin'], function () {
         Route::get('/admin/barang/getbarang/{id}', [BarangController::class, 'getbarang']);
         Route::get('/admin/barang/listbarang/{param}', [BarangController::class, 'listbarang']);
 
-        Route::get('/admin/spk/genInvoice/{id}', [SpkController::class, 'genInvoice'])->name('sale.invoice');
+        Route::get('/admin/spk/genInvoice/{id}', [SpkController::class, 'genInvoice']);
     });
 
     Route::middleware(['checkRoleUser:/berita,submenu'])->group(function () {
@@ -190,7 +190,7 @@ Route::group(['middleware' => 'userlogin'], function () {
         Route::get('/admin/barang/getbarang/{id}', [BarangController::class, 'getbarang']);
         Route::get('/admin/berita/listbarang/{param}', [BeritaController::class, 'listbarang']);
 
-        Route::get('/admin/berita/genInvoice/{id}', [BeritaController::class, 'genInvoice'])->name('sale.invoice');
+        Route::get('/admin/berita/genInvoice/{id}', [BeritaController::class, 'genInvoice']);
     });
 
     Route::middleware(['checkRoleUser:/barang-masuk,submenu'])->group(function () {
