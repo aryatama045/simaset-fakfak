@@ -55,7 +55,7 @@
             </ul>
 
             <div id="my-tab-content" class="tab-content">
-                <div class="tab-pane active" id="databarang">
+                <div class="tab-pane fade show active" id="databarang">
 
                     <div class="card-header justify-content-between">
                         <h3 class="card-title">Data Barang</h3>
