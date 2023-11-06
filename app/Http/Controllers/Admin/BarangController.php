@@ -192,6 +192,8 @@ class BarangController extends Controller
             ->select('tbl_barang_log.keterangan','tbl_barang_log.created_at as tanggal', 'tbl_user.usernmlengkap as fullname', 'tbl_barang.barang_kode','tbl_barang.barang_nama')
             ->orderBy('created_at', 'DESC')->get();
 
+            dd($data);
+
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn('barang_kode', function ($row) {
