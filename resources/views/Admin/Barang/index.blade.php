@@ -53,32 +53,32 @@
                     <a class="nav-link" href="#history" data-toggle="tab" >History</a>
                 </li>
             </ul>
-            <div class="card-header justify-content-between">
-                <!-- <h3 class="card-title">Data</h3> -->
-                @if($hakTambah > 0)
-                <div>
-                    <a class="btn btn-default-light" href="barang/export_barang/xlsx" target="_blank" >Export <i class="fe fe-download"></i></a>
-                    <a class="modal-effect btn btn-success-light" onclick="generateID()" data-bs-effect="effect-super-scaled" data-bs-toggle="modal" href="#modalimport">Import <i class="fe fe-upload"></i></a>
-                    <a class="modal-effect btn btn-primary-light" onclick="generateID()" data-bs-effect="effect-super-scaled" data-bs-toggle="modal" href="#modaldemo8">Tambah Data <i class="fe fe-plus"></i></a>
-                </div>
-                @endif
-            </div>
-            <div class="card-body">
-                @if($hakDelete > 0)
-                <div class="dropdown">
-                    <button class="btn btn-primary dropdown-toggle" id="dropdownNoAnimation" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Bulk Action</button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownNoAnimation">
-                        <a class="dropdown-item" href="#!" name="bulk_delete" id="bulk_delete">Bulk Delete</a>
-                        <!-- <a class="dropdown-item" href="#!">Something else here</a> -->
+
+            <div id="my-tab-content" class="tab-content">
+                <div class="tab-pane active" id="databarang">
+
+                    <div class="card-header justify-content-between">
+                        <h3 class="card-title">Data Barang</h3>
+                        @if($hakTambah > 0)
+                        <div>
+                            <a class="btn btn-default-light" href="barang/export_barang/xlsx" target="_blank" >Export <i class="fe fe-download"></i></a>
+                            <a class="modal-effect btn btn-success-light" onclick="generateID()" data-bs-effect="effect-super-scaled" data-bs-toggle="modal" href="#modalimport">Import <i class="fe fe-upload"></i></a>
+                            <a class="modal-effect btn btn-primary-light" onclick="generateID()" data-bs-effect="effect-super-scaled" data-bs-toggle="modal" href="#modaldemo8">Tambah Data <i class="fe fe-plus"></i></a>
+                        </div>
+                        @endif
                     </div>
-                </div>
-                @endif
-                <br>
-
-
-                <div id="my-tab-content" class="tab-content">
-                    <div class="tab-pane active" id="databarang">
+                    <div class="card-body">
+                        @if($hakDelete > 0)
+                        <div class="dropdown">
+                            <button class="btn btn-primary dropdown-toggle" id="dropdownNoAnimation" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Bulk Action</button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownNoAnimation">
+                                <a class="dropdown-item" href="#!" name="bulk_delete" id="bulk_delete">Bulk Delete</a>
+                                <!-- <a class="dropdown-item" href="#!">Something else here</a> -->
+                            </div>
+                        </div>
+                        @endif
+                        <br>
                         <table id="table-1" class="table table-bordered text-nowrap border-bottom dataTable no-footer dtr-inline collapsed">
                             <thead>
                                 @if($hakEdit > 0)
@@ -102,29 +102,28 @@
                             </thead>
                             <tbody></tbody>
                         </table>
-                    </div>
-
-                    <div class="tab-pane" id="history">
-                        <table id="table-history" class="table table-bordered text-nowrap border-bottom dataTable no-footer dtr-inline collapsed">
-                            <thead>
-                                <th class="border-bottom-0">Kode Barang</th>
-                                <th class="border-bottom-0">Nama Barang</th>
-                                <th class="border-bottom-0">Ket. Hapus</th>
-                                <th class="border-bottom-0">User By</th>
-                                <th class="border-bottom-0">Date</th>
-                            </thead>
-                            <tbody></tbody>
-                        </table>
 
                     </div>
+
                 </div>
 
+                <div class="tab-pane" id="history">
+                    <table id="table-history" class="table table-bordered text-nowrap border-bottom dataTable no-footer dtr-inline collapsed">
+                        <thead>
+                            <th class="border-bottom-0">Kode Barang</th>
+                            <th class="border-bottom-0">Nama Barang</th>
+                            <th class="border-bottom-0">Ket. Hapus</th>
+                            <th class="border-bottom-0">User By</th>
+                            <th class="border-bottom-0">Date</th>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
 
-
-
-
+                </div>
 
             </div>
+
+
         </div>
     </div>
 </div>
