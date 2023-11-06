@@ -42,19 +42,19 @@
 <div class="row row-sm">
     <div class="col-lg-12">
 
+
+
         <div class="card">
+
+            <ul class="nav nav-tabs" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#databarang" data-toggle="tab" >Data Barang</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#history" data-toggle="tab" >History</a>
+                </li>
+            </ul>
             <div class="card-header justify-content-between">
-
-                <ul class="nav nav-tabs" role="tablist">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#databarang" data-toggle="tab" >Data Barang</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#history" data-toggle="tab" >History</a>
-                    </li>
-                </ul>
-
-
                 <!-- <h3 class="card-title">Data</h3> -->
                 @if($hakTambah > 0)
                 <div>
