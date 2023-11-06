@@ -326,6 +326,65 @@ $(document).ready(function () {
                 style: 'multi'
             },
         });
+
+        table = $('#table-history').DataTable({
+            "processing": true,
+            "serverSide": true,
+            "info": true,
+            "order": [],
+            "stateSave":true,
+            "scrollX": true,
+            "lengthMenu": [
+                [5, 10, 25, 50, 100],
+                [5, 10, 25, 50, 100]
+            ],
+            "pageLength": 10,
+            lengthChange: true,
+            "ajax": {
+                "url": "{{route('barang.gethistory')}}",
+            },
+            'columnDefs': [
+                {
+                    'targets': 0,
+                    'checkboxes': {
+                    'selectRow': true
+                    }
+                }
+            ],
+            'select': {
+                'style': 'multi'
+            },
+            "columns": [
+                // {
+                //     data: 'DT_RowIndex',
+                //     name: 'DT_RowIndex',
+                //     searchable: false
+                // },
+                {
+                    data: 'barang_kode',
+                    name: 'barang_kode',
+                },
+                {
+                    data: 'barang_nama',
+                    name: 'barang_nama',
+                },
+                {
+                    data: 'keterangan',
+                    name: 'keterangan',
+                },
+                {
+                    data: 'fullname',
+                    name: 'fullname',
+                },
+                {
+                    data: 'tanggal',
+                    name: 'tanggal'
+                },
+            ],
+            select: {
+                style: 'multi'
+            },
+        });
     });
 
 
