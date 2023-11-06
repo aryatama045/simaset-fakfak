@@ -88,7 +88,7 @@ Route::group(['middleware' => 'userlogin'], function () {
         // Satuan
         Route::resource('/admin/satuan', \App\Http\Controllers\Admin\SatuanController::class);
         Route::get('/admin/satuan/show/', [SatuanController::class, 'show'])->name('satuan.getsatuan');
-        Route::post('/admin/satuan/proses_tambah/', [SatuanController::class, 'proses_tambah'])->name('satuan_tambah.store');
+        Route::post('/admin/satuan/proses_tambah/', [SatuanController::class, 'proses_tambah'])->name('satuan.store');
         Route::post('/admin/satuan/proses_ubah/{satuan}', [SatuanController::class, 'proses_ubah']);
         Route::post('/admin/satuan/proses_hapus/{satuan}', [SatuanController::class, 'proses_hapus']);
     });
@@ -97,7 +97,7 @@ Route::group(['middleware' => 'userlogin'], function () {
         // Supplier
         Route::resource('/admin/pegawai', \App\Http\Controllers\Admin\PegawaiController::class);
         Route::get('/admin/pegawai/show/', [PegawaiController::class, 'show'])->name('pegawai.getpegawai');
-        Route::post('/admin/pegawai/proses_tambah/', [PegawaiController::class, 'proses_tambah'])->name('pegawai_tambah.store');
+        Route::post('/admin/pegawai/proses_tambah/', [PegawaiController::class, 'proses_tambah'])->name('pegawai.store');
         Route::post('/admin/pegawai/proses_ubah/{pegawai}', [PegawaiController::class, 'proses_ubah']);
         Route::post('/admin/pegawai/proses_hapus/{pegawai}', [PegawaiController::class, 'proses_hapus']);
     });
@@ -106,7 +106,7 @@ Route::group(['middleware' => 'userlogin'], function () {
         // Supplier
         Route::resource('/admin/supplier', \App\Http\Controllers\Admin\SupplierController::class);
         Route::get('/admin/supplier/show/', [SupplierController::class, 'show'])->name('supplier.getsupplier');
-        Route::post('/admin/supplier/proses_tambah/', [SupplierController::class, 'proses_tambah'])->name('supplier_tambah.store');
+        Route::post('/admin/supplier/proses_tambah/', [SupplierController::class, 'proses_tambah'])->name('supplier.store');
         Route::post('/admin/supplier/proses_ubah/{supplier}', [SupplierController::class, 'proses_ubah']);
         Route::post('/admin/supplier/proses_hapus/{supplier}', [SupplierController::class, 'proses_hapus']);
     });
@@ -115,7 +115,7 @@ Route::group(['middleware' => 'userlogin'], function () {
         // Merk
         Route::resource('/admin/merk', \App\Http\Controllers\Admin\MerkController::class);
         Route::get('/admin/merk/show/', [MerkController::class, 'show'])->name('merk.getmerk');
-        Route::post('/admin/merk/proses_tambah/', [MerkController::class, 'proses_tambah'])->name('merk_tambah.store');
+        Route::post('/admin/merk/proses_tambah/', [MerkController::class, 'proses_tambah'])->name('merk.store');
         Route::post('/admin/merk/proses_ubah/{merk}', [MerkController::class, 'proses_ubah']);
         Route::post('/admin/merk/proses_hapus/{merk}', [MerkController::class, 'proses_hapus']);
     });
@@ -123,11 +123,10 @@ Route::group(['middleware' => 'userlogin'], function () {
     Route::middleware(['checkRoleUser:/barang,submenu'])->group(function () {
         // Barang
         Route::resource('/admin/barang', \App\Http\Controllers\Admin\BarangController::class);
-        Route::post('/admin/barang/history', [BarangController::class, 'history'])->name('barang.showhistory');
-        // Route::get('/admin/barang/history', 'App\Http\Controllers\Admin\BarangController@history');
+        // Route::resource('/admin/barang/history', BarangController::class, 'history');
         Route::get('/admin/barang/showhistory/', [BarangController::class, 'showhistory'])->name('barang.gethistory');
         Route::get('/admin/barang/show/', [BarangController::class, 'show'])->name('barang.getbarang');
-        Route::post('/admin/barang/proses_tambah/', [BarangController::class, 'proses_tambah'])->name('barang_tambah.store');
+        Route::post('/admin/barang/proses_tambah/', [BarangController::class, 'proses_tambah'])->name('barang.store');
         Route::post('/admin/barang/bulk_delete/', [BarangController::class, 'bulk_delete'])->name('barang.bulk_delete');
         Route::post('/admin/barang/proses_ubah/{barang}', [BarangController::class, 'proses_ubah']);
         Route::post('/admin/barang/proses_hapus/{barang}', [BarangController::class, 'proses_hapus']);
@@ -140,7 +139,7 @@ Route::group(['middleware' => 'userlogin'], function () {
         // Customer
         Route::resource('/admin/customer', \App\Http\Controllers\Admin\CustomerController::class);
         Route::get('/admin/customer/show/', [CustomerController::class, 'show'])->name('customer.getcustomer');
-        Route::post('/admin/customer/proses_tambah/', [CustomerController::class, 'proses_tambah'])->name('customer_tambah.store');
+        Route::post('/admin/customer/proses_tambah/', [CustomerController::class, 'proses_tambah'])->name('customer.store');
         Route::post('/admin/customer/proses_ubah/{customer}', [CustomerController::class, 'proses_ubah']);
         Route::post('/admin/customer/proses_hapus/{customer}', [CustomerController::class, 'proses_hapus']);
     });
@@ -150,15 +149,15 @@ Route::group(['middleware' => 'userlogin'], function () {
         Route::resource('/admin/pb', \App\Http\Controllers\Admin\PbController::class);
         Route::get('admin/pb/add', [PbController::class, 'add'])->name('pb.add');
 
-        // Route::get('products/print_barcode','ProductController@printBarcode')->name('product.printBarcode');
+        Route::get('products/print_barcode','ProductController@printBarcode')->name('product.printBarcode');
         Route::get('/admin/pb/show/', [PbController::class, 'show'])->name('pb.getpb');
-        Route::post('/admin/pb/proses_tambah/', [PbController::class, 'proses_tambah'])->name('pb_tambah.store');
+        Route::post('/admin/pb/proses_tambah/', [PbController::class, 'proses_tambah'])->name('pb.store');
         Route::post('/admin/pb/proses_ubah/{barangmasuk}', [PbController::class, 'proses_ubah']);
         Route::post('/admin/pb/proses_hapus/{barangmasuk}', [PbController::class, 'proses_hapus']);
         Route::get('/admin/barang/getbarang/{id}', [BarangController::class, 'getbarang']);
         Route::get('/admin/barang/listbarang/{param}', [BarangController::class, 'listbarang']);
 
-        Route::get('/admin/pb/genInvoice/{id}', [PbController::class, 'genInvoice']);
+        Route::get('/admin/pb/genInvoice/{id}', [PbController::class, 'genInvoice'])->name('sale.invoice');
     });
 
     Route::middleware(['checkRoleUser:/spk,submenu'])->group(function () {
@@ -167,12 +166,12 @@ Route::group(['middleware' => 'userlogin'], function () {
         Route::get('admin/spk/add', [SpkController::class, 'add'])->name('spk.add');
 
         Route::get('/admin/spk/show/', [SpkController::class, 'show'])->name('spk.getspk');
-        Route::post('/admin/spk/proses_tambah/', [SpkController::class, 'proses_tambah'])->name('spk_tambah.store');
+        Route::post('/admin/spk/proses_tambah/', [SpkController::class, 'proses_tambah'])->name('spk.store');
         Route::post('/admin/spk/proses_hapus/{barangmasuk}', [SpkController::class, 'proses_hapus']);
         Route::get('/admin/barang/getbarang/{id}', [BarangController::class, 'getbarang']);
         Route::get('/admin/barang/listbarang/{param}', [BarangController::class, 'listbarang']);
 
-        Route::get('/admin/spk/genInvoice/{id}', [SpkController::class, 'genInvoice']);
+        Route::get('/admin/spk/genInvoice/{id}', [SpkController::class, 'genInvoice'])->name('sale.invoice');
     });
 
     Route::middleware(['checkRoleUser:/berita,submenu'])->group(function () {
@@ -181,7 +180,7 @@ Route::group(['middleware' => 'userlogin'], function () {
         Route::get('admin/berita/add', [BeritaController::class, 'add'])->name('berita.add');
 
         Route::get('/admin/berita/show/', [BeritaController::class, 'show'])->name('berita.getberita');
-        Route::post('/admin/berita/proses_tambah/', [BeritaController::class, 'proses_tambah'])->name('berita_tambah.store');
+        Route::post('/admin/berita/proses_tambah/', [BeritaController::class, 'proses_tambah'])->name('berita.store');
         Route::post('/admin/berita/proses_hapus/{berita}', [BeritaController::class, 'proses_hapus']);
 
         Route::get('/admin/berita/berita_edit/{berita}', [BeritaController::class, 'berita_edit']);
@@ -190,14 +189,14 @@ Route::group(['middleware' => 'userlogin'], function () {
         Route::get('/admin/barang/getbarang/{id}', [BarangController::class, 'getbarang']);
         Route::get('/admin/berita/listbarang/{param}', [BeritaController::class, 'listbarang']);
 
-        Route::get('/admin/berita/genInvoice/{id}', [BeritaController::class, 'genInvoice']);
+        Route::get('/admin/berita/genInvoice/{id}', [BeritaController::class, 'genInvoice'])->name('sale.invoice');
     });
 
     Route::middleware(['checkRoleUser:/barang-masuk,submenu'])->group(function () {
         // Barang Masuk
         Route::resource('/admin/barang-masuk', \App\Http\Controllers\Admin\BarangmasukController::class);
         Route::get('/admin/barang-masuk/show/', [BarangmasukController::class, 'show'])->name('barang-masuk.getbarang-masuk');
-        Route::post('/admin/barang-masuk/proses_tambah/', [BarangmasukController::class, 'proses_tambah'])->name('barang_masuk_tambah.store');
+        Route::post('/admin/barang-masuk/proses_tambah/', [BarangmasukController::class, 'proses_tambah'])->name('barang-masuk.store');
         Route::post('/admin/barang-masuk/proses_ubah/{barangmasuk}', [BarangmasukController::class, 'proses_ubah']);
         Route::post('/admin/barang-masuk/proses_hapus/{barangmasuk}', [BarangmasukController::class, 'proses_hapus']);
         Route::get('/admin/barang/getbarang/{id}', [BarangController::class, 'getbarang']);
@@ -212,7 +211,7 @@ Route::group(['middleware' => 'userlogin'], function () {
         // Barang Keluar
         Route::resource('/admin/barang-keluar', \App\Http\Controllers\Admin\BarangkeluarController::class);
         Route::get('/admin/barang-keluar/show/', [BarangkeluarController::class, 'show'])->name('barang-keluar.getbarang-keluar');
-        Route::post('/admin/barang-keluar/proses_tambah/', [BarangkeluarController::class, 'proses_tambah'])->name('barang_tambah_keluar.store');
+        Route::post('/admin/barang-keluar/proses_tambah/', [BarangkeluarController::class, 'proses_tambah'])->name('barang-keluar.store');
         Route::post('/admin/barang-keluar/proses_ubah/{barangkeluar}', [BarangkeluarController::class, 'proses_ubah']);
         Route::post('/admin/barang-keluar/proses_hapus/{barangkeluar}', [BarangkeluarController::class, 'proses_hapus']);
     });
