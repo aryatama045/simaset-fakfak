@@ -9,19 +9,14 @@
             </div>
 
             <div class="modal-body">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label>Import Data *</label>
-                        <input name="file" type="file" class="form-control" required>
-                    </div>
+                <div class="form-group">
+                    <label>Import Data *</label>
+                    <input name="file" type="file" class="form-control" required>
                 </div>
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label> Template File</label>
-                        <a href="{{url('/assets/sample_product.xlsx')}}" target="_blank" class="btn btn-info btn-block btn-md"><i class="fe fe-download"></i>  File Download</a>
-                    </div>
+                <div class="form-group">
+                    <label> Template File</label>
+                    <a href="{{url('/assets/sample_product.xlsx')}}" target="_blank" class="btn btn-info btn-block btn-md"><i class="fe fe-download"></i>  File Download</a>
                 </div>
-
             </div>
 
             <div class="modal-footer">
