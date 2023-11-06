@@ -97,7 +97,7 @@ Route::group(['middleware' => 'userlogin'], function () {
         // Supplier
         Route::resource('/admin/pegawai', \App\Http\Controllers\Admin\PegawaiController::class);
         Route::get('/admin/pegawai/show/', [PegawaiController::class, 'show'])->name('pegawai.getpegawai');
-        Route::post('/admin/pegawai/proses_tambah/', [PegawaiController::class, 'proses_tambah'])->name('pegawai.store');
+        Route::post('/admin/pegawai/proses_tambah/', [PegawaiController::class, 'proses_tambah'])->name('pegawai_tambah.store');
         Route::post('/admin/pegawai/proses_ubah/{pegawai}', [PegawaiController::class, 'proses_ubah']);
         Route::post('/admin/pegawai/proses_hapus/{pegawai}', [PegawaiController::class, 'proses_hapus']);
     });
@@ -106,7 +106,7 @@ Route::group(['middleware' => 'userlogin'], function () {
         // Supplier
         Route::resource('/admin/supplier', \App\Http\Controllers\Admin\SupplierController::class);
         Route::get('/admin/supplier/show/', [SupplierController::class, 'show'])->name('supplier.getsupplier');
-        Route::post('/admin/supplier/proses_tambah/', [SupplierController::class, 'proses_tambah'])->name('supplier.store');
+        Route::post('/admin/supplier/proses_tambah/', [SupplierController::class, 'proses_tambah'])->name('supplier_tambah.store');
         Route::post('/admin/supplier/proses_ubah/{supplier}', [SupplierController::class, 'proses_ubah']);
         Route::post('/admin/supplier/proses_hapus/{supplier}', [SupplierController::class, 'proses_hapus']);
     });
@@ -115,7 +115,7 @@ Route::group(['middleware' => 'userlogin'], function () {
         // Merk
         Route::resource('/admin/merk', \App\Http\Controllers\Admin\MerkController::class);
         Route::get('/admin/merk/show/', [MerkController::class, 'show'])->name('merk.getmerk');
-        Route::post('/admin/merk/proses_tambah/', [MerkController::class, 'proses_tambah'])->name('merk.store');
+        Route::post('/admin/merk/proses_tambah/', [MerkController::class, 'proses_tambah'])->name('merk_tambah.store');
         Route::post('/admin/merk/proses_ubah/{merk}', [MerkController::class, 'proses_ubah']);
         Route::post('/admin/merk/proses_hapus/{merk}', [MerkController::class, 'proses_hapus']);
     });
