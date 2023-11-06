@@ -123,6 +123,7 @@ Route::group(['middleware' => 'userlogin'], function () {
     Route::middleware(['checkRoleUser:/barang,submenu'])->group(function () {
         // Barang
         Route::resource('/admin/barang', \App\Http\Controllers\Admin\BarangController::class);
+        Route::resource('/admin/barang/history', \App\Http\Controllers\Admin\BarangController::class);
         Route::get('/admin/barang/show/', [BarangController::class, 'show'])->name('barang.getbarang');
         Route::post('/admin/barang/proses_tambah/', [BarangController::class, 'proses_tambah'])->name('barang.store');
         Route::post('/admin/barang/bulk_delete/', [BarangController::class, 'bulk_delete'])->name('barang.bulk_delete');
