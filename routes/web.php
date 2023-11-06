@@ -88,7 +88,7 @@ Route::group(['middleware' => 'userlogin'], function () {
         // Satuan
         Route::resource('/admin/satuan', \App\Http\Controllers\Admin\SatuanController::class);
         Route::get('/admin/satuan/show/', [SatuanController::class, 'show'])->name('satuan.getsatuan');
-        Route::post('/admin/satuan/proses_tambah/', [SatuanController::class, 'proses_tambah'])->name('satuan.store');
+        Route::post('/admin/satuan/proses_tambah/', [SatuanController::class, 'proses_tambah'])->name('satuan_tambah.store');
         Route::post('/admin/satuan/proses_ubah/{satuan}', [SatuanController::class, 'proses_ubah']);
         Route::post('/admin/satuan/proses_hapus/{satuan}', [SatuanController::class, 'proses_hapus']);
     });
