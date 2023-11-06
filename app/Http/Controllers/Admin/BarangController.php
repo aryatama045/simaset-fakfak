@@ -217,7 +217,7 @@ class BarangController extends Controller
                     return $fullname;
                 })
                 ->addColumn('tanggal', function ($row) {
-                    $tanggal = $row->tanggal == '' ? '-' : $row->tanggal;
+                    $tanggal = $row->tanggal == '' ? '-' : date('d/m/y h:i A', strtotime($row->tanggal));
 
                     return $tanggal;
                 })

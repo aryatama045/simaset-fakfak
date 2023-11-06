@@ -124,6 +124,7 @@
                     <div class="card-body">
                         <table id="table-history" class="table table-bordered text-nowrap border-bottom dataTable no-footer dtr-inline collapsed">
                             <thead>
+                                <th></th>
                                 <th class="border-bottom-0">Kode Barang</th>
                                 <th class="border-bottom-0">Nama Barang</th>
                                 <th class="border-bottom-0">Keterangan</th>
@@ -328,6 +329,9 @@ $(document).ready(function () {
             },
         });
 
+    });
+
+    $(document).ready(function() {
         table2 = $('#table-history').DataTable({
             "processing": true,
             "serverSide": true,
@@ -345,6 +349,11 @@ $(document).ready(function () {
                 "url": "{{route('barang.gethistory')}}",
             },
             "columns": [
+                {
+                    data: 'DT_RowIndex',
+                    name: 'DT_RowIndex',
+                    searchable: false
+                },
                 {
                     data: 'barang_kode',
                     name: 'barang_kode',
