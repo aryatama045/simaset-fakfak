@@ -226,6 +226,54 @@ $(document).ready(function () {
             confirmButtonText: "Iya"
         });
     }
+
+    var table2;
+    $(document).ready(function() {
+        table2 = $('#table-history').DataTable({
+            "processing": true,
+            "serverSide": true,
+            "info": true,
+            "order": [],
+            "stateSave":true,
+            "scrollX": true,
+            "lengthMenu": [
+                [5, 10, 25, 50, 100],
+                [5, 10, 25, 50, 100]
+            ],
+            "pageLength": 10,
+            lengthChange: true,
+            "ajax": {
+                "url": "{{route('barang.gethistory')}}",
+            },
+            "columns": [
+                {
+                    data: 'DT_RowIndex',
+                    name: 'DT_RowIndex',
+                    searchable: false
+                },
+                {
+                    data: 'barang_kode',
+                    name: 'barang_kode',
+                },
+                {
+                    data: 'barang_nama',
+                    name: 'barang_nama',
+                },
+                // {
+                //     data: 'keterangan',
+                //     name: 'keterangan',
+                // },
+                // {
+                //     data: 'fullname',
+                //     name: 'fullname',
+                // },
+                // {
+                //     data: 'created_at',
+                //     name: 'created_at'
+                // },
+            ]
+        });
+    });
 </script>
 @endsection
 
@@ -328,54 +376,6 @@ $(document).ready(function () {
             },
         });
 
-    });
-
-    var table2;
-    $(document).ready(function() {
-        table2 = $('#table-history').DataTable({
-            "processing": true,
-            "serverSide": true,
-            "info": true,
-            "order": [],
-            "stateSave":true,
-            "scrollX": true,
-            "lengthMenu": [
-                [5, 10, 25, 50, 100],
-                [5, 10, 25, 50, 100]
-            ],
-            "pageLength": 10,
-            lengthChange: true,
-            "ajax": {
-                "url": "{{route('barang.gethistory')}}",
-            },
-            "columns": [
-                {
-                    data: 'DT_RowIndex',
-                    name: 'DT_RowIndex',
-                    searchable: false
-                },
-                {
-                    data: 'barang_kode',
-                    name: 'barang_kode',
-                },
-                {
-                    data: 'barang_nama',
-                    name: 'barang_nama',
-                },
-                // {
-                //     data: 'keterangan',
-                //     name: 'keterangan',
-                // },
-                // {
-                //     data: 'fullname',
-                //     name: 'fullname',
-                // },
-                // {
-                //     data: 'created_at',
-                //     name: 'created_at'
-                // },
-            ]
-        });
     });
 
 
