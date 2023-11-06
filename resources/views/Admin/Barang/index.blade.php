@@ -227,6 +227,17 @@ $(document).ready(function () {
         });
     }
 
+</script>
+@endsection
+
+@section('scripts')
+<script>
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
     var table2;
     $(document).ready(function() {
         table2 = $('#table-history').DataTable({
@@ -274,10 +285,9 @@ $(document).ready(function () {
             ]
         });
     });
-</script>
-@endsection
 
-@section('scripts')
+</script>
+
 <script>
     $.ajaxSetup({
         headers: {
