@@ -127,7 +127,7 @@
                                 <th></th>
                                 <th class="border-bottom-0">Kode Barang</th>
                                 <th class="border-bottom-0">Nama Barang</th>
-                                <th class="border-bottom-0">Keterangan</th>
+                                <!-- <th class="border-bottom-0">Keterangan</th> -->
                                 <th class="border-bottom-0">User By</th>
                                 <th class="border-bottom-0">Date</th>
                             </thead>
@@ -362,10 +362,10 @@ $(document).ready(function () {
                     data: 'barang_nama',
                     name: 'barang_nama',
                 },
-                {
-                    data: 'keterangan',
-                    name: 'keterangan',
-                },
+                // {
+                //     data: 'keterangan',
+                //     name: 'keterangan',
+                // },
                 {
                     data: 'fullname',
                     name: 'fullname',
