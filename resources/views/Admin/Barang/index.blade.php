@@ -237,7 +237,6 @@ $(document).ready(function () {
         }
     });
     var table;
-    var table2;
     $(document).ready(function() {
         //datatables
         table = $('#table-1').DataTable({
@@ -331,6 +330,7 @@ $(document).ready(function () {
 
     });
 
+    var table2;
     $(document).ready(function() {
         table2 = $('#table-history').DataTable({
             "processing": true,
@@ -363,16 +363,16 @@ $(document).ready(function () {
                     name: 'barang_nama',
                 },
                 {
-                    data: 'ket_history',
-                    name: 'ket_history',
+                    data: 'keterangan',
+                    name: 'keterangan',
                 },
                 {
                     data: 'fullname',
                     name: 'fullname',
                 },
                 {
-                    data: 'tanggal',
-                    name: 'tanggal'
+                    data: 'created_at',
+                    name: 'created_at'
                 },
             ]
         });

@@ -189,8 +189,8 @@ class BarangController extends Controller
 
             $data = BaranghistoryModel::leftJoin('tbl_barang', 'tbl_barang.barang_id', '=', 'tbl_barang_log.barang_id')
             ->leftJoin('tbl_user', 'tbl_user.user_id', '=', 'tbl_barang_log.user_id')
-            ->select('keterangan as ket_history','created_at as tanggal', 'tbl_user.usernmlengkap as fullname', 'tbl_barang.barang_kode','tbl_barang.barang_nama')
-            ->orderBy('created_at', 'DESC')->get();
+            ->select('keterangan','created_at', 'tbl_user.usernmlengkap as fullname', 'tbl_barang.barang_kode','tbl_barang.barang_nama')
+            ->orderBy('tanggal', 'DESC')->get();
 
             return DataTables::of($data)
                 ->addIndexColumn()
@@ -204,17 +204,17 @@ class BarangController extends Controller
 
                     return $barang_nama;
                 })
-                ->addColumn('ket_history', function ($row) {
-                    $ket_history = $row->ket_history == '' ? '-' : $row->ket_history;
+                ->addColumn('keterangan', function ($row) {
+                    $keterangan = $row->keterangan == '' ? '-' : $row->keterangan;
 
-                    return $ket_history;
+                    return $keterangan;
                 })
-                ->addColumn('tanggal', function ($row) {
-                    $tanggal = $row->tanggal == '' ? '-' : date('d/m/y h:i A', strtotime($row->tanggal));
+                ->addColumn('created_at', function ($row) {
+                    $created_at = $row->created_at == '' ? '-' : date('d/m/y h:i A', strtotime($row->created_at));
 
-                    return $tanggal;
+                    return $created_at;
                 })
-                ->rawColumns(['barang_kode', 'barang_nama', 'ket_history','fullname', 'tanggal' ])->make(true);
+                ->rawColumns(['barang_kode', 'barang_nama', 'keterangan','fullname', 'created_at' ])->make(true);
         }
     }
 
