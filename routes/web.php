@@ -123,7 +123,7 @@ Route::group(['middleware' => 'userlogin'], function () {
     Route::middleware(['checkRoleUser:/barang,submenu'])->group(function () {
         // Barang
         Route::resource('/admin/barang', \App\Http\Controllers\Admin\BarangController::class);
-        Route::post('/admin/barang/history', BarangController::class, 'history');
+        Route::post('/admin/barang/history', BarangController::class, 'history')->name('barang.showhistory');
         // Route::get('/admin/barang/history', 'App\Http\Controllers\Admin\BarangController@history');
         Route::get('/admin/barang/showhistory/', [BarangController::class, 'showhistory'])->name('barang.gethistory');
         Route::get('/admin/barang/show/', [BarangController::class, 'show'])->name('barang.getbarang');
