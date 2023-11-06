@@ -140,7 +140,7 @@ Route::group(['middleware' => 'userlogin'], function () {
         // Customer
         Route::resource('/admin/customer', \App\Http\Controllers\Admin\CustomerController::class);
         Route::get('/admin/customer/show/', [CustomerController::class, 'show'])->name('customer.getcustomer');
-        Route::post('/admin/customer/proses_tambah/', [CustomerController::class, 'proses_tambah'])->name('customer.store');
+        Route::post('/admin/customer/proses_tambah/', [CustomerController::class, 'proses_tambah'])->name('customer_tambah.store');
         Route::post('/admin/customer/proses_ubah/{customer}', [CustomerController::class, 'proses_ubah']);
         Route::post('/admin/customer/proses_hapus/{customer}', [CustomerController::class, 'proses_hapus']);
     });
