@@ -54,7 +54,7 @@
         <div class="card">
             <ul class="nav nav-tabs mb-3" style="margin:0rem !important;" id="ex1" role="tablist">
                 <li class="nav-item">
-                    <a class="nav-link" href="#databarang" data-toggle="tab"
+                    <a class="nav-link active" href="#databarang" data-toggle="tab"
                     >Data Barang</a>
                 </li>
                 <li class="nav-item">
