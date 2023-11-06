@@ -1,4 +1,11 @@
 @extends('Master.Layouts.app', ['title' => $title])
+
+<style>
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+  background: moccasin;
+  border-bottom: 2px solid green;
+}
+</style>
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 
 @section('content')
