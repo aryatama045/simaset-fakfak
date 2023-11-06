@@ -14,6 +14,6 @@ class BarangHistoryModel extends Model
         'barang_id',
         'keterangan',
         'kategori_id',
-        'user_by'
+        'user_id'
     ];
 }
