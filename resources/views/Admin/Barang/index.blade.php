@@ -46,29 +46,17 @@
 
         <div class="card">
             <ul class="nav nav-tabs mb-3" style="margin:0rem !important;" id="ex1" role="tablist">
-                <li class="nav-item" role="presentation">
-                    <a data-toggle="tab"
-                    class="nav-link active"
-                    id="ex1-tab-1"
-                    href="#ex1-tabs-1"
-                    role="tab"
-                    aria-controls="#ex1-tabs-1"
-                    aria-selected="true"
+                <li class="nav-item">
+                    <a class="nav-link active" href="#databarang" data-toggle="tab"
                     >Data Barang</a>
                 </li>
-                <li class="nav-item" role="presentation">
-                    <a data-toggle="tab"
-                    class="nav-link"
-                    id="ex1-tab-2"
-                    href="#ex1-tabs-2"
-                    role="tab"
-                    aria-controls="#ex1-tabs-2"
-                    aria-selected="false">History</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="#history" data-toggle="tab" >History</a>
                 </li>
             </ul>
 
             <div id="ex1-content" class="tab-content">
-                <div class="tab-pane fade show active" id="ex1-tab-1" role="tabpanel" aria-labelledby="ex1-tabs-1">
+                <div class="tab-pane fade show active" id="databarang">
 
                     <div class="card-header justify-content-between">
                         <h3 class="card-title">Data Barang</h3>
@@ -120,7 +108,7 @@
 
                 </div>
 
-                <div class="tab-pane fade" id="ex1-tabs-2" role="tabpanel" aria-labelledby="ex1-tab-2">
+                <div class="tab-pane" id="history">
                     <div class="card-header justify-content-between">
                         <h3 class="card-title">History Barang</h3>
                     </div>
