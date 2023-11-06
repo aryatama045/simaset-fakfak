@@ -183,7 +183,7 @@ class BarangController extends Controller
         }
     }
 
-    public function showhistory(Request $request)
+    public function history(Request $request)
     {
         if ($request->ajax()) {
 
