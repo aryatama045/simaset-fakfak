@@ -63,7 +63,7 @@
                     href="#history"
                     role="tab"
                     aria-controls="history"
-                    aria-selected="true">History</a>
+                    aria-selected="false">History</a>
                 </li>
             </ul>
 
