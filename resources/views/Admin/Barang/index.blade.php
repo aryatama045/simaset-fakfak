@@ -54,7 +54,7 @@
         <div class="card">
             <ul class="nav nav-tabs mb-3" style="margin:0rem !important;" id="ex1" role="tablist">
                 <li class="nav-item">
-                    <a class="nav-link active" href="#databarang" data-toggle="tab"
+                    <a class="nav-link active " href="#databarang" data-toggle="tab"
                     >Data Barang</a>
                 </li>
                 <li class="nav-item">
@@ -180,6 +180,8 @@
     </div>
 </div>
 
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function () {
