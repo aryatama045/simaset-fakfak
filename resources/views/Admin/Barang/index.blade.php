@@ -235,7 +235,8 @@ $(document).ready(function () {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
     });
-    var table,table2;
+    var table;
+    var table2;
     $(document).ready(function() {
         //datatables
         table = $('#table-1').DataTable({
@@ -343,23 +344,7 @@ $(document).ready(function () {
             "ajax": {
                 "url": "{{route('barang.gethistory')}}",
             },
-            'columnDefs': [
-                {
-                    'targets': 0,
-                    'checkboxes': {
-                    'selectRow': true
-                    }
-                }
-            ],
-            'select': {
-                'style': 'multi'
-            },
             "columns": [
-                // {
-                //     data: 'DT_RowIndex',
-                //     name: 'DT_RowIndex',
-                //     searchable: false
-                // },
                 {
                     data: 'barang_kode',
                     name: 'barang_kode',
@@ -380,10 +365,7 @@ $(document).ready(function () {
                     data: 'tanggal',
                     name: 'tanggal'
                 },
-            ],
-            select: {
-                style: 'multi'
-            },
+            ]
         });
     });
 
