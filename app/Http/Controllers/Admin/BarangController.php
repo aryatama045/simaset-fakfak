@@ -185,6 +185,7 @@ class BarangController extends Controller
 
     public function history(Request $request)
     {
+        dd($request);
         if ($request->ajax()) {
 
             $data = BaranghistoryModel::leftJoin('tbl_barang', 'tbl_barang.barang_id', '=', 'tbl_barang_log.barang_id')
