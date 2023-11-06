@@ -58,7 +58,7 @@
                 </li>
                 <li class="nav-item" role="presentation">
                     <a data-mdb-toggle="tab"
-                    class="nav-link active"
+                    class="nav-link"
                     id="ex1-tab-2"
                     href="#ex1-tabs-2"
                     role="tab"
