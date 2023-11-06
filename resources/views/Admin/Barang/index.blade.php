@@ -45,16 +45,23 @@
 
 
         <div class="card">
-            <ul class="nav nav-tabs" role="tablist">
+            <ul class="nav nav-tabs mb-3" id="ex1" role="tablist">
                 <li class="nav-item">
-                    <a class="nav-link active" href="#databarang" data-toggle="tab" >Data Barang</a>
+                    <a class="nav-link active" href="#databarang" data-toggle="tab"
+                    class="nav-link active"
+                    id="databarang"
+                    href="#databarang"
+                    role="tab"
+                    aria-controls="databarang"
+                    aria-selected="true"
+                    >Data Barang</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#history" data-toggle="tab" >History</a>
                 </li>
             </ul>
 
-            <div id="my-tab-content" class="tab-content">
+            <div id="ex1-content" class="tab-content">
                 <div class="tab-pane fade show active" id="databarang">
 
                     <div class="card-header justify-content-between">
@@ -108,16 +115,22 @@
                 </div>
 
                 <div class="tab-pane" id="history">
-                    <table id="table-history" class="table table-bordered text-nowrap border-bottom dataTable no-footer dtr-inline collapsed">
-                        <thead>
-                            <th class="border-bottom-0">Kode Barang</th>
-                            <th class="border-bottom-0">Nama Barang</th>
-                            <th class="border-bottom-0">Ket. Hapus</th>
-                            <th class="border-bottom-0">User By</th>
-                            <th class="border-bottom-0">Date</th>
-                        </thead>
-                        <tbody></tbody>
-                    </table>
+                    <div class="card-header justify-content-between">
+                        <h3 class="card-title">History Barang</h3>
+                    </div>
+
+                    <div class="card-body">
+                        <table id="table-history" class="table table-bordered text-nowrap border-bottom dataTable no-footer dtr-inline collapsed">
+                            <thead>
+                                <th class="border-bottom-0">Kode Barang</th>
+                                <th class="border-bottom-0">Nama Barang</th>
+                                <th class="border-bottom-0">Ket. Hapus</th>
+                                <th class="border-bottom-0">User By</th>
+                                <th class="border-bottom-0">Date</th>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
 
                 </div>
 
