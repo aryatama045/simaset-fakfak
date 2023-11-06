@@ -150,7 +150,7 @@ Route::group(['middleware' => 'userlogin'], function () {
         Route::resource('/admin/pb', \App\Http\Controllers\Admin\PbController::class);
         Route::get('admin/pb/add', [PbController::class, 'add'])->name('pb.add');
 
-        Route::get('products/print_barcode','ProductController@printBarcode')->name('product.printBarcode');
+        // Route::get('products/print_barcode','ProductController@printBarcode')->name('product.printBarcode');
         Route::get('/admin/pb/show/', [PbController::class, 'show'])->name('pb.getpb');
         Route::post('/admin/pb/proses_tambah/', [PbController::class, 'proses_tambah'])->name('pb.store');
         Route::post('/admin/pb/proses_ubah/{barangmasuk}', [PbController::class, 'proses_ubah']);
