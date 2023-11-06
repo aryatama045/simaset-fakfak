@@ -4,7 +4,7 @@
 @section('content')
 <!-- PAGE-HEADER -->
 <div class="page-header">
-    <h1 class="page-title">{{$title}}</h1>
+    <!-- <h1 class="page-title">{{$title}}</h1> -->
     <div>
         <ol class="breadcrumb">
             <li class="breadcrumb-item text-gray">Master Data</li>
