@@ -1,5 +1,5 @@
 @extends('Master.Layouts.app', ['title' => $title])
-
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 
 @section('content')
 <!-- PAGE-HEADER -->
@@ -164,6 +164,11 @@
 </div>
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function () {
+    $('#tabs').tab();
+});
+</script>
 <script>
     function generateID(){
         id = new Date().getTime();
