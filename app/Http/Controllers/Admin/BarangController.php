@@ -41,7 +41,7 @@ class BarangController extends Controller
         return view('Admin.Barang.index', $data);
     }
 
-    public function showhistory()
+    public function datahistory()
     {
         $data["title"] = "Barang";
         $data["hakEdit"] = AksesModel::leftJoin('tbl_submenu', 'tbl_submenu.submenu_id', '=', 'tbl_akses.submenu_id')->where(array('tbl_akses.role_id' => Session::get('user')->role_id, 'tbl_submenu.submenu_judul' => 'Barang', 'tbl_akses.akses_type' => 'update'))->count();
