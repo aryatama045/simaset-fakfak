@@ -132,6 +132,12 @@ Route::group(['middleware' => 'userlogin'], function () {
         Route::post('/admin/barang/import_barang/', [BarangController::class, 'import_barang'])->name('barang.import');
 
         Route::get('/admin/barang/export_barang/{id}', [BarangController::class, 'export_barang']);
+
+        Route::controller(BarangController::class)->group(function () {
+            Route::prefix('barang')->group(function () {
+                Route::get('history', 'showhistory')->name('barang.showHistory');
+            });
+        });
     });
 
     Route::middleware(['checkRoleUser:/customer,menu'])->group(function () {
