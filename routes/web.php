@@ -134,8 +134,8 @@ Route::group(['middleware' => 'userlogin'], function () {
         Route::get('/admin/barang/export_barang/{id}', [BarangController::class, 'export_barang']);
 
         Route::controller(BarangController::class)->group(function () {
-            Route::prefix('barang')->group(function () {
-                Route::get('history', 'showhistory')->name('barang.showHistory');
+            Route::prefix('/admin/barang')->group(function () {
+                Route::get('datahistory', 'showhistory')->name('barang.showHistory');
             });
         });
     });
