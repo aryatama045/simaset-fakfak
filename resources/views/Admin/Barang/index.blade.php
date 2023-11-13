@@ -11,7 +11,7 @@
 @section('content')
 <!-- PAGE-HEADER -->
 <div class="page-header">
-    <!-- <h1 class="page-title">{{$title}}</h1> -->
+    <h1 class="page-title"> Data {{$title}}</h1>
     <div>
         <ol class="breadcrumb">
             <li class="breadcrumb-item text-gray">Master Data</li>
@@ -52,101 +52,62 @@
 
 
         <div class="card">
-            <!-- <ul class="nav nav-tabs mb-3" style="margin:0rem !important;" id="ex1" role="tablist">
-                <li class="nav-item">
-                    <a class="nav-link " href="#databarang" data-toggle="tab" aria-expanded="true"
-                    >Data Barang</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#history" data-toggle="tab" aria-expanded="false">
-                    History</a>
-                </li>
-            </ul> -->
+            <div class="card-header justify-content-between">
+                <ul class="nav " role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link " href="{{url('admin/barang')}}" >Data Barang</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{{url('admin/datahistory')}}" >History</a>
+                    </li>
+                </ul>
 
-            <ul class="nav " role="tablist">
-                <li class="nav-item">
-                    <a class="nav-link active" href="{{url('admin/barang')}}"
-                    aria-expanded="false">Data Barang</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link " href="{{url('admin/datahistory')}}"
-                    aria-expanded="true" >History</a>
-                </li>
-            </ul>
 
-            <div id="ex1-content" class="tab-content">
-                <div class="tab-pane fade show active" id="databarang">
+                <!-- <h3 class="card-title">Data</h3> -->
+                @if($hakTambah > 0)
+                <div>
+                    <a class="btn btn-default-light" href="barang/export_barang/xlsx" target="_blank" >Export <i class="fe fe-download"></i></a>
+                    <a class="modal-effect btn btn-success-light" onclick="generateID()" data-bs-effect="effect-super-scaled" data-bs-toggle="modal" href="#modalimport">Import <i class="fe fe-upload"></i></a>
+                    <a class="modal-effect btn btn-primary-light" onclick="generateID()" data-bs-effect="effect-super-scaled" data-bs-toggle="modal" href="#modaldemo8">Tambah Data <i class="fe fe-plus"></i></a>
+                </div>
+                @endif
+            </div>
 
-                    <div class="card-header justify-content-between">
-                        <h3 class="card-title">Data Barang</h3>
-                        @if($hakTambah > 0)
-                        <div>
-                            <a class="btn btn-default-light" href="barang/export_barang/xlsx" target="_blank" >Export <i class="fe fe-download"></i></a>
-                            <a class="modal-effect btn btn-success-light" onclick="generateID()" data-bs-effect="effect-super-scaled" data-bs-toggle="modal" href="#modalimport">Import <i class="fe fe-upload"></i></a>
-                            <a class="modal-effect btn btn-primary-light" onclick="generateID()" data-bs-effect="effect-super-scaled" data-bs-toggle="modal" href="#modaldemo8">Tambah Data <i class="fe fe-plus"></i></a>
-                        </div>
-                        @endif
+            <div class="card-body">
+                @if($hakDelete > 0)
+                <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle" id="dropdownNoAnimation" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Bulk Action</button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownNoAnimation">
+                        <a class="dropdown-item" href="#!" name="bulk_delete" id="bulk_delete">Bulk Delete</a>
+                        <!-- <a class="dropdown-item" href="#!">Something else here</a> -->
                     </div>
-                    <div class="card-body">
-                        @if($hakDelete > 0)
-                        <div class="dropdown">
-                            <button class="btn btn-primary dropdown-toggle" id="dropdownNoAnimation" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Bulk Action</button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownNoAnimation">
-                                <a class="dropdown-item" href="#!" name="bulk_delete" id="bulk_delete">Bulk Delete</a>
-                                <!-- <a class="dropdown-item" href="#!">Something else here</a> -->
+                </div>
+                @endif
+                <br>
+                <table id="table-1" class="table table-bordered text-nowrap border-bottom dataTable no-footer dtr-inline collapsed">
+                    <thead>
+                        @if($hakEdit > 0)
+                        <th class="border-bottom-0" width="1%">
+                            <div class="form-check">
+                                <input type="checkbox" name="select_all" value="1" class="form-check-input" id="example-select-all">
                             </div>
-                        </div>
+                        </th>
+                        <th class="border-bottom-0" width="1%">Action</th>
                         @endif
-                        <br>
-                        <table id="table-1" class="table table-bordered text-nowrap border-bottom dataTable no-footer dtr-inline collapsed">
-                            <thead>
-                                @if($hakEdit > 0)
-                                <th class="border-bottom-0" width="1%">
-                                    <div class="form-check">
-                                        <input type="checkbox" name="select_all" value="1" class="form-check-input" id="example-select-all">
-                                    </div>
-                                </th>
-                                <th class="border-bottom-0" width="1%">Action</th>
-                                @endif
 
-                                <th class="border-bottom-0">Gambar</th>
-                                <th class="border-bottom-0">Kode Barang</th>
-                                <th class="border-bottom-0">Nama Barang</th>
-                                <th class="border-bottom-0">Jenis</th>
-                                <th class="border-bottom-0">Kategori</th>
-                                <th class="border-bottom-0">Satuan</th>
-                                <th class="border-bottom-0">Merk</th>
-                                <th class="border-bottom-0">Stok</th>
-                                <th class="border-bottom-0">Harga</th>
-                            </thead>
-                            <tbody></tbody>
-                        </table>
-
-                    </div>
-
-                </div>
-
-                <div class="tab-pane" id="history">
-                    <div class="card-header justify-content-between">
-                        <h3 class="card-title">History Barang</h3>
-                    </div>
-
-                    <div class="card-body">
-                        <table id="table-history" class="table table-bordered text-nowrap border-bottom dataTable no-footer dtr-inline collapsed">
-                            <thead>
-                                <th></th>
-                                <th class="border-bottom-0">Kode Barang</th>
-                                <th class="border-bottom-0">Nama Barang</th>
-                                <!-- <th class="border-bottom-0">Keterangan</th> -->
-                                <!-- <th class="border-bottom-0">User By</th> -->
-                                <!-- <th class="border-bottom-0">Date</th> -->
-                            </thead>
-                            <tbody></tbody>
-                        </table>
-                    </div>
-
-                </div>
+                        <th class="border-bottom-0">Gambar</th>
+                        <th class="border-bottom-0">Kode Barang</th>
+                        <th class="border-bottom-0">Nama Barang</th>
+                        <th class="border-bottom-0">Jenis</th>
+                        <th class="border-bottom-0">Kategori</th>
+                        <th class="border-bottom-0">Satuan</th>
+                        <th class="border-bottom-0">Merk</th>
+                        <th class="border-bottom-0">Stok</th>
+                        <th class="border-bottom-0">Harga</th>
+                    </thead>
+                    <tbody></tbody>
+                </table>
 
             </div>
 
