@@ -49,8 +49,6 @@
 <div class="row row-sm">
     <div class="col-lg-12">
 
-
-
         <div class="card">
             <div class="card-header justify-content-between">
                 <ul class="nav " role="tablist">
@@ -61,7 +59,6 @@
                         <a class="nav-link active" href="{{url('admin/datahistory')}}" >History</a>
                     </li>
                 </ul>
-
 
                 <!-- <h3 class="card-title">Data</h3> -->
                 @if($hakTambah > 0)
@@ -110,7 +107,6 @@
                 </table>
 
             </div>
-
 
         </div>
     </div>
