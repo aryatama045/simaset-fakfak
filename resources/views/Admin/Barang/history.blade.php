@@ -49,7 +49,7 @@
                         <a class="nav-link " href="{{url('admin/barang')}}" >Data Barang</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="{{url('admin/barang/history')}}" >History</a>
+                        <a class="nav-link active" href="{{url('admin/datahistory')}}" >History</a>
                     </li>
                 </ul>
 

@@ -65,11 +65,11 @@
 
             <ul class="nav " role="tablist">
                 <li class="nav-item">
-                    <a class="nav-link " href="{{url('admin/barang')}}"
+                    <a class="nav-link active" href="{{url('admin/barang')}}"
                     aria-expanded="false">Data Barang</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="{{url('admin/barang/history')}}"
+                    <a class="nav-link " href="{{url('admin/datahistory')}}"
                     aria-expanded="true" >History</a>
                 </li>
             </ul>
