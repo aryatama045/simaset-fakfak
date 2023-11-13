@@ -4,11 +4,11 @@
 @section('content')
 <!-- PAGE-HEADER -->
 <div class="page-header">
-    <h1 class="page-title">{{$title}}</h1>
+    <h1 class="page-title">{{$title}} History</h1>
     <div>
         <ol class="breadcrumb">
             <li class="breadcrumb-item text-gray">Master Data</li>
-            <li class="breadcrumb-item active" aria-current="page">{{$title}}</li>
+            <li class="breadcrumb-item active" aria-current="page">{{$title}} History</li>
         </ol>
     </div>
 </div>
@@ -46,10 +46,10 @@
             <div class="card-header justify-content-between">
                 <ul class="nav " role="tablist">
                     <li class="nav-item">
-                        <a class="nav-link active" href="{{url('admin/barang')}}" >Data Barang</a>
+                        <a class="nav-link " href="{{url('admin/barang')}}" >Data Barang</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{url('admin/barang/history')}}" >History</a>
+                        <a class="nav-link active" href="{{url('admin/barang/history')}}" >History</a>
                     </li>
                 </ul>
 

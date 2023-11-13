@@ -52,7 +52,7 @@
 
 
         <div class="card">
-            <ul class="nav nav-tabs mb-3" style="margin:0rem !important;" id="ex1" role="tablist">
+            <!-- <ul class="nav nav-tabs mb-3" style="margin:0rem !important;" id="ex1" role="tablist">
                 <li class="nav-item">
                     <a class="nav-link " href="#databarang" data-toggle="tab" aria-expanded="true"
                     >Data Barang</a>
@@ -60,6 +60,17 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#history" data-toggle="tab" aria-expanded="false">
                     History</a>
+                </li>
+            </ul> -->
+
+            <ul class="nav " role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link " href="{{url('admin/barang')}}"
+                    aria-expanded="false">Data Barang</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="{{url('admin/barang/history')}}"
+                    aria-expanded="true" >History</a>
                 </li>
             </ul>
 
