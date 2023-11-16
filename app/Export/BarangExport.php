@@ -61,6 +61,7 @@ class BarangExport implements FromCollection, WithHeadings, ShouldAutoSize, With
 
     public function collection()
     {
+
         $all_barang_data = [];
         $data_barang = BarangModel::leftJoin('tbl_kategori as tk', 'tk.kategori_id','=', 'tbl_barang.kategori_id')
                     ->leftJoin('tbl_jenisbarang as tjb', 'tjb.jenisbarang_id', '=', 'tbl_barang.jenisbarang_id')
