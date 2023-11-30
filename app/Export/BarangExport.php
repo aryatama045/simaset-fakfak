@@ -14,6 +14,12 @@ use PhpOffice\PhpSpreadsheet\Style\Border;
 class BarangExport implements FromCollection, WithHeadings, ShouldAutoSize, WithEvents
 {
 
+    protected $id;
+
+    function __construct($id) {
+            $this->id = $id;
+    }
+
 
     public function registerEvents(): array
     {
@@ -37,9 +43,6 @@ class BarangExport implements FromCollection, WithHeadings, ShouldAutoSize, With
         $worksheet->getStyle('')->applyFromArray($styleArray);
     }
 
-    /**
-    * @return \Illuminate\Support\Collection
-    */
 
     public function headings():array{
         return[

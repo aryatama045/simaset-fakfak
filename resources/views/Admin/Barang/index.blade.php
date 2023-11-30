@@ -194,7 +194,6 @@ $(document).ready(function () {
             confirmButtonText: "Iya"
         });
     }
-
 </script>
 @endsection
 
