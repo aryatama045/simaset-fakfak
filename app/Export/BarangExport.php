@@ -14,12 +14,12 @@ use PhpOffice\PhpSpreadsheet\Style\Border;
 class BarangExport implements FromCollection, WithHeadings, ShouldAutoSize, WithEvents
 {
 
-    protected $id1;
-    protected $id2;
+    protected $jenis;
+    protected $satuan;
 
-    function __construct($id1,$id2) {
-            $this->id1 = $id1;
-            $this->id2 = $id2;
+    function __construct($jenis,$satuan) {
+            $this->jenis = $jenis;
+            $this->satuan = $satuan;
     }
 
 
@@ -68,7 +68,7 @@ class BarangExport implements FromCollection, WithHeadings, ShouldAutoSize, With
     public function collection()
     {
 
-        dd($this->id1, $this->id2);
+        dd($this->jenis, $this->satuan);
 
         $all_barang_data = [];
         $data_barang = BarangModel::leftJoin('tbl_kategori as tk', 'tk.kategori_id','=', 'tbl_barang.kategori_id')

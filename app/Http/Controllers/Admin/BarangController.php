@@ -608,10 +608,8 @@ class BarangController extends Controller
         $satuan     = $request->satuan;
         $type       = $request->type;
         
-        dd($jenis,$satuan,$type);
-
         try{
-            return Excel::download(new BarangExport('data1','data2'), 'barang_export-'.date('d-m-y').'.'.$type.'');
+            return Excel::download(new BarangExport($jenis,$satuan), 'barang_export-'.date('d-m-y').'.'.$type.'');
         }catch(\Exception $e) {
             return redirect()->back()->with('error_message', 'Operation Failed');
         }
