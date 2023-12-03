@@ -16,7 +16,6 @@ class BarangExport implements FromCollection, WithHeadings, ShouldAutoSize, With
 
     protected $jenis;
     protected $satuan;
-    protected $where;
 
     function __construct($jenis,$satuan) {
             $this->jenis = $jenis;
