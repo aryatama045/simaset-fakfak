@@ -18,12 +18,9 @@ class BarangExport implements FromCollection, WithHeadings, ShouldAutoSize, With
     protected $satuan;
 
     function __construct($jenis,$satuan) {
-            $this->jenis = $jenis;
-            $this->satuan = $satuan;
-
-            
+        $this->jenis = $jenis;
+        $this->satuan = $satuan;
     }
-
 
 
     public function registerEvents(): array
@@ -48,7 +45,6 @@ class BarangExport implements FromCollection, WithHeadings, ShouldAutoSize, With
         $worksheet->getStyle('')->applyFromArray($styleArray);
     }
 
-
     public function headings():array{
         return[
             'No.',
@@ -69,9 +65,6 @@ class BarangExport implements FromCollection, WithHeadings, ShouldAutoSize, With
 
     public function collection()
     {
-
-        
-
         $where = '';
         if($this->jenis != NULL){
             $where = $this->jenis;
@@ -83,7 +76,6 @@ class BarangExport implements FromCollection, WithHeadings, ShouldAutoSize, With
         // }
 
         // dd($this->jenis, $this->satuan, $where);
-
 
         $all_barang_data = [];
         $data_barang = BarangModel::leftJoin('tbl_kategori as tk', 'tk.kategori_id','=', 'tbl_barang.kategori_id')
