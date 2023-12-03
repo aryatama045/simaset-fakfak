@@ -16,6 +16,7 @@
                     <label for="jenisbarang" class="form-label">Jenis Barang</label>
                     <select name="jenisbarang" class="form-control">
                         <option value="">-- Pilih --</option>
+                        <option value="">Semua Data</option>
                         @foreach ($jenisbarang as $jb)
                             <option value="{{$jb->jenisbarang_id}}">{{$jb->jenisbarang_nama}}</option>
                         @endforeach
