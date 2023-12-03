@@ -65,27 +65,30 @@ class BarangExport implements FromCollection, WithHeadings, ShouldAutoSize, With
 
     public function collection()
     {
-        $where = '';
-        if($this->jenis != NULL){
-            $where = $this->jenis;
-        } else {
-            $where = '';
-        }
-        // if($this->satuan != NULL){
-        //     $where .= "->where(ts.satuan_id = $this->satuan)";
-        // }
-
-        // dd($this->jenis, $this->satuan, $where);
 
         $all_barang_data = [];
-        $data_barang = BarangModel::leftJoin('tbl_kategori as tk', 'tk.kategori_id','=', 'tbl_barang.kategori_id')
-                    ->leftJoin('tbl_jenisbarang as tjb', 'tjb.jenisbarang_id', '=', 'tbl_barang.jenisbarang_id')
-                    ->leftJoin('tbl_merk as tm', 'tm.merk_id', '=', 'tbl_barang.merk_id')
-                    ->leftJoin('tbl_satuan as ts', 'ts.satuan_id', '=', 'tbl_barang.satuan_id')
-                    ->where('tjb.jenisbarang_id', $where)
-                    ->select('barang_kode','barang_nama', 'barang_stok', 'barang_harga', 'barang_id', 'tk.kategori_nama',
-                            'tjb.jenisbarang_nama', 'tm.merk_nama', 'ts.satuan_nama')
-                    ->get();
+
+        if($this->jenis != NULL){
+            $data_barang = BarangModel::leftJoin('tbl_kategori as tk', 'tk.kategori_id','=', 'tbl_barang.kategori_id')
+                ->leftJoin('tbl_jenisbarang as tjb', 'tjb.jenisbarang_id', '=', 'tbl_barang.jenisbarang_id')
+                ->leftJoin('tbl_merk as tm', 'tm.merk_id', '=', 'tbl_barang.merk_id')
+                ->leftJoin('tbl_satuan as ts', 'ts.satuan_id', '=', 'tbl_barang.satuan_id')
+                ->where('tjb.jenisbarang_id', $this->jenis)
+                ->select('barang_kode','barang_nama', 'barang_stok', 'barang_harga', 'barang_id', 'tk.kategori_nama',
+                        'tjb.jenisbarang_nama', 'tm.merk_nama', 'ts.satuan_nama')
+                ->get();
+        } else {
+            $data_barang = BarangModel::leftJoin('tbl_kategori as tk', 'tk.kategori_id','=', 'tbl_barang.kategori_id')
+                ->leftJoin('tbl_jenisbarang as tjb', 'tjb.jenisbarang_id', '=', 'tbl_barang.jenisbarang_id')
+                ->leftJoin('tbl_merk as tm', 'tm.merk_id', '=', 'tbl_barang.merk_id')
+                ->leftJoin('tbl_satuan as ts', 'ts.satuan_id', '=', 'tbl_barang.satuan_id')
+                ->select('barang_kode','barang_nama', 'barang_stok', 'barang_harga', 'barang_id', 'tk.kategori_nama',
+                        'tjb.jenisbarang_nama', 'tm.merk_nama', 'ts.satuan_nama')
+                ->get();
+        }
+
+
+        
 
         $no=1;
         foreach ($data_barang as $barang) {
