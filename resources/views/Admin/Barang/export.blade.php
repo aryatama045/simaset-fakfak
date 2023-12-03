@@ -1,8 +1,8 @@
 <!-- MODAL Export -->
 <div class="modal fade" data-bs-backdrop="static" id="modalexport">
-    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable" role="document">
+    <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content modal-content-demo">
-            <form  enctype='multipart/form-data' action="{{url('admin/barang/export_barang')}}" method="POST">
+            <form class="modal-dialog-scrollable" enctype='multipart/form-data' action="{{url('admin/barang/export_barang')}}" method="POST">
             @csrf
             <div class="modal-header">
                 <h6 class="modal-title">Export Barang</h6><button onclick="reset()" aria-label="Close" class="btn-close" data-bs-dismiss="modal"><span aria-hidden="true">&times;</span></button>
@@ -14,7 +14,7 @@
 
                 <div class="form-group">
                     <label for="jenisbarang" class="form-label">Jenis Barang</label>
-                    <select name="jenisbarang" class="form-control">
+                    <select name="jenisbarang" class="select form-control">
                         <option value="">-- Pilih --</option>
                         <option value="">Semua Data</option>
                         @foreach ($jenisbarang as $jb)
