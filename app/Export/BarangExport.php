@@ -88,6 +88,7 @@ class BarangExport implements FromCollection, WithHeadings, ShouldAutoSize, With
                     ->leftJoin('tbl_satuan as ts', 'ts.satuan_id', '=', 'tbl_barang.satuan_id')
                     ->select('barang_kode','barang_nama', 'barang_stok', 'barang_harga', 'barang_id', 'tk.kategori_nama',
                             'tjb.jenisbarang_nama', 'tm.merk_nama', 'ts.satuan_nama')
+                    $where
                     ->get();
 
         $no=1;
