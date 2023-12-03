@@ -75,7 +75,7 @@ class BarangExport implements FromCollection, WithHeadings, ShouldAutoSize, With
             $where .= "->where(tjb.jenisbarang_id = $this->jenis)";
         }
         if($this->satuan != NULL){
-            $where .= "->where(tjb.jenisbarang_id = $this->satuan)";
+            $where .= "->where(ts.satuan_id = $this->satuan)";
         }
 
         dd($this->jenis, $this->satuan, $where);
