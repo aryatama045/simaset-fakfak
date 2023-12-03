@@ -63,7 +63,8 @@
                 <!-- <h3 class="card-title">Data</h3> -->
                 @if($hakTambah > 0)
                 <div>
-                    <a class="btn btn-default-light" href="barang/export_barang/xlsx" target="_blank" >Export <i class="fe fe-download"></i></a>
+                    <!-- <a class="btn btn-default-light" href="barang/export_barang/xlsx" target="_blank" >Export <i class="fe fe-download"></i></a> -->
+                    <a class="modal-effect btn btn-default-light" onclick="generateID()" data-bs-effect="effect-super-scaled" data-bs-toggle="modal" href="#modalexport">Export <i class="fe fe-download"></i></a>
                     <a class="modal-effect btn btn-success-light" onclick="generateID()" data-bs-effect="effect-super-scaled" data-bs-toggle="modal" href="#modalimport">Import <i class="fe fe-upload"></i></a>
                     <a class="modal-effect btn btn-primary-light" onclick="generateID()" data-bs-effect="effect-super-scaled" data-bs-toggle="modal" href="#modaldemo8">Tambah Data <i class="fe fe-plus"></i></a>
                 </div>
@@ -118,6 +119,7 @@
 @include('Admin.Barang.hapus')
 @include('Admin.Barang.gambar')
 @include('Admin.Barang.import')
+@include('Admin.Barang.export' , ['jenisbarang' => $jenisbarang, 'satuan' => $satuan, 'merk' => $merk])
 
 <div id="studentModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
