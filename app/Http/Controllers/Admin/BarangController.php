@@ -621,6 +621,10 @@ class BarangController extends Controller
             //         }
             //     });
         // })->download($type);
+        $jenis      = $_POST['jenisbarang'];
+        $satuan     = $_POST['satuan'];
+        
+        dd($jenis,$satuan,$type);
 
         try{
             return Excel::download(new BarangExport('data1','data2'), 'barang_export-'.date('d-m-y').'.'.$type.'');

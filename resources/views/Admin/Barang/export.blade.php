@@ -1,7 +1,7 @@
 <!-- MODAL Export -->
 <div class="modal fade" data-bs-backdrop="static" id="modalexport">
     <div class="modal-dialog  modal-dialog-centered" role="document">
-        <form class="modal-dialog-scrollable" enctype='multipart/form-data' action="{{url('admin/barang/export_barang')}}" method="POST">
+        <form class="modal-dialog-scrollable" enctype='multipart/form-data' action="{{url('admin/barang/export_barang/xlsx')}}" method="POST">
         @csrf
         <div class="modal-content modal-content-demo">
             <div class="modal-header">
@@ -10,11 +10,26 @@
 
             <div class="modal-body">
                 <h5> Filter Data by</h5>
+
                 <div class="form-group">
-                    <label>Export Data *</label>
-                    <input name="file" type="file" class="form-control" required>
+                    <label for="jenisbarang" class="form-label">Jenis Barang</label>
+                    <select name="jenisbarang" class="form-control">
+                        <option value="">-- Pilih --</option>
+                        @foreach ($jenisbarang as $jb)
+                            <option value="{{$jb->jenisbarang_id}}">{{$jb->jenisbarang_nama}}</option>
+                        @endforeach
+                    </select>
                 </div>
-                
+
+                <div class="form-group">
+                    <label for="satuan" class="form-label">Satuan Barang</label>
+                    <select name="satuan" class="form-control">
+                        <option value="">-- Pilih --</option>
+                        @foreach ($satuan as $s)
+                        <option value="{{$s->satuan_id}}">{{$s->satuan_nama}}</option>
+                        @endforeach
+                    </select>
+                </div>
             </div>
 
             <div class="modal-footer">
