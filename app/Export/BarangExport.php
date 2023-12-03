@@ -99,7 +99,7 @@ class BarangExport implements FromCollection, WithHeadings, ShouldAutoSize, With
                     
         $data_barang->get();
         
-
+        dd($data_barang);
         $no=1;
         foreach ($data_barang as $barang) {
             // $data= [];
