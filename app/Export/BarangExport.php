@@ -91,7 +91,7 @@ class BarangExport implements FromCollection, WithHeadings, ShouldAutoSize, With
                     ->select('barang_kode','barang_nama', 'barang_stok', 'barang_harga', 'barang_id', 'tk.kategori_nama',
                             'tjb.jenisbarang_nama', 'tm.merk_nama', 'ts.satuan_nama');
         
-        if($this->jenis){
+        if($this->jenis != NULL ){
             $data_barang->where('tjb.jenisbarang_id', $this->jenis);
         }           
         
