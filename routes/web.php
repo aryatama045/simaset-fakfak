@@ -133,7 +133,7 @@ Route::group(['middleware' => 'userlogin'], function () {
         Route::post('/admin/barang/proses_hapus/{barang}', [BarangController::class, 'proses_hapus']);
         Route::post('/admin/barang/import_barang/', [BarangController::class, 'import_barang'])->name('barang.import');
 
-        Route::get('/admin/barang/export_barang/{id}', [BarangController::class, 'export_barang']);
+        // Route::get('/admin/barang/export_barang/{id}', [BarangController::class, 'export_barang']);
 
         Route::controller(BarangController::class)->group(function () {
             Route::prefix('/admin/barang')->group(function () {
