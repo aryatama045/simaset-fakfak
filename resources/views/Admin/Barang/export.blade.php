@@ -1,9 +1,9 @@
 <!-- MODAL Export -->
 <div class="modal fade" data-bs-backdrop="static" id="modalexport">
-    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-        <form class="modal-dialog-scrollable" enctype='multipart/form-data' action="{{url('admin/barang/export_barang')}}" method="POST">
-        @csrf
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable" role="document">
         <div class="modal-content modal-content-demo">
+            <form  enctype='multipart/form-data' action="{{url('admin/barang/export_barang')}}" method="POST">
+            @csrf
             <div class="modal-header">
                 <h6 class="modal-title">Export Barang</h6><button onclick="reset()" aria-label="Close" class="btn-close" data-bs-dismiss="modal"><span aria-hidden="true">&times;</span></button>
             </div>
@@ -36,9 +36,7 @@
 
                 <a href="javascript:void(0)" class="btn btn-light" onclick="reset()" data-bs-dismiss="modal">Batal <i class="fe fe-x"></i></a>
             </div>
-
-
+            </form>
         </div>
-        </form>
     </div>
 </div>
