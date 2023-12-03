@@ -1,7 +1,7 @@
 <!-- MODAL Export -->
 <div class="modal fade" data-bs-backdrop="static" id="modalexport">
     <div class="modal-dialog  modal-dialog-centered" role="document">
-        <form class="modal-dialog-scrollable" enctype='multipart/form-data' action="barang/export_barang/xlsx" method="POST">
+        <form class="modal-dialog-scrollable" enctype='multipart/form-data' action="{{url('admin/barang/export_barang')}}" method="POST">
         @csrf
         <div class="modal-content modal-content-demo">
             <div class="modal-header">
