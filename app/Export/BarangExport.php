@@ -16,10 +16,13 @@ class BarangExport implements FromCollection, WithHeadings, ShouldAutoSize, With
 
     protected $jenis;
     protected $satuan;
+    protected $this->where;
 
     function __construct($jenis,$satuan) {
             $this->jenis = $jenis;
             $this->satuan = $satuan;
+
+            $this->where;
     }
 
 
@@ -70,12 +73,12 @@ class BarangExport implements FromCollection, WithHeadings, ShouldAutoSize, With
 
         
 
-        $where = '';
+        $this->where = '';
         if($this->jenis != NULL){
-            $where .= "tjb.jenisbarang_id = $this->jenis";
+            $this->where .= "->where(tjb.jenisbarang_id = $this->jenis)";
         }
         // if($this->satuan != NULL){
-        //     $where .= "ts.satuan_id = $this->satuan";
+        //     $this->where .= "->where(ts.satuan_id = $this->satuan)";
         // }
 
         // dd($this->jenis, $this->satuan, $where);
@@ -86,7 +89,7 @@ class BarangExport implements FromCollection, WithHeadings, ShouldAutoSize, With
                     ->leftJoin('tbl_jenisbarang as tjb', 'tjb.jenisbarang_id', '=', 'tbl_barang.jenisbarang_id')
                     ->leftJoin('tbl_merk as tm', 'tm.merk_id', '=', 'tbl_barang.merk_id')
                     ->leftJoin('tbl_satuan as ts', 'ts.satuan_id', '=', 'tbl_barang.satuan_id')
-                    ->where($where)
+                    $where
                     ->select('barang_kode','barang_nama', 'barang_stok', 'barang_harga', 'barang_id', 'tk.kategori_nama',
                             'tjb.jenisbarang_nama', 'tm.merk_nama', 'ts.satuan_nama')
                     ->get();
