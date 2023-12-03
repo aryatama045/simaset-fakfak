@@ -74,7 +74,7 @@ class BarangExport implements FromCollection, WithHeadings, ShouldAutoSize, With
 
         $where = '';
         if($this->jenis != NULL){
-            $where .= "->where(tjb.jenisbarang_id = $this->jenis)";
+            $where .= "->where('tjb.jenisbarang_id', $this->jenis)";
         }
         // if($this->satuan != NULL){
         //     $where .= "->where(ts.satuan_id = $this->satuan)";
@@ -88,7 +88,7 @@ class BarangExport implements FromCollection, WithHeadings, ShouldAutoSize, With
                     ->leftJoin('tbl_jenisbarang as tjb', 'tjb.jenisbarang_id', '=', 'tbl_barang.jenisbarang_id')
                     ->leftJoin('tbl_merk as tm', 'tm.merk_id', '=', 'tbl_barang.merk_id')
                     ->leftJoin('tbl_satuan as ts', 'ts.satuan_id', '=', 'tbl_barang.satuan_id')
-                    ->where('tjb.jenisbarang_id', $this->jenis)
+                    $where
                     ->select('barang_kode','barang_nama', 'barang_stok', 'barang_harga', 'barang_id', 'tk.kategori_nama',
                             'tjb.jenisbarang_nama', 'tm.merk_nama', 'ts.satuan_nama')
                     ->get();
