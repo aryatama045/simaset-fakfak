@@ -87,10 +87,10 @@ class BarangExport implements FromCollection, WithHeadings, ShouldAutoSize, With
         $data_barang = BarangModel::leftJoin('tbl_kategori as tk', 'tk.kategori_id','=', 'tbl_barang.kategori_id')
                     ->leftJoin('tbl_jenisbarang as tjb', 'tjb.jenisbarang_id', '=', 'tbl_barang.jenisbarang_id')
                     ->leftJoin('tbl_merk as tm', 'tm.merk_id', '=', 'tbl_barang.merk_id')
-                    ->leftJoin('tbl_satuan as ts', 'ts.satuan_id', '=', 'tbl_barang.satuan_id')
+                    ->leftJoin('tbl_satuan as ts', 'ts.satuan_id', '=', 'tbl_barang.satuan_id');
         
         if($this->jenis != NULL ){
-            $data_barang->where('tjb.jenisbarang_id', $this->jenis)
+            $data_barang->where('tjb.jenisbarang_id', $this->jenis);
         }           
 
         $data_barang->select('barang_kode','barang_nama', 'barang_stok', 'barang_harga', 'barang_id', 'tk.kategori_nama',
