@@ -10,6 +10,7 @@
 
             <div class="modal-body">
                 <h5> Filter Data by</h5>
+                <input name="type" type="hidden" value="xlsx" >
 
                 <div class="form-group">
                     <label for="jenisbarang" class="form-label">Jenis Barang</label>
