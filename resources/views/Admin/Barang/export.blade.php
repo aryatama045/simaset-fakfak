@@ -1,6 +1,6 @@
 <!-- MODAL Export -->
 <div class="modal fade" data-bs-backdrop="static" id="modalexport">
-    <div class="modal-dialog  modal-dialog-centered" role="document">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
         <form class="modal-dialog-scrollable" enctype='multipart/form-data' action="{{url('admin/barang/export_barang')}}" method="POST">
         @csrf
         <div class="modal-content modal-content-demo">
@@ -23,15 +23,7 @@
                     </select>
                 </div>
 
-                <div class="form-group">
-                    <label for="satuan" class="form-label">Satuan Barang</label>
-                    <select name="satuan" class="form-control">
-                        <option value="">-- Pilih --</option>
-                        @foreach ($satuan as $s)
-                        <option value="{{$s->satuan_id}}">{{$s->satuan_nama}}</option>
-                        @endforeach
-                    </select>
-                </div>
+                
             </div>
 
             <div class="modal-footer">
