@@ -68,7 +68,18 @@ class BarangExport implements FromCollection, WithHeadings, ShouldAutoSize, With
     public function collection()
     {
 
-        dd($this->jenis, $this->satuan);
+        
+
+        $where = '';
+        if($this->jenis != NULL){
+            $where .= "->where(tjb.jenisbarang_id = $this->jenis)";
+        }
+        if($this->satuan != NULL){
+            $where .= "->where(tjb.jenisbarang_id = $this->satuan)";
+        }
+
+        dd($this->jenis, $this->satuan, $where);
+
 
         $all_barang_data = [];
         $data_barang = BarangModel::leftJoin('tbl_kategori as tk', 'tk.kategori_id','=', 'tbl_barang.kategori_id')
