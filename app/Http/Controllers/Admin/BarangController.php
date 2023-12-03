@@ -601,37 +601,18 @@ class BarangController extends Controller
         }
     }
 
-    function export_barang($type)
+    function export_barang(Request $request)
     {
-        // $data = BarangModel::get()->toArray();
-            // // dd($type, $data);
-            // return Excel::download('laravelcode', function($excel) use ($data) {
-            //     $excel->sheet('mySheet', function($sheet) use ($data)
-            //     {
-            //         $sheet->cell('A1', function($cell) {$cell->setValue('Nama Barang');   });
-            //         $sheet->cell('B1', function($cell) {$cell->setValue('Stok');   });
-            //         $sheet->cell('C1', function($cell) {$cell->setValue('Harga');   });
-            //         if (!empty($data)) {
-            //             foreach ($data as $key => $value) {
-            //                 $i= $key+2;
-            //                 $sheet->cell('A'.$i, $value['barang_nama']);
-            //                 $sheet->cell('B'.$i, $value['barang_stok']);
-            //                 $sheet->cell('C'.$i, $value['barang_harga']);
-            //             }
-            //         }
-            //     });
-        // })->download($type);
-        $jenis      = $_POST['jenisbarang'];
-        $satuan     = $_POST['satuan'];
+        
+        $jenis      = $request->jenisbarang;
+        $satuan     = $request->satuan;
+        $type       = $request->type;
         
         dd($jenis,$satuan,$type);
 
         try{
             return Excel::download(new BarangExport('data1','data2'), 'barang_export-'.date('d-m-y').'.'.$type.'');
         }catch(\Exception $e) {
-            // Toastr::error('Operation Failed', 'Failed');
-            // return redirect()->back();
-
             return redirect()->back()->with('error_message', 'Operation Failed');
         }
     }
