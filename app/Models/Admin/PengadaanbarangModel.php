@@ -5,7 +5,7 @@ namespace App\Models\Admin;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class PbModel extends Model
+class PengadaanbarangModel extends Model
 {
     use HasFactory;
     protected $table = "tbl_pb";
