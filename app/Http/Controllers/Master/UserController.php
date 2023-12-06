@@ -114,7 +114,7 @@ class UserController extends Controller
             //delete old image
             Storage::delete('public/users/' . $user->user_foto);
 
-            if ($request->pwd == '') {
+            if ($request->pwdU == '') {
                 //update post with new image
                 $user->update([
                     'user_foto'     => $image->hashName(),
@@ -135,7 +135,7 @@ class UserController extends Controller
                 ]);
             }
         } else {
-            if ($request->pwd == '') {
+            if ($request->pwdU == '') {
                 //update post without image
                 $user->update([
                     'user_nmlengkap' => $request->nmlengkapU,
