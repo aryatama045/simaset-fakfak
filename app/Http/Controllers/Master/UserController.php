@@ -90,7 +90,7 @@ class UserController extends Controller
             'user_nama'   => $request->username,
             'user_email' => $request->email,
             'role_id' => $request->role,
-            'user_password' => md5($request->pwd)
+            'user_password' => md5($request->pwd),
         ]);
 
         $data['title'] = "User";
