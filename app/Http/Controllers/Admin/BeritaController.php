@@ -14,6 +14,8 @@ use App\Models\Admin\BarangkeluarModel;
 use App\Models\Admin\PegawaiModel;
 use App\Models\Admin\SupplierModel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
 use Yajra\DataTables\Facades\DataTables;
 use App\Pdf\Berita;
