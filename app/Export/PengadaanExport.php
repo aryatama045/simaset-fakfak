@@ -61,9 +61,9 @@ class PengadaanExport implements FromCollection, WithHeadings, ShouldAutoSize, W
     public function headings():array{
         return[
             'Kode',
+            'SPK Kode',
             'Tanggal',
-            'Header',
-            'Body',
+            'Keterangan',
             'Footer',
         ];
     }
@@ -78,11 +78,11 @@ class PengadaanExport implements FromCollection, WithHeadings, ShouldAutoSize, W
         foreach ($data_pengadaan as $pengadaan) {
 
             $all_pengadaan_data[] = [
-                $pengadaan->pengadaan_kode,
-                $pengadaan->pengadaan_tanggal,
-                $pengadaan->pengadaan_header,
-                $pengadaan->pengadaan_body,
-                $pengadaan->pengadaan_footer,
+                $pengadaan->pb_kode,
+                $pengadaan->spk_kode,
+                $pengadaan->pb_tanggal,
+                $pengadaan->pb_keterangan,
+                $pengadaan->pb_footer,
             ];
         }
 
