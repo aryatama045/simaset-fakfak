@@ -19,6 +19,9 @@ use Yajra\DataTables\Facades\DataTables;
 use App\Pdf\Berita;
 use App\Export\BeritaExport;
 use DB;
+use File;
+use Redirect;
+use Excel;
 
 class BeritaController extends Controller
 {
