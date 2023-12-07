@@ -152,7 +152,7 @@ Route::group(['middleware' => 'userlogin'], function () {
     });
 
     Route::middleware(['checkRoleUser:/pb,submenu'])->group(function () {
-        // Barang Masuk
+        // Pengadaan
         Route::resource('/admin/pb', \App\Http\Controllers\Admin\PbController::class);
         Route::get('admin/pb/add', [PbController::class, 'add'])->name('pb.add');
 
@@ -165,10 +165,12 @@ Route::group(['middleware' => 'userlogin'], function () {
         Route::get('/admin/barang/listbarang/{param}', [BarangController::class, 'listbarang']);
 
         Route::get('/admin/pb/genInvoice/{id}', [PbController::class, 'genInvoice'])->name('sale.invoice');
+
+        Route::post('/admin/pb/pengadaan_export/', [PbController::class, 'pengadaan_export']);
     });
 
     Route::middleware(['checkRoleUser:/spk,submenu'])->group(function () {
-        // Barang Masuk
+        // Spk
         Route::resource('/admin/spk', \App\Http\Controllers\Admin\SpkController::class);
         Route::get('admin/spk/add', [SpkController::class, 'add'])->name('spk.add');
 
@@ -179,6 +181,8 @@ Route::group(['middleware' => 'userlogin'], function () {
         Route::get('/admin/barang/listbarang/{param}', [BarangController::class, 'listbarang']);
 
         Route::get('/admin/spk/genInvoice/{id}', [SpkController::class, 'genInvoice'])->name('sale.invoice');
+
+        Route::post('/admin/spk/spk_export/', [SpkController::class, 'spk_export']);
     });
 
     Route::middleware(['checkRoleUser:/berita,submenu'])->group(function () {

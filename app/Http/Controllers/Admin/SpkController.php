@@ -14,7 +14,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Yajra\DataTables\Facades\DataTables;
 use App\Pdf\Spk;
+use App\Export\SpkExport;
 use DB;
+use File;
+use Redirect;
+use Excel;
 
 class SpkController extends Controller
 {
@@ -158,7 +162,6 @@ class SpkController extends Controller
     }
 
 
-
     public function genInvoice($id)
     {
 
@@ -207,7 +210,7 @@ class SpkController extends Controller
 
 
             ob_end_clean(); //    the buffer and never prints or returns anything.
-            
+
 
             $spk_kode = $output['header'][0]->spk_kode;
 
@@ -220,4 +223,20 @@ class SpkController extends Controller
         }
 
     }
+
+    function spk_export(Request $request)
+    {
+
+        $tgl_awal       = '';//$request->tgl_awal;
+        $tgl_akhir      = '';//$request->tgl_akhir;
+        $type           = 'xlsx';
+
+        try{
+            return Excel::download(new SpkExport($tgl_awal, $tgl_akhir), 'spk_export-'.date('d-m-y').'.'.$type.'');
+        }catch(\Exception $e) {
+            return redirect()->back()->with('error_message', 'Operation Failed');
+        }
+    }
+
+
 }
