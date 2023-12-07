@@ -22,6 +22,7 @@ class BarangModel extends Model
         'barang_stok',
         'barang_gambar',
         'barang_spek',
-        'make_by'
+        'make_by',
+        'edited_by'
     ];
 }
