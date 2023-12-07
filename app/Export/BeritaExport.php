@@ -80,9 +80,9 @@ class BeritaExport implements FromCollection, WithHeadings, ShouldAutoSize, With
             $all_berita_data[] = [
                 $berita->berita_kode,
                 $berita->berita_tanggal,
-                $berita->header,
-                $berita->body,
-                $berita->footer,
+                $berita->berita_header,
+                $berita->berita_body,
+                $berita->berita_footer,
             ];
         }
 
