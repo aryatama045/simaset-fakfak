@@ -388,7 +388,7 @@ class BarangController extends Controller
                 'barang_slug'   => $slug,
                 'barang_harga'  => $request->harga,
                 'barang_stok'   => $request->stok,
-                'make_by'       => Session::get('user')->user_nmlengkap,
+                'edited_by'       => Session::get('user')->user_nmlengkap,
             ]);
         } else {
             //update data without image
@@ -402,7 +402,7 @@ class BarangController extends Controller
                 'barang_slug'   => $slug,
                 'barang_harga'  => $request->harga,
                 'barang_stok'   => $request->stok,
-                'make_by'       => Session::get('user')->user_nmlengkap,
+                'edited_by'       => Session::get('user')->user_nmlengkap,
             ]);
         }
 

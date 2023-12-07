@@ -197,6 +197,8 @@ Route::group(['middleware' => 'userlogin'], function () {
         Route::get('/admin/berita/listbarang/{param}', [BeritaController::class, 'listbarang']);
 
         Route::get('/admin/berita/genInvoice/{id}', [BeritaController::class, 'genInvoice'])->name('sale.invoice');
+
+        Route::post('/admin/berita/berita_export/', [BeritaController::class, 'berita_export']);
     });
 
     Route::middleware(['checkRoleUser:/barang-masuk,submenu'])->group(function () {

@@ -17,6 +17,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Yajra\DataTables\Facades\DataTables;
 use App\Pdf\Berita;
+use App\Export\BeritaExport;
 use DB;
 
 class BeritaController extends Controller
@@ -304,7 +305,6 @@ class BeritaController extends Controller
 	}
 
 
-
     public function genInvoice($id)
     {
 
@@ -353,4 +353,20 @@ class BeritaController extends Controller
         // }
 
     }
+
+    function berita_export(Request $request)
+    {
+
+        $tgl_awal       = '';//$request->tgl_awal;
+        $tgl_akhir      = '';//$request->tgl_akhir;
+        $type           = 'xlsx';
+
+        try{
+            return Excel::download(new BeritaExport($tgl_awal, $tgl_akhir), 'berita_export-'.date('d-m-y').'.'.$type.'');
+        }catch(\Exception $e) {
+            return redirect()->back()->with('error_message', 'Operation Failed');
+        }
+    }
+
+
 }
