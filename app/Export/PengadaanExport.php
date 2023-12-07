@@ -2,7 +2,7 @@
 
 namespace App\Export;
 
-use App\Models\Admin\PengadaanModel;
+use App\Models\Admin\PbModel;
 use Illuminate\Support\Facades\Auth;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\FromCollection;
@@ -73,7 +73,7 @@ class PengadaanExport implements FromCollection, WithHeadings, ShouldAutoSize, W
 
         $all_pengadaan_data = [];
 
-        $data_pengadaan = PengadaanModel::get();
+        $data_pengadaan = PbModel::get();
 
         foreach ($data_pengadaan as $pengadaan) {
 
