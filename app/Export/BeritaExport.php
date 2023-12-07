@@ -14,7 +14,7 @@ use PhpOffice\PhpSpreadsheet\Style\Border;
 use Illuminate\Contracts\View\View;
 use Maatwebsite\Excel\Concerns\FromView;
 
-class BeritaExport implements FromView,FromCollection, WithHeadings, ShouldAutoSize, WithEvents
+class BeritaExport implements FromView
 {
     /**
     * @return \Illuminate\Support\Collection
