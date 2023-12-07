@@ -351,6 +351,7 @@ class BarangController extends Controller
             'barang_slug' => $slug,
             'barang_harga' => $request->harga,
             'barang_stok' => 0,
+            'make_by'       => Session::get('user')->user_nmlengkap,
 
         ]);
 
@@ -377,29 +378,31 @@ class BarangController extends Controller
 
             //update data with new image
             $barang->update([
-                'barang_gambar'  => $img,
-                'jenisbarang_id' => $request->jenisbarang,
-                'satuan_id' => $request->satuan,
-                'merk_id' => $request->merk,
-                'kategori_id' => $request->kategori,
-                'barang_kode' => $request->kode,
-                'barang_nama' => $request->nama,
-                'barang_slug' => $slug,
-                'barang_harga' => $request->harga,
-                'barang_stok' => $request->stok,
+                'barang_gambar' => $img,
+                'jenisbarang_id'=> $request->jenisbarang,
+                'satuan_id'     => $request->satuan,
+                'merk_id'       => $request->merk,
+                'kategori_id'   => $request->kategori,
+                'barang_kode'   => $request->kode,
+                'barang_nama'   => $request->nama,
+                'barang_slug'   => $slug,
+                'barang_harga'  => $request->harga,
+                'barang_stok'   => $request->stok,
+                'make_by'       => Session::get('user')->user_nmlengkap,
             ]);
         } else {
             //update data without image
             $barang->update([
-                'jenisbarang_id' => $request->jenisbarang,
-                'satuan_id' => $request->satuan,
-                'merk_id' => $request->merk,
-                'kategori_id' => $request->kategori,
-                'barang_kode' => $request->kode,
-                'barang_nama' => $request->nama,
-                'barang_slug' => $slug,
-                'barang_harga' => $request->harga,
-                'barang_stok' => $request->stok,
+                'jenisbarang_id'=> $request->jenisbarang,
+                'satuan_id'     => $request->satuan,
+                'merk_id'       => $request->merk,
+                'kategori_id'   => $request->kategori,
+                'barang_kode'   => $request->kode,
+                'barang_nama'   => $request->nama,
+                'barang_slug'   => $slug,
+                'barang_harga'  => $request->harga,
+                'barang_stok'   => $request->stok,
+                'make_by'       => Session::get('user')->user_nmlengkap,
             ]);
         }
 
@@ -603,11 +606,11 @@ class BarangController extends Controller
 
     function export_barang(Request $request)
     {
-        
+
         $jenis      = $request->jenisbarang;
         $satuan     = $request->satuan;
         $type       = $request->type;
-        
+
         try{
             return Excel::download(new BarangExport($jenis,$satuan), 'barang_export-'.date('d-m-y').'.'.$type.'');
         }catch(\Exception $e) {
