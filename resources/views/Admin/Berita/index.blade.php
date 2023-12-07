@@ -89,15 +89,15 @@
                 <form class="modal-dialog-scrollable" enctype='multipart/form-data' action="{{url('admin/berita/berita_export')}}" method="POST">
                 @csrf
                 <div class="modal-header">
-                    <h6 class="modal-title">Export Berita</h6><button onclick="reset()" aria-label="Close" class="btn-close" data-bs-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                    <h6 class="modal-title">Export Data</h6><button onclick="reset()" aria-label="Close" class="btn-close" data-bs-dismiss="modal"><span aria-hidden="true">&times;</span></button>
                 </div>
 
                 <div class="modal-body">
-                    <h5> Filter Data by</h5>
+                    <!-- <h5> Filter Data by</h5> -->
                     <input name="type" type="hidden" value="xlsx" >
 
                     <div class="form-group">
-                        <p> Simpan rekap data berita acara</p>
+                        <p> Simpan rekap data </p>
                     </div>
                 </div>
 
