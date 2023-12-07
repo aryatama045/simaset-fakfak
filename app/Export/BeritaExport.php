@@ -28,10 +28,6 @@ class BeritaExport implements FromView
         $this->tgl_akhir = $tgl_akhir;
     }
 
-    // public function __construct(string $keyword)
-    // {
-    //     $this->nama = $keyword;
-    // }
 
     public function view(): View
     {
