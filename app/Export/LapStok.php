@@ -139,6 +139,8 @@ class LapStok implements FromCollection, WithHeadings, ShouldAutoSize, WithEvent
                 $ket
             ];
 
+            dd($all_data);
+
         }
 
 
