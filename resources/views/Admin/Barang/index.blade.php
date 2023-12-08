@@ -109,17 +109,6 @@
                     <tbody></tbody>
                 </table>
 
-                <table id="table-history" class="table table-bordered text-nowrap border-bottom dataTable no-footer dtr-inline collapsed">
-                    <thead>
-                        <th class="border-bottom-0">Kode Barang</th>
-                        <th class="border-bottom-0">Nama Barang</th>
-                        <th class="border-bottom-0">User By</th>
-                        <th class="border-bottom-0">Ket. Hapus</th>
-                        <th class="border-bottom-0">Tanggal</th>
-                    </thead>
-                    <tbody></tbody>
-                </table>
-
             </div>
 
         </div>
