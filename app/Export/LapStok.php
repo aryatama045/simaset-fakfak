@@ -76,23 +76,23 @@ class LapStok implements FromCollection, WithHeadings, ShouldAutoSize, WithEvent
 
         $all_data = [];
 
-        $data_habis = BarangModel::leftJoin('tbl_jenisbarang', 'tbl_jenisbarang.jenisbarang_id', '=', 'tbl_barang.jenisbarang_id')
+        $data_stok = BarangModel::leftJoin('tbl_jenisbarang', 'tbl_jenisbarang.jenisbarang_id', '=', 'tbl_barang.jenisbarang_id')
         ->leftJoin('tbl_satuan', 'tbl_satuan.satuan_id', '=', 'tbl_barang.satuan_id')
         ->leftJoin('tbl_merk', 'tbl_merk.merk_id', '=', 'tbl_barang.merk_id')
         ->orderBy('barang_id', 'DESC')->get();
 
 
-        foreach ($data_habis as $dh) {
+        foreach ($data_stok as $dst) {
 
             $jmlmasuk = BarangmasukModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangmasuk.barang_kode')
-            ->where('tbl_barangmasuk.barang_kode', '=', $dh->barang_kode)
+            ->where('tbl_barangmasuk.barang_kode', '=', $dst->barang_kode)
             ->sum('tbl_barangmasuk.bm_jumlah');
 
             $jmlkeluar = BarangkeluarModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangkeluar.barang_kode')
-            ->where('tbl_barangkeluar.barang_kode', '=', $dh->barang_kode)
+            ->where('tbl_barangkeluar.barang_kode', '=', $dst->barang_kode)
             ->sum('tbl_barangkeluar.bk_jumlah');
 
-            $totalstok = $dh->barang_stok + ($jmlmasuk - $jmlkeluar);
+            $totalstok = $dst->barang_stok + ($jmlmasuk - $jmlkeluar);
             if($totalstok == 0){
                 $result = $totalstok;
             }else if($totalstok > 0){
@@ -101,8 +101,8 @@ class LapStok implements FromCollection, WithHeadings, ShouldAutoSize, WithEvent
                 $result = '-';
             }
 
-            $bertambah = $jmlmasuk * $dh->barang_harga;
-            $berkurang = $jmlkeluar * $dh->barang_harga;
+            $bertambah = $jmlmasuk * $dst->barang_harga;
+            $berkurang = $jmlkeluar * $dst->barang_harga;
             $sisa = $bertambah - $berkurang;
 
             if($totalstok == 0){
@@ -112,13 +112,13 @@ class LapStok implements FromCollection, WithHeadings, ShouldAutoSize, WithEvent
             }
 
             $all_data[] = [
-                $dh->barang_kode,
-                $dh->barang_nama,
-                $dh->barang_stok,
+                $dst->barang_kode,
+                $dst->barang_nama,
+                $dst->barang_stok,
                 $jmlmasuk,
                 $jmlkeluar,
                 $result,
-                number_format($dh->barang_harga,0,"",'.'),
+                number_format($dst->barang_harga,0,"",'.'),
                 number_format($bertambah,0,"",'.'),
                 number_format($berkurang,0,"",'.'),
                 number_format($sisa,0,"",'.'),
