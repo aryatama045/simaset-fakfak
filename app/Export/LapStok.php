@@ -87,6 +87,8 @@ class LapStok implements FromCollection, WithHeadings, ShouldAutoSize, WithEvent
         ->leftJoin('tbl_barangmasuk', 'tbl_barangmasuk.barang_kode', '=', 'tbl_barang.barang_kode')
         ->orderBy('barang_id', 'DESC')->get();
 
+        dd($data_habis);
+
         foreach ($data_habis as $dh) {
 
             $jmlmasuk = BarangmasukModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangmasuk.barang_kode')
