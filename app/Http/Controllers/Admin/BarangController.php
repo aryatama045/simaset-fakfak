@@ -237,7 +237,7 @@ class BarangController extends Controller
 
                     return $created_at;
                 })
-                ->rawColumns(['barang_kode', 'barang_nama', 'keterangan','user_nmlengkap', 'created_at' ])->make(true);
+                ->rawColumns(['barang_kode', 'barang_nama', 'user_nmlengkap', 'keterangan','created_at' ])->make(true);
         }
     }
 

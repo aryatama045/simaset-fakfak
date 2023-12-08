@@ -80,8 +80,8 @@
                     <thead>
                         <th class="border-bottom-0">Kode Barang</th>
                         <th class="border-bottom-0">Nama Barang</th>
-                        <th class="border-bottom-0">Ket. Hapus</th>
                         <th class="border-bottom-0">User By</th>
+                        <th class="border-bottom-0">Ket. Hapus</th>
                         <th class="border-bottom-0">Tanggal</th>
                     </thead>
                     <tbody></tbody>
