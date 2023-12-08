@@ -109,6 +109,17 @@
                     <tbody></tbody>
                 </table>
 
+                <table id="table-2" class="table table-bordered text-nowrap border-bottom dataTable no-footer dtr-inline collapsed">
+                    <thead>
+                        <th class="border-bottom-0">Kode Barang</th>
+                        <th class="border-bottom-0">Nama Barang</th>
+                        <th class="border-bottom-0">User By</th>
+                        <th class="border-bottom-0">Ket. Hapus</th>
+                        <th class="border-bottom-0">Tanggal</th>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+
             </div>
 
         </div>
@@ -209,18 +220,18 @@ $(document).ready(function () {
                     data: 'barang_nama',
                     name: 'barang_nama',
                 },
-                // {
-                //     data: 'keterangan',
-                //     name: 'keterangan',
-                // },
-                // {
-                //     data: 'fullname',
-                //     name: 'fullname',
-                // },
-                // {
-                //     data: 'created_at',
-                //     name: 'created_at'
-                // },
+                {
+                    data: 'keterangan',
+                    name: 'keterangan',
+                },
+                {
+                    data: 'fullname',
+                    name: 'fullname',
+                },
+                {
+                    data: 'created_at',
+                    name: 'created_at'
+                },
             ]
         });
     });
