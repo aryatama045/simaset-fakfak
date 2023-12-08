@@ -158,25 +158,25 @@ class BarangController extends Controller
                     $hakDelete = AksesModel::leftJoin('tbl_submenu', 'tbl_submenu.submenu_id', '=', 'tbl_akses.submenu_id')->where(array('tbl_akses.role_id' => Session::get('user')->role_id, 'tbl_submenu.submenu_judul' => 'Barang', 'tbl_akses.akses_type' => 'delete'))->count();
                     if ($hakEdit > 0 && $hakDelete > 0) {
                         $button .= '
-
-                        <div class="dropdown">
-                            <button class="btn btn-light dropdown-toggle" id="dropdownNoAnimation" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Action </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownNoAnimation">
-                                <a class="dropdown-item btn modal-effect text-primary btn-sm" data-bs-effect="effect-super-scaled" data-bs-toggle="modal" href="#Umodaldemo8" data-bs-toggle="tooltip" data-bs-original-title="Edit" onclick=update(' . json_encode($array) . ')><span class="fe fe-edit text-success fs-14"></span> Edit</a>
-
-                            </div>
-                        </div>
+                            <a class="dropdown-item btn modal-effect text-primary btn-sm" data-bs-effect="effect-super-scaled" data-bs-toggle="modal" href="#Umodaldemo8" data-bs-toggle="tooltip" data-bs-original-title="Edit" onclick=update(' . json_encode($array) . ')><span class="fe fe-edit text-success fs-14"></span> Edit</a>
                         ';
+                        // <div class="dropdown">
+                        //     <button class="btn btn-light dropdown-toggle" id="dropdownNoAnimation" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Action </button>
+                        //     <div class="dropdown-menu" aria-labelledby="dropdownNoAnimation">
+                        //         <a class="dropdown-item btn modal-effect text-primary btn-sm" data-bs-effect="effect-super-scaled" data-bs-toggle="modal" href="#Umodaldemo8" data-bs-toggle="tooltip" data-bs-original-title="Edit" onclick=update(' . json_encode($array) . ')><span class="fe fe-edit text-success fs-14"></span> Edit</a>
                         // <a class="dropdown-item btn modal-effect text-danger btn-sm" data-bs-effect="effect-super-scaled" data-bs-toggle="modal" href="#Hmodaldemo8" onclick=hapus(' . json_encode($array) . ')><span class="fe fe-trash-2 fs-14"></span> Remove</a>
+                        //     </div>
+                        // </div>
+
                     } else if ($hakEdit > 0 && $hakDelete == 0) {
-                        $button .= '
-                        <div class="dropdown">
-                            <button class="btn btn-light dropdown-toggle" id="dropdownNoAnimation" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Action </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownNoAnimation">
-                                <a class="dropdown-item btn modal-effect text-primary btn-sm" data-bs-effect="effect-super-scaled" data-bs-toggle="modal" href="#Umodaldemo8" data-bs-toggle="tooltip" data-bs-original-title="Edit" onclick=update(' . json_encode($array) . ')><span class="fe fe-edit text-success fs-14"></span> Edit</a>
-                            </div>
-                        </div>
-                        ';
+                        $button .= ' <a class="dropdown-item btn modal-effect text-primary btn-sm" data-bs-effect="effect-super-scaled" data-bs-toggle="modal" href="#Umodaldemo8" data-bs-toggle="tooltip" data-bs-original-title="Edit" onclick=update(' . json_encode($array) . ')><span class="fe fe-edit text-success fs-14"></span> Edit</a>';
+                        // <div class="dropdown">
+                        //     <button class="btn btn-light dropdown-toggle" id="dropdownNoAnimation" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Action </button>
+                        //     <div class="dropdown-menu" aria-labelledby="dropdownNoAnimation">
+                        //         <a class="dropdown-item btn modal-effect text-primary btn-sm" data-bs-effect="effect-super-scaled" data-bs-toggle="modal" href="#Umodaldemo8" data-bs-toggle="tooltip" data-bs-original-title="Edit" onclick=update(' . json_encode($array) . ')><span class="fe fe-edit text-success fs-14"></span> Edit</a>
+                        //     </div>
+                        // </div>
+
                     } else if ($hakEdit == 0 && $hakDelete > 0) {
                         // $button .= '
                         // <div class="dropdown">
