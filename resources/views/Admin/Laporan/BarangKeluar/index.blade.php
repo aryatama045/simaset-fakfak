@@ -77,7 +77,7 @@
 
                     <div class="col-md-6">
                         <div class="form-group">
-                            <button class="btn btn-danger-light" onclick="print()"><i class="fa fa-file-pdf-o"></i> PDF</button>
+                            <a class="btn btn-danger-light" onclick="print()"><i class="fa fa-file-pdf-o"></i> PDF</a>
                         </div>
 
                         <div class="form-group">
