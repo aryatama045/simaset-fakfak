@@ -23,7 +23,7 @@ use PhpOffice\PhpSpreadsheet\Style\Border;
 use Illuminate\Contracts\View\View;
 use Maatwebsite\Excel\Concerns\FromView;
 
-class LapHabisPakai implements FromCollection, WithHeadings, ShouldAutoSize, WithEvents
+class LapStok implements FromCollection, WithHeadings, ShouldAutoSize, WithEvents
 {
     /**
     * @return \Illuminate\Support\Collection
