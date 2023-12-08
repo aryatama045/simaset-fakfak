@@ -16,6 +16,11 @@ use App\Models\Admin\WebModel;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 use PDF;
+use DB;
+use App\Export\LapHabisPakai;
+use File;
+use Redirect;
+use Excel;
 
 class LapHabisPakaiController extends Controller
 {
@@ -175,4 +180,21 @@ class LapHabisPakaiController extends Controller
                 ->rawColumns(['stokawal', 'jmlmasuk', 'jmlkeluar', 'totalstok'])->make(true);
         }
     }
+
+
+    function export(Request $request)
+    {
+
+        $tgl_awal       = '';//$request->tgl_awal;
+        $tgl_akhir      = '';//$request->tgl_akhir;
+        $type           = 'xlsx';
+
+        try{
+            return Excel::download(new LapHabisPakai($tgl_awal, $tgl_akhir), 'LapHabisPakai-'.date('d-m-y').'.'.$type.'');
+        }catch(\Exception $e) {
+            return redirect()->back()->with('error_message', 'Operation Failed');
+        }
+    }
+
+
 }
