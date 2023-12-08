@@ -85,7 +85,7 @@ class LapStok implements FromCollection, WithHeadings, ShouldAutoSize, WithEvent
         ->leftJoin('tbl_merk', 'tbl_merk.merk_id', '=', 'tbl_barang.merk_id')
         ->orderBy('barang_id', 'DESC')->get();
 
-        // dd($data_habis);
+        dd('test');
 
         foreach ($data_habis as $dh) {
 
