@@ -134,7 +134,7 @@ class LapStok implements FromCollection, WithHeadings, ShouldAutoSize, WithEvent
                 $bertambah,
                 $berkurang,
                 $sisa,
-                $ket,
+                $ket
             ];
 
         }
