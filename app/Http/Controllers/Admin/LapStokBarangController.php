@@ -54,7 +54,7 @@ class LapStokBarangController extends Controller
 
         // $data['data'] = $data['data']->groupBy('jenisbarang_nama');
 
-        
+
 
         $data["title"] = "Print Stok Barang";
         $data['web'] = WebModel::first();
@@ -159,6 +159,20 @@ class LapStokBarangController extends Controller
                     return $result;
                 })
                 ->rawColumns(['stokawal', 'jmlmasuk', 'jmlkeluar', 'totalstok'])->make(true);
+        }
+    }
+
+    function export(Request $request)
+    {
+
+        $tgl_awal       = '';//$request->tgl_awal;
+        $tgl_akhir      = '';//$request->tgl_akhir;
+        $type           = 'xlsx';
+
+        try{
+            return Excel::download(new LapStok($tgl_awal, $tgl_akhir), 'LapStok-'.date('d-m-y').'.'.$type.'');
+        }catch(\Exception $e) {
+            return redirect()->back()->with('error_message', 'Operation Failed');
         }
     }
 }
