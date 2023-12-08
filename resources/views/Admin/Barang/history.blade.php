@@ -82,7 +82,7 @@
                         <th class="border-bottom-0">Nama Barang</th>
                         <th class="border-bottom-0">Ket. Hapus</th>
                         <th class="border-bottom-0">User By</th>
-                        <th class="border-bottom-0">Date</th>
+                        <th class="border-bottom-0">Tanggal</th>
                     </thead>
                     <tbody></tbody>
                 </table>
@@ -103,36 +103,6 @@
 @include('Admin.Barang.gambar')
 @include('Admin.Barang.import')
 
-<div id="studentModal" class="modal fade" role="dialog">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <form method="post" id="student_form">
-                <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Add Data</h4>
-                </div>
-                <div class="modal-body">
-                    {{csrf_field()}}
-                    <span id="form_output"></span>
-                    <div class="form-group">
-                        <label>Enter First Name</label>
-                        <input type="text" name="first_name" id="first_name" class="form-control" />
-                    </div>
-                    <div class="form-group">
-                        <label>Enter Last Name</label>
-                        <input type="text" name="last_name" id="last_name" class="form-control" />
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <input type="hidden" name="student_id" id="student_id" value="" />
-                    <input type="hidden" name="button_action" id="button_action" value="insert" />
-                    <input type="submit" name="submit" id="action" value="Add" class="btn btn-info" />
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script>
@@ -212,29 +182,6 @@
                 'style': 'multi'
             },
             "columns": [
-                // {
-                //     data: 'DT_RowIndex',
-                //     name: 'DT_RowIndex',
-                //     searchable: false
-                // },
-                {
-                    data: 'checkbox',
-                    orderable: false,
-                    searchable:false,
-                    name:'id'
-                },
-                {
-                    data: 'action',
-                    name: 'action',
-                    orderable: false,
-                    searchable: false
-                },
-                {
-                    data: 'img',
-                    name: 'barang_gambar',
-                    searchable: false,
-                    orderable: false
-                },
                 {
                     data: 'barang_kode',
                     name: 'barang_kode',
@@ -244,33 +191,18 @@
                     name: 'barang_nama',
                 },
                 {
-                    data: 'jenisbarang',
-                    name: 'jenisbarang_nama',
+                    data: 'keterangan',
+                    name: 'keterangan',
                 },
                 {
-                    data: 'kategori',
-                    name: 'kategori_nama',
+                    data: 'user_nmlengkap',
+                    name: 'user_nmlengkap',
                 },
                 {
-                    data: 'satuan',
-                    name: 'satuan_nama',
-                },
-                {
-                    data: 'merk',
-                    name: 'merk_nama',
-                },
-                {
-                    data: 'totalstok',
-                    name: 'barang_stok',
-                },
-                {
-                    data: 'currency',
-                    name: 'barang_harga'
+                    data: 'created_at',
+                    name: 'created_at',
                 },
             ],
-            select: {
-                style: 'multi'
-            },
         });
     });
 

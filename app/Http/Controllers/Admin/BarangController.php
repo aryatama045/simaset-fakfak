@@ -227,12 +227,17 @@ class BarangController extends Controller
 
                     return $keterangan;
                 })
+                ->addColumn('user_nmlengkap', function ($row) {
+                    $user_nmlengkap = $row->user_nmlengkap == '' ? '-' : $row->user_nmlengkap;
+
+                    return $user_nmlengkap;
+                })
                 ->addColumn('created_at', function ($row) {
                     $created_at = $row->created_at == '' ? '-' : date('d/m/y h:i A', strtotime($row->created_at));
 
                     return $created_at;
                 })
-                ->rawColumns(['barang_kode', 'barang_nama', 'keterangan','fullname', 'created_at' ])->make(true);
+                ->rawColumns(['barang_kode', 'barang_nama', 'keterangan','user_nmlengkap', 'created_at' ])->make(true);
         }
     }
 
