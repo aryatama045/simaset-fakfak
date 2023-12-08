@@ -80,7 +80,7 @@
 
                 <div class="modal-body">
                     <!-- <h5> Filter Data by</h5> -->
-                    <form class="modal-dialog-scrollable" enctype='multipart/form-data' action="{{url('/admin/laphabispakai/export')}}" method="POST">
+                    <form class="modal-dialog-scrollable" enctype='multipart/form-data' action="{{url('/admin/lapstokbarang/export')}}" method="POST">
                     @csrf
                     <div class="col-md-6">
                         <div class="form-group">
