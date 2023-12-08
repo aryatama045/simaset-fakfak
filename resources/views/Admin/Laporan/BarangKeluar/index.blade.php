@@ -74,15 +74,15 @@
 
                 <div class="modal-body">
                     <!-- <h5> Filter Data by</h5> -->
-
+                    <form class="modal-dialog-scrollable" enctype='multipart/form-data' action="{{url('admin/berita/berita_export')}}" method="POST">
+                            @csrf
                     <div class="col-md-6">
                         <div class="form-group">
                             <a class="btn btn-danger-light" onclick="print()"><i class="fa fa-file-pdf-o"></i> PDF</a>
                         </div>
 
                         <div class="form-group">
-                            <form class="modal-dialog-scrollable" enctype='multipart/form-data' action="{{url('admin/berita/berita_export')}}" method="POST">
-                            @csrf
+
                             <input name="type" type="hidden" value="xlsx" >
                             <button type="submit" class="btn btn-success-light"><i class="fa fa-file-excel-o"></i> Excel</button>
                             </form>
