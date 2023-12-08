@@ -238,6 +238,7 @@ Route::group(['middleware' => 'userlogin'], function () {
         Route::post('/admin/barang-keluar/proses_tambah/', [BarangkeluarController::class, 'proses_tambah'])->name('barang-keluar.store');
         Route::post('/admin/barang-keluar/proses_ubah/{barangkeluar}', [BarangkeluarController::class, 'proses_ubah']);
         Route::post('/admin/barang-keluar/proses_hapus/{barangkeluar}', [BarangkeluarController::class, 'proses_hapus']);
+
     });
 
     Route::middleware(['checkRoleUser:/lap-barang-masuk,submenu'])->group(function () {
@@ -246,6 +247,8 @@ Route::group(['middleware' => 'userlogin'], function () {
         Route::get('/admin/lapbarangmasuk/print/', [LapBarangMasukController::class, 'print'])->name('lap-bm.print');
         Route::get('/admin/lapbarangmasuk/pdf/', [LapBarangMasukController::class, 'pdf'])->name('lap-bm.pdf');
         Route::get('/admin/lap-barang-masuk/show/', [LapBarangMasukController::class, 'show'])->name('lap-bm.getlap-bm');
+
+        Route::post('/admin/lapbarangmasuk/export', [LapBarangMasukController::class, 'export']);
     });
 
     Route::middleware(['checkRoleUser:/lap-barang-keluar,submenu'])->group(function () {
@@ -254,6 +257,8 @@ Route::group(['middleware' => 'userlogin'], function () {
         Route::get('/admin/lapbarangkeluar/print/', [LapBarangKeluarController::class, 'print'])->name('lap-bk.print');
         Route::get('/admin/lapbarangkeluar/pdf/', [LapBarangKeluarController::class, 'pdf'])->name('lap-bk.pdf');
         Route::get('/admin/lap-barang-keluar/show/', [LapBarangKeluarController::class, 'show'])->name('lap-bk.getlap-bk');
+
+        Route::post('/admin/lapbarangkeluar/export', [LapBarangKeluarController::class, 'export']);
     });
 
     Route::middleware(['checkRoleUser:/lap-stok-barang,submenu'])->group(function () {
@@ -262,6 +267,8 @@ Route::group(['middleware' => 'userlogin'], function () {
         Route::get('/admin/lapstokbarang/print/', [LapStokBarangController::class, 'print'])->name('lap-sb.print');
         Route::get('/admin/lapstokbarang/pdf/', [LapStokBarangController::class, 'pdf'])->name('lap-sb.pdf');
         Route::get('/admin/lap-stok-barang/show/', [LapStokBarangController::class, 'show'])->name('lap-sb.getlap-sb');
+
+        Route::post('/admin/lapstokbarang/export', [LapStokBarangController::class, 'export']);
     });
 
     Route::middleware(['checkRoleUser:/lap-habis-pakai,submenu'])->group(function () {
@@ -270,6 +277,8 @@ Route::group(['middleware' => 'userlogin'], function () {
         Route::get('/admin/laphabispakai/print/', [LapHabisPakaiController::class, 'print'])->name('lap-hp.print');
         Route::get('/admin/laphabispakai/pdf/', [LapHabisPakaiController::class, 'pdf'])->name('lap-hp.pdf');
         Route::get('/admin/lap-habis-pakai/show/', [LapHabisPakaiController::class, 'show'])->name('lap-hp.getlap-hp');
+
+        Route::post('/admin/laphabispakai/export', [LapHabisPakaiController::class, 'export']);
     });
 
     Route::middleware(['checkRoleUser:1,othermenu'])->group(function () {
