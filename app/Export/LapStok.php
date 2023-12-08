@@ -108,7 +108,7 @@ class LapStok implements FromCollection, WithHeadings, ShouldAutoSize, WithEvent
             }
 
             $bertambah = $jmlmasuk * $dh->barang_harga;
-            $bertambah = number_format($bertambah,0,"",'.');
+            // $bertambah = number_format($bertambah,0,"",'.');
             $berkurang = $jmlkeluar * $dh->barang_harga;
             $berkurang = number_format($berkurang,0,"",'.');
 
@@ -118,6 +118,8 @@ class LapStok implements FromCollection, WithHeadings, ShouldAutoSize, WithEvent
 
             if($totalstok == 0){
                 $ket = 'Habis';
+            }else{
+                $ket = '';
             }
 
 
