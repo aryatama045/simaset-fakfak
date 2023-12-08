@@ -6,15 +6,22 @@ use App\Http\Controllers\Controller;
 use App\Models\Admin\BarangkeluarModel;
 use App\Models\Admin\BarangmasukModel;
 use App\Models\Admin\BarangModel;
+use App\Models\Admin\BeritaModel;
+use App\Models\Admin\BeritadetailModel;
+use App\Models\Admin\PbModel;
+use App\Models\Admin\PbdetailModel;
+use App\Models\Admin\SpkModel;
+use App\Models\Admin\SpkdetailModel;
 use App\Models\Admin\WebModel;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
+use App\Export\LapStok;
 use PDF;
 use DB;
-use App\Export\LapStok;
 use File;
 use Redirect;
 use Excel;
+
 
 class LapStokBarangController extends Controller
 {
