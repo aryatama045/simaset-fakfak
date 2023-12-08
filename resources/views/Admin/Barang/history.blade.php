@@ -105,43 +105,7 @@
 
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-<script>
-    function generateID(){
-        id = new Date().getTime();
-        $("input[name='kode']").val("BRG-"+id);
-    }
-    function update(data){
-        $("input[name='idbarangU']").val(data.barang_id);
-        $("input[name='kodeU']").val(data.barang_kode);
-        $("input[name='namaU']").val(data.barang_nama.replace(/_/g, ' '));
-        $("select[name='jenisbarangU']").val(data.jenisbarang_id);
-        $("select[name='satuanU']").val(data.satuan_id);
-        $("select[name='merkU']").val(data.merk_id);
-        $("input[name='stokU']").val(data.barang_stok);
-        $("input[name='hargaU']").val(data.barang_harga.replace(/_/g, ' '));
-        if(data.barang_gambar != 'image.png'){
-            $("#outputImgU").attr("src", "{{url('/uploads/image')}}"+"/"+data.barang_gambar);
-        }
-    }
-    function hapus(data) {
-        $("input[name='idbarang']").val(data.barang_id);
-        $("#vbarang").html("barang " + "<b>" + data.barang_nama.replace(/_/g, ' ') + "</b>");
-    }
-    function gambar(data) {
-        if(data.barang_gambar != 'image.png'){
-            $("#outputImgG").attr("src", "{{url('/uploads/image')}}"+"/"+data.barang_gambar);
-        }else{
-            $("#outputImgG").attr("src", "{{url('/assets/default/barang/image.png')}}");
-        }
-    }
-    function validasi(judul, status) {
-        swal({
-            title: judul,
-            type: status,
-            confirmButtonText: "Iya"
-        });
-    }
-</script>
+
 @endsection
 
 @section('scripts')
@@ -154,7 +118,7 @@
     var table;
     $(document).ready(function() {
         //datatables
-        table = $('#table-1').DataTable({
+        table = $('#table-history').DataTable({
             "processing": true,
             "serverSide": true,
             "info": true,
@@ -206,59 +170,6 @@
         });
     });
 
-
-    $(document).on('click', '#bulk_delete', function(){
-        var id = [];
-        if(confirm("Are you sure you want to Delete this data?"))
-        {
-            $('.barang_checkbox:checked').each(function(){
-                id.push($(this).val());
-            });
-            if(id.length > 0)
-            {
-                $.ajax({
-                    url:"{{ route('barang.bulk_delete')}}",
-                    method:"post",
-                    data:{id:id},
-                    success:function(data)
-                    {
-                        // alert(data);
-                        swal({
-                            title: "Berhasil dihapus!" + data,
-                            type: "success"
-                        });
-                        $('#table-1').DataTable().ajax.reload();
-                        $('input[type="checkbox"]', rows).prop('checked', this.checked);
-                    }
-                });
-            }
-            else
-            {
-                alert("Please select atleast one checkbox");
-            }
-        }
-    });
-
-    $('#example-select-all').on('click', function(){
-        // Get all rows with search applied
-        var rows = table.rows({ 'search': 'applied' }).nodes();
-        // Check/uncheck checkboxes for all rows in the table
-        $('input[type="checkbox"]', rows).prop('checked', this.checked);
-    });
-
-    // Handle click on checkbox to set state of "Select all" control
-    $('#table-1 tbody').on('change', 'input[type="checkbox"]', function(){
-        // If checkbox is not checked
-        if(!this.checked){
-            var el = $('#example-select-all').get(0);
-            // If "Select all" control is checked and has 'indeterminate' property
-            if(el && el.checked && ('indeterminate' in el)){
-                // Set visual state of "Select all" control
-                // as 'indeterminate'
-                el.indeterminate = true;
-            }
-        }
-    });
 
 </script>
 @endsection
