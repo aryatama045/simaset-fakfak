@@ -98,7 +98,7 @@ class LapHabisPakai implements FromCollection, WithHeadings, ShouldAutoSize, Wit
             }else if($totalstok > 0){
                 $result = $totalstok;
             }else{
-                $result = $totalstok;
+                $result = '-';
             }
 
             $all_bm_data[] = [
