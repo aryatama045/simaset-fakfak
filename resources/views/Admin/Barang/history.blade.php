@@ -142,9 +142,6 @@
                     }
                 }
             ],
-            'select': {
-                'style': 'multi'
-            },
             "columns": [
                 {
                     data: 'barang_kode',
@@ -155,12 +152,12 @@
                     name: 'barang_nama',
                 },
                 {
-                    data: 'keterangan',
-                    name: 'keterangan',
-                },
-                {
                     data: 'user_nmlengkap',
                     name: 'user_nmlengkap',
+                },
+                {
+                    data: 'keterangan',
+                    name: 'keterangan',
                 },
                 {
                     data: 'created_at',

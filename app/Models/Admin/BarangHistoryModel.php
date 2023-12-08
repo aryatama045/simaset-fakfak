@@ -13,7 +13,6 @@ class BaranghistoryModel extends Model
     protected $fillable = [
         'barang_id',
         'keterangan',
-        'kategori_id',
         'user_id'
     ];
 }
