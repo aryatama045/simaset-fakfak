@@ -64,17 +64,6 @@
                 @endif
             </div>
             <div class="card-body">
-                @if($hakDelete > 0)
-                <div class="dropdown">
-                    <button class="btn btn-primary dropdown-toggle" id="dropdownNoAnimation" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Bulk Action</button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownNoAnimation">
-                        <a class="dropdown-item" href="#!" name="bulk_delete" id="bulk_delete">Bulk Delete</a>
-                        <!-- <a class="dropdown-item" href="#!">Something else here</a> -->
-                    </div>
-                </div>
-                @endif
-                <br>
 
                 <table id="table-history" class="table table-bordered text-nowrap border-bottom dataTable no-footer dtr-inline collapsed">
                     <thead>
