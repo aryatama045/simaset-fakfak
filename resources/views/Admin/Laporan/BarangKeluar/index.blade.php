@@ -87,9 +87,9 @@
                             </form>
                         </div>
 
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <p> Simpan rekap data </p>
-                        </div>
+                        </div> -->
                     </div>
 
                 </div>

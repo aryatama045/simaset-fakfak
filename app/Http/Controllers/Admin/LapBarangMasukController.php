@@ -9,7 +9,10 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 use DB;
-use PDF;
+use App\Export\LapBarangMasuk;
+use File;
+use Redirect;
+use Excel;
 
 class LapBarangMasukController extends Controller
 {
@@ -93,6 +96,20 @@ class LapBarangMasukController extends Controller
                     return $barang;
                 })
                 ->rawColumns(['tgl', 'supplier', 'barang'])->make(true);
+        }
+    }
+
+    function export(Request $request)
+    {
+
+        $tgl_awal       = '';//$request->tgl_awal;
+        $tgl_akhir      = '';//$request->tgl_akhir;
+        $type           = 'xlsx';
+
+        try{
+            return Excel::download(new LapBarangMasuk($tgl_awal, $tgl_akhir), 'LapBarangMasuk-'.date('d-m-y').'.'.$type.'');
+        }catch(\Exception $e) {
+            return redirect()->back()->with('error_message', 'Operation Failed');
         }
     }
 }
