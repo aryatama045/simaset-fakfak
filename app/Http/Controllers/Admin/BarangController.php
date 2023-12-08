@@ -23,6 +23,7 @@ use Illuminate\Support\Facades\Input;
 use File;
 use Redirect;
 use Excel;
+use DB;
 
 
 
@@ -205,8 +206,9 @@ class BarangController extends Controller
     {
         if ($request->ajax()) {
 
-            $data = BaranghistoryModel::leftJoin('tbl_barang', 'tbl_barang.barang_id', '=', 'tbl_barang_log.barang_id')
-            ->leftJoin('tbl_user', 'tbl_user.user_id', '=', 'tbl_barang_log.user_id')
+            $data = DB::table('tbl_barang_log')
+            ->leftJoin('tbl_barang', 'tbl_barang_log.barang_id' , '=','tbl_barang.barang_id' )
+            ->leftJoin('tbl_user', 'tbl_barang_log.user_id' , '=',  'tbl_user.user_id')
             ->select('tbl_barang_log.keterangan','tbl_barang_log.created_at', 'tbl_user.user_nmlengkap', 'tbl_barang.barang_kode','tbl_barang.barang_nama')
             ->orderBy('tanggal', 'DESC')->get();
 

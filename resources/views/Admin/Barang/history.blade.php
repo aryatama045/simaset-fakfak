@@ -132,7 +132,7 @@
             "pageLength": 10,
             lengthChange: true,
             "ajax": {
-                "url": "{{ route('admin/barang/gethistory') }}",
+                "url": "{{ route('barang.gethistory') }}",
             },
             'columnDefs': [
                 {
