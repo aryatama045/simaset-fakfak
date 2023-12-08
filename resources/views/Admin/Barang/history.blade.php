@@ -152,8 +152,8 @@
                     name: 'barang_nama',
                 },
                 {
-                    data: 'user_nmlengkap',
-                    name: 'user_nmlengkap',
+                    data: 'fullname',
+                    name: 'fullname',
                 },
                 {
                     data: 'keterangan',
