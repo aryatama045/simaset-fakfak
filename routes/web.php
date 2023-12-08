@@ -125,7 +125,7 @@ Route::group(['middleware' => 'userlogin'], function () {
         Route::resource('/admin/barang', \App\Http\Controllers\Admin\BarangController::class);
 
         // Route::resource('/admin/datahistory', [\App\Http\Controllers\Admin\BarangController::class, 'datahistory']);
-        Route::get('/admin/datahistory/', [BarangController::class, 'datahistory']);
+        // Route::get('/admin/datahistory/', [BarangController::class, 'datahistory']);
 
         Route::get('/admin/barang/gethistory/', [BarangController::class, 'gethistory'])->name('barang.data-history');
         Route::get('/admin/barang/show/', [BarangController::class, 'show'])->name('barang.getbarang');
@@ -143,6 +143,14 @@ Route::group(['middleware' => 'userlogin'], function () {
         //     });
         // });
     });
+
+    // Route::middleware(['checkRoleUser:/barang,submenu'])->group(function () {
+        // History
+        Route::resource('/admin/datahistory/', \App\Http\Controllers\Admin\BarangHistoryController::class);
+        Route::get('/admin/history/show/', [BarangHistoryController::class, 'gethistory'])->name('history.data-history');
+
+    // });
+
 
     Route::middleware(['checkRoleUser:/customer,menu'])->group(function () {
         // Customer

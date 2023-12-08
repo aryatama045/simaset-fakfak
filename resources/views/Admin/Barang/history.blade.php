@@ -121,7 +121,7 @@
             "pageLength": 10,
             lengthChange: true,
             "ajax": {
-                "url": "{{ route('barang.data-history') }}",
+                "url": "{{ route('history.data-history') }}",
             },
             "columns": [
                 {
