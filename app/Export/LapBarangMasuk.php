@@ -80,7 +80,7 @@ class LapBarangMasuk implements FromCollection, WithHeadings, ShouldAutoSize, Wi
                 $bm->pb_kode,
                 $bm->barang_kode,
                 $bm->barang_nama,
-                $bm->suppplier_nama,
+                $bm->supplier_nama,
                 $bm->bm_jumlah,
                 $bm->bm_tanggal,
             ];
