@@ -5,12 +5,6 @@ namespace App\Export;
 use App\Models\Admin\BarangkeluarModel;
 use App\Models\Admin\BarangmasukModel;
 use App\Models\Admin\BarangModel;
-use App\Models\Admin\BeritaModel;
-use App\Models\Admin\BeritadetailModel;
-use App\Models\Admin\PbModel;
-use App\Models\Admin\PbdetailModel;
-use App\Models\Admin\SpkModel;
-use App\Models\Admin\SpkdetailModel;
 
 use Illuminate\Support\Facades\Auth;
 use Maatwebsite\Excel\Concerns\WithHeadings;
@@ -87,7 +81,6 @@ class LapStok implements FromCollection, WithHeadings, ShouldAutoSize, WithEvent
         ->leftJoin('tbl_merk', 'tbl_merk.merk_id', '=', 'tbl_barang.merk_id')
         ->orderBy('barang_id', 'DESC')->get();
 
-        // dd('test');
 
         foreach ($data_habis as $dh) {
 
@@ -138,9 +131,6 @@ class LapStok implements FromCollection, WithHeadings, ShouldAutoSize, WithEvent
                 $sisa,
                 $ket
             ];
-
-            dd($all_data);
-
         }
 
 
