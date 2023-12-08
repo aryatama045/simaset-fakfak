@@ -134,14 +134,6 @@
             "ajax": {
                 "url": "{{ route('barang.data-history') }}",
             },
-            'columnDefs': [
-                {
-                    'targets': 0,
-                    'checkboxes': {
-                    'selectRow': true
-                    }
-                }
-            ],
             "columns": [
                 {
                     data: 'barang_kode',
