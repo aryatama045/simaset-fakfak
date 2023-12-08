@@ -50,6 +50,7 @@
                                 <th class="border-bottom-0">Pihak 1</th>
                                 <th class="border-bottom-0">Pihak 2</th>
                                 <th class="border-bottom-0">Tgl. Pengajuan</th>
+                                <th class="border-bottom-0">CreateBy</th>
                                 <th class="border-bottom-0" width="1%">Action</th>
                             </thead>
                             <tbody></tbody>
@@ -137,6 +138,10 @@
                     {
                         data: 'spk_tanggal',
                         name: 'spk_tanggal',
+                    },
+                    {
+                        data: 'create_by',
+                        name: 'create_by',
                     },
                     {
                         data: 'action',

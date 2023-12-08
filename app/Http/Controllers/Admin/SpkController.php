@@ -69,6 +69,11 @@ class SpkController extends Controller
 
                     return $pihak_2;
                 })
+                ->addColumn('create_by', function ($row) {
+                    $create_by = $row->create_by == '' ? '-' : $row->create_by;
+
+                    return $create_by;
+                })
                 ->addColumn('action', function ($row) {
                     $array = array(
                         "spk_id" => $row->spk_id,
@@ -102,7 +107,7 @@ class SpkController extends Controller
                     }
                     return $button;
                 })
-                ->rawColumns(['action', 'ket'])->make(true);
+                ->rawColumns(['action', 'ket','create_by'])->make(true);
         }
     }
 

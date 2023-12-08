@@ -18,7 +18,9 @@ class BeritaModel extends Model
         'berita_tanggal',
         'berita_header',
         'berita_body',
-        'berita_footer'
+        'berita_footer',
+        'create_by',
+        'edited_by'
     ];
 
 

@@ -55,6 +55,7 @@
                                 <th class="border-bottom-0">Supplier</th>
                                 <th class="border-bottom-0">Mengetahui</th>
                                 <th class="border-bottom-0">Tgl. Pengajuan</th>
+                                <th class="border-bottom-0">CreateBy</th>
                                 <th class="border-bottom-0" width="1%">Action</th>
                             </thead>
                             <tbody></tbody>
@@ -178,6 +179,10 @@
                     {
                         data: 'pb_tanggal',
                         name: 'pb_tanggal',
+                    },
+                    {
+                        data: 'create_by',
+                        name: 'create_by',
                     },
                     {
                         data: 'action',

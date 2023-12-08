@@ -70,6 +70,11 @@ class BeritaController extends Controller
 
                     return $pihak_2;
                 })
+                ->addColumn('create_by', function ($row) {
+                    $create_by = $row->create_by == '' ? '-' : $row->create_by;
+
+                    return $create_by;
+                })
                 ->addColumn('action', function ($row) {
                     $array = array(
                         "berita_id" => $row->berita_id,
@@ -103,7 +108,7 @@ class BeritaController extends Controller
                     }
                     return $button;
                 })
-                ->rawColumns(['action', 'pihak_1'])->make(true);
+                ->rawColumns(['action', 'pihak_1','create_by'])->make(true);
         }
     }
 
