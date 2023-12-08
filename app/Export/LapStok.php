@@ -85,7 +85,6 @@ class LapStok implements FromCollection, WithHeadings, ShouldAutoSize, WithEvent
         foreach ($data_habis as $dh) {
 
             $jmlmasuk = BarangmasukModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangmasuk.barang_kode')
-            ->leftJoin('tbl_supplier', 'tbl_supplier.supplier_id', '=', 'tbl_barangmasuk.supplier_id')
             ->where('tbl_barangmasuk.barang_kode', '=', $dh->barang_kode)
             ->sum('tbl_barangmasuk.bm_jumlah');
 
