@@ -78,7 +78,7 @@
                         Bulk Action</button>
                     <div class="dropdown-menu" aria-labelledby="dropdownNoAnimation">
                         <a class="dropdown-item" href="#!" name="bulk_delete" id="bulk_delete">Bulk Delete</a>
-                        <a class="dropdown-item" href="#!">Something else here</a>
+                        <!-- <a class="dropdown-item" href="#!">Something else here</a> -->
                     </div>
                 </div>
 
