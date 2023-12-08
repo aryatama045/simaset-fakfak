@@ -229,6 +229,7 @@ class BeritaController extends Controller
             'berita_header'    => $request->berita_header,
             'berita_body'    => $request->berita_body,
             'berita_footer'    => $request->berita_footer,
+            'create_by'       => Session::get('user')->user_nmlengkap,
         );
         BeritaModel::create($header);
 

@@ -19,6 +19,8 @@ class SpkModel extends Model
         'spk_pihak_1',
         'spk_pihak_2',
         'spk_mengetahui',
+        'create_by',
+        'edited_by'
     ];
 
 

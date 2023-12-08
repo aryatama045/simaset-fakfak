@@ -138,6 +138,7 @@ class PbController extends Controller
             'pb_dibuat'     => $request->pb_dibuat,
             'pb_keterangan' => $request->pb_keterangan,
             'pb_footer'     => $request->pb_footer,
+            'create_by'       => Session::get('user')->user_nmlengkap,
         );
 
 

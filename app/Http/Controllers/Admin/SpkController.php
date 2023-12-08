@@ -117,7 +117,8 @@ class SpkController extends Controller
             'spk_pihak_1'       => $request->spk_pihak_1,
             'spk_pihak_2'       => $request->spk_pihak_2,
             'spk_mengetahui'    => $request->spk_mengetahui,
-            'spk_pic'    => '-',
+            'spk_pic'           => '-',
+            'create_by'       => Session::get('user')->user_nmlengkap,
         );
         SpkModel::create($header);
 

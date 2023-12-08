@@ -20,6 +20,8 @@ class PbModel extends Model
         'pb_keterangan',
         'pb_footer',
         'pb_tanggal',
+        'create_by',
+        'edited_by'
     ];
 
 
