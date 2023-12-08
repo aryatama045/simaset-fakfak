@@ -67,20 +67,23 @@
     <div class="modal fade" data-bs-backdrop="static" id="modalexport">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content modal-content-demo">
-                <form class="modal-dialog-scrollable" enctype='multipart/form-data' action="{{url('admin/berita/berita_export')}}" method="POST">
-                @csrf
+
                 <div class="modal-header">
                     <h6 class="modal-title">Export Data</h6><button onclick="reset()" aria-label="Close" class="btn-close" data-bs-dismiss="modal"><span aria-hidden="true">&times;</span></button>
                 </div>
 
                 <div class="modal-body">
                     <!-- <h5> Filter Data by</h5> -->
-                    <input name="type" type="hidden" value="xlsx" >
 
                     <div class="col-md-6">
                         <div class="form-group">
                             <button class="btn btn-danger-light" onclick="print()"><i class="fa fa-file-pdf-o"></i> PDF</button>
+
+                            <form class="modal-dialog-scrollable" enctype='multipart/form-data' action="{{url('admin/berita/berita_export')}}" method="POST">
+                            @csrf
+                            <input name="type" type="hidden" value="xlsx" >
                             <button type="submit" class="btn btn-success-light"><i class="fa fa-file-excel-o"></i> Excel</button>
+                            </form>
                         </div>
 
                         <div class="form-group">
@@ -96,11 +99,10 @@
                         Loading...
                     </button>
 
-                    <button type="submit" class="btn btn-primary">Simpan <i class="fe fe-check"></i></button>
+                    <!-- <button type="submit" class="btn btn-primary">Simpan <i class="fe fe-check"></i></button> -->
 
-                    <a href="javascript:void(0)" class="btn btn-light" onclick="reset()" data-bs-dismiss="modal">Batal <i class="fe fe-x"></i></a>
+                    <a href="javascript:void(0)" class="btn btn-light" onclick="reset()" data-bs-dismiss="modal">Keluar <i class="fe fe-x"></i></a>
                 </div>
-                </form>
             </div>
         </div>
     </div>
