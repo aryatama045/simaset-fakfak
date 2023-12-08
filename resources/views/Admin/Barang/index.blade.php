@@ -109,7 +109,7 @@
                     <tbody></tbody>
                 </table>
 
-                <table id="table-2" class="table table-bordered text-nowrap border-bottom dataTable no-footer dtr-inline collapsed">
+                <table id="table-history" class="table table-bordered text-nowrap border-bottom dataTable no-footer dtr-inline collapsed">
                     <thead>
                         <th class="border-bottom-0">Kode Barang</th>
                         <th class="border-bottom-0">Nama Barang</th>
