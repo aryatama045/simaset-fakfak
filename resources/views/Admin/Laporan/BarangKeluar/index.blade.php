@@ -38,8 +38,6 @@
                     <div class="col-md-6">
                         <button class="btn btn-success-light" onclick="filter()"><i class="fe fe-filter"></i> Filter</button>
                         <button class="btn btn-secondary-light" onclick="reset()"><i class="fe fe-refresh-ccw"></i> Reset</button>
-                        <button class="btn btn-primary-light" onclick="print()"><i class="fe fe-printer"></i> Print</button>
-                        <button class="btn btn-danger-light" onclick="pdf()"><i class="fa fa-file-pdf-o"></i> PDF</button>
 
                         <a class="modal-effect btn btn-default-light" onclick="generateID()" data-bs-effect="effect-super-scaled" data-bs-toggle="modal" href="#modalexport">Export <i class="fe fe-download"></i></a>
                     </div>
@@ -77,6 +75,11 @@
                 <div class="modal-body">
                     <!-- <h5> Filter Data by</h5> -->
                     <input name="type" type="hidden" value="xlsx" >
+
+                    <!-- <button class="btn btn-primary-light" onclick="print()"><i class="fe fe-printer"></i> Print</button> -->
+                    <button class="btn btn-danger-light" onclick="print()"><i class="fa fa-file-pdf-o"></i> PDF</button>
+
+                    <button type="submit" class="btn-success-light"><i class="fa fa-file-excel-o"></i> Excel</button>
 
                     <div class="form-group">
                         <p> Simpan rekap data </p>
