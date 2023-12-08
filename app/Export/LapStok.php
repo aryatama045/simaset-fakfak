@@ -110,9 +110,9 @@ class LapHabisPakai implements FromCollection, WithHeadings, ShouldAutoSize, Wit
             $bertambah = $jmlmasuk * $d->barang_harga;
             $berkurang = $jmlkeluar * $d->barang_harga;
             $sisa = $bertambah - $berkurang;
-            if($totalStok == 0)
+            if($totalStok == 0){
                 $ket = 'Habis';
-            endif
+            }
 
             $all_bm_data[] = [
                 $dh->barang_kode,
