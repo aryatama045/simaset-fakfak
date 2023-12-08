@@ -107,9 +107,9 @@ class LapStok implements FromCollection, WithHeadings, ShouldAutoSize, WithEvent
                 $result = '-';
             }
 
-            $bertambah = $jmlmasuk * $d->barang_harga;
+            $bertambah = $jmlmasuk * $dh->barang_harga;
             $bertambah = number_format($bertambah,0,"",'.');
-            $berkurang = $jmlkeluar * $d->barang_harga;
+            $berkurang = $jmlkeluar * $dh->barang_harga;
             $berkurang = number_format($berkurang,0,"",'.');
 
             $harga = number_format($dh->barang_harga,0,"",'.');

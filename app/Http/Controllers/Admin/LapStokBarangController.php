@@ -174,8 +174,6 @@ class LapStokBarangController extends Controller
         $tgl_akhir      = '';//$request->tgl_akhir;
         $type           = 'xlsx';
 
-        dd('test');
-
         try{
             return Excel::download(new LapStok($tgl_awal, $tgl_akhir), 'LapStok-'.date('d-m-y').'.'.$type.'');
         }catch(\Exception $e) {
