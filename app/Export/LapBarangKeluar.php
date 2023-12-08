@@ -62,6 +62,7 @@ class LapBarangKeluar implements FromCollection, WithHeadings, ShouldAutoSize, W
         return[
             'Kode',
             'Barang Kode',
+            'Nama Barang',
             'Tujuan',
             'Jumlah',
             'Tanggal',
@@ -73,13 +74,16 @@ class LapBarangKeluar implements FromCollection, WithHeadings, ShouldAutoSize, W
 
         $all_bk_data = [];
 
-        $data_bk = BarangkeluarModel::get();
+        $data_bk = BarangkeluarModel::
+        leftJoin('tbl_barang','tbl_barangkeluar.barang_kode','=','tbl_barang.barang_kode')
+        ->get();
 
         foreach ($data_bk as $bk) {
 
             $all_bk_data[] = [
                 $bk->bk_kode,
                 $bk->barang_kode,
+                $bk->barang_nama,
                 $bk->bk_tujuan,
                 $bk->bk_jumlah,
                 $bk->bk_tanggal,
