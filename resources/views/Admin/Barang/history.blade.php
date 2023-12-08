@@ -115,10 +115,10 @@
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
     });
-    var table;
+    var table_his;
     $(document).ready(function() {
         //datatables
-        table = $('#table-history').DataTable({
+        table_his = $('#table-history').DataTable({
             "processing": true,
             "serverSide": true,
             "info": true,
@@ -152,8 +152,8 @@
                     name: 'barang_nama',
                 },
                 {
-                    data: 'fullname',
-                    name: 'fullname',
+                    data: 'user_nmlengkap',
+                    name: 'user_nmlengkap',
                 },
                 {
                     data: 'keterangan',
