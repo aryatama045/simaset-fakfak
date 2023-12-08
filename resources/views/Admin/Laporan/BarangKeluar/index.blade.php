@@ -78,13 +78,13 @@
                             @csrf
                     <div class="col-md-6">
                         <div class="form-group">
-                            <a class="btn btn-danger-light" onclick="print()"><i class="fa fa-file-pdf-o"></i> PDF</a>
+                            <a class="btn btn-danger" onclick="print()"><i class="fa fa-file-pdf-o"></i> PDF</a>
                         </div>
 
                         <div class="form-group">
 
                             <input name="type" type="hidden" value="xlsx" >
-                            <button type="submit" class="btn btn-success-light"><i class="fa fa-file-excel-o"></i> Excel</button>
+                            <button type="submit" class="btn btn-success"><i class="fa fa-file-excel-o"></i> Excel</button>
                             </form>
                         </div>
 
