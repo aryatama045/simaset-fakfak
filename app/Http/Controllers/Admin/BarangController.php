@@ -109,6 +109,11 @@ class BarangController extends Controller
 
                     return $merk;
                 })
+                ->addColumn('make_by', function ($row) {
+                    $make_by = $row->make_by == '' ? '-' : $row->make_by;
+
+                    return $make_by;
+                })
                 ->addColumn('currency', function ($row) {
                     $currency = $row->barang_harga == '' ? '-' : 'Rp ' . number_format($row->barang_harga, 0);
 
@@ -192,7 +197,7 @@ class BarangController extends Controller
 
                     return $button;
                 })
-                ->rawColumns(['checkbox','action', 'img', 'jenisbarang', 'satuan','kategori', 'merk', 'currency', 'totalstok'])->make(true);
+                ->rawColumns(['checkbox','action', 'img', 'jenisbarang', 'satuan','kategori', 'merk','currency', 'totalstok', 'make_by'])->make(true);
         }
     }
 
