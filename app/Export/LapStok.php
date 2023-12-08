@@ -71,8 +71,10 @@ class LapStok implements FromCollection, WithHeadings, ShouldAutoSize, WithEvent
             'Harga',
             'Bertambah',
             'Berkurang',
-            'Sisa'
+            'Sisa',
+            'Ket'
         ];
+
     }
 
     public function collection()
@@ -139,7 +141,6 @@ class LapStok implements FromCollection, WithHeadings, ShouldAutoSize, WithEvent
 
         }
 
-        dd($all_data);
 
         return collect($all_data);
     }
