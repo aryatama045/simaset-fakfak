@@ -123,8 +123,9 @@ Route::group(['middleware' => 'userlogin'], function () {
     Route::middleware(['checkRoleUser:/barang,submenu'])->group(function () {
         // Barang
         Route::resource('/admin/barang', \App\Http\Controllers\Admin\BarangController::class);
-        // Route::get('/admin/datahistory/', [BarangController::class, 'datahistory']);
+        Route::get('/admin/datahistory/', [BarangController::class, 'datahistory']);
 
+        Route::get('/admin/barang/gethistory/', [BarangController::class, 'gethistory'])->name('barang.gethistory');
         Route::get('/admin/barang/show/', [BarangController::class, 'show'])->name('barang.getbarang');
         Route::post('/admin/barang/proses_tambah/', [BarangController::class, 'proses_tambah'])->name('barang.store');
         Route::post('/admin/barang/bulk_delete/', [BarangController::class, 'bulk_delete'])->name('barang.bulk_delete');
@@ -134,12 +135,11 @@ Route::group(['middleware' => 'userlogin'], function () {
 
         Route::post('/admin/barang/export_barang/', [BarangController::class, 'export_barang']);
 
-        Route::controller(BarangController::class)->group(function () {
-            Route::prefix('/admin/barang')->group(function () {
-                Route::get('datahistory', 'showhistory')->name('barang.showHistory');
-                Route::get('/admin/barang/gethistory/', [BarangController::class, 'gethistory'])->name('barang.gethistory');
-            });
-        });
+        // Route::controller(BarangController::class)->group(function () {
+        //     Route::prefix('/admin/barang')->group(function () {
+        //         Route::get('datahistory', 'showhistory')->name('barang.showHistory');
+        //     });
+        // });
     });
 
     Route::middleware(['checkRoleUser:/customer,menu'])->group(function () {
