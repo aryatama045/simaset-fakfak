@@ -78,7 +78,7 @@ class LapStok implements FromCollection, WithHeadings, ShouldAutoSize, WithEvent
     public function collection()
     {
 
-        $all_bm_data = [];
+        $all_data = [];
 
         $data_habis = BarangModel::leftJoin('tbl_jenisbarang', 'tbl_jenisbarang.jenisbarang_id', '=', 'tbl_barang.jenisbarang_id')
         ->leftJoin('tbl_satuan', 'tbl_satuan.satuan_id', '=', 'tbl_barang.satuan_id')
@@ -108,20 +108,20 @@ class LapStok implements FromCollection, WithHeadings, ShouldAutoSize, WithEvent
             }
 
             $bertambah = $jmlmasuk * $dh->barang_harga;
-            // $bertambah = number_format($bertambah,0,"",'.');
+            $bertambah = number_format($bertambah,0,"",'.');
             $berkurang = $jmlkeluar * $dh->barang_harga;
-            // $berkurang = number_format($berkurang,0,"",'.');
+            $berkurang = number_format($berkurang,0,"",'.');
 
-            $harga = $dh->barang_harga;
+            $harga =  number_format($dh->barang_harga,0,"",'.');
             $sisa = $bertambah - $berkurang;
-            // $sisa = number_format($sisa,0,"",'.');
+            $sisa = number_format($sisa,0,"",'.');
 
-            if($totalStok == 0){
+            if($totalstok == 0){
                 $ket = 'Habis';
             }
 
 
-            $all_bm_data[] = [
+            $all_data[] = [
                 $dh->barang_kode,
                 $dh->barang_nama,
                 $dh->barang_stok,
@@ -136,7 +136,7 @@ class LapStok implements FromCollection, WithHeadings, ShouldAutoSize, WithEvent
             ];
         }
 
-        return collect($all_bm_data);
+        return collect($all_data);
     }
 
 
