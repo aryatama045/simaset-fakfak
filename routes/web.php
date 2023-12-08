@@ -124,8 +124,8 @@ Route::group(['middleware' => 'userlogin'], function () {
         // Barang
         Route::resource('/admin/barang', \App\Http\Controllers\Admin\BarangController::class);
 
-        Route::resource('/admin/datahistory', [\App\Http\Controllers\Admin\BarangController::class, 'datahistory']);
-        // Route::get('/admin/datahistory/', [BarangController::class, 'datahistory']);
+        // Route::resource('/admin/datahistory', [\App\Http\Controllers\Admin\BarangController::class, 'datahistory']);
+        Route::get('/admin/datahistory/', [BarangController::class, 'datahistory']);
 
         Route::get('/admin/barang/gethistory/', [BarangController::class, 'gethistory'])->name('barang.data-history');
         Route::get('/admin/barang/show/', [BarangController::class, 'show'])->name('barang.getbarang');
