@@ -10,6 +10,11 @@ use App\Models\Admin\WebModel;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 use PDF;
+use DB;
+use App\Export\LapStok;
+use File;
+use Redirect;
+use Excel;
 
 class LapStokBarangController extends Controller
 {
