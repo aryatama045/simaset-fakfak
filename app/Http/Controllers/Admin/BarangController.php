@@ -77,7 +77,7 @@ class BarangController extends Controller
                 ->leftJoin('tbl_satuan', 'tbl_satuan.satuan_id', '=', 'tbl_barang.satuan_id')
                 ->leftJoin('tbl_kategori', 'tbl_kategori.kategori_id', '=', 'tbl_barang.kategori_id')
                 ->leftJoin('tbl_merk', 'tbl_merk.merk_id', '=', 'tbl_barang.merk_id')
-                ->where('create_by', $user)
+                ->where('make_by', $user)
                 ->orderBy('barang_id', 'DESC')->get();
             }
 
