@@ -28,26 +28,13 @@ use Carbon\Carbon;
         }
 
         @media print{
-
+            @page {
+                size: landscape;
+            }
             @page {
                 margin-top:15px;
                 margin-bottom:30px;
                 margin: 0 !important;
-            }
-
-            @page {
-                size: A4; /* DIN A4 standard, Europe */
-                size: landscape;
-            }
-            html, body {
-                width: 210mm;
-                height: 297mm;
-                /* height: 282mm; */
-                background: #FFF;
-                overflow: visible;
-            }
-            body {
-                padding-top: 15mm;
             }
         }
 
