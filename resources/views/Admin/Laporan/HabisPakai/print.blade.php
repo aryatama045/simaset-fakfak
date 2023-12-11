@@ -176,22 +176,6 @@ use Carbon\Carbon;
 
 <body onload="window.print()">
 
-    <!-- <center>
-        @if($web->web_logo == '' || $web->web_logo == 'default.png')
-        <img src="{{url('/assets/default/web/default.png')}}" width="80px" alt="">
-        @else
-        <img src="{{url('/assets/default/web/default.png')}}" width="80px" alt="">
-        @endif
-    </center>
-
-    <center>
-        <h1 class="font-medium">Laporan Stok Barang</h1>
-        @if($tglawal == '')
-        <h4 class="font-medium">Semua Tanggal</h4>
-        @else
-        <h4 class="font-medium">{{Carbon::parse($tglawal)->translatedFormat('d F Y')}} - {{Carbon::parse($tglakhir)->translatedFormat('d F Y')}}</h4>
-        @endif
-    </center> -->
 
     <div>
         <div class="container">
