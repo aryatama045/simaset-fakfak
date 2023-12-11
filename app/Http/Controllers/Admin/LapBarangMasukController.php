@@ -51,17 +51,34 @@ class LapBarangMasukController extends Controller
 
     public function pdf(Request $request)
     {
-        if ($request->tglawal) {
-            $data['data'] = BarangmasukModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangmasuk.barang_kode')->leftJoin('tbl_supplier', 'tbl_supplier.supplier_id', '=', 'tbl_barangmasuk.supplier_id')->whereBetween('bm_tanggal', [$request->tglawal, $request->tglakhir])->orderBy('bm_id', 'DESC')->get();
+        // if ($request->tglawal) {
+        //     $data['data'] = BarangmasukModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangmasuk.barang_kode')->leftJoin('tbl_supplier', 'tbl_supplier.supplier_id', '=', 'tbl_barangmasuk.supplier_id')->whereBetween('bm_tanggal', [$request->tglawal, $request->tglakhir])->orderBy('bm_id', 'DESC')->get();
+        // } else {
+        //     $data['data'] = BarangmasukModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangmasuk.barang_kode')->leftJoin('tbl_supplier', 'tbl_supplier.supplier_id', '=', 'tbl_barangmasuk.supplier_id')->orderBy('bm_id', 'DESC')->get();
+        // }
+
+        if ($request->tglawal != '') {
+            $data['data'] = DB::table('tbl_barangmasuk')
+            ->leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangmasuk.barang_kode')
+            ->leftJoin('tbl_supplier', 'tbl_supplier.supplier_id', '=', 'tbl_barangmasuk.supplier_id')
+            ->leftJoin('tbl_jenisbarang as jns', 'jns.jenisbarang_id', '=', 'tbl_barang.jenisbarang_id' )
+            ->whereBetween('bm_tanggal', [$request->tglawal, $request->tglakhir])
+            ->orderBy('bm_id', 'DESC')
+            ->get();
         } else {
-            $data['data'] = BarangmasukModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangmasuk.barang_kode')->leftJoin('tbl_supplier', 'tbl_supplier.supplier_id', '=', 'tbl_barangmasuk.supplier_id')->orderBy('bm_id', 'DESC')->get();
+            $data['data'] = BarangmasukModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangmasuk.barang_kode')
+            ->leftJoin('tbl_supplier', 'tbl_supplier.supplier_id', '=', 'tbl_barangmasuk.supplier_id')
+            ->leftJoin('tbl_jenisbarang as jns', 'jns.jenisbarang_id', '=', 'tbl_barang.jenisbarang_id' )
+            ->orderBy('bm_id', 'DESC')
+            // ->groupBy('bm_tanggal')
+            ->get();
         }
 
         $data["title"] = "PDF Barang Masuk";
         $data['web'] = WebModel::first();
         $data['tglawal'] = $request->tglawal;
         $data['tglakhir'] = $request->tglakhir;
-        $pdf = PDF::loadView('Admin.Laporan.BarangMasuk.pdf', $data);
+        $pdf = PDF::loadView('Admin.Laporan.BarangMasuk.print', $data);
 
         if($request->tglawal){
             return $pdf->download('lap-bm-'.$request->tglawal.'-'.$request->tglakhir.'.pdf');
