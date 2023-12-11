@@ -43,9 +43,10 @@
                     </div>
                     <div class="col-md-6">
                         <div class="pull-right">
+                            <button class="btn btn-primary-light" onclick="print()"><i class="fe fe-printer"></i> Print</button>
                             <a class="modal-effect btn btn-default-light"  data-bs-effect="effect-super-scaled" data-bs-toggle="modal" href="#modalexport">Export <i class="fe fe-download"></i></a>
-                            <!-- <button class="btn btn-primary-light" onclick="print()"><i class="fe fe-printer"></i> Print</button>
-                            <button class="btn btn-danger-light" onclick="pdf()"><i class="fa fa-file-pdf-o"></i> PDF</button> -->
+
+                            <!-- <button class="btn btn-danger-light" onclick="pdf()"><i class="fa fa-file-pdf-o"></i> PDF</button> -->
                         </div>
                     </div>
                 </div>
@@ -84,7 +85,7 @@
                     @csrf
                     <div class="col-md-6">
                         <div class="form-group">
-                            <a class="btn btn-danger" onclick="print()"><i class="fa fa-file-pdf-o"></i> PDF</a>
+                            <a class="btn btn-danger" onclick="pdf()"><i class="fa fa-file-pdf-o"></i> PDF</a>
                         </div>
 
                         <div class="form-group">
