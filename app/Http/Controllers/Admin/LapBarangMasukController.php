@@ -78,7 +78,7 @@ class LapBarangMasukController extends Controller
         $data['web'] = WebModel::first();
         $data['tglawal'] = $request->tglawal;
         $data['tglakhir'] = $request->tglakhir;
-        $pdf = PDF::loadView('Admin.Laporan.BarangMasuk.pdf', $data);
+        $pdf = PDF::loadView('Admin.Laporan.BarangMasuk.pdf', $data)->setPaper('a4', 'landscape');
 
         if($request->tglawal){
             return $pdf->download('lap-bm-'.$request->tglawal.'-'.$request->tglakhir.'.pdf');
