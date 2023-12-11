@@ -210,34 +210,26 @@ use Carbon\Carbon;
         <div id="alamat" class="row">
             <div id="lampiran" class="col-md-6">
                 <div class="form-group row">
-                    <label for="staticEmail" class="col-sm-3 col-form-label">SKPD</label>
+                    <label for="staticEmail" class="col-sm-3 col-form-label">SKPD : SEKRETARIAT DPRD</label>
                     <div class="col-sm-9">
-                    : SEKRETARIAT DPRD
+
                     </div>
                 </div>
 
                 <div class="form-group row">
-                    <label for="staticEmail" class="col-sm-3 col-form-label">KABUPATEN</label>
+                    <label for="staticEmail" class="col-sm-3 col-form-label">KABUPATEN : FAKFAK</label>
                     <div class="col-sm-9">
-                    : FAKFAK
+
                     </div>
                 </div>
 
                 <div class="form-group row">
-                    <label for="staticEmail" class="col-sm-3 col-form-label">PROVINSI</label>
+                    <label for="staticEmail" class="col-sm-3 col-form-label">PROVINSI : PAPUA BARAT</label>
                     <div class="col-sm-9">
-                    : PAPUA BARAT
+
                     </div>
                 </div>
             </div>
-            <!-- <div id="tgl-srt" class="col-md-6">
-                <p id="tls">Bergas, 30 April 2018</p>
-
-                <p class="alamat-tujuan">Kepada Yth. :<br />
-                Kepala Desa</p>
-                <p class="alamat-tujuan">se - Kecamatan Bergas
-                </p>
-            </div> -->
         </div>
 
         <table border="1" id="table1">
