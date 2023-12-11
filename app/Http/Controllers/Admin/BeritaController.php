@@ -49,7 +49,7 @@ class BeritaController extends Controller
 
             $user = Session::get('user')->user_nmlengkap;
 
-            if($user == ' Super Admin'){
+            if($user == 'Super Administrator'){
                 $data = DB::table('tbl_berita as h')
                     ->leftJoin('tbl_pegawai as p1', 'h.berita_pihak_1', '=', 'p1.pegawai_id')
                     ->leftJoin('tbl_pegawai as p2', 'h.berita_pihak_2', '=', 'p2.pegawai_id')
