@@ -106,7 +106,7 @@ class LapHabisPakaiController extends Controller
         $data['web'] = WebModel::first();
         $data['tglawal'] = $request->tglawal;
         $data['tglakhir'] = $request->tglakhir;
-        $pdf = PDF::loadView('Admin.Laporan.HabisPakai.pdf', $data)->setPaper('a4', 'landscape')->setOption('margin', 0);
+        $pdf = PDF::loadView('Admin.Laporan.HabisPakai.pdf', $data)->setPaper('legal', 'landscape')->setOption('margin', 0);
 
         if($request->tglawal){
             return $pdf->download('lap-stok-'.$request->tglawal.'-'.$request->tglakhir.'.pdf');
