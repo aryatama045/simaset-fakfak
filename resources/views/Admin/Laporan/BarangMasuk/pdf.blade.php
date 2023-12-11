@@ -204,23 +204,23 @@ use Carbon\Carbon;
         <div id="alamat" class="row">
             <div id="lampiran" class="col-md-6">
                 <div class="form-group row">
-                    <label for="staticEmail" class="col-sm-3 col-form-label">SKPD</label>
+                    <label for="staticEmail" class="col-sm-3 col-form-label">SKPD</label> : SEKRETARIAT DPRD
                     <div class="col-sm-9">
-                    : SEKRETARIAT DPRD
+
                     </div>
                 </div>
 
                 <div class="form-group row">
-                    <label for="staticEmail" class="col-sm-3 col-form-label">KABUPATEN</label>
+                    <label for="staticEmail" class="col-sm-3 col-form-label">KABUPATEN</label> : FAKFAK
                     <div class="col-sm-9">
-                    : FAKFAK
+
                     </div>
                 </div>
 
                 <div class="form-group row">
-                    <label for="staticEmail" class="col-sm-3 col-form-label">KOTA</label>
+                    <label for="staticEmail" class="col-sm-3 col-form-label">KOTA</label> : FAKFAK
                     <div class="col-sm-9">
-                    : FAKFAK
+
                     </div>
                 </div>
             </div>
