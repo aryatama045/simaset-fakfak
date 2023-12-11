@@ -23,7 +23,16 @@ class BarangkeluarController extends Controller
     public function show(Request $request)
     {
         if ($request->ajax()) {
-            $data = BarangkeluarModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangkeluar.barang_kode')->orderBy('bk_id', 'DESC')->get();
+            $user = Session::get('user')->user_nmlengkap;
+            if($user == 'Super Administrator'){
+                $data = BarangkeluarModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangkeluar.barang_kode')
+                ->orderBy('bk_id', 'DESC')->get();
+            }else{
+                $data = BarangkeluarModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangkeluar.barang_kode')
+                ->where('create_by', $user)
+                ->orderBy('bk_id', 'DESC')->get();
+            }
+
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn('tgl', function ($row) {

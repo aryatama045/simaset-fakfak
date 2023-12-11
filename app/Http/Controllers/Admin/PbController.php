@@ -51,10 +51,20 @@ class PbController extends Controller
     public function show(Request $request)
     {
         if ($request->ajax()) {
-            $data = PbModel::leftJoin('tbl_supplier', 'tbl_pb.supplier_id', '=', 'tbl_supplier.supplier_id')
-            ->leftJoin('tbl_pegawai', 'tbl_pb.pb_pejabat', '=', 'tbl_pegawai.pegawai_id')
-            ->leftJoin('tbl_user', 'tbl_pb.pb_pic', '=', 'tbl_user.user_id')
-            ->orderBy('pb_id', 'DESC')->get();
+            $user = Session::get('user')->user_nmlengkap;
+
+            if($user == 'Super Administrator'){
+                $data = PbModel::leftJoin('tbl_supplier', 'tbl_pb.supplier_id', '=', 'tbl_supplier.supplier_id')
+                ->leftJoin('tbl_pegawai', 'tbl_pb.pb_pejabat', '=', 'tbl_pegawai.pegawai_id')
+                ->leftJoin('tbl_user', 'tbl_pb.pb_pic', '=', 'tbl_user.user_id')
+                ->orderBy('pb_id', 'DESC')->get();
+            }else{
+                $data = PbModel::leftJoin('tbl_supplier', 'tbl_pb.supplier_id', '=', 'tbl_supplier.supplier_id')
+                ->leftJoin('tbl_pegawai', 'tbl_pb.pb_pejabat', '=', 'tbl_pegawai.pegawai_id')
+                ->leftJoin('tbl_user', 'tbl_pb.pb_pic', '=', 'tbl_user.user_id')
+                ->where('create_by', $user)
+                ->orderBy('pb_id', 'DESC')->get();
+            }
 
             return Datatables::of($data)
                 ->addIndexColumn()

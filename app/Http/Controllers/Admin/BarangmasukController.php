@@ -33,9 +33,21 @@ class BarangmasukController extends Controller
     public function show(Request $request)
     {
         if ($request->ajax()) {
-            $data = BarangmasukModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangmasuk.barang_kode')
-            ->leftJoin('tbl_supplier', 'tbl_supplier.supplier_id', '=', 'tbl_barangmasuk.supplier_id')
-            ->orderBy('bm_id', 'DESC')->get();
+
+            $user = Session::get('user')->user_nmlengkap;
+
+            if($user == 'Super Administrator'){
+
+                $data = BarangmasukModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangmasuk.barang_kode')
+                ->leftJoin('tbl_supplier', 'tbl_supplier.supplier_id', '=', 'tbl_barangmasuk.supplier_id')
+                ->orderBy('bm_id', 'DESC')->get();
+            }else{
+                $data = BarangmasukModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangmasuk.barang_kode')
+                ->leftJoin('tbl_supplier', 'tbl_supplier.supplier_id', '=', 'tbl_barangmasuk.supplier_id')
+                ->where('create_by', $user)
+                ->orderBy('bm_id', 'DESC')->get();
+            }
+
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn('tgl', function ($row) {
