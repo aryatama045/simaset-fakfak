@@ -325,6 +325,7 @@ use Carbon\Carbon;
         </table>
 
         <footer>
+            <div class="row">
             <div id="ttd" class="row">
                 <div class="col-md-6">
                     <p id="pengurus"> <strong>MENGETAHUI <br />
@@ -342,6 +343,7 @@ use Carbon\Carbon;
                         NIP : 19780910 200801 1 014
                     </div>
                 </div>
+            </div>
             </div>
         </footer>
 
