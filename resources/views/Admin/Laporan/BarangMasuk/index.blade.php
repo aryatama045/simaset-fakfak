@@ -38,8 +38,7 @@
                     <div class="col-md-6">
                         <button class="btn btn-success-light" onclick="filter()"><i class="fe fe-filter"></i> Filter</button>
                         <button class="btn btn-secondary-light" onclick="reset()"><i class="fe fe-refresh-ccw"></i> Reset</button>
-                        <!-- <button class="btn btn-primary-light" onclick="print()"><i class="fe fe-printer"></i> Print</button>
-                        <button class="btn btn-danger-light" onclick="pdf()"><i class="fa fa-file-pdf-o"></i> PDF</button> -->
+                        <button class="btn btn-primary-light" onclick="print()"><i class="fe fe-printer"></i> Print</button>
 
                         <a class="modal-effect btn btn-default-light" onclick="generateID()" data-bs-effect="effect-super-scaled" data-bs-toggle="modal" href="#modalexport">Export <i class="fe fe-download"></i></a>
                     </div>
@@ -79,7 +78,7 @@
                     @csrf
                     <div class="col-md-6">
                         <div class="form-group">
-                            <a class="btn btn-danger" onclick="print()"><i class="fa fa-file-pdf-o"></i> PDF</a>
+                            <a class="btn btn-danger" onclick="pdf()"><i class="fa fa-file-pdf-o"></i> PDF</a>
                         </div>
 
                         <div class="form-group">
