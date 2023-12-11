@@ -224,14 +224,7 @@ use Carbon\Carbon;
                     </div>
                 </div>
             </div>
-            <!-- <div id="tgl-srt" class="col-md-6">
-                <p id="tls">Bergas, 30 April 2018</p>
 
-                <p class="alamat-tujuan">Kepada Yth. :<br />
-                Kepala Desa</p>
-                <p class="alamat-tujuan">se - Kecamatan Bergas
-                </p>
-            </div> -->
         </div>
 
         <table border="1" id="table1">
