@@ -19,7 +19,10 @@ use Carbon\Carbon;
     <title>{{$title}}</title>
 
     <link rel="stylesheet" href="{{url('/assets/css/pdf_bs1.css')}}" />
-    <link rel="stylesheet" href="{{url('/assets/css/pdf_bs1.min.css')}}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css"  />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" />
+
 
     <style>
         /* Default */
@@ -200,23 +203,23 @@ use Carbon\Carbon;
         <div id="alamat" class="row">
             <div id="lampiran" class="col-md-6">
                 <div class="form-group row">
-                    <label for="staticEmail" class="col-sm-3 col-form-label">SKPD : SEKRETARIAT DPRD</label>
+                    <label for="staticEmail" class="col-sm-3 col-form-label">SKPD</label>
                     <div class="col-sm-9">
-
+                    : SEKRETARIAT DPRD
                     </div>
                 </div>
 
                 <div class="form-group row">
-                    <label for="staticEmail" class="col-sm-3 col-form-label">KABUPATEN : FAKFAK</label>
+                    <label for="staticEmail" class="col-sm-3 col-form-label">KABUPATEN</label>
                     <div class="col-sm-9">
-
+                    : FAKFAK
                     </div>
                 </div>
 
                 <div class="form-group row">
-                    <label for="staticEmail" class="col-sm-3 col-form-label">KOTA : FAKFAK</label>
+                    <label for="staticEmail" class="col-sm-3 col-form-label">KOTA</label>
                     <div class="col-sm-9">
-
+                    : FAKFAK
                     </div>
                 </div>
             </div>
