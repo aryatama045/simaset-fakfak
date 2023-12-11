@@ -46,13 +46,28 @@ class BeritaController extends Controller
     public function show(Request $request)
     {
         if ($request->ajax()) {
-            $data = DB::table('tbl_berita as h')
-                ->leftJoin('tbl_pegawai as p1', 'h.berita_pihak_1', '=', 'p1.pegawai_id')
-                ->leftJoin('tbl_pegawai as p2', 'h.berita_pihak_2', '=', 'p2.pegawai_id')
-                ->Select('h.*',
-                    'p1.nip as p1_nip', 'p1.nama_lengkap as p1_nama', 'p1.jabatan as p1_jabatan','p1.alamat as p1_alamat',
-                    'p2.nip as p2_nip', 'p2.nama_lengkap as p2_nama', 'p2.jabatan as p2_jabatan','p2.alamat as p2_alamat')
-            ->orderBy('berita_id', 'DESC')->get();
+
+            $user = Session::get('user')->user_nmlengkap;
+
+            if($user == ' Super Admin'){
+                $data = DB::table('tbl_berita as h')
+                    ->leftJoin('tbl_pegawai as p1', 'h.berita_pihak_1', '=', 'p1.pegawai_id')
+                    ->leftJoin('tbl_pegawai as p2', 'h.berita_pihak_2', '=', 'p2.pegawai_id')
+                    ->Select('h.*',
+                        'p1.nip as p1_nip', 'p1.nama_lengkap as p1_nama', 'p1.jabatan as p1_jabatan','p1.alamat as p1_alamat',
+                        'p2.nip as p2_nip', 'p2.nama_lengkap as p2_nama', 'p2.jabatan as p2_jabatan','p2.alamat as p2_alamat')
+                ->orderBy('berita_id', 'DESC')->get();
+
+            }else{
+                $data = DB::table('tbl_berita as h')
+                    ->leftJoin('tbl_pegawai as p1', 'h.berita_pihak_1', '=', 'p1.pegawai_id')
+                    ->leftJoin('tbl_pegawai as p2', 'h.berita_pihak_2', '=', 'p2.pegawai_id')
+                    ->where('create_by', $user)
+                    ->Select('h.*',
+                        'p1.nip as p1_nip', 'p1.nama_lengkap as p1_nama', 'p1.jabatan as p1_jabatan','p1.alamat as p1_alamat',
+                        'p2.nip as p2_nip', 'p2.nama_lengkap as p2_nama', 'p2.jabatan as p2_jabatan','p2.alamat as p2_alamat')
+                ->orderBy('berita_id', 'DESC')->get();
+            }
 
             return Datatables::of($data)
                 ->addIndexColumn()
