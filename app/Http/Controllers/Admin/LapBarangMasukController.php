@@ -13,6 +13,7 @@ use App\Export\LapBarangMasuk;
 use File;
 use Redirect;
 use Excel;
+use PDF;
 
 class LapBarangMasukController extends Controller
 {
