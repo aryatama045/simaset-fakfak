@@ -334,8 +334,8 @@ use Carbon\Carbon;
         </table>
 
         <footer>
-            <div id="ttd" class="row">
-                <div class="col-md-4">
+            <div id="ttd" class="row" style="width: 100%;position: relative;">
+                <div class="col-md-4" style="width: 30%;position: absolute;">
                     <p id="pengurus"> <strong>MENGETAHUI <br />
                         SEKRETARIS DPRD <br />
                         KABUPATEN FAKFAK</strong>
@@ -344,8 +344,9 @@ use Carbon\Carbon;
                         NIP : 19710608 199610 1 002
                     </div>
                 </div>
-                <div class="col-md-4"></div>
-                <div class="col-md-4">
+                <div class="col-md-4" style="width: 10%;"></div>
+
+                <div class="col-md-4" style="width: 30%;position: absolute;right: 0;">
                     <p id="tanggal-pengurus"> Fakfak, {{date('d F Y')}} </p>
                     <p id="pengurus"><strong>PENGURUS BARANG</strong></p>
                     <div id="nama-pengurus"><strong><u>RUSDI</u></strong><br />
