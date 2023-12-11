@@ -31,6 +31,7 @@ use Carbon\Carbon;
     <link rel="stylesheet" type="text/css" href='http://fonts.googleapis.com/css?family=Times:400,300,700'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css"  />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" />
 
 
     <style>
@@ -233,14 +234,7 @@ use Carbon\Carbon;
                     </div>
                 </div>
             </div>
-            <!-- <div id="tgl-srt" class="col-md-6">
-                <p id="tls">Bergas, 30 April 2018</p>
 
-                <p class="alamat-tujuan">Kepada Yth. :<br />
-                Kepala Desa</p>
-                <p class="alamat-tujuan">se - Kecamatan Bergas
-                </p>
-            </div> -->
         </div>
 
         <table border="1" id="table1">
