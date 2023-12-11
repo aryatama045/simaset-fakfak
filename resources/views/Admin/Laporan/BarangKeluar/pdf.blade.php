@@ -22,7 +22,6 @@ use Carbon\Carbon;
 
     <link rel="stylesheet" href="{{url('/assets/css/pdf_bs1.css')}}" />
 
-
     <style>
         /* Default */
         * {
@@ -156,6 +155,11 @@ use Carbon\Carbon;
         <header>
             <div id="kop-surat" class="row">
                 <div class="col-md-2 col-sm-2 col-xs-2">
+                    @if($web->web_logo == '' || $web->web_logo == 'default.png')
+                    <img id="logo" src="{{url('/assets/default/web/default.png')}}" width="85" height="90" alt="">
+                    @else
+                    <img id="logo" src="{{url('/assets/default/web/default.png')}}" width="85" height="90" alt="">
+                    @endif
 
                 </div>
                 <div class="col-md-10 col-sm-10 col-xs-10">
