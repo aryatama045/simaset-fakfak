@@ -35,6 +35,11 @@ use Carbon\Carbon;
             @page {
                 size: landscape;
             }
+            @page {
+                margin-top:15px;
+                margin-bottom:30px;
+                margin: 0;
+            }
         }
 
         #table1 {
