@@ -16,11 +16,7 @@ use Carbon\Carbon;
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 
     <!-- FAVICON -->
-    @if($web->web_logo == '' || $web->web_logo == 'default.png')
-    <link rel="shortcut icon" type="image/x-icon" href="{{url('/assets/default/web/default.png')}}" />
-    @else
-    <link rel="shortcut icon" type="image/x-icon" href="{{asset('storage/web/' . $web->web_logo)}}" />
-    @endif
+
 
     <title>{{$title}}</title>
 
