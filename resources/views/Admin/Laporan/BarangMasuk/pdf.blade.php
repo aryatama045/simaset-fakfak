@@ -18,7 +18,6 @@ use Carbon\Carbon;
 
     <title>{{$title}}</title>
 
-    <link rel="stylesheet" href="{{url('/assets/css/font_pdf1.css')}}" />
     <link rel="stylesheet" href="{{url('/assets/css/pdf_bs1.css')}}" />
 
 
