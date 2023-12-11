@@ -173,22 +173,21 @@ use Carbon\Carbon;
         <header>
             <div id="kop-surat" class="row">
                 <div class="col-md-2 col-sm-2 col-xs-2">
-                    <!-- <img id="logo" src="https://getasanbersinar.files.wordpress.com/2016/02/logo-kabupaten-semarang-jawa-tengah.png" width="140" height="160" /> -->
-
                     @if($web->web_logo == '' || $web->web_logo == 'default.png')
                     <img id="logo" src="{{url('/assets/default/web/default.png')}}" width="85" height="90" alt="">
                     @else
                     <img id="logo" src="{{url('/assets/default/web/default.png')}}" width="85" height="90" alt="">
                     @endif
+
                 </div>
                 <div class="col-md-10 col-sm-10 col-xs-10">
                     <h3 class="kablogo"> <strong>{{ $web->header_1 }}</strong></h3>
                     <h1 class="keclogo"><strong> {{ $web->header_2 }} </strong></h1>
                     <h6 class="alamatlogo"> {{ $web->alamat }} </h6>
-                    <!-- <h5 class="kodeposlogo"><strong>BERGAS 50552</strong></h5> -->
                 </div>
             </div>
         </header>
+
 
         <hr class="garis1"/>
 
