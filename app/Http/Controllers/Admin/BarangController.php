@@ -665,7 +665,7 @@ class BarangController extends Controller
             ->orderBy('barang_id', 'DESC')->get();
         }
 
-        dd('test');
+        // dd('test');
         $data["title"] = "Print Data Barang";
         $data['web'] = WebModel::first();
         return view('Admin.Barang.print', $data);
