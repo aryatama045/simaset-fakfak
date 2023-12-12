@@ -138,8 +138,7 @@ Route::group(['middleware' => 'userlogin'], function () {
 
         Route::post('/admin/barang/export_barang/', [BarangController::class, 'export_barang']);
 
-        Route::get('/admin/brgprint/', [BarangController::class, 'print'])->name('barang.print');
-        Route::get('/admin/brgpdf/', [BarangController::class, 'pdf'])->name('barang.pdf');
+
 
         // Route::controller(BarangController::class)->group(function () {
         //     Route::prefix('/admin/barang')->group(function () {
@@ -155,6 +154,8 @@ Route::group(['middleware' => 'userlogin'], function () {
 
     // });
 
+    Route::get('/admin/brgprint/', [BarangController::class, 'print'])->name('barang.print');
+        Route::get('/admin/brgpdf/', [BarangController::class, 'pdf'])->name('barang.pdf');
 
     Route::middleware(['checkRoleUser:/customer,menu'])->group(function () {
         // Customer
