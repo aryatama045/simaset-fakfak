@@ -169,70 +169,52 @@ $(document).ready(function () {
     }
 
     function pdf() {
-        // var tglawal = $('input[name="tglawal"]').val();
-        // var tglakhir = $('input[name="tglakhir"]').val();
-        // if (tglawal != '' && tglakhir != '') {
-        //     window.open(
-        //         "{{route('barang.pdf')}}?tglawal=" + tglawal + "&tglakhir=" + tglakhir,
-        //         '_blank'
-        //     );
-        // } else {
-            swal({
-                title: "Yakin export PDF Semua Data?",
-                type: "warning",
-                buttons: true,
-                dangerMode: true,
-                confirmButtonText: "Yakin",
-                cancelButtonText: 'Batal',
-                showCancelButton: true,
-                showConfirmButton: true,
-                closeOnConfirm: false,
-                confirmButtonColor: '#09ad95',
-            }, function(value) {
-                if (value == true) {
-                    window.open(
-                        "{{route('barang.pdf')}}",
-                        '_blank'
-                    );
-                    swal.close();
-                }
-            });
 
-        // }
+        swal({
+            title: "Yakin export PDF Semua Data?",
+            type: "warning",
+            buttons: true,
+            dangerMode: true,
+            confirmButtonText: "Yakin",
+            cancelButtonText: 'Batal',
+            showCancelButton: true,
+            showConfirmButton: true,
+            closeOnConfirm: false,
+            confirmButtonColor: '#09ad95',
+        }, function(value) {
+            if (value == true) {
+                window.open(
+                    "{{route('barang.pdf')}}",
+                    '_blank'
+                );
+                swal.close();
+            }
+        });
 
     }
 
     function print() {
-        // var tglawal = $('input[name="tglawal"]').val();
-        // var tglakhir = $('input[name="tglakhir"]').val();
-        // if (tglawal != '' && tglakhir != '') {
-        //     window.open(
-        //         "{{route('barang.print')}}?tglawal=" + tglawal + "&tglakhir=" + tglakhir,
-        //         '_blank'
-        //     );
-        // } else {
-            swal({
-                title: "Yakin Print Semua Data?",
-                type: "warning",
-                buttons: true,
-                dangerMode: true,
-                confirmButtonText: "Yakin",
-                cancelButtonText: 'Batal',
-                showCancelButton: true,
-                showConfirmButton: true,
-                closeOnConfirm: false,
-                confirmButtonColor: '#09ad95',
-            }, function(value) {
-                if (value == true) {
-                    window.open(
-                        "{{route('barang.print')}}",
-                        '_blank'
-                    );
-                    swal.close();
-                }
-            });
 
-        // }
+        swal({
+            title: "Yakin Print Semua Data?",
+            type: "warning",
+            buttons: true,
+            dangerMode: true,
+            confirmButtonText: "Yakin",
+            cancelButtonText: 'Batal',
+            showCancelButton: true,
+            showConfirmButton: true,
+            closeOnConfirm: false,
+            confirmButtonColor: '#09ad95',
+        }, function(value) {
+            if (value == true) {
+                window.open(
+                    "{{route('barang.print')}}",
+                    '_blank'
+                );
+                swal.close();
+            }
+        });
 
     }
 </script>
