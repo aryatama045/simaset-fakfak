@@ -209,15 +209,15 @@ use Carbon\Carbon;
                 <tr>
                     <th width="1%"> NO </th>
                     <th width="30%"> NAMA BARANG</th>
-                    <th width="3%"> BANYAK NYA </th>
-                    <th width="3%"> HARGA SATUAN </th>
+                    <th width="3%"> STOK </th>
+                    <th width="3%"> SATUAN </th>
+                    <th width="3%"> HARGA </th>
                     <th width="3%"> JUMLAH HARGA </th>
                     <th width="12%"> CREATE BY </th>
-                    <th> KET </th>
                 </tr>
 
                 <tr id="thbottom">
-                    @for($x=1; $x <= 10; $x++)
+                    @for($x=1; $x <= 8; $x++)
                     <th>{{$x}}</th>
                     @endfor
                 </tr>
