@@ -64,6 +64,7 @@
                 @if($hakTambah > 0)
                 <div>
                     <!-- <a class="btn btn-default-light" href="barang/export_barang/xlsx" target="_blank" >Export <i class="fe fe-download"></i></a> -->
+                    <button class="btn btn-primary-light" onclick="print()"><i class="fe fe-printer"></i> Print</button>
                     <a class="modal-effect btn btn-default-light" onclick="generateID()" data-bs-effect="effect-super-scaled" data-bs-toggle="modal" href="#modalexport">Export <i class="fe fe-download"></i></a>
                     <a class="modal-effect btn btn-success-light" onclick="generateID()" data-bs-effect="effect-super-scaled" data-bs-toggle="modal" href="#modalimport">Import <i class="fe fe-upload"></i></a>
                     <a class="modal-effect btn btn-primary-light" onclick="generateID()" data-bs-effect="effect-super-scaled" data-bs-toggle="modal" href="#modaldemo8">Tambah Data <i class="fe fe-plus"></i></a>
@@ -165,6 +166,74 @@ $(document).ready(function () {
             type: status,
             confirmButtonText: "Iya"
         });
+    }
+
+    function pdf() {
+        // var tglawal = $('input[name="tglawal"]').val();
+        // var tglakhir = $('input[name="tglakhir"]').val();
+        // if (tglawal != '' && tglakhir != '') {
+        //     window.open(
+        //         "{{route('barang.pdf')}}?tglawal=" + tglawal + "&tglakhir=" + tglakhir,
+        //         '_blank'
+        //     );
+        // } else {
+            swal({
+                title: "Yakin export PDF Semua Data?",
+                type: "warning",
+                buttons: true,
+                dangerMode: true,
+                confirmButtonText: "Yakin",
+                cancelButtonText: 'Batal',
+                showCancelButton: true,
+                showConfirmButton: true,
+                closeOnConfirm: false,
+                confirmButtonColor: '#09ad95',
+            }, function(value) {
+                if (value == true) {
+                    window.open(
+                        "{{route('barang.pdf')}}",
+                        '_blank'
+                    );
+                    swal.close();
+                }
+            });
+
+        // }
+
+    }
+
+    function print() {
+        // var tglawal = $('input[name="tglawal"]').val();
+        // var tglakhir = $('input[name="tglakhir"]').val();
+        // if (tglawal != '' && tglakhir != '') {
+        //     window.open(
+        //         "{{route('barang.print')}}?tglawal=" + tglawal + "&tglakhir=" + tglakhir,
+        //         '_blank'
+        //     );
+        // } else {
+            swal({
+                title: "Yakin Print Semua Data?",
+                type: "warning",
+                buttons: true,
+                dangerMode: true,
+                confirmButtonText: "Yakin",
+                cancelButtonText: 'Batal',
+                showCancelButton: true,
+                showConfirmButton: true,
+                closeOnConfirm: false,
+                confirmButtonColor: '#09ad95',
+            }, function(value) {
+                if (value == true) {
+                    window.open(
+                        "{{route('barang.print')}}",
+                        '_blank'
+                    );
+                    swal.close();
+                }
+            });
+
+        // }
+
     }
 </script>
 @endsection

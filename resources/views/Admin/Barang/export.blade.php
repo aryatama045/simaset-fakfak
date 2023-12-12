@@ -9,6 +9,8 @@
             </div>
 
             <div class="modal-body">
+                <a class="btn btn-danger" onclick="pdf()"><i class="fa fa-file-pdf-o"></i> PDF</a>
+                <br><br>
                 <h5> Filter Data by</h5>
                 <input name="type" type="hidden" value="xlsx" >
 
@@ -23,7 +25,6 @@
                     </select>
                 </div>
 
-                
             </div>
 
             <div class="modal-footer">
