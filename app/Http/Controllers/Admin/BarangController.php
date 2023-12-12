@@ -12,6 +12,7 @@ use App\Models\Admin\JenisBarangModel;
 use App\Models\Admin\KategoriModel;
 use App\Models\Admin\MerkModel;
 use App\Models\Admin\SatuanModel;
+use App\Models\Admin\WebModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
