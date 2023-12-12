@@ -24,7 +24,7 @@ use Carbon\Carbon;
 
     <title>{{$title}}</title>
 
-    <<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:400,300|Raleway:300,400,900,700italic,700,300,600">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:400,300|Raleway:300,400,900,700italic,700,300,600">
     <link rel="stylesheet" type="text/css" href='http://fonts.googleapis.com/css?family=Times:400,300,700'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css"  />
@@ -179,8 +179,6 @@ use Carbon\Carbon;
         <header>
             <div id="kop-surat" class="row">
                 <div class="col-md-2 col-sm-2 col-xs-2">
-                    <!-- <img id="logo" src="https://getasanbersinar.files.wordpress.com/2016/02/logo-kabupaten-semarang-jawa-tengah.png" width="140" height="160" /> -->
-
                     @if($web->web_logo == '' || $web->web_logo == 'default.png')
                     <img id="logo" src="{{url('/assets/default/web/default.png')}}" width="85" height="90" alt="">
                     @else
@@ -191,7 +189,6 @@ use Carbon\Carbon;
                     <h3 class="kablogo"> <strong>{{ $web->header_1 }}</strong></h3>
                     <h1 class="keclogo"><strong> {{ $web->header_2 }} </strong></h1>
                     <h6 class="alamatlogo"> {{ $web->alamat }} </h6>
-                    <!-- <h5 class="kodeposlogo"><strong>BERGAS 50552</strong></h5> -->
                 </div>
             </div>
         </header>
@@ -230,14 +227,6 @@ use Carbon\Carbon;
                     </div>
                 </div>
             </div>
-            <!-- <div id="tgl-srt" class="col-md-6">
-                <p id="tls">Bergas, 30 April 2018</p>
-
-                <p class="alamat-tujuan">Kepada Yth. :<br />
-                Kepala Desa</p>
-                <p class="alamat-tujuan">se - Kecamatan Bergas
-                </p>
-            </div> -->
         </div>
 
         <table border="1" id="table1">
