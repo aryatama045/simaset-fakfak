@@ -645,7 +645,7 @@ class BarangController extends Controller
         }
     }
 
-    public function print(Request $request)
+    function print(Request $request)
     {
         $user = Session::get('user')->user_nmlengkap;
 
@@ -665,12 +665,13 @@ class BarangController extends Controller
             ->orderBy('barang_id', 'DESC')->get();
         }
 
+        dd('test');
         $data["title"] = "Print Data Barang";
         $data['web'] = WebModel::first();
         return view('Admin.Barang.print', $data);
     }
 
-    public function pdf(Request $request)
+    function pdf(Request $request)
     {
         $user = Session::get('user')->user_nmlengkap;
 
