@@ -69,10 +69,6 @@
                     <div class="form-group">
                         <input type="text" name="tglawal" class="form-control datepicker-date" placeholder="Tanggal Awal">
                     </div>
-                    <div class="form-group">
-                        <button class="btn btn-success-light" onclick="filter()"><i class="fe fe-filter"></i> Filter</button>
-                        <button class="btn btn-secondary-light" onclick="reset()"><i class="fe fe-refresh-ccw"></i> Reset</button>
-                    </div>
                 </div>
                 <div class="col-md-3">
                     <div class="form-group">
@@ -86,6 +82,10 @@
                         <a class="modal-effect btn btn-success-light" onclick="generateID()" data-bs-effect="effect-super-scaled" data-bs-toggle="modal" href="#modalimport">Import <i class="fe fe-upload"></i></a>
                         <a class="modal-effect btn btn-primary-light" onclick="generateID()" data-bs-effect="effect-super-scaled" data-bs-toggle="modal" href="#modaldemo8">Tambah Data <i class="fe fe-plus"></i></a>
                     @endif
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-success-light" onclick="filter()"><i class="fe fe-filter"></i> Filter</button>
+                    <button class="btn btn-secondary-light" onclick="reset()"><i class="fe fe-refresh-ccw"></i> Reset</button>
                 </div>
             </div>
 
