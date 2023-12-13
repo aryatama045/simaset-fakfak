@@ -13,7 +13,8 @@
 
                 <form class="modal-dialog-scrollable" enctype='multipart/form-data' action="{{url('admin/barang/export_barang')}}" method="POST">
                 @csrf
-                <h5> Filter Data by</h5>
+                <hr>
+                <h5>Excel Filter Data by</h5>
                 <input name="type" type="hidden" value="xlsx" >
 
                 <div class="form-group">
