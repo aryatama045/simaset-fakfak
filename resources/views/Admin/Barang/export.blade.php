@@ -27,6 +27,7 @@
                         @endforeach
                     </select>
 
+                    <br><br>
                     <button type="submit" class="btn btn-success"><i class="fa fa-file-excel-o"></i> Excel</button>
                     </form>
                 </div>
