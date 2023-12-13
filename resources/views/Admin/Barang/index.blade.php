@@ -184,6 +184,21 @@ $(document).ready(function () {
             confirmButtonText: "Iya"
         });
     }
+    function filter() {
+        var tglawal = $('input[name="tglawal"]').val();
+        var tglakhir = $('input[name="tglakhir"]').val();
+        if (tglawal != '' && tglakhir != '') {
+            table.ajax.reload(null, false);
+        } else {
+            validasi("Isi dulu Form Filter Tanggal!", 'warning');
+        }
+    }
+    function reset() {
+        $('input[name="tglawal"]').val('');
+        $('input[name="tglakhir"]').val('');
+        table.ajax.reload(null, false);
+    }
+
 
     function pdf() {
         var tglawal = $('input[name="tglawal"]').val();
@@ -363,23 +378,6 @@ $(document).ready(function () {
         });
 
     });
-
-    function filter() {
-        var tglawal = $('input[name="tglawal"]').val();
-        var tglakhir = $('input[name="tglakhir"]').val();
-        if (tglawal != '' && tglakhir != '') {
-            table.ajax.reload(null, false);
-        } else {
-            validasi("Isi dulu Form Filter Tanggal!", 'warning');
-        }
-
-    }
-
-    function reset() {
-        $('input[name="tglawal"]').val('');
-        $('input[name="tglakhir"]').val('');
-        table.ajax.reload(null, false);
-    }
 
 
     $(document).on('click', '#bulk_delete', function(){
