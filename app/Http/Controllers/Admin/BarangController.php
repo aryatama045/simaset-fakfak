@@ -679,7 +679,7 @@ class BarangController extends Controller
                 ->leftJoin('tbl_satuan', 'tbl_satuan.satuan_id', '=', 'tbl_barang.satuan_id')
                 ->leftJoin('tbl_kategori', 'tbl_kategori.kategori_id', '=', 'tbl_barang.kategori_id')
                 ->leftJoin('tbl_merk', 'tbl_merk.merk_id', '=', 'tbl_barang.merk_id')
-                ->whereBetween('created_at', [$request->tglawal, $request->tglakhir])
+                ->whereBetween('tbl_barang.created_at', [$request->tglawal, $request->tglakhir])
                 ->orderBy('barang_id', 'DESC')->get();
             }else{
                 $data['data'] = BarangModel::leftJoin('tbl_jenisbarang', 'tbl_jenisbarang.jenisbarang_id', '=', 'tbl_barang.jenisbarang_id')
@@ -695,7 +695,7 @@ class BarangController extends Controller
                 ->leftJoin('tbl_satuan', 'tbl_satuan.satuan_id', '=', 'tbl_barang.satuan_id')
                 ->leftJoin('tbl_kategori', 'tbl_kategori.kategori_id', '=', 'tbl_barang.kategori_id')
                 ->leftJoin('tbl_merk', 'tbl_merk.merk_id', '=', 'tbl_barang.merk_id')
-                ->whereBetween('created_at', [$request->tglawal, $request->tglakhir])
+                ->whereBetween('tbl_barang.created_at', [$request->tglawal, $request->tglakhir])
                 ->where('make_by', $user)
                 ->orderBy('barang_id', 'DESC')->get();
             }else{
