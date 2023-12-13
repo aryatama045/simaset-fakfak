@@ -232,7 +232,7 @@ use Carbon\Carbon;
                 <tr>
                     <th width="1%"> NO </th>
                     <th width="12%"> KODE </th>
-                    <th width="30%"> NAMA BARANG</th>
+                    <th width="15%"> NAMA BARANG</th>
                     <th width="3%"> JENIS</th>
                     <th width="3%"> KATEGORI</th>
                     <th width="3%"> SATUAN </th>

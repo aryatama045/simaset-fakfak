@@ -208,43 +208,44 @@ use Carbon\Carbon;
             <thead>
                 <tr>
                     <th width="1%"> NO </th>
-                    <th width="30%"> NAMA BARANG</th>
-                    <th width="3%"> STOK </th>
+                    <th width="12%"> KODE </th>
+                    <th width="15%"> NAMA BARANG</th>
+                    <th width="3%"> JENIS</th>
+                    <th width="3%"> KATEGORI</th>
                     <th width="3%"> SATUAN </th>
-                    <th width="3%"> HARGA </th>
-                    <th width="3%"> JUMLAH HARGA </th>
-                    <th width="12%"> CREATE BY </th>
+                    <th width="3%"> STOK </th>
+                    <th width="5%"> HARGA </th>
+                    <th width="10%"> CREATE BY </th>
+
                 </tr>
 
                 <tr id="thbottom">
-                    @for($x=1; $x <= 8; $x++)
+                    @for($x=1; $x <= 9; $x++)
                     <th>{{$x}}</th>
                     @endfor
                 </tr>
             </thead>
 
-
             <tbody>
-
                 @php $no=1;  @endphp
                 @foreach($data as $dt)
-
-                        <!-- Header List -->
-                            <tr>
-                                <td align="center">
-                                    <b>{{$no++}}</b>
-                                </td>
-                                <td style="font-size:14px;text-align:left;"><b></b></td>
-                                <td></td>
-                                <td align="center"></td> <!-- Total Harga -->
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
+                    <!-- Header List -->
+                    <tr>
+                        <td align="center">
+                            <b>{{$no++}}</b>
+                        </td>
+                        <td style="font-size:14px;text-align:left;"><b> {{ $dt->barang_kode}}</b></td>
+                        <td>{{ $dt->barang_nama}}</td>
+                        <td>{{ $dt->jenisbarang_nama}}</td>
+                        <td>{{ $dt->kategori_nama}}</td>
+                        <td>{{ $dt->satuan_nama}}</td>
+                        <td>{{ $dt->barang_stok}}</td>
+                        <td align="center">{{ number_format($dt->barang_harga,2) }}</td> <!-- Total Harga -->
+                        <td>{{ $dt->make_by}}</td>
+                    </tr>
                 @endforeach
             </tbody>
         </table>
-
     </div>
 
 </body>
