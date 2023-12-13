@@ -61,7 +61,7 @@
                 </ul>
             </div>
 
-            <div class="row mb-4">
+            <div class="card-header justify-content-between row mb-4">
                 <div class="col-12">
                     <label for="" class="fw-bold">Filter Tanggal</label>
                 </div>
