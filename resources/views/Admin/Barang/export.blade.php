@@ -25,6 +25,9 @@
                             <option value="{{$jb->jenisbarang_id}}">{{$jb->jenisbarang_nama}}</option>
                         @endforeach
                     </select>
+
+                    <button type="submit" class="btn btn-success"><i class="fa fa-file-excel-o"></i> Excel</button>
+                    </form>
                 </div>
 
             </div>
@@ -35,11 +38,9 @@
                     Loading...
                 </button>
 
-                <button type="submit" class="btn btn-primary">Simpan <i class="fe fe-check"></i></button>
 
                 <a href="javascript:void(0)" class="btn btn-light" onclick="reset()" data-bs-dismiss="modal">Batal <i class="fe fe-x"></i></a>
             </div>
-            </form>
         </div>
     </div>
 </div>
