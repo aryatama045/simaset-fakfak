@@ -2,8 +2,7 @@
 <div class="modal fade" data-bs-backdrop="static" id="modalexport">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content modal-content-demo">
-            <form class="modal-dialog-scrollable" enctype='multipart/form-data' action="{{url('admin/barang/export_barang')}}" method="POST">
-            @csrf
+
             <div class="modal-header">
                 <h6 class="modal-title">Export Barang</h6><button onclick="reset()" aria-label="Close" class="btn-close" data-bs-dismiss="modal"><span aria-hidden="true">&times;</span></button>
             </div>
@@ -11,6 +10,9 @@
             <div class="modal-body">
                 <a class="btn btn-danger" onclick="pdf()"><i class="fa fa-file-pdf-o"></i> PDF</a>
                 <br><br>
+
+                <form class="modal-dialog-scrollable" enctype='multipart/form-data' action="{{url('admin/barang/export_barang')}}" method="POST">
+                @csrf
                 <h5> Filter Data by</h5>
                 <input name="type" type="hidden" value="xlsx" >
 
