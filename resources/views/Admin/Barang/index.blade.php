@@ -427,6 +427,8 @@ $(document).ready(function () {
             validasi("Isi dulu Form Filter Tanggal!", 'warning');
         }
     }
+
+
     function reset() {
         $('input[name="tglawal"]').val('');
         $('input[name="tglakhir"]').val('');
